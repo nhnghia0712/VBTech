@@ -13,7 +13,7 @@
 
   always @(posedge clk or negedge rst_n)  
   begin  
-   if(~rst_n) rptr <= 5'd0;  
+   if(~rst_n) rptr <= 0;  
    else if(fifo_rd)  
     rptr <= rptr + 5'd1;  
    else  

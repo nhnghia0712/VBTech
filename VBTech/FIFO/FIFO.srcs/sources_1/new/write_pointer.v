@@ -12,9 +12,9 @@
 
   always @(posedge clk or negedge rst_n)  
   begin  
-   if(~rst_n) wptr <= 5'd0;  
+   if(~rst_n) wptr <= 0;  
    else if(fifo_we)  
-    wptr <= wptr + 5'd1;  
+    wptr <= wptr + 1;  
    else  
     wptr <= wptr;  
   end  
