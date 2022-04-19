@@ -26,9 +26,9 @@ module status_signal(
   wire[DATA_WIDTH-1:0] pointer_result;  
   reg fifo_full, fifo_empty, fifo_threshold, fifo_overflow, fifo_underflow;  
 
-  assign fbit_comp = wptr[DATA_WIDTH-1] ^ rptr[DATA_WIDTH-1]; 
-  assign pointer_equal = (wptr[DATA_WIDTH-2:0] - rptr[DATA_WIDTH-2:0]) ? 0:1;  
-  assign pointer_result = wptr[DATA_WIDTH-1:0] - rptr[DATA_WIDTH-1:0];  
+  assign fbit_comp = wptr[DATA_WIDTH-2] ^ rptr[DATA_WIDTH-2]; 
+  assign pointer_equal = (wptr[DATA_WIDTH-3:0] - rptr[DATA_WIDTH-3:0]) ? 0:1;  
+  assign pointer_result = wptr[DATA_WIDTH-2:0] - rptr[DATA_WIDTH-2:0];  
   assign overflow_set = fifo_full & wr;  
   assign underflow_set = fifo_empty&rd;  
 

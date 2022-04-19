@@ -7,8 +7,9 @@
  module     top_tb;  
 
  // 4. Parameter definitions  
- parameter     ENDTIME      = 40000;  
+ parameter     ENDTIME      = 400000;  
  parameter     DATA_WIDTH   = 8;
+  parameter     N   = 20;
  // 5. DUT Input regs  
  reg     clk;  
  reg     rst_n;  
@@ -81,18 +82,19 @@
 
  task operation_process;  
       begin  
-           for (i = 0; i < DATA_WIDTH + 1; i = i + 1) begin: WRE  
-                #(`DELAY*5)  
+           for (i = 0; i < N; i = i + 1) begin: WRE  
+                #(`DELAY*$urandom_range(1,5))  
                 wr = 1'b1;  
+                #(`DELAY*$urandom_range(1,3)) 
                 data_in = $random ;  
-                #(`DELAY*2)  
+                #(`DELAY*$urandom_range(1,3))  
                 wr = 1'b0;  
            end  
            #(`DELAY)  
-           for (i = 0; i < DATA_WIDTH *4; i = i + 1) begin: RDE  
-                #(`DELAY*2)  
+           for (i = 0; i < N*10; i = i + 1) begin: RDE  
+                #(`DELAY*$urandom_range(1,3))  
                 rd = 1'b1;  
-                #(`DELAY*2)  
+                #(`DELAY*$urandom_range(1,3))  
                 rd = 1'b0;  
            end  
       end  
