@@ -10,96 +10,96 @@ TIME =                    0, wr = 0, rd = 0, data_in = 00
 TIME =                   10, data_out =   x, mem =   x
 TIME =                   30, data_out =   x, mem =   x
 TIME =                   50, data_out =   x, mem =   x
-TIME =                   50, wr = 1, rd = 0, data_in = 01
-TIME =                   70, data_out =   1, mem =   1
-TIME =                   70, wr = 0, rd = 0, data_in = 01
-TIME =                   90, data_out =   1, mem =   1
-TIME =                  110, data_out =   1, mem =   1
-TIME =                  120, wr = 1, rd = 0, data_in = 02
-TIME =                  130, data_out =   1, mem =   1
-TIME =                  140, wr = 0, rd = 0, data_in = 02
-TIME =                  150, data_out =   1, mem =   1
-TIME =                  170, data_out =   1, mem =   1
-TIME =                  190, data_out =   1, mem =   1
-TIME =                  190, wr = 1, rd = 0, data_in = 03
-TIME =                  210, data_out =   1, mem =   1
-TIME =                  210, wr = 0, rd = 0, data_in = 03
-TIME =                  230, data_out =   1, mem =   1
-TIME =                  250, data_out =   1, mem =   1
-TIME =                  260, wr = 1, rd = 0, data_in = 04
-TIME =                  270, data_out =   1, mem =   1
-TIME =                  280, wr = 0, rd = 0, data_in = 04
-TIME =                  290, data_out =   1, mem =   1
-TIME =                  310, data_out =   1, mem =   1
-TIME =                  330, data_out =   1, mem =   1
-TIME =                  330, wr = 1, rd = 0, data_in = 05
-TIME =                  350, data_out =   1, mem =   1
-TIME =                  350, wr = 0, rd = 0, data_in = 05
-TIME =                  370, data_out =   1, mem =   1
-TIME =                  390, data_out =   1, mem =   1
-TIME =                  400, wr = 1, rd = 0, data_in = 06
-TIME =                  410, data_out =   1, mem =   1
-TIME =                  420, wr = 0, rd = 0, data_in = 06
-TIME =                  430, data_out =   1, mem =   1
-TIME =                  450, data_out =   1, mem =   1
-TIME =                  470, data_out =   1, mem =   1
-TIME =                  470, wr = 1, rd = 0, data_in = 07
-TIME =                  490, data_out =   1, mem =   1
-TIME =                  490, wr = 0, rd = 0, data_in = 07
-TIME =                  510, data_out =   1, mem =   1
-TIME =                  530, data_out =   1, mem =   1
-TIME =                  540, wr = 1, rd = 0, data_in = 08
-TIME =                  550, data_out =   1, mem =   1
-TIME =                  560, wr = 0, rd = 0, data_in = 08
-TIME =                  570, data_out =   1, mem =   1
-TIME =                  590, data_out =   1, mem =   1
-TIME =                  610, data_out =   1, mem =   1
-TIME =                  610, wr = 1, rd = 0, data_in = 09
-TIME =                  630, data_out =   1, mem =   1
-TIME =                  630, wr = 0, rd = 0, data_in = 09
-TIME =                  650, data_out =   1, mem =   1
-TIME =                  660, wr = 0, rd = 1, data_in = 09
-TIME =                  670, data_out =   1, mem =   1
+TIME =                   50, wr = 1, rd = 0, data_in = 24
+TIME =                   70, data_out =  36, mem =  36
+TIME =                   70, wr = 0, rd = 0, data_in = 24
+TIME =                   90, data_out =  36, mem =  36
+TIME =                  110, data_out =  36, mem =  36
+TIME =                  120, wr = 1, rd = 0, data_in = 81
+TIME =                  130, data_out =  36, mem =  36
+TIME =                  140, wr = 0, rd = 0, data_in = 81
+TIME =                  150, data_out =  36, mem =  36
+TIME =                  170, data_out =  36, mem =  36
+TIME =                  190, data_out =  36, mem =  36
+TIME =                  190, wr = 1, rd = 0, data_in = 09
+TIME =                  210, data_out =  36, mem =  36
+TIME =                  210, wr = 0, rd = 0, data_in = 09
+TIME =                  230, data_out =  36, mem =  36
+TIME =                  250, data_out =  36, mem =  36
+TIME =                  260, wr = 1, rd = 0, data_in = 63
+TIME =                  270, data_out =  36, mem =  36
+TIME =                  280, wr = 0, rd = 0, data_in = 63
+TIME =                  290, data_out =  36, mem =  36
+TIME =                  310, data_out =  36, mem =  36
+TIME =                  330, data_out =  36, mem =  36
+TIME =                  330, wr = 1, rd = 0, data_in = 0d
+TIME =                  350, data_out =  36, mem =  36
+TIME =                  350, wr = 0, rd = 0, data_in = 0d
+TIME =                  370, data_out =  36, mem =  36
+TIME =                  390, data_out =  36, mem =  36
+TIME =                  400, wr = 1, rd = 0, data_in = 8d
+TIME =                  410, data_out =  36, mem =  36
+TIME =                  420, wr = 0, rd = 0, data_in = 8d
+TIME =                  430, data_out =  36, mem =  36
+TIME =                  450, data_out =  36, mem =  36
+TIME =                  470, data_out =  36, mem =  36
+TIME =                  470, wr = 1, rd = 0, data_in = 65
+TIME =                  490, data_out =  36, mem =  36
+TIME =                  490, wr = 0, rd = 0, data_in = 65
+TIME =                  510, data_out =  36, mem =  36
+TIME =                  530, data_out =  36, mem =  36
+TIME =                  540, wr = 1, rd = 0, data_in = 12
+TIME =                  550, data_out =  36, mem =  36
+TIME =                  560, wr = 0, rd = 0, data_in = 12
+TIME =                  570, data_out =  36, mem =  36
+TIME =                  590, data_out =  36, mem =  36
+TIME =                  610, data_out =  36, mem =  36
+TIME =                  610, wr = 1, rd = 0, data_in = 01
+TIME =                  630, data_out =  36, mem =  36
+TIME =                  630, wr = 0, rd = 0, data_in = 01
+TIME =                  650, data_out =  36, mem =  36
+TIME =                  660, wr = 0, rd = 1, data_in = 01
+TIME =                  670, data_out =  36, mem =  36
 === PASS ===== PASS ==== PASS ==== PASS ===
-TIME =                  680, wr = 0, rd = 0, data_in = 09
-TIME =                  690, data_out =   2, mem =   2
-TIME =                  700, wr = 0, rd = 1, data_in = 09
-TIME =                  710, data_out =   2, mem =   2
+TIME =                  680, wr = 0, rd = 0, data_in = 01
+TIME =                  690, data_out = 129, mem = 129
+TIME =                  700, wr = 0, rd = 1, data_in = 01
+TIME =                  710, data_out = 129, mem = 129
 === PASS ===== PASS ==== PASS ==== PASS ===
-TIME =                  720, wr = 0, rd = 0, data_in = 09
-TIME =                  730, data_out =   3, mem =   3
-TIME =                  740, wr = 0, rd = 1, data_in = 09
-TIME =                  750, data_out =   3, mem =   3
+TIME =                  720, wr = 0, rd = 0, data_in = 01
+TIME =                  730, data_out =   9, mem =   9
+TIME =                  740, wr = 0, rd = 1, data_in = 01
+TIME =                  750, data_out =   9, mem =   9
 === PASS ===== PASS ==== PASS ==== PASS ===
-TIME =                  760, wr = 0, rd = 0, data_in = 09
-TIME =                  770, data_out =   4, mem =   4
-TIME =                  780, wr = 0, rd = 1, data_in = 09
-TIME =                  790, data_out =   4, mem =   4
+TIME =                  760, wr = 0, rd = 0, data_in = 01
+TIME =                  770, data_out =  99, mem =  99
+TIME =                  780, wr = 0, rd = 1, data_in = 01
+TIME =                  790, data_out =  99, mem =  99
 === PASS ===== PASS ==== PASS ==== PASS ===
-TIME =                  800, wr = 0, rd = 0, data_in = 09
-TIME =                  810, data_out =   5, mem =   5
-TIME =                  820, wr = 0, rd = 1, data_in = 09
-TIME =                  830, data_out =   5, mem =   5
+TIME =                  800, wr = 0, rd = 0, data_in = 01
+TIME =                  810, data_out =  13, mem =  13
+TIME =                  820, wr = 0, rd = 1, data_in = 01
+TIME =                  830, data_out =  13, mem =  13
 === PASS ===== PASS ==== PASS ==== PASS ===
-TIME =                  840, wr = 0, rd = 0, data_in = 09
-TIME =                  850, data_out =   6, mem =   6
-TIME =                  860, wr = 0, rd = 1, data_in = 09
-TIME =                  870, data_out =   6, mem =   6
+TIME =                  840, wr = 0, rd = 0, data_in = 01
+TIME =                  850, data_out = 141, mem = 141
+TIME =                  860, wr = 0, rd = 1, data_in = 01
+TIME =                  870, data_out = 141, mem = 141
 === PASS ===== PASS ==== PASS ==== PASS ===
-TIME =                  880, wr = 0, rd = 0, data_in = 09
-TIME =                  890, data_out =   7, mem =   7
-TIME =                  900, wr = 0, rd = 1, data_in = 09
-TIME =                  910, data_out =   7, mem =   7
+TIME =                  880, wr = 0, rd = 0, data_in = 01
+TIME =                  890, data_out = 101, mem = 101
+TIME =                  900, wr = 0, rd = 1, data_in = 01
+TIME =                  910, data_out = 101, mem = 101
 === PASS ===== PASS ==== PASS ==== PASS ===
-TIME =                  920, wr = 0, rd = 0, data_in = 09
-TIME =                  930, data_out =   8, mem =   8
-TIME =                  940, wr = 0, rd = 1, data_in = 09
-TIME =                  950, data_out =   8, mem =   8
+TIME =                  920, wr = 0, rd = 0, data_in = 01
+TIME =                  930, data_out =  18, mem =  18
+TIME =                  940, wr = 0, rd = 1, data_in = 01
+TIME =                  950, data_out =  18, mem =  18
 === PASS ===== PASS ==== PASS ==== PASS ===
-TIME =                  960, wr = 0, rd = 0, data_in = 09
-TIME =                  970, data_out =   x, mem =   9
-TIME =                  980, wr = 0, rd = 1, data_in = 09
-TIME =                  990, data_out =   x, mem =   9
+TIME =                  960, wr = 0, rd = 0, data_in = 01
+TIME =                  970, data_out =   x, mem =   1
+TIME =                  980, wr = 0, rd = 1, data_in = 01
+TIME =                  990, data_out =   x, mem =   1
 === FAIL ==== FAIL ==== FAIL ==== FAIL ===
 -------------- THE SIMUALTION FINISHED ------------
 $finish called at time : 9900 ps : File "D:/VBTech/VBTech/FIFO/FIFO.srcs/sim_1/new/top_tb.v" Line 137

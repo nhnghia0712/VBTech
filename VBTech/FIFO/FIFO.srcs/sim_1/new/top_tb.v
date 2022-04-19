@@ -84,12 +84,12 @@
            for (i = 0; i < DATA_WIDTH + 1; i = i + 1) begin: WRE  
                 #(`DELAY*5)  
                 wr = 1'b1;  
-                data_in = data_in + 1;  
+                data_in = $random ;  
                 #(`DELAY*2)  
                 wr = 1'b0;  
            end  
            #(`DELAY)  
-           for (i = 0; i < DATA_WIDTH + 1; i = i + 1) begin: RDE  
+           for (i = 0; i < DATA_WIDTH *4; i = i + 1) begin: RDE  
                 #(`DELAY*2)  
                 rd = 1'b1;  
                 #(`DELAY*2)  
