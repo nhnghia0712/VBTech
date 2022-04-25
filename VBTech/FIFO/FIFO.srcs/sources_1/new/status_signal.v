@@ -1,64 +1,46 @@
-module status_signal(
-        fifo_full, 
-        fifo_empty, 
-        fifo_threshold, 
-        fifo_overflow,
-        fifo_underflow, 
-        wr, 
-        rd, 
-        fifo_we, 
-        fifo_rd, 
-        wptr,
-        rptr,
-        clk,
-        rst_n
-        );
-  
-  parameter DATA_WIDTH = 5;
+module status_signal
+#(
+    parameter DATA_DEPTH = 8
+)
+(
+    input Reset, Clk, Read_Write,
 
-  input wr, rd, fifo_we, fifo_rd,clk,rst_n;  
-  input[DATA_WIDTH-1:0] wptr, rptr;  
+    output reg [(DATA_DEPTH/4)+1:0] counterR,counterW,
+    output Full, Empty, EnCntW
+);
 
-  output fifo_full, fifo_empty, fifo_threshold, fifo_overflow, fifo_underflow
-  ;  
-  wire fbit_comp, overflow_set, underflow_set;  
-  wire pointer_equal;  
-  wire[DATA_WIDTH-1:0] pointer_result;  
-  reg fifo_full, fifo_empty, fifo_threshold, fifo_overflow, fifo_underflow;  
+    wire EnCntR,Equal,Comp;
 
-  assign fbit_comp = wptr[DATA_WIDTH-2] ^ rptr[DATA_WIDTH-2]; 
-  assign pointer_equal = (wptr[DATA_WIDTH-3:0] - rptr[DATA_WIDTH-3:0]) ? 0:1;  
-  assign pointer_result = wptr[DATA_WIDTH-2:0] - rptr[DATA_WIDTH-2:0];  
-  assign overflow_set = fifo_full & wr;  
-  assign underflow_set = fifo_empty&rd;  
+    assign EnCntR = (~Read_Write) & (~Empty);
+    assign EnCntW = Read_Write & (~Full);
 
-  always @(*)  
-  begin  
-   fifo_full =fbit_comp & pointer_equal;  
-   fifo_empty = (~fbit_comp) & pointer_equal;  
-   fifo_threshold = (pointer_result[DATA_WIDTH-1]||pointer_result[DATA_WIDTH-2]) ? 1:0;  
-  end  
+    assign Comp = counterR[(DATA_DEPTH/4)+1] ^ counterW[(DATA_DEPTH/4)+1];  
+    assign Equal = (counterR[(DATA_DEPTH/4)] - counterW[(DATA_DEPTH/4)]) ? 0:1;
+    assign Full = Comp & Equal;  
+    assign Empty = (~Comp) & Equal;  
 
-  always @(posedge clk or negedge rst_n)  
-  begin  
-  if(~rst_n) fifo_overflow <= 1'b0;  
-  else if((overflow_set == 1'b1)&&(fifo_rd == 1'b0))  
-   fifo_overflow <= 1'b1;  
-   else if(fifo_rd)  
-    fifo_overflow <= 1'b0;  
-    else  
-     fifo_overflow <= fifo_overflow;  
-  end 
+    always @(posedge Clk or negedge Reset) begin
+        if (Reset) begin
+            counterR <= 0;
+        end
+        else if(EnCntR)begin
+                counterR <= counterR + 1;
+        end
+        else  begin
+                counterR <= counterR; 
+        end
+    end
 
-  always @(posedge clk or negedge rst_n)  
-  begin  
-  if(~rst_n) fifo_underflow <= 1'b0;  
-  else if((underflow_set == 1'b1)&&(fifo_we == 1'b0))  
-   fifo_underflow <= 1'b1;  
-   else if(fifo_we)  
-    fifo_underflow <= 1'b0;  
-    else  
-     fifo_underflow <= fifo_underflow;  
-  end 
+    always @(posedge Clk or negedge Reset) begin
+        if (Reset) begin
+            counterW <= 0;
+        end
+        else if(EnCntW)begin
+                counterW <= counterW + 1;
+        end
+        else  begin
+                counterW <= counterW; 
+        end
+    end
 
- endmodule
+endmodule
