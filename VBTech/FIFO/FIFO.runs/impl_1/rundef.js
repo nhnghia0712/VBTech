@@ -23,7 +23,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 // pre-commands:
-ISETouchFile( "phys_opt_design", "begin" );
+ISETouchFile( "init_design", "begin" );
 ISEStep( "vivado",
          "-log fifo.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source fifo.tcl -notrace" );
 

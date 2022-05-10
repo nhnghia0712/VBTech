@@ -61,17 +61,74 @@ proc step_failed { step } {
 }
 
 
+start_step init_design
+set ACTIVE_STEP init_design
+set rc [catch {
+  create_msg_db init_design.pb
+  set_param chipscope.maxJobs 2
+  create_project -in_memory -part xcku5p-ffvb676-2-e
+  set_property board_part xilinx.com:kcu116:part0:1.4 [current_project]
+  set_property design_mode GateLvl [current_fileset]
+  set_param project.singleFileAddWarning.threshold 0
+  set_property webtalk.parent_dir D:/GitHub/VBTech/VBTech/FIFO/FIFO.cache/wt [current_project]
+  set_property parent.project_path D:/GitHub/VBTech/VBTech/FIFO/FIFO.xpr [current_project]
+  set_property ip_output_repo D:/GitHub/VBTech/VBTech/FIFO/FIFO.cache/ip [current_project]
+  set_property ip_cache_permissions {read write} [current_project]
+  add_files -quiet D:/GitHub/VBTech/VBTech/FIFO/FIFO.runs/synth_1/fifo.dcp
+  link_design -top fifo -part xcku5p-ffvb676-2-e
+  close_msg_db -file init_design.pb
+} RESULT]
+if {$rc} {
+  step_failed init_design
+  return -code error $RESULT
+} else {
+  end_step init_design
+  unset ACTIVE_STEP 
+}
+
+start_step opt_design
+set ACTIVE_STEP opt_design
+set rc [catch {
+  create_msg_db opt_design.pb
+  opt_design 
+  write_checkpoint -force fifo_opt.dcp
+  create_report "impl_1_opt_report_drc_0" "report_drc -file fifo_drc_opted.rpt -pb fifo_drc_opted.pb -rpx fifo_drc_opted.rpx"
+  close_msg_db -file opt_design.pb
+} RESULT]
+if {$rc} {
+  step_failed opt_design
+  return -code error $RESULT
+} else {
+  end_step opt_design
+  unset ACTIVE_STEP 
+}
+
+start_step place_design
+set ACTIVE_STEP place_design
+set rc [catch {
+  create_msg_db place_design.pb
+  if { [llength [get_debug_cores -quiet] ] > 0 }  { 
+    implement_debug_core 
+  } 
+  place_design 
+  write_checkpoint -force fifo_placed.dcp
+  create_report "impl_1_place_report_io_0" "report_io -file fifo_io_placed.rpt"
+  create_report "impl_1_place_report_utilization_0" "report_utilization -file fifo_utilization_placed.rpt -pb fifo_utilization_placed.pb"
+  create_report "impl_1_place_report_control_sets_0" "report_control_sets -verbose -file fifo_control_sets_placed.rpt"
+  close_msg_db -file place_design.pb
+} RESULT]
+if {$rc} {
+  step_failed place_design
+  return -code error $RESULT
+} else {
+  end_step place_design
+  unset ACTIVE_STEP 
+}
+
 start_step phys_opt_design
 set ACTIVE_STEP phys_opt_design
 set rc [catch {
   create_msg_db phys_opt_design.pb
-  set_param power.BramSDPPropagationFix 1
-  set_param chipscope.maxJobs 2
-  set_param power.enableUnconnectedCarry8PinPower 1
-  set_param power.enableCarry8RouteBelPower 1
-  set_param power.enableLutRouteBelPower 1
-  open_checkpoint fifo_placed.dcp
-  set_property webtalk.parent_dir D:/GitHub/VBTech/VBTech/FIFO/FIFO.cache/wt [current_project]
   phys_opt_design 
   write_checkpoint -force fifo_physopt.dcp
   close_msg_db -file phys_opt_design.pb

@@ -1,0 +1,6 @@
+0.6
+2019.2
+Nov  6 2019
+21:57:16
+D:/GitHub/VBTech/VBTech/FIFO/FIFO.sim/sim_1/impl/timing/xsim/testbench_time_impl.v,1652169671,verilog,,D:/GitHub/VBTech/VBTech/FIFO/FIFO.srcs/sim_1/new/testbench.v,,IBUF_HD1;IBUF_HD10;IBUF_HD11;IBUF_HD2;IBUF_HD3;IBUF_HD4;IBUF_HD5;IBUF_HD6;IBUF_HD7;IBUF_HD8;IBUF_HD9;IBUF_UNIQ_BASE_;RAM32M16_UNIQ_BASE_;fifo;glbl;ram;status_signal,,,,,,,,
+D:/GitHub/VBTech/VBTech/FIFO/FIFO.srcs/sim_1/new/testbench.v,1652167181,verilog,,,,testbench,,,,,,,,
