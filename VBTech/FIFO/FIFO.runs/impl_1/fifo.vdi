@@ -1,0 +1,57 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Tue May 10 14:40:22 2022
+# Process ID: 11292
+# Current directory: D:/GitHub/VBTech/VBTech/FIFO/FIFO.runs/impl_1
+# Command line: vivado.exe -log fifo.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source fifo.tcl -notrace
+# Log file: D:/GitHub/VBTech/VBTech/FIFO/FIFO.runs/impl_1/fifo.vdi
+# Journal file: D:/GitHub/VBTech/VBTech/FIFO/FIFO.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source fifo.tcl -notrace
+Command: open_checkpoint fifo_placed.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.039 . Memory (MB): peak = 299.059 ; gain = 0.000
+INFO: [Device 21-403] Loading part xcku5p-ffvb676-2-e
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1459.062 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 13 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2019.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.251 . Memory (MB): peak = 1459.062 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.270 . Memory (MB): peak = 1459.062 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1459.062 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 13 instances were transformed.
+  IBUF => IBUF (IBUFCTRL, INBUF): 12 instances
+  RAM32M16 => RAM32M16 (RAMD32(x14), RAMS32(x2)): 1 instance 
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2019.2 (64-bit) build 2708876
+open_checkpoint: Time (s): cpu = 00:00:13 ; elapsed = 00:00:21 . Memory (MB): peak = 1459.062 ; gain = 1160.004
+Command: phys_opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xcku5p'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xcku5p'
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Vivado_Tcl 4-235] No timing constraint found. The netlist was not modified.
+INFO: [Common 17-83] Releasing license: Implementation
+11 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+phys_opt_design completed successfully
+phys_opt_design: Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 3018.750 ; gain = 1559.688
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 3018.750 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.280 . Memory (MB): peak = 3018.750 ; gain = 0.000
+ERROR: [Common 17-70] Application Exception: DcpWriter - Could not open file for writing: D:/GitHub/VBTech/VBTech/FIFO/FIFO.runs/impl_1/.Xil/Vivado-11292-NGHIA/dcp0/fifo.xn
+
+INFO: [Common 17-206] Exiting Vivado at Tue May 10 14:41:26 2022...
