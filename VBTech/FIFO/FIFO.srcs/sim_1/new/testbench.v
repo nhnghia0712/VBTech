@@ -7,6 +7,7 @@
  parameter     ENDTIME      = 200;  
  parameter DATA_WIDTH = 8;
  parameter DATA_DEPTH = 8;
+  parameter N = 10;
  // 5. DUT Input regs  
  reg     Clk;  
  reg     Reset;  
@@ -53,22 +54,22 @@
       begin  
            #(`DELAY*2)  
            Reset = 1'b0;  
-           # 20  
+           # 4
            Reset = 1'b1;  
-           # 20  
+           # 4
            Reset = 1'b0;  
       end  
  endtask  
  task operation_process;  
       begin  
-           for (i = 0; i < ($urandom_range(10,17)); i = i + 1) begin: WRE  
+           for (i = 0; i < N; i = i + 1) begin: WRE  
                 #(`DELAY*($urandom_range(1,5)))  
                 Write = 1'b1;  
                 Read = 1'b0;  
                 Data_In = $random;  
            end  
            #(`DELAY)  
-           for (i = 0; i < ($urandom_range(10,17)); i = i + 1) begin: RDE  
+           for (i = 0; i < N; i = i + 1) begin: RDE  
                 #(`DELAY*($urandom_range(1,5)))  
                 Read = 1'b1;  
                 Write = 1'b0; 

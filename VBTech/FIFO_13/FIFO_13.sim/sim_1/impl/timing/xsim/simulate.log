@@ -1,0 +1,102 @@
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+----------------------------------------------
+------------------   -----------------------
+----------- SIMULATION RESULT ----------------
+--------------       -------------------
+----------------     ---------------------
+----------------------------------------------
+TIME =                    0, Read = 0, Write = 0, In = 00
+TIME =                    6, Read = 0, Write = 1, In = 24
+TIME =                    7, Read = 0, Write = 1, In = 81
+TIME =                    9, Read = 0, Write = 1, In = 09
+TIME =                   16, Read = 0, Write = 1, In = 63
+TIME =                   18, Read = 0, Write = 1, In = 0d
+TIME =                   24, Read = 0, Write = 1, In = 8d
+TIME =                   30, Read = 0, Write = 1, In = 65
+TIME =                   31, Read = 0, Write = 1, In = 12
+TIME =                   35, Read = 0, Write = 1, In = 01
+TIME =                   41, Read = 0, Write = 1, In = 0d
+TIME =                   45, Read = 0, Write = 1, In = 76
+TIME =                   51, Read = 0, Write = 1, In = 3d
+TIME =                   59, Read = 1, Write = 0, In = 3d
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1228 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1238 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1248 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1258 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1268 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1278 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1288 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1298 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1308 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1318 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1328 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1338 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1348 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1358 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1368 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1378 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1388 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1398 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1408 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1418 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1428 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1438 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1448 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1458 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1468 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1478 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1488 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1498 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1508 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1518 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1528 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1538 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1548 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1558 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1568 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1578 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1588 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1598 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1608 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1618 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1628 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1638 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1648 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1658 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1668 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1678 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1688 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1698 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1708 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1718 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1728 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1738 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1748 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1758 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1768 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1778 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1788 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1798 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1808 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1818 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1828 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1838 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1848 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1858 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1868 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1878 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1888 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1898 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1908 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1918 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1928 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1938 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1948 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1958 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1968 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1978 ps $period (posedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 326: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk326_328 at time 1988 ps $period (negedge I,(0:0:0),notifier) 
+WARNING: "C:\Xilinx\Vivado\2019.2\data/verilog/src/unisims/BUFGCE.v" Line 327: Timing violation in scope /testbench/tb/Clk_IBUF_BUFG_inst/TChk327_329 at time 1998 ps $period (posedge I,(0:0:0),notifier) 
+-------------- THE SIMUALTION FINISHED ------------
+$finish called at time : 2 ns : File "D:/GitHub/VBTech/VBTech/FIFO/FIFO.srcs/sim_1/new/testbench.v" Line 96

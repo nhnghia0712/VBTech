@@ -60,12 +60,18 @@ proc step_failed { step } {
   close $ch
 }
 
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 
 start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
+  set_param power.BramSDPPropagationFix 1
   set_param chipscope.maxJobs 2
+  set_param power.enableUnconnectedCarry8PinPower 1
+  set_param power.enableCarry8RouteBelPower 1
+  set_param power.enableLutRouteBelPower 1
   create_project -in_memory -part xcku5p-ffvb676-2-e
   set_property board_part xilinx.com:kcu116:part0:1.4 [current_project]
   set_property design_mode GateLvl [current_fileset]
@@ -75,6 +81,7 @@ set rc [catch {
   set_property ip_output_repo D:/GitHub/VBTech/VBTech/FIFO/FIFO.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   add_files -quiet D:/GitHub/VBTech/VBTech/FIFO/FIFO.runs/synth_1/fifo.dcp
+  read_xdc D:/GitHub/VBTech/VBTech/FIFO/FIFO.srcs/constrs_1/new/const.xdc
   link_design -top fifo -part xcku5p-ffvb676-2-e
   close_msg_db -file init_design.pb
 } RESULT]

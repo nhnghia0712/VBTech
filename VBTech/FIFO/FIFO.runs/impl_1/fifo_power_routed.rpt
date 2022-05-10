@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date             : Tue May 10 14:48:59 2022
+| Date             : Wed May 11 01:17:00 2022
 | Host             : NGHIA running 64-bit major release  (build 9200)
 | Command          : report_power -file fifo_power_routed.rpt -pb fifo_power_summary_routed.pb -rpx fifo_power_routed.rpx
 | Design           : fifo
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 1.755        |
+| Total On-Chip Power (W)  | 0.457        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.295        |
-| Device Static (W)        | 0.460        |
+| Dynamic (W)              | 0.007        |
+| Device Static (W)        | 0.450        |
 | Effective TJA (C/W)      | 1.7          |
-| Max Ambient (C)          | 97.0         |
-| Junction Temperature (C) | 28.0         |
+| Max Ambient (C)          | 99.2         |
+| Junction Temperature (C) | 25.8         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,16 +52,16 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| CLB Logic                |     0.193 |       54 |       --- |             --- |
-|   LUT as Distributed RAM |     0.105 |        8 |     99840 |           <0.01 |
-|   LUT as Logic           |     0.080 |       11 |    216960 |           <0.01 |
-|   Register               |     0.008 |       18 |    433920 |           <0.01 |
-|   BUFG                   |    <0.001 |        1 |        32 |            3.13 |
+| Clocks                   |     0.001 |        3 |       --- |             --- |
+| CLB Logic                |    <0.001 |       53 |       --- |             --- |
+|   LUT as Distributed RAM |    <0.001 |        8 |     99840 |           <0.01 |
+|   LUT as Logic           |    <0.001 |       12 |    216960 |           <0.01 |
+|   Register               |    <0.001 |       18 |    433920 |           <0.01 |
 |   Others                 |     0.000 |        2 |       --- |             --- |
-| Signals                  |     0.094 |       38 |       --- |             --- |
-| I/O                      |     1.008 |       22 |       280 |            7.86 |
-| Static Power             |     0.460 |          |           |                 |
-| Total                    |     1.755 |          |           |                 |
+| Signals                  |    <0.001 |       36 |       --- |             --- |
+| I/O                      |     0.004 |       22 |       280 |            7.86 |
+| Static Power             |     0.450 |          |           |                 |
+| Total                    |     0.457 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,14 +71,14 @@ Table of Contents
 +------------+-------------+-----------+-------------+------------+
 | Source     | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +------------+-------------+-----------+-------------+------------+
-| Vccint     |       0.850 |     0.506 |       0.355 |      0.150 |
-| Vccint_io  |       0.850 |     0.036 |       0.000 |      0.036 |
+| Vccint     |       0.850 |     0.140 |       0.003 |      0.137 |
+| Vccint_io  |       0.850 |     0.035 |       0.000 |      0.035 |
 | Vccbram    |       0.850 |     0.002 |       0.000 |      0.002 |
-| Vccaux     |       1.800 |     0.128 |       0.000 |      0.128 |
-| Vccaux_io  |       1.800 |     0.157 |       0.125 |      0.031 |
+| Vccaux     |       1.800 |     0.129 |       0.000 |      0.129 |
+| Vccaux_io  |       1.800 |     0.032 |       0.000 |      0.031 |
 | Vcco33     |       3.300 |     0.000 |       0.000 |      0.000 |
 | Vcco25     |       2.500 |     0.000 |       0.000 |      0.000 |
-| Vcco18     |       1.800 |     0.426 |       0.426 |      0.000 |
+| Vcco18     |       1.800 |     0.002 |       0.002 |      0.000 |
 | Vcco15     |       1.500 |     0.000 |       0.000 |      0.000 |
 | Vcco135    |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12     |       1.200 |     0.000 |       0.000 |      0.000 |
@@ -93,17 +93,17 @@ Table of Contents
 1.3 Confidence Level
 --------------------
 
-+-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
-| User Input Data             | Confidence | Details                                                | Action                                                                                                             |
-+-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
-| Design implementation state | High       | Design is routed                                       |                                                                                                                    |
-| Clock nodes activity        | Low        | User specified less than 75% of clocks                 | Provide missing clock activity with a constraint file, simulation results or by editing the "By Clock Domain" view |
-| I/O nodes activity          | Low        | More than 75% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view           |
-| Internal nodes activity     | Medium     | User specified less than 25% of internal nodes         | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views         |
-| Device models               | High       | Device models are Production                           |                                                                                                                    |
-|                             |            |                                                        |                                                                                                                    |
-| Overall confidence level    | Low        |                                                        |                                                                                                                    |
-+-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
++-----------------------------+------------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+| User Input Data             | Confidence | Details                                                | Action                                                                                                     |
++-----------------------------+------------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+| Design implementation state | High       | Design is routed                                       |                                                                                                            |
+| Clock nodes activity        | High       | User specified more than 95% of clocks                 |                                                                                                            |
+| I/O nodes activity          | Low        | More than 75% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view   |
+| Internal nodes activity     | Medium     | User specified less than 25% of internal nodes         | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views |
+| Device models               | High       | Device models are Production                           |                                                                                                            |
+|                             |            |                                                        |                                                                                                            |
+| Overall confidence level    | Low        |                                                        |                                                                                                            |
++-----------------------------+------------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
 
 
 2. Settings
@@ -130,6 +130,8 @@ Table of Contents
 +-------+--------+-----------------+
 | Clock | Domain | Constraint (ns) |
 +-------+--------+-----------------+
+| Clk   | Clk    |             2.9 |
++-------+--------+-----------------+
 
 
 3. Detailed Reports
@@ -138,24 +140,12 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+------------------------+-----------+
-| Name                   | Power (W) |
-+------------------------+-----------+
-| fifo                   |     1.295 |
-|   Clk_IBUF_inst        |     0.004 |
-|   Data_In_IBUF[0]_inst |     0.007 |
-|   Data_In_IBUF[1]_inst |     0.007 |
-|   Data_In_IBUF[2]_inst |     0.006 |
-|   Data_In_IBUF[3]_inst |     0.006 |
-|   Data_In_IBUF[4]_inst |     0.006 |
-|   Data_In_IBUF[5]_inst |     0.007 |
-|   Data_In_IBUF[6]_inst |     0.006 |
-|   Data_In_IBUF[7]_inst |     0.007 |
-|   Read_IBUF_inst       |     0.006 |
-|   Write_IBUF_inst      |     0.007 |
-|   inst1                |     0.093 |
-|   inst2                |     0.123 |
-|     mem_reg_0_7_0_7    |     0.105 |
-+------------------------+-----------+
++---------------------+-----------+
+| Name                | Power (W) |
++---------------------+-----------+
+| fifo                |     0.007 |
+|   inst2             |     0.002 |
+|     mem_reg_0_7_0_7 |     0.001 |
++---------------------+-----------+
 
 

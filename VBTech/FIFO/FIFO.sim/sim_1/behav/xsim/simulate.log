@@ -7,19 +7,16 @@ Time resolution is 1 ps
 ----------------     ---------------------
 ----------------------------------------------
 TIME =                    0, Read = 0, Write = 0, In = 00
-TIME =                    6, Read = 0, Write = 1, In = 24
-TIME =                   13, Read = 0, Write = 1, In = 81
-TIME =                   16, Read = 0, Write = 1, In = 09
-TIME =                   20, Read = 0, Write = 1, In = 63
-TIME =                   27, Read = 0, Write = 1, In = 0d
-TIME =                   33, Read = 0, Write = 1, In = 8d
-TIME =                   40, Read = 0, Write = 1, In = 65
-TIME =                   45, Read = 0, Write = 1, In = 12
-TIME =                   51, Read = 0, Write = 1, In = 01
-TIME =                   53, Read = 0, Write = 1, In = 0d
-TIME =                   54, Read = 0, Write = 1, In = 76
-TIME =                   55, Read = 0, Write = 1, In = 3d
-TIME =                   62, Read = 0, Write = 1, In = ed
-TIME =                   66, Read = 1, Write = 0, In = ed
+TIME =                    1, Read = 0, Write = 1, In = 24
+TIME =                    3, Read = 0, Write = 1, In = 81
+TIME =                    9, Read = 0, Write = 1, In = 09
+TIME =                   10, Read = 0, Write = 1, In = 63
+TIME =                   16, Read = 0, Write = 1, In = 0d
+TIME =                   20, Read = 0, Write = 1, In = 8d
+TIME =                   24, Read = 0, Write = 1, In = 65
+TIME =                   25, Read = 0, Write = 1, In = 12
+TIME =                   30, Read = 0, Write = 1, In = 01
+TIME =                   34, Read = 0, Write = 1, In = 0d
+TIME =                   36, Read = 1, Write = 0, In = 0d
 -------------- THE SIMUALTION FINISHED ------------
-$finish called at time : 2 ns : File "D:/GitHub/VBTech/VBTech/FIFO/FIFO.srcs/sim_1/new/testbench.v" Line 96
+$finish called at time : 2 ns : File "D:/GitHub/VBTech/VBTech/FIFO/FIFO.srcs/sim_1/new/testbench.v" Line 97

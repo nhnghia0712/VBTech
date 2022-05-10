@@ -1,0 +1,24 @@
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+----------------------------------------------
+------------------   -----------------------
+----------- SIMULATION RESULT ----------------
+--------------       -------------------
+----------------     ---------------------
+----------------------------------------------
+TIME =                    0, Read = 0, Write = 0, In = 00
+TIME =                    1, Read = 0, Write = 1, In = 24
+TIME =                    9, Read = 0, Write = 1, In = 81
+TIME =                   13, Read = 0, Write = 1, In = 09
+TIME =                   14, Read = 0, Write = 1, In = 63
+TIME =                   18, Read = 0, Write = 1, In = 0d
+TIME =                   24, Read = 0, Write = 1, In = 8d
+TIME =                   27, Read = 0, Write = 1, In = 65
+TIME =                   34, Read = 0, Write = 1, In = 12
+TIME =                   37, Read = 0, Write = 1, In = 01
+TIME =                   38, Read = 0, Write = 1, In = 0d
+TIME =                   40, Read = 0, Write = 1, In = 76
+TIME =                   47, Read = 0, Write = 1, In = 3d
+TIME =                   50, Read = 1, Write = 0, In = 3d
+-------------- THE SIMUALTION FINISHED ------------
+$finish called at time : 3 ns : File "D:/GitHub/VBTech/VBTech/FIFO_13/FIFO_13.srcs/sim_1/new/testbench.v" Line 97

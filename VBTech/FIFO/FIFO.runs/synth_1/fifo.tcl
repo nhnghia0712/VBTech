@@ -22,6 +22,8 @@ set_param chipscope.maxJobs 2
 set_param power.enableUnconnectedCarry8PinPower 1
 set_param power.enableCarry8RouteBelPower 1
 set_param power.enableLutRouteBelPower 1
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xcku5p-ffvb676-2-e
 
 set_param project.singleFileAddWarning.threshold 0
@@ -47,6 +49,9 @@ read_verilog -library xil_defaultlib {
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc D:/GitHub/VBTech/VBTech/FIFO/FIFO.srcs/constrs_1/new/const.xdc
+set_property used_in_implementation false [get_files D:/GitHub/VBTech/VBTech/FIFO/FIFO.srcs/constrs_1/new/const.xdc]
+
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 

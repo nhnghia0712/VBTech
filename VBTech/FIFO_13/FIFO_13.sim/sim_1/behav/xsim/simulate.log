@@ -1,0 +1,59 @@
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+----------------------------------------------
+------------------   -----------------------
+----------- SIMULATION RESULT ----------------
+--------------       -------------------
+----------------     ---------------------
+----------------------------------------------
+TIME =                    0, Read = 0, Write = 0, In = 00
+TIME =                    2, Read = 0, Write = 1, In = 00
+TIME =                    4, Read = 0, Write = 0, In = 24
+TIME =                    6, Read = 0, Write = 1, In = 24
+TIME =                    8, Read = 0, Write = 0, In = 81
+TIME =                   10, Read = 0, Write = 1, In = 81
+TIME =                   12, Read = 0, Write = 0, In = 09
+TIME =                   14, Read = 0, Write = 1, In = 09
+TIME =                   16, Read = 0, Write = 0, In = 63
+TIME =                   18, Read = 0, Write = 1, In = 63
+TIME =                   20, Read = 0, Write = 0, In = 0d
+TIME =                   22, Read = 0, Write = 1, In = 0d
+TIME =                   24, Read = 0, Write = 0, In = 8d
+TIME =                   26, Read = 0, Write = 1, In = 8d
+TIME =                   28, Read = 0, Write = 0, In = 65
+TIME =                   30, Read = 0, Write = 1, In = 65
+TIME =                   32, Read = 0, Write = 0, In = 12
+TIME =                   34, Read = 0, Write = 1, In = 12
+TIME =                   36, Read = 0, Write = 0, In = 01
+TIME =                   38, Read = 0, Write = 1, In = 01
+TIME =                   40, Read = 0, Write = 0, In = 0d
+TIME =                   42, Read = 0, Write = 1, In = 0d
+TIME =                   44, Read = 0, Write = 0, In = 76
+TIME =                   46, Read = 0, Write = 1, In = 76
+TIME =                   48, Read = 0, Write = 0, In = 3d
+TIME =                   50, Read = 1, Write = 0, In = 3d
+TIME =                   51, Read = 0, Write = 0, In = 3d
+TIME =                   52, Read = 1, Write = 0, In = 3d
+TIME =                   53, Read = 0, Write = 0, In = 3d
+TIME =                   54, Read = 1, Write = 0, In = 3d
+TIME =                   55, Read = 0, Write = 0, In = 3d
+TIME =                   56, Read = 1, Write = 0, In = 3d
+TIME =                   57, Read = 0, Write = 0, In = 3d
+TIME =                   58, Read = 1, Write = 0, In = 3d
+TIME =                   59, Read = 0, Write = 0, In = 3d
+TIME =                   60, Read = 1, Write = 0, In = 3d
+TIME =                   61, Read = 0, Write = 0, In = 3d
+TIME =                   62, Read = 1, Write = 0, In = 3d
+TIME =                   63, Read = 0, Write = 0, In = 3d
+TIME =                   64, Read = 1, Write = 0, In = 3d
+TIME =                   65, Read = 0, Write = 0, In = 3d
+TIME =                   66, Read = 1, Write = 0, In = 3d
+TIME =                   67, Read = 0, Write = 0, In = 3d
+TIME =                   68, Read = 1, Write = 0, In = 3d
+TIME =                   69, Read = 0, Write = 0, In = 3d
+TIME =                   70, Read = 1, Write = 0, In = 3d
+TIME =                   71, Read = 0, Write = 0, In = 3d
+TIME =                   72, Read = 1, Write = 0, In = 3d
+TIME =                   73, Read = 0, Write = 0, In = 3d
+-------------- THE SIMUALTION FINISHED ------------
+$finish called at time : 3 ns : File "D:/GitHub/VBTech/VBTech/FIFO_13/FIFO_13.srcs/sim_1/new/testbench.v" Line 102
