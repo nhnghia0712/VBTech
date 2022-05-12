@@ -1,0 +1,8 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GitHub/VBTech/VBTech/FIFO/FIFO.srcs/sources_1/new/fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GitHub/VBTech/VBTech/FIFO/FIFO.srcs/sources_1/new/ram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ram
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GitHub/VBTech/VBTech/FIFO/FIFO.srcs/sources_1/new/status_signal.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module status_signal
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GitHub/VBTech/VBTech/FIFO/FIFO.srcs/sim_1/new/testbench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module testbench

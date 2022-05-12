@@ -3,38 +3,47 @@ module status_signal
     parameter DATA_DEPTH = 8
 )
 (
-    input Reset, Clk, Read, Write, 
+    input RESET, CLK, WRITE, READ,
 
-    output reg [(DATA_DEPTH/4):0] rd_ptr,wr_ptr,
-    output Full, Empty
+    output reg [DATA_DEPTH-1:0] WR_PTR, RD_PTR,
+    output FULL, EMPTY
 );
 
-//FULL and Empty signal
-reg [(DATA_DEPTH/4)+1:0] fifo_cnt;
-assign Full = (fifo_cnt == DATA_DEPTH);
-assign Empty = (fifo_cnt == 0);
-always @(posedge Clk ) begin
-    if(Reset)  fifo_cnt <= 0;
-    else begin
-        case({Write,Read})
-        2'b00: fifo_cnt <= fifo_cnt;
-        2'b01: fifo_cnt <= (fifo_cnt == 0) ? 0:fifo_cnt + 1;
-        2'b10: fifo_cnt <= (fifo_cnt == DATA_DEPTH) ? DATA_DEPTH:fifo_cnt + 1;
-        2'b11: fifo_cnt <= fifo_cnt;
-        default: fifo_cnt <= fifo_cnt;
-        endcase
-    end
-end
-//
+assign FULL = (WR_PTR == DATA_DEPTH);
+assign EMPTY = (WR_PTR == 0);
 
-always @(posedge Clk ) begin: Pointer
-    if(Reset) begin
-        wr_ptr <= 0;
-        rd_ptr <= 0;
+always @(posedge CLK ) begin
+    if(RESET)begin  
+        WR_PTR <= 0;
+        RD_PTR <= 0;
     end
     else begin
-        wr_ptr <= ((Write && !Full) || (Write && Read)) ? wr_ptr+1 : wr_ptr;
-        rd_ptr <= ((Read && !Empty) || (Write && Read)) ? rd_ptr+1 : rd_ptr;
+        case({WRITE,READ})
+        2'b00: 
+            begin 
+                WR_PTR <= WR_PTR;
+                RD_PTR <= RD_PTR;
+               end
+        2'b01: 
+            begin 
+                RD_PTR <= (RD_PTR == DATA_DEPTH) ? DATA_DEPTH : RD_PTR + 1;
+                WR_PTR <= (WR_PTR == 0) ? 0 : WR_PTR - 1;
+            end
+        2'b10: 
+            begin
+                WR_PTR <= (WR_PTR == DATA_DEPTH) ? DATA_DEPTH : WR_PTR + 1;
+            end
+        2'b11: 
+            begin 
+                WR_PTR <= WR_PTR;
+                RD_PTR <= RD_PTR;
+            end
+        default: 
+            begin 
+                WR_PTR <= WR_PTR;
+                RD_PTR <= RD_PTR;
+            end
+        endcase
     end
 end
 

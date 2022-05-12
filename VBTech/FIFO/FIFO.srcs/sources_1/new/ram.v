@@ -4,27 +4,26 @@ module ram
     parameter DATA_DEPTH = 8
 )
 (
-    input [(DATA_DEPTH/4):0] wr_ptr,rd_ptr,
-    input [DATA_WIDTH - 1:0] Data_In,
-    input Clk, Write, Read, Full, Empty,
+    input CLK,
+    input WRITE, READ, FULL, EMPTY,
+    input [DATA_DEPTH-1:0] WR_PTR, RD_PTR,
+    input [DATA_WIDTH - 1:0] DATA_IN,
 
-    output reg [DATA_WIDTH - 1:0] Data_Out
+    output reg [DATA_WIDTH - 1:0] DATA_OUT
 );
 
-reg [DATA_WIDTH - 1:0] mem [DATA_DEPTH-1:0];
+reg [DATA_WIDTH - 1:0] MEM [DATA_DEPTH-1:0];
 
-always @(posedge Clk) begin: write
-    if(Write && !Full)
-        mem[wr_ptr] <= Data_In;
-    else if (Write && Read)   
-        mem[wr_ptr] <= Data_In;
+always @(posedge CLK) begin: write
+    if(WRITE && !FULL)
+        MEM[WR_PTR] <= DATA_IN;
 end
 
-always @(posedge Clk) begin: read
-    if(Read && !Empty)
-        Data_Out <= mem[rd_ptr];
-    else if (Read && Write && Empty)   
-        Data_Out <= mem[rd_ptr];
+always @(posedge CLK) begin: read
+    if(READ && !EMPTY)begin
+        MEM[RD_PTR] <= 'dx;
+        DATA_OUT <= MEM[RD_PTR];
+    end
 end
 
 endmodule
