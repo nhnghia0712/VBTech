@@ -1,10 +1,10 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-// Date        : Tue May 10 14:59:06 2022
+// Date        : Wed May 11 12:21:44 2022
 // Host        : NGHIA running 64-bit major release  (build 9200)
 // Command     : write_verilog -mode funcsim -nolib -force -file
-//               D:/GitHub/VBTech/VBTech/FIFO/FIFO.sim/sim_1/impl/func/xsim/testbench_func_impl.v
+//               D:/GitHub/VBTech/VBTech/FIFO_13/FIFO_13.sim/sim_1/impl/func/xsim/testbench_func_impl.v
 // Design      : fifo
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,7 +12,7 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* DATA_DEPTH = "8" *) (* DATA_WIDTH = "8" *) (* ECO_CHECKSUM = "b2ca8342" *) 
+(* DATA_DEPTH = "13" *) (* DATA_WIDTH = "8" *) (* ECO_CHECKSUM = "cff27f5e" *) 
 (* NotValidForBitStream *)
 module fifo
    (Reset,
@@ -49,14 +49,10 @@ module fifo
   wire Reset_IBUF;
   wire Write;
   wire Write_IBUF;
-  wire [3:0]fifo_cnt;
-  wire \fifo_cnt[0]_i_1_n_0 ;
-  wire \fifo_cnt[1]_i_1_n_0 ;
-  wire \fifo_cnt[2]_i_1_n_0 ;
-  wire \fifo_cnt[3]_i_1_n_0 ;
-  wire \fifo_cnt[3]_i_2_n_0 ;
-  wire [2:0]rd_ptr;
-  wire [2:0]wr_ptr;
+  wire inst1_n_9;
+  wire p_0_in;
+  wire [3:0]rd_ptr;
+  wire [3:0]wr_ptr;
 
   (* XILINX_LEGACY_PRIM = "BUFG" *) 
   BUFGCE #(
@@ -121,27 +117,9 @@ module fifo
   OBUF Empty_OBUF_inst
        (.I(Empty_OBUF),
         .O(Empty));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT4 #(
-    .INIT(16'h0001)) 
-    Empty_OBUF_inst_i_1
-       (.I0(fifo_cnt[2]),
-        .I1(fifo_cnt[3]),
-        .I2(fifo_cnt[1]),
-        .I3(fifo_cnt[0]),
-        .O(Empty_OBUF));
   OBUF Full_OBUF_inst
        (.I(Full_OBUF),
         .O(Full));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT4 #(
-    .INIT(16'h0010)) 
-    Full_OBUF_inst_i_1
-       (.I0(fifo_cnt[2]),
-        .I1(fifo_cnt[1]),
-        .I2(fifo_cnt[3]),
-        .I3(fifo_cnt[0]),
-        .O(Full_OBUF));
   IBUF Read_IBUF_inst
        (.I(Read),
         .O(Read_IBUF));
@@ -151,210 +129,125 @@ module fifo
   IBUF Write_IBUF_inst
        (.I(Write),
         .O(Write_IBUF));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT5 #(
-    .INIT(32'h0000FFF6)) 
-    \fifo_cnt[0]_i_1 
-       (.I0(Write_IBUF),
-        .I1(fifo_cnt[3]),
-        .I2(fifo_cnt[2]),
-        .I3(fifo_cnt[1]),
-        .I4(fifo_cnt[0]),
-        .O(\fifo_cnt[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
-  LUT2 #(
-    .INIT(4'h6)) 
-    \fifo_cnt[1]_i_1 
-       (.I0(fifo_cnt[1]),
-        .I1(fifo_cnt[0]),
-        .O(\fifo_cnt[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
-  LUT3 #(
-    .INIT(8'h6A)) 
-    \fifo_cnt[2]_i_1 
-       (.I0(fifo_cnt[2]),
-        .I1(fifo_cnt[1]),
-        .I2(fifo_cnt[0]),
-        .O(\fifo_cnt[2]_i_1_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \fifo_cnt[3]_i_1 
-       (.I0(Read_IBUF),
-        .I1(Write_IBUF),
-        .O(\fifo_cnt[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT4 #(
-    .INIT(16'h6AAA)) 
-    \fifo_cnt[3]_i_2 
-       (.I0(fifo_cnt[3]),
-        .I1(fifo_cnt[2]),
-        .I2(fifo_cnt[1]),
-        .I3(fifo_cnt[0]),
-        .O(\fifo_cnt[3]_i_2_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \fifo_cnt_reg[0] 
-       (.C(Clk_IBUF_BUFG),
-        .CE(\fifo_cnt[3]_i_1_n_0 ),
-        .D(\fifo_cnt[0]_i_1_n_0 ),
-        .Q(fifo_cnt[0]),
-        .R(Reset_IBUF));
-  FDRE #(
-    .INIT(1'b0)) 
-    \fifo_cnt_reg[1] 
-       (.C(Clk_IBUF_BUFG),
-        .CE(\fifo_cnt[3]_i_1_n_0 ),
-        .D(\fifo_cnt[1]_i_1_n_0 ),
-        .Q(fifo_cnt[1]),
-        .R(Reset_IBUF));
-  FDRE #(
-    .INIT(1'b0)) 
-    \fifo_cnt_reg[2] 
-       (.C(Clk_IBUF_BUFG),
-        .CE(\fifo_cnt[3]_i_1_n_0 ),
-        .D(\fifo_cnt[2]_i_1_n_0 ),
-        .Q(fifo_cnt[2]),
-        .R(Reset_IBUF));
-  FDRE #(
-    .INIT(1'b0)) 
-    \fifo_cnt_reg[3] 
-       (.C(Clk_IBUF_BUFG),
-        .CE(\fifo_cnt[3]_i_1_n_0 ),
-        .D(\fifo_cnt[3]_i_2_n_0 ),
-        .Q(fifo_cnt[3]),
-        .R(Reset_IBUF));
   status_signal inst1
-       (.CLK(Clk_IBUF_BUFG),
-        .Q(fifo_cnt),
+       (.Clk_IBUF_BUFG(Clk_IBUF_BUFG),
+        .E(inst1_n_9),
+        .Empty_OBUF(Empty_OBUF),
+        .Full_OBUF(Full_OBUF),
+        .O2(rd_ptr),
         .Read_IBUF(Read_IBUF),
         .SR(Reset_IBUF),
         .Write_IBUF(Write_IBUF),
-        .\rd_ptr_reg[2]_0 (rd_ptr),
-        .\wr_ptr_reg[2]_0 (wr_ptr));
+        .out(wr_ptr),
+        .p_0_in(p_0_in));
   ram inst2
-       (.CLK(Clk_IBUF_BUFG),
+       (.Clk_IBUF_BUFG(Clk_IBUF_BUFG),
         .Data_In(Data_In_IBUF),
         .Data_Out(Data_Out_OBUF),
-        .\Data_Out_reg[1]_0 (rd_ptr),
-        .Q(fifo_cnt),
-        .Read_IBUF(Read_IBUF),
-        .Write_IBUF(Write_IBUF),
+        .E(inst1_n_9),
+        .O2(rd_ptr),
+        .p_0_in(p_0_in),
         .wr_ptr(wr_ptr));
 endmodule
 
 module ram
    (Data_Out,
-    Q,
-    Write_IBUF,
-    Read_IBUF,
-    CLK,
+    E,
+    Clk_IBUF_BUFG,
+    p_0_in,
     Data_In,
-    \Data_Out_reg[1]_0 ,
+    O2,
     wr_ptr);
   output [7:0]Data_Out;
-  input [3:0]Q;
-  input Write_IBUF;
-  input Read_IBUF;
-  input CLK;
+  input [0:0]E;
+  input Clk_IBUF_BUFG;
+  input p_0_in;
   input [7:0]Data_In;
-  input [2:0]\Data_Out_reg[1]_0 ;
-  input [2:0]wr_ptr;
+  input [3:0]O2;
+  input [3:0]wr_ptr;
 
-  wire CLK;
+  wire Clk_IBUF_BUFG;
   wire [7:0]Data_In;
   wire [7:0]Data_Out;
   wire [7:0]Data_Out0;
-  wire \Data_Out[7]_i_1_n_0 ;
-  wire [2:0]\Data_Out_reg[1]_0 ;
-  wire [3:0]Q;
-  wire Read_IBUF;
-  wire Write_IBUF;
-  wire p_0_in__0;
-  wire [2:0]wr_ptr;
-  wire [1:0]NLW_mem_reg_0_7_0_7_DOE_UNCONNECTED;
-  wire [1:0]NLW_mem_reg_0_7_0_7_DOF_UNCONNECTED;
-  wire [1:0]NLW_mem_reg_0_7_0_7_DOG_UNCONNECTED;
-  wire [1:0]NLW_mem_reg_0_7_0_7_DOH_UNCONNECTED;
+  wire [0:0]E;
+  wire [3:0]O2;
+  wire p_0_in;
+  wire [3:0]wr_ptr;
+  wire [1:0]NLW_mem_reg_0_15_0_7_DOE_UNCONNECTED;
+  wire [1:0]NLW_mem_reg_0_15_0_7_DOF_UNCONNECTED;
+  wire [1:0]NLW_mem_reg_0_15_0_7_DOG_UNCONNECTED;
+  wire [1:0]NLW_mem_reg_0_15_0_7_DOH_UNCONNECTED;
 
-  LUT6 #(
-    .INIT(64'hFFFFFFFE00000000)) 
-    \Data_Out[7]_i_1 
-       (.I0(Q[2]),
-        .I1(Q[3]),
-        .I2(Q[1]),
-        .I3(Q[0]),
-        .I4(Write_IBUF),
-        .I5(Read_IBUF),
-        .O(\Data_Out[7]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \Data_Out_reg[0] 
-       (.C(CLK),
-        .CE(\Data_Out[7]_i_1_n_0 ),
+       (.C(Clk_IBUF_BUFG),
+        .CE(E),
         .D(Data_Out0[0]),
         .Q(Data_Out[0]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \Data_Out_reg[1] 
-       (.C(CLK),
-        .CE(\Data_Out[7]_i_1_n_0 ),
+       (.C(Clk_IBUF_BUFG),
+        .CE(E),
         .D(Data_Out0[1]),
         .Q(Data_Out[1]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \Data_Out_reg[2] 
-       (.C(CLK),
-        .CE(\Data_Out[7]_i_1_n_0 ),
+       (.C(Clk_IBUF_BUFG),
+        .CE(E),
         .D(Data_Out0[2]),
         .Q(Data_Out[2]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \Data_Out_reg[3] 
-       (.C(CLK),
-        .CE(\Data_Out[7]_i_1_n_0 ),
+       (.C(Clk_IBUF_BUFG),
+        .CE(E),
         .D(Data_Out0[3]),
         .Q(Data_Out[3]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \Data_Out_reg[4] 
-       (.C(CLK),
-        .CE(\Data_Out[7]_i_1_n_0 ),
+       (.C(Clk_IBUF_BUFG),
+        .CE(E),
         .D(Data_Out0[4]),
         .Q(Data_Out[4]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \Data_Out_reg[5] 
-       (.C(CLK),
-        .CE(\Data_Out[7]_i_1_n_0 ),
+       (.C(Clk_IBUF_BUFG),
+        .CE(E),
         .D(Data_Out0[5]),
         .Q(Data_Out[5]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \Data_Out_reg[6] 
-       (.C(CLK),
-        .CE(\Data_Out[7]_i_1_n_0 ),
+       (.C(Clk_IBUF_BUFG),
+        .CE(E),
         .D(Data_Out0[6]),
         .Q(Data_Out[6]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \Data_Out_reg[7] 
-       (.C(CLK),
-        .CE(\Data_Out[7]_i_1_n_0 ),
+       (.C(Clk_IBUF_BUFG),
+        .CE(E),
         .D(Data_Out0[7]),
         .Q(Data_Out[7]),
         .R(1'b0));
   (* METHODOLOGY_DRC_VIOS = "" *) 
-  (* RTL_RAM_BITS = "64" *) 
+  (* RTL_RAM_BITS = "104" *) 
   (* RTL_RAM_NAME = "inst2/mem" *) 
   (* ram_addr_begin = "0" *) 
-  (* ram_addr_end = "7" *) 
+  (* ram_addr_end = "12" *) 
   (* ram_offset = "0" *) 
   (* ram_slice_begin = "0" *) 
   (* ram_slice_end = "7" *) 
@@ -367,15 +260,15 @@ module ram
     .INIT_F(64'h0000000000000000),
     .INIT_G(64'h0000000000000000),
     .INIT_H(64'h0000000000000000)) 
-    mem_reg_0_7_0_7
-       (.ADDRA({1'b0,1'b0,\Data_Out_reg[1]_0 }),
-        .ADDRB({1'b0,1'b0,\Data_Out_reg[1]_0 }),
-        .ADDRC({1'b0,1'b0,\Data_Out_reg[1]_0 }),
-        .ADDRD({1'b0,1'b0,\Data_Out_reg[1]_0 }),
-        .ADDRE({1'b0,1'b0,\Data_Out_reg[1]_0 }),
-        .ADDRF({1'b0,1'b0,\Data_Out_reg[1]_0 }),
-        .ADDRG({1'b0,1'b0,\Data_Out_reg[1]_0 }),
-        .ADDRH({1'b0,1'b0,wr_ptr}),
+    mem_reg_0_15_0_7
+       (.ADDRA({1'b0,O2}),
+        .ADDRB({1'b0,O2}),
+        .ADDRC({1'b0,O2}),
+        .ADDRD({1'b0,O2}),
+        .ADDRE({1'b0,O2}),
+        .ADDRF({1'b0,O2}),
+        .ADDRG({1'b0,O2}),
+        .ADDRH({1'b0,wr_ptr}),
         .DIA(Data_In[1:0]),
         .DIB(Data_In[3:2]),
         .DIC(Data_In[5:4]),
@@ -388,161 +281,328 @@ module ram
         .DOB(Data_Out0[3:2]),
         .DOC(Data_Out0[5:4]),
         .DOD(Data_Out0[7:6]),
-        .DOE(NLW_mem_reg_0_7_0_7_DOE_UNCONNECTED[1:0]),
-        .DOF(NLW_mem_reg_0_7_0_7_DOF_UNCONNECTED[1:0]),
-        .DOG(NLW_mem_reg_0_7_0_7_DOG_UNCONNECTED[1:0]),
-        .DOH(NLW_mem_reg_0_7_0_7_DOH_UNCONNECTED[1:0]),
-        .WCLK(CLK),
-        .WE(p_0_in__0));
-  LUT6 #(
-    .INIT(64'hFFFFFEFF00000000)) 
-    mem_reg_0_7_0_7_i_1
-       (.I0(Read_IBUF),
-        .I1(Q[2]),
-        .I2(Q[1]),
-        .I3(Q[3]),
-        .I4(Q[0]),
-        .I5(Write_IBUF),
-        .O(p_0_in__0));
+        .DOE(NLW_mem_reg_0_15_0_7_DOE_UNCONNECTED[1:0]),
+        .DOF(NLW_mem_reg_0_15_0_7_DOF_UNCONNECTED[1:0]),
+        .DOG(NLW_mem_reg_0_15_0_7_DOG_UNCONNECTED[1:0]),
+        .DOH(NLW_mem_reg_0_15_0_7_DOH_UNCONNECTED[1:0]),
+        .WCLK(Clk_IBUF_BUFG),
+        .WE(p_0_in));
 endmodule
 
 module status_signal
-   (\wr_ptr_reg[2]_0 ,
-    \rd_ptr_reg[2]_0 ,
-    Q,
-    Read_IBUF,
-    Write_IBUF,
+   (out,
+    O2,
+    Empty_OBUF,
+    E,
+    p_0_in,
+    Full_OBUF,
     SR,
-    CLK);
-  output [2:0]\wr_ptr_reg[2]_0 ;
-  output [2:0]\rd_ptr_reg[2]_0 ;
-  input [3:0]Q;
+    Clk_IBUF_BUFG,
+    Read_IBUF,
+    Write_IBUF);
+  output [3:0]out;
+  output [3:0]O2;
+  output Empty_OBUF;
+  output [0:0]E;
+  output p_0_in;
+  output Full_OBUF;
+  input [0:0]SR;
+  input Clk_IBUF_BUFG;
   input Read_IBUF;
   input Write_IBUF;
-  input [0:0]SR;
-  input CLK;
 
-  wire CLK;
-  wire [3:0]Q;
+  wire Clk_IBUF_BUFG;
+  wire [0:0]E;
+  wire Empty_OBUF;
+  wire Full_OBUF;
+  wire [3:0]O2;
   wire Read_IBUF;
   wire [0:0]SR;
   wire Write_IBUF;
-  wire [2:0]p_0_in;
+  wire [4:0]fifo_cnt;
+  wire \fifo_cnt[0]_i_1_n_0 ;
+  wire \fifo_cnt[1]_i_1_n_0 ;
+  wire \fifo_cnt[2]_i_1_n_0 ;
+  wire \fifo_cnt[3]_i_1_n_0 ;
+  wire \fifo_cnt[4]_i_1_n_0 ;
+  wire \fifo_cnt[4]_i_2_n_0 ;
+  wire \inst2/p_3_out__0 ;
+  wire [3:0]out;
+  wire p_0_in;
+  wire [3:0]p_0_in__0;
+  wire [3:0]p_0_in__1;
   wire rd_ptr0;
-  wire [2:0]\rd_ptr_reg[2]_0 ;
   wire wr_ptr0;
-  wire \wr_ptr[0]_i_1_n_0 ;
-  wire \wr_ptr[1]_i_1_n_0 ;
-  wire \wr_ptr[2]_i_2_n_0 ;
-  wire [2:0]\wr_ptr_reg[2]_0 ;
 
+  LUT3 #(
+    .INIT(8'hD0)) 
+    \Data_Out[7]_i_1 
+       (.I0(Empty_OBUF),
+        .I1(Write_IBUF),
+        .I2(Read_IBUF),
+        .O(E));
+  LUT5 #(
+    .INIT(32'hCCC00001)) 
+    Empty_OBUF_inst_i_1
+       (.I0(fifo_cnt[0]),
+        .I1(fifo_cnt[4]),
+        .I2(fifo_cnt[1]),
+        .I3(fifo_cnt[2]),
+        .I4(fifo_cnt[3]),
+        .O(Empty_OBUF));
+  LUT5 #(
+    .INIT(32'h10000000)) 
+    Full_OBUF_inst_i_1
+       (.I0(fifo_cnt[4]),
+        .I1(fifo_cnt[1]),
+        .I2(fifo_cnt[3]),
+        .I3(fifo_cnt[0]),
+        .I4(fifo_cnt[2]),
+        .O(Full_OBUF));
+  LUT6 #(
+    .INIT(64'h00FF08FF00FF00FE)) 
+    \fifo_cnt[0]_i_1 
+       (.I0(Write_IBUF),
+        .I1(fifo_cnt[2]),
+        .I2(fifo_cnt[4]),
+        .I3(fifo_cnt[0]),
+        .I4(fifo_cnt[1]),
+        .I5(fifo_cnt[3]),
+        .O(\fifo_cnt[0]_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'h00FFF70000FFFF00)) 
+    \fifo_cnt[1]_i_1 
+       (.I0(Write_IBUF),
+        .I1(fifo_cnt[2]),
+        .I2(fifo_cnt[4]),
+        .I3(fifo_cnt[0]),
+        .I4(fifo_cnt[1]),
+        .I5(fifo_cnt[3]),
+        .O(\fifo_cnt[1]_i_1_n_0 ));
+  LUT3 #(
+    .INIT(8'h6A)) 
+    \fifo_cnt[2]_i_1 
+       (.I0(fifo_cnt[2]),
+        .I1(fifo_cnt[0]),
+        .I2(fifo_cnt[1]),
+        .O(\fifo_cnt[2]_i_1_n_0 ));
+  LUT4 #(
+    .INIT(16'h7F80)) 
+    \fifo_cnt[3]_i_1 
+       (.I0(fifo_cnt[2]),
+        .I1(fifo_cnt[0]),
+        .I2(fifo_cnt[1]),
+        .I3(fifo_cnt[3]),
+        .O(\fifo_cnt[3]_i_1_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \fifo_cnt[4]_i_1 
+       (.I0(Read_IBUF),
+        .I1(Write_IBUF),
+        .O(\fifo_cnt[4]_i_1_n_0 ));
+  LUT5 #(
+    .INIT(32'h6CCCCCCC)) 
+    \fifo_cnt[4]_i_2 
+       (.I0(fifo_cnt[2]),
+        .I1(fifo_cnt[4]),
+        .I2(fifo_cnt[0]),
+        .I3(fifo_cnt[1]),
+        .I4(fifo_cnt[3]),
+        .O(\fifo_cnt[4]_i_2_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \fifo_cnt_reg[0] 
+       (.C(Clk_IBUF_BUFG),
+        .CE(\fifo_cnt[4]_i_1_n_0 ),
+        .D(\fifo_cnt[0]_i_1_n_0 ),
+        .Q(fifo_cnt[0]),
+        .R(SR));
+  FDRE #(
+    .INIT(1'b0)) 
+    \fifo_cnt_reg[1] 
+       (.C(Clk_IBUF_BUFG),
+        .CE(\fifo_cnt[4]_i_1_n_0 ),
+        .D(\fifo_cnt[1]_i_1_n_0 ),
+        .Q(fifo_cnt[1]),
+        .R(SR));
+  FDRE #(
+    .INIT(1'b0)) 
+    \fifo_cnt_reg[2] 
+       (.C(Clk_IBUF_BUFG),
+        .CE(\fifo_cnt[4]_i_1_n_0 ),
+        .D(\fifo_cnt[2]_i_1_n_0 ),
+        .Q(fifo_cnt[2]),
+        .R(SR));
+  FDRE #(
+    .INIT(1'b0)) 
+    \fifo_cnt_reg[3] 
+       (.C(Clk_IBUF_BUFG),
+        .CE(\fifo_cnt[4]_i_1_n_0 ),
+        .D(\fifo_cnt[3]_i_1_n_0 ),
+        .Q(fifo_cnt[3]),
+        .R(SR));
+  FDRE #(
+    .INIT(1'b0)) 
+    \fifo_cnt_reg[4] 
+       (.C(Clk_IBUF_BUFG),
+        .CE(\fifo_cnt[4]_i_1_n_0 ),
+        .D(\fifo_cnt[4]_i_2_n_0 ),
+        .Q(fifo_cnt[4]),
+        .R(SR));
+  LUT3 #(
+    .INIT(8'hF8)) 
+    mem_reg_0_15_0_7_i_1
+       (.I0(Read_IBUF),
+        .I1(Write_IBUF),
+        .I2(\inst2/p_3_out__0 ),
+        .O(p_0_in));
+  LUT6 #(
+    .INIT(64'hAAAAAAAAAAAA2AAA)) 
+    mem_reg_0_15_0_7_i_2
+       (.I0(Write_IBUF),
+        .I1(fifo_cnt[2]),
+        .I2(fifo_cnt[0]),
+        .I3(fifo_cnt[3]),
+        .I4(fifo_cnt[1]),
+        .I5(fifo_cnt[4]),
+        .O(\inst2/p_3_out__0 ));
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \rd_ptr[0]_i_1 
-       (.I0(\rd_ptr_reg[2]_0 [0]),
-        .O(p_0_in[0]));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+       (.I0(O2[0]),
+        .O(p_0_in__1[0]));
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \rd_ptr[1]_i_1 
-       (.I0(\rd_ptr_reg[2]_0 [0]),
-        .I1(\rd_ptr_reg[2]_0 [1]),
-        .O(p_0_in[1]));
-  LUT6 #(
-    .INIT(64'hFFFF0000FFFE0000)) 
-    \rd_ptr[2]_i_1 
-       (.I0(Q[2]),
-        .I1(Q[3]),
-        .I2(Q[1]),
-        .I3(Q[0]),
-        .I4(Read_IBUF),
-        .I5(Write_IBUF),
-        .O(rd_ptr0));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+       (.I0(O2[0]),
+        .I1(O2[1]),
+        .O(p_0_in__1[1]));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT3 #(
     .INIT(8'h78)) 
-    \rd_ptr[2]_i_2 
-       (.I0(\rd_ptr_reg[2]_0 [0]),
-        .I1(\rd_ptr_reg[2]_0 [1]),
-        .I2(\rd_ptr_reg[2]_0 [2]),
-        .O(p_0_in[2]));
+    \rd_ptr[2]_i_1 
+       (.I0(O2[0]),
+        .I1(O2[1]),
+        .I2(O2[2]),
+        .O(p_0_in__1[2]));
+  LUT3 #(
+    .INIT(8'hC4)) 
+    \rd_ptr[3]_i_1 
+       (.I0(Empty_OBUF),
+        .I1(Read_IBUF),
+        .I2(Write_IBUF),
+        .O(rd_ptr0));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT4 #(
+    .INIT(16'h7F80)) 
+    \rd_ptr[3]_i_2 
+       (.I0(O2[1]),
+        .I1(O2[0]),
+        .I2(O2[2]),
+        .I3(O2[3]),
+        .O(p_0_in__1[3]));
   FDRE #(
     .INIT(1'b0)) 
     \rd_ptr_reg[0] 
-       (.C(CLK),
+       (.C(Clk_IBUF_BUFG),
         .CE(rd_ptr0),
-        .D(p_0_in[0]),
-        .Q(\rd_ptr_reg[2]_0 [0]),
+        .D(p_0_in__1[0]),
+        .Q(O2[0]),
         .R(SR));
   FDRE #(
     .INIT(1'b0)) 
     \rd_ptr_reg[1] 
-       (.C(CLK),
+       (.C(Clk_IBUF_BUFG),
         .CE(rd_ptr0),
-        .D(p_0_in[1]),
-        .Q(\rd_ptr_reg[2]_0 [1]),
+        .D(p_0_in__1[1]),
+        .Q(O2[1]),
         .R(SR));
   FDRE #(
     .INIT(1'b0)) 
     \rd_ptr_reg[2] 
-       (.C(CLK),
+       (.C(Clk_IBUF_BUFG),
         .CE(rd_ptr0),
-        .D(p_0_in[2]),
-        .Q(\rd_ptr_reg[2]_0 [2]),
+        .D(p_0_in__1[2]),
+        .Q(O2[2]),
         .R(SR));
+  FDRE #(
+    .INIT(1'b0)) 
+    \rd_ptr_reg[3] 
+       (.C(Clk_IBUF_BUFG),
+        .CE(rd_ptr0),
+        .D(p_0_in__1[3]),
+        .Q(O2[3]),
+        .R(SR));
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \wr_ptr[0]_i_1 
-       (.I0(\wr_ptr_reg[2]_0 [0]),
-        .O(\wr_ptr[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+       (.I0(out[0]),
+        .O(p_0_in__0[0]));
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \wr_ptr[1]_i_1 
-       (.I0(\wr_ptr_reg[2]_0 [0]),
-        .I1(\wr_ptr_reg[2]_0 [1]),
-        .O(\wr_ptr[1]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'hFFFFFFEF00000000)) 
-    \wr_ptr[2]_i_1 
-       (.I0(Q[2]),
-        .I1(Q[1]),
-        .I2(Q[3]),
-        .I3(Q[0]),
-        .I4(Read_IBUF),
-        .I5(Write_IBUF),
-        .O(wr_ptr0));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+       (.I0(out[0]),
+        .I1(out[1]),
+        .O(p_0_in__0[1]));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT3 #(
     .INIT(8'h78)) 
-    \wr_ptr[2]_i_2 
-       (.I0(\wr_ptr_reg[2]_0 [0]),
-        .I1(\wr_ptr_reg[2]_0 [1]),
-        .I2(\wr_ptr_reg[2]_0 [2]),
-        .O(\wr_ptr[2]_i_2_n_0 ));
+    \wr_ptr[2]_i_1 
+       (.I0(out[0]),
+        .I1(out[1]),
+        .I2(out[2]),
+        .O(p_0_in__0[2]));
+  LUT3 #(
+    .INIT(8'hEA)) 
+    \wr_ptr[3]_i_1 
+       (.I0(\inst2/p_3_out__0 ),
+        .I1(Read_IBUF),
+        .I2(Write_IBUF),
+        .O(wr_ptr0));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT4 #(
+    .INIT(16'h7F80)) 
+    \wr_ptr[3]_i_2 
+       (.I0(out[1]),
+        .I1(out[0]),
+        .I2(out[2]),
+        .I3(out[3]),
+        .O(p_0_in__0[3]));
   FDRE #(
     .INIT(1'b0)) 
     \wr_ptr_reg[0] 
-       (.C(CLK),
+       (.C(Clk_IBUF_BUFG),
         .CE(wr_ptr0),
-        .D(\wr_ptr[0]_i_1_n_0 ),
-        .Q(\wr_ptr_reg[2]_0 [0]),
+        .D(p_0_in__0[0]),
+        .Q(out[0]),
         .R(SR));
   FDRE #(
     .INIT(1'b0)) 
     \wr_ptr_reg[1] 
-       (.C(CLK),
+       (.C(Clk_IBUF_BUFG),
         .CE(wr_ptr0),
-        .D(\wr_ptr[1]_i_1_n_0 ),
-        .Q(\wr_ptr_reg[2]_0 [1]),
+        .D(p_0_in__0[1]),
+        .Q(out[1]),
         .R(SR));
   FDRE #(
     .INIT(1'b0)) 
     \wr_ptr_reg[2] 
-       (.C(CLK),
+       (.C(Clk_IBUF_BUFG),
         .CE(wr_ptr0),
-        .D(\wr_ptr[2]_i_2_n_0 ),
-        .Q(\wr_ptr_reg[2]_0 [2]),
+        .D(p_0_in__0[2]),
+        .Q(out[2]),
+        .R(SR));
+  FDRE #(
+    .INIT(1'b0)) 
+    \wr_ptr_reg[3] 
+       (.C(Clk_IBUF_BUFG),
+        .CE(wr_ptr0),
+        .D(p_0_in__0[3]),
+        .Q(out[3]),
         .R(SR));
 endmodule
 `ifndef GLBL

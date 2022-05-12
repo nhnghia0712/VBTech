@@ -11,7 +11,7 @@ module status_signal
 
 //FULL and Empty signal
 reg [(DATA_DEPTH/4)+1:0] fifo_cnt;
-assign Full = (fifo_cnt == 8);
+assign Full = (fifo_cnt == DATA_DEPTH);
 assign Empty = (fifo_cnt == 0);
 always @(posedge Clk ) begin
     if(Reset)  fifo_cnt <= 0;
@@ -19,7 +19,7 @@ always @(posedge Clk ) begin
         case({Write,Read})
         2'b00: fifo_cnt <= fifo_cnt;
         2'b01: fifo_cnt <= (fifo_cnt == 0) ? 0:fifo_cnt + 1;
-        2'b10: fifo_cnt <= (fifo_cnt == 8) ? 8:fifo_cnt + 1;
+        2'b10: fifo_cnt <= (fifo_cnt == DATA_DEPTH) ? DATA_DEPTH:fifo_cnt + 1;
         2'b11: fifo_cnt <= fifo_cnt;
         default: fifo_cnt <= fifo_cnt;
         endcase

@@ -1,7 +1,7 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-// Date        : Wed May 11 02:33:44 2022
+// Date        : Wed May 11 11:34:16 2022
 // Host        : NGHIA running 64-bit major release  (build 9200)
 // Command     : write_verilog -mode funcsim -nolib -force -file
 //               D:/GitHub/VBTech/VBTech/FIFO_13/FIFO_13.sim/sim_1/synth/func/xsim/testbench_func_synth.v
