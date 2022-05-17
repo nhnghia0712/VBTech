@@ -1,0 +1,98 @@
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+----------------------------------------------
+------------------   -----------------------
+----------- SIMULATION RESULT ----------------
+--------------       -------------------
+----------------     ---------------------
+----------------------------------------------
+TIME =                    0, Read = 0, Write = 0, In = 00
+TIME =                    1, Read = 0, Write = 1, In = 24
+TIME =                    7, Read = 0, Write = 1, In = 81
+TIME =                   11, Read = 0, Write = 1, In = 09
+TIME =                   18, Read = 0, Write = 1, In = 63
+TIME =                   20, Read = 0, Write = 1, In = 0d
+TIME =                   24, Read = 0, Write = 1, In = 8d
+TIME =                   28, Read = 0, Write = 1, In = 65
+TIME =                   35, Read = 0, Write = 1, In = 12
+TIME =                   41, Read = 0, Write = 1, In = 01
+TIME =                   42, Read = 0, Write = 1, In = 0d
+TIME =                   51, Read = 1, Write = 0, In = 0d
+TIME =                   85, Read = 0, Write = 0, In = 0d
+TIME =                   95, Read = 0, Write = 1, In = 76
+TIME =                  100, Read = 0, Write = 1, In = 3d
+TIME =                  106, Read = 0, Write = 1, In = ed
+TIME =                  113, Read = 1, Write = 0, In = ed
+TIME =                  157, Read = 0, Write = 0, In = ed
+TIME =                  160, Read = 0, Write = 1, In = ed
+TIME =                  164, Read = 0, Write = 0, In = ed
+TIME =                  168, Read = 0, Write = 0, In = 8c
+TIME =                  170, Read = 0, Write = 1, In = 8c
+TIME =                  173, Read = 0, Write = 0, In = 8c
+TIME =                  175, Read = 0, Write = 0, In = f9
+TIME =                  178, Read = 0, Write = 1, In = f9
+TIME =                  182, Read = 0, Write = 0, In = f9
+TIME =                  191, Read = 0, Write = 0, In = c6
+TIME =                  194, Read = 0, Write = 1, In = c6
+TIME =                  196, Read = 0, Write = 0, In = c6
+TIME =                  203, Read = 0, Write = 0, In = c5
+TIME =                  206, Read = 0, Write = 1, In = c5
+TIME =                  208, Read = 0, Write = 0, In = c5
+TIME =                  212, Read = 0, Write = 0, In = aa
+TIME =                  215, Read = 0, Write = 1, In = aa
+TIME =                  219, Read = 0, Write = 0, In = aa
+TIME =                  224, Read = 0, Write = 0, In = e5
+TIME =                  227, Read = 0, Write = 1, In = e5
+TIME =                  230, Read = 0, Write = 0, In = e5
+TIME =                  236, Read = 0, Write = 0, In = 77
+TIME =                  237, Read = 0, Write = 1, In = 77
+TIME =                  240, Read = 0, Write = 0, In = 77
+TIME =                  244, Read = 0, Write = 0, In = 12
+TIME =                  245, Read = 0, Write = 1, In = 12
+TIME =                  248, Read = 0, Write = 0, In = 12
+TIME =                  255, Read = 0, Write = 0, In = 8f
+TIME =                  257, Read = 0, Write = 1, In = 8f
+TIME =                  258, Read = 0, Write = 0, In = 8f
+TIME =                  265, Read = 0, Write = 0, In = f2
+TIME =                  274, Read = 1, Write = 0, In = f2
+TIME =                  276, Read = 0, Write = 0, In = f2
+TIME =                  283, Read = 1, Write = 0, In = f2
+TIME =                  286, Read = 0, Write = 0, In = f2
+TIME =                  293, Read = 1, Write = 0, In = f2
+TIME =                  297, Read = 0, Write = 0, In = f2
+TIME =                  306, Read = 1, Write = 0, In = f2
+TIME =                  307, Read = 0, Write = 0, In = f2
+TIME =                  313, Read = 1, Write = 0, In = f2
+TIME =                  317, Read = 0, Write = 0, In = f2
+TIME =                  323, Read = 1, Write = 0, In = f2
+TIME =                  324, Read = 0, Write = 0, In = f2
+TIME =                  328, Read = 1, Write = 0, In = f2
+TIME =                  331, Read = 0, Write = 0, In = f2
+TIME =                  335, Read = 1, Write = 0, In = f2
+TIME =                  339, Read = 0, Write = 0, In = f2
+TIME =                  348, Read = 1, Write = 0, In = f2
+TIME =                  352, Read = 0, Write = 0, In = f2
+TIME =                  358, Read = 1, Write = 0, In = f2
+TIME =                  360, Read = 0, Write = 0, In = f2
+TIME =                  366, Read = 1, Write = 0, In = f2
+TIME =                  367, Read = 0, Write = 0, In = f2
+TIME =                  376, Read = 1, Write = 0, In = f2
+TIME =                  379, Read = 0, Write = 0, In = f2
+TIME =                  386, Read = 1, Write = 0, In = f2
+TIME =                  390, Read = 0, Write = 0, In = f2
+TIME =                  395, Read = 1, Write = 0, In = f2
+TIME =                  397, Read = 0, Write = 0, In = f2
+TIME =                  401, Read = 1, Write = 0, In = f2
+TIME =                  405, Read = 0, Write = 0, In = f2
+TIME =                  412, Read = 1, Write = 0, In = f2
+TIME =                  414, Read = 0, Write = 0, In = f2
+TIME =                  421, Read = 1, Write = 0, In = f2
+TIME =                  422, Read = 0, Write = 0, In = f2
+TIME =                  429, Read = 1, Write = 0, In = f2
+TIME =                  433, Read = 0, Write = 0, In = f2
+TIME =                  442, Read = 1, Write = 0, In = f2
+TIME =                  446, Read = 0, Write = 0, In = f2
+TIME =                  451, Read = 1, Write = 0, In = f2
+TIME =                  454, Read = 0, Write = 0, In = f2
+-------------- THE SIMUALTION FINISHED ------------
+$finish called at time : 5 ns : File "D:/GitHub/VBTech/VBTech/FIFO_2clock/FIFO_2clock.srcs/sim_1/new/testbench.v" Line 209

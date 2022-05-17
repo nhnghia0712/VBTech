@@ -1,0 +1,47 @@
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto fd24335ab3454546b3e52517bd6cba14 --incr --debug typical --relax --mt 2 --maxdelay -L xil_defaultlib -L simprims_ver -L secureip --snapshot testbench_time_impl -transport_int_delays -pulse_r 0 -pulse_int_r 0 -pulse_e 0 -pulse_int_e 0 xil_defaultlib.testbench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+INFO: [XSIM 43-3451] SDF backannotation process started with SDF file "testbench_time_impl.sdf", for root module "testbench/tb".
+INFO: [XSIM 43-3452] SDF backannotation was successful for SDF file "testbench_time_impl.sdf", for root module "testbench/tb".
+Time Resolution for simulation is 1ps
+Compiling module simprims_ver.BUFGCE(CE_TYPE="ASYNC",SIM_DEVIC...
+Compiling module simprims_ver.IBUFCTRL_default
+Compiling module simprims_ver.INBUF_default
+Compiling module xil_defaultlib.IBUF_UNIQ_BASE_
+Compiling module xil_defaultlib.IBUF_HD1
+Compiling module xil_defaultlib.IBUF_HD2
+Compiling module xil_defaultlib.IBUF_HD3
+Compiling module xil_defaultlib.IBUF_HD4
+Compiling module xil_defaultlib.IBUF_HD5
+Compiling module xil_defaultlib.IBUF_HD6
+Compiling module xil_defaultlib.IBUF_HD7
+Compiling module xil_defaultlib.IBUF_HD8
+Compiling module simprims_ver.OBUF
+Compiling module simprims_ver.LUT4
+Compiling module xil_defaultlib.IBUF_HD9
+Compiling module xil_defaultlib.IBUF_HD10
+Compiling module xil_defaultlib.IBUF_HD11
+Compiling module simprims_ver.LUT5
+Compiling module simprims_ver.x_lut2_mux4
+Compiling module simprims_ver.LUT2
+Compiling module simprims_ver.x_lut3_mux8
+Compiling module simprims_ver.LUT3
+Compiling module simprims_ver.FDRE_default
+Compiling module simprims_ver.x_lut1_mux2
+Compiling module simprims_ver.LUT1
+Compiling module simprims_ver.LUT6
+Compiling module xil_defaultlib.status_signal
+Compiling module simprims_ver.RAMD32
+Compiling module simprims_ver.RAMS32
+Compiling module xil_defaultlib.RAM32M16_UNIQ_BASE_
+Compiling module xil_defaultlib.ram
+Compiling module xil_defaultlib.fifo
+Compiling module xil_defaultlib.testbench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot testbench_time_impl

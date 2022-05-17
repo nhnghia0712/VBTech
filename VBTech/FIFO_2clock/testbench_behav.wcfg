@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="testbench_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="testbench" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="1209fs"></ZoomEndTime>
+      <Cursor1Time time="274fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="153"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="13" />
+   <wvobject fp_name="/testbench/WR_CLK" type="logic">
+      <obj_property name="ElementShortName">WR_CLK</obj_property>
+      <obj_property name="ObjectShortName">WR_CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/RD_CLK" type="logic">
+      <obj_property name="ElementShortName">RD_CLK</obj_property>
+      <obj_property name="ObjectShortName">RD_CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/WR_RESET" type="logic">
+      <obj_property name="ElementShortName">WR_RESET</obj_property>
+      <obj_property name="ObjectShortName">WR_RESET</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/RD_RESET" type="logic">
+      <obj_property name="ElementShortName">RD_RESET</obj_property>
+      <obj_property name="ObjectShortName">RD_RESET</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/WRITE" type="logic">
+      <obj_property name="ElementShortName">WRITE</obj_property>
+      <obj_property name="ObjectShortName">WRITE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/READ" type="logic">
+      <obj_property name="ElementShortName">READ</obj_property>
+      <obj_property name="ObjectShortName">READ</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/DATA_IN" type="array">
+      <obj_property name="ElementShortName">DATA_IN[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_IN[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/DATA_OUT" type="array">
+      <obj_property name="ElementShortName">DATA_OUT[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_OUT[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/EMPTY" type="logic">
+      <obj_property name="ElementShortName">EMPTY</obj_property>
+      <obj_property name="ObjectShortName">EMPTY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/FULL" type="logic">
+      <obj_property name="ElementShortName">FULL</obj_property>
+      <obj_property name="ObjectShortName">FULL</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/tb/inst2/WR_PTR" type="array">
+      <obj_property name="ElementShortName">WR_PTR[3:0]</obj_property>
+      <obj_property name="ObjectShortName">WR_PTR[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/tb/inst2/RD_PTR" type="array">
+      <obj_property name="ElementShortName">RD_PTR[3:0]</obj_property>
+      <obj_property name="ObjectShortName">RD_PTR[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/tb/inst2/MEM" type="array">
+      <obj_property name="ElementShortName">MEM[7:0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM[7:0][7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/testbench/tb/inst2/MEM[7]" type="array">
+         <obj_property name="ElementShortName">[7][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][7:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/tb/inst2/MEM[6]" type="array">
+         <obj_property name="ElementShortName">[6][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][7:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/tb/inst2/MEM[5]" type="array">
+         <obj_property name="ElementShortName">[5][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][7:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/tb/inst2/MEM[4]" type="array">
+         <obj_property name="ElementShortName">[4][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][7:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/tb/inst2/MEM[3]" type="array">
+         <obj_property name="ElementShortName">[3][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][7:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/tb/inst2/MEM[2]" type="array">
+         <obj_property name="ElementShortName">[2][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][7:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/tb/inst2/MEM[1]" type="array">
+         <obj_property name="ElementShortName">[1][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][7:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/tb/inst2/MEM[0]" type="array">
+         <obj_property name="ElementShortName">[0][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][7:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

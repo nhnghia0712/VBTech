@@ -1,51 +1,66 @@
-module status_signal
-#(
-    parameter DATA_WIDTH = 8,
-    parameter DATA_DEPTH = 13
-)
-(
-    input RESET, CLK, WRITE, READ,
-
-    output reg [DATA_WIDTH-1:0] WR_PTR, RD_PTR,
-    output FULL, EMPTY
+///////////////////////////////////////////////////////////////////////////
+// Company: VB Tech
+// Engineer: Nguyen Hoang Nghia
+//
+// Create Date: Mon, May 13, 2022
+// Design Name: Status Signal
+// Module Name: status_signal.v
+// Project Name: FIFO
+// Target Device: KU5P
+// Tool Versions: 2019.2
+// Description: Synchronous, Depth=13, Synthesizable, freq= 350MHz, RAM-based, not register-based
+//
+// Dependencies:
+//
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+//
+/////////////////////////////////////////////////////////////////////////
+module status_signal #(
+    parameter DATA_DEPTH    = 13,
+    parameter POINTER_WIDTH = 4
+) (
+    input                          reset, clk, write, read,
+    output reg [POINTER_WIDTH-1:0] wr_ptr, rd_ptr,
+    output                         full, empty
 );
 
-assign FULL = (WR_PTR == DATA_DEPTH);
-assign EMPTY = (WR_PTR == 0);
+    assign full  = (wr_ptr == DATA_DEPTH) && (rd_ptr == 0) && (!reset);
+    assign empty = (rd_ptr == wr_ptr) || (reset);
 
-always @(posedge CLK ) begin
-    if(RESET)begin  
-        WR_PTR <= 0;
-        RD_PTR <= 0;
+    always @(posedge clk ) begin
+        if(reset)begin
+            wr_ptr <= 0;
+            rd_ptr <= 0;
+        end
+        else begin
+            case({write,read})
+                2'b00 :
+                    begin
+                        wr_ptr <= wr_ptr;
+                        rd_ptr <= rd_ptr;
+                    end
+                2'b01 :
+                    begin
+                        rd_ptr <= (rd_ptr == DATA_DEPTH) ? DATA_DEPTH : rd_ptr + 1;
+                    end
+                2'b10 :
+                    begin
+                        wr_ptr <= (wr_ptr == DATA_DEPTH) ? DATA_DEPTH : wr_ptr + 1;
+                    end
+                2'b11 :
+                    begin
+                        wr_ptr <= wr_ptr;
+                        rd_ptr <= rd_ptr;
+                    end
+                default :
+                    begin
+                        wr_ptr <= wr_ptr;
+                        rd_ptr <= rd_ptr;
+                    end
+            endcase
+        end
     end
-    else begin
-        case({WRITE,READ})
-        2'b00: 
-            begin 
-                WR_PTR <= WR_PTR;
-                RD_PTR <= RD_PTR;
-               end
-        2'b01: 
-            begin 
-                RD_PTR <= (RD_PTR == DATA_DEPTH) ? DATA_DEPTH : RD_PTR + 1;
-                WR_PTR <= (WR_PTR == 0) ? 0 : WR_PTR - 1;
-            end
-        2'b10: 
-            begin
-                WR_PTR <= (WR_PTR == DATA_DEPTH) ? DATA_DEPTH : WR_PTR + 1;
-            end
-        2'b11: 
-            begin 
-                WR_PTR <= WR_PTR;
-                RD_PTR <= RD_PTR;
-            end
-        default: 
-            begin 
-                WR_PTR <= WR_PTR;
-                RD_PTR <= RD_PTR;
-            end
-        endcase
-    end
-end
 
 endmodule

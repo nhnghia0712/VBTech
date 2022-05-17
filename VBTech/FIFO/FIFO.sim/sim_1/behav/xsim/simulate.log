@@ -75,4 +75,4 @@ TIME =                  314, Read = 0, Write = 0, In = f2
 TIME =                  317, Read = 1, Write = 0, In = f2
 TIME =                  318, Read = 0, Write = 0, In = f2
 -------------- THE SIMUALTION FINISHED ------------
-$finish called at time : 5 ns : File "D:/GitHub/VBTech/VBTech/FIFO/FIFO.srcs/sim_1/new/testbench.v" Line 145
+$finish called at time : 5 ns : File "D:/GitHub/VBTech/VBTech/FIFO/FIFO.srcs/sim_1/new/testbench.v" Line 146
