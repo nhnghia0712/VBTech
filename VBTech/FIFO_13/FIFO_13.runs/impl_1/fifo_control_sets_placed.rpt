@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Thu May 12 15:41:56 2022
+| Date         : Sat May 21 12:34:15 2022
 | Host         : NGHIA running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file fifo_control_sets_placed.rpt
 | Design       : fifo
@@ -27,7 +27,7 @@ Table of Contents
 |    Minimum number of control sets                        |     2 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |     0 |
+| Unused register locations in slices containing registers |     6 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -41,9 +41,9 @@ Table of Contents
 +--------------------+-------+
 | Total control sets |     2 |
 | >= 0 to < 4        |     0 |
-| >= 4 to < 6        |     0 |
+| >= 4 to < 6        |     2 |
 | >= 6 to < 8        |     0 |
-| >= 8 to < 10       |     2 |
+| >= 8 to < 10       |     0 |
 | >= 10 to < 12      |     0 |
 | >= 12 to < 14      |     0 |
 | >= 14 to < 16      |     0 |
@@ -63,7 +63,7 @@ Table of Contents
 | No           | Yes                   | No                     |               0 |            0 |
 | Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              16 |            5 |
+| Yes          | Yes                   | No                     |              10 |            2 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -73,8 +73,8 @@ Table of Contents
 +----------------+-------------------------+-------------------+------------------+----------------+
 |  Clock Signal  |      Enable Signal      |  Set/Reset Signal | Slice Load Count | Bel Load Count |
 +----------------+-------------------------+-------------------+------------------+----------------+
-|  CLK_IBUF_BUFG | inst1/RD_PTR[7]_i_1_n_0 | RESET_IBUF_inst/O |                2 |              8 |
-|  CLK_IBUF_BUFG | inst1/WR_PTR[7]_i_1_n_0 | RESET_IBUF_inst/O |                5 |              8 |
+|  clk_IBUF_BUFG | inst1/rd_tmp[4]_i_1_n_0 | reset_IBUF_inst/O |                1 |              5 |
+|  clk_IBUF_BUFG | inst1/wr_tmp[4]_i_1_n_0 | reset_IBUF_inst/O |                1 |              5 |
 +----------------+-------------------------+-------------------+------------------+----------------+
 
 

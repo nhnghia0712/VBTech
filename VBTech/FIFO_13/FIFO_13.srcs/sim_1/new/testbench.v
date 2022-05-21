@@ -8,7 +8,7 @@
 // Project Name: FIFO
 // Target Device: KU5P
 // Tool Versions: 2019.2
-// Description: Synchronous, Depth=13, Synthesizable, freq= 350MHz, RAM-based, not register-based
+// Description: Synchronous, Depth=8, Synthesizable, freq= 350MHz, RAM-based, not register-based
 //
 // Dependencies:
 //
@@ -21,14 +21,15 @@
 `timescale     10 ps/ 1 ps
 `define          DELAY 1.429
 // 3. Include Statements
-module testbench;
+module testbench ();
   // 4. Parameter definitions
-  parameter ENDTIME       = 500;
+  parameter ENDTIME       = 620;
   parameter DATA_WIDTH    = 8  ;
   parameter DATA_DEPTH    = 13 ;
   parameter POINTER_WIDTH = 4  ;
-  parameter N             = 15 ;
-  parameter T             = 7  ;
+  parameter N             = DATA_DEPTH + 3 ;
+  parameter T             = DATA_DEPTH / 3  ;
+  parameter TIME          = DATA_DEPTH * 9  ;
   // 5. DUT Input regs
   reg                  clk    ;
   reg                  reset  ;
@@ -42,7 +43,16 @@ module testbench;
 
   integer i;
 
-  fifo #(DATA_WIDTH,DATA_DEPTH,POINTER_WIDTH) tb (reset,clk,write,read,data_in,data_out,full,empty);
+  fifo #(DATA_WIDTH,DATA_DEPTH,POINTER_WIDTH) tb (
+  .reset(reset), 
+  .clk(clk), 
+  .write(write), 
+  .read(read), 
+  .data_in(data_in), 
+  .data_out(data_out),
+  .full(full), 
+  .empty(empty)
+  );
   // 8. Initial Conditions
   initial
     begin
@@ -79,25 +89,39 @@ module testbench;
         reset = 1'b1;
       # 4
         reset = 1'b0;
-      #(`DELAY*84)
+      #(`DELAY*(TIME+2))
         reset = 1'b1;
-      # 2
+      # 4
         reset = 1'b0;
-      #(`DELAY*53)
+      #(`DELAY*(TIME/3))
         reset = 1'b1;
-      # 2
+      # 4
         reset = 1'b0;
     end
   endtask
   task operation_process;
     begin
       //TEST CASE 1:
+       #(`DELAY*4)
       for (i = 0; i < N; i = i + 1) begin
         #(`DELAY*($urandom_range(1,5)))
           write = 1'b1;
         read = 1'b0;
         data_in = $random;
       end
+      #(`DELAY)
+        for (i = 0; i < T; i = i + 1) begin
+          #(`DELAY*($urandom_range(1,5)))
+            read = 1'b1;
+          write = 1'b0;
+        end
+      #(`DELAY)
+        for (i = 0; i < T; i = i + 1) begin
+          #(`DELAY*($urandom_range(1,5)))
+            write = 1'b1;
+          read = 1'b0;
+          data_in = $random;
+        end
       #(`DELAY)
         for (i = 0; i < N; i = i + 1) begin
           #(`DELAY*($urandom_range(1,5)))
@@ -121,7 +145,7 @@ module testbench;
         end
 
       //TEST CASE 3:
-      #(`DELAY*5)
+      #(`DELAY*10)
         read = 1'b0;
       for (i = 0; i < N; i = i + 1) begin
         #(`DELAY*($urandom_range(1,3)))
@@ -160,7 +184,7 @@ module testbench;
   //11. Determines the simulation limit
   task endsimulation;
     begin
-      #ENDTIME
+        #ENDTIME
         $display("-------------- THE SIMUALTION FINISHED ------------");
       $finish;
     end

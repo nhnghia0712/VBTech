@@ -4,25 +4,28 @@ Running: C:/Xilinx/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto b51dddf2fd
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3755] too many parameters for module instance 'tb' [D:/GitHub/VBTech/VBTech/FIFO_2clock/FIFO_2clock.srcs/sim_1/new/testbench.v:48]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
 Compiling module unisims_ver.IBUF
 Compiling module unisims_ver.OBUF
-Compiling module unisims_ver.BUFGCE(CE_TYPE="ASYNC",SIM_DEVIC...
-Compiling module unisims_ver.LUT4
-Compiling module unisims_ver.LUT6
+Compiling module unisims_ver.FDCE_default
 Compiling module unisims_ver.LUT5
+Compiling module unisims_ver.LUT6
 Compiling module unisims_ver.x_lut2_mux4
 Compiling module unisims_ver.LUT2
+Compiling module xil_defaultlib.sync
+Compiling module xil_defaultlib.sync_0
+Compiling module unisims_ver.x_lut1_mux2
+Compiling module unisims_ver.LUT1
 Compiling module unisims_ver.x_lut3_mux8
 Compiling module unisims_ver.LUT3
-Compiling module unisims_ver.FDRE_default
+Compiling module unisims_ver.LUT4
 Compiling module xil_defaultlib.status_signal
 Compiling module unisims_ver.RAMB18E2(DOA_REG=0,DOB_REG=0,REA...
 Compiling module xil_defaultlib.ram
+Compiling module unisims_ver.BUFGCE(CE_TYPE="ASYNC",SIM_DEVIC...
 Compiling module xil_defaultlib.fifo
 Compiling module xil_defaultlib.testbench
 Compiling module xil_defaultlib.glbl

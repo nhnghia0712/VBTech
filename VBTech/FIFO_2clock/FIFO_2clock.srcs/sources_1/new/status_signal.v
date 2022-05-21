@@ -19,30 +19,30 @@
 /////////////////////////////////////////////////////////////////////////
 
 module status_signal #(
-	parameter POINTER_WIDTH = 4,
-	parameter DATA_DEPTH    = 8
+	parameter DATA_DEPTH    = 8,
+	parameter POINTER_WIDTH = 3
 ) (
-	input                          wr_reset, rd_reset, wr_clk, rd_clk, write, read,
-	output reg [POINTER_WIDTH-1:0] wr_ptr, rd_ptr,
-	output                         full, empty
+	input                      wr_reset, rd_reset, wr_clk, rd_clk, write, read,
+	output [POINTER_WIDTH-1:0] wr_ptr, rd_ptr,
+	output                     full, empty
 );
 
-	assign full  = (wr_ptr == DATA_DEPTH) && (rd_ptr == 0) && (!wr_reset);
-	assign empty = (rd_ptr == wr_ptr) || (rd_reset);
+	reg  [POINTER_WIDTH:0] wr_bin, rd_bin;
+	wire [POINTER_WIDTH:0] wr_gray, rd_gray, wr_gray_sync, rd_gray_sync, wr_bin_sync, rd_bin_sync;
 
 	always @(posedge wr_clk or posedge wr_reset) begin
 		if(wr_reset)begin
-			wr_ptr <= 0;
+			wr_bin <= 0;
 		end
 		else begin
-			case(write)
+			case(write&&!full)
 				1'b1 :
 					begin
-						wr_ptr <= (wr_ptr == DATA_DEPTH) ? DATA_DEPTH : wr_ptr + 1;
+						wr_bin <= wr_bin + 1;
 					end
 				default :
 					begin
-						wr_ptr <= wr_ptr;
+						wr_bin <= wr_bin;
 					end
 			endcase
 		end
@@ -50,20 +50,60 @@ module status_signal #(
 
 	always @(posedge rd_clk or posedge rd_reset ) begin
 		if(rd_reset)begin
-			rd_ptr <= 0;
+			rd_bin <= 0;
 		end
 		else begin
-			case(read)
+			case(read&&!empty)
 				1'b1 :
 					begin
-						rd_ptr <= (rd_ptr == DATA_DEPTH) ? DATA_DEPTH : rd_ptr + 1;
+						rd_bin <= rd_bin + 1;
 					end
 				default :
 					begin
-						rd_ptr <= rd_ptr;
+						rd_bin <= rd_bin;
 					end
 			endcase
 		end
 	end
+
+	bin_to_gray inst1 (
+		.data_in (wr_bin ),
+		.data_out(wr_gray)
+	);
+
+	bin_to_gray inst2 (
+		.data_in (rd_bin ),
+		.data_out(rd_gray)
+	);
+
+	sync inst3 (
+		.reset   (rd_reset    ),
+		.clk     (rd_clk      ),
+		.data_in (wr_gray     ),
+		.data_out(wr_gray_sync)
+	);
+
+	sync inst4 (
+		.reset   (wr_reset    ),
+		.clk     (wr_clk      ),
+		.data_in (rd_gray     ),
+		.data_out(rd_gray_sync)
+	);
+
+	gray_to_bin inst5 (
+		.data_in (wr_gray_sync),
+		.data_out(wr_bin_sync )
+	);
+
+	gray_to_bin inst6 (
+		.data_in (rd_gray_sync),
+		.data_out(rd_bin_sync )
+	);
+
+	assign wr_ptr = wr_bin[POINTER_WIDTH-1:0];
+	assign rd_ptr = rd_bin[POINTER_WIDTH-1:0];
+
+	assign full  = (wr_bin[POINTER_WIDTH] != rd_bin_sync[POINTER_WIDTH]) && (wr_bin[POINTER_WIDTH-1:0] == rd_bin_sync[POINTER_WIDTH-1:0]);
+	assign empty = (wr_bin_sync == rd_bin);
 
 endmodule

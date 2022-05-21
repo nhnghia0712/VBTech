@@ -1,8 +1,11 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
+"../../../../FIFO_2clock.srcs/sources_1/new/bin_to_gray.v" \
 "../../../../FIFO_2clock.srcs/sources_1/new/fifo.v" \
+"../../../../FIFO_2clock.srcs/sources_1/new/gray_to_bin.v" \
 "../../../../FIFO_2clock.srcs/sources_1/new/ram.v" \
 "../../../../FIFO_2clock.srcs/sources_1/new/status_signal.v" \
+"../../../../FIFO_2clock.srcs/sources_1/new/sync.v" \
 "../../../../FIFO_2clock.srcs/sim_1/new/testbench.v" \
 
 # compile glbl module

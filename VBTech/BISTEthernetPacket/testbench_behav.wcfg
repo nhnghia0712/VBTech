@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="testbench_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="testbench" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="1038fs"></ZoomEndTime>
+      <Cursor1Time time="977fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="324"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="14" />
+   <wvobject fp_name="/testbench/cpu_clk" type="logic">
+      <obj_property name="ElementShortName">cpu_clk</obj_property>
+      <obj_property name="ObjectShortName">cpu_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/cpu_cs" type="logic">
+      <obj_property name="ElementShortName">cpu_cs</obj_property>
+      <obj_property name="ObjectShortName">cpu_cs</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/cpu_we" type="logic">
+      <obj_property name="ElementShortName">cpu_we</obj_property>
+      <obj_property name="ObjectShortName">cpu_we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/cpu_oe" type="logic">
+      <obj_property name="ElementShortName">cpu_oe</obj_property>
+      <obj_property name="ObjectShortName">cpu_oe</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/cpu_adrr" type="array">
+      <obj_property name="ElementShortName">cpu_adrr[15:0]</obj_property>
+      <obj_property name="ObjectShortName">cpu_adrr[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/cpu_din" type="array">
+      <obj_property name="ElementShortName">cpu_din[15:0]</obj_property>
+      <obj_property name="ObjectShortName">cpu_din[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/error_status" type="array">
+      <obj_property name="ElementShortName">error_status[3:0]</obj_property>
+      <obj_property name="ObjectShortName">error_status[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/rx_num_packet" type="array">
+      <obj_property name="ElementShortName">rx_num_packet[15:0]</obj_property>
+      <obj_property name="ObjectShortName">rx_num_packet[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/cpu_dout" type="array">
+      <obj_property name="ElementShortName">cpu_dout[15:0]</obj_property>
+      <obj_property name="ObjectShortName">cpu_dout[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/run" type="logic">
+      <obj_property name="ElementShortName">run</obj_property>
+      <obj_property name="ObjectShortName">run</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/enable" type="array">
+      <obj_property name="ElementShortName">enable[3:0]</obj_property>
+      <obj_property name="ObjectShortName">enable[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/length" type="array">
+      <obj_property name="ElementShortName">length[15:0]</obj_property>
+      <obj_property name="ObjectShortName">length[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/tx_num_packet" type="array">
+      <obj_property name="ElementShortName">tx_num_packet[15:0]</obj_property>
+      <obj_property name="ObjectShortName">tx_num_packet[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/tb/regfile" type="array">
+      <obj_property name="ElementShortName">regfile[5:0][15:0]</obj_property>
+      <obj_property name="ObjectShortName">regfile[5:0][15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/testbench/tb/regfile[5]" type="array">
+         <obj_property name="ElementShortName">[5][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/tb/regfile[4]" type="array">
+         <obj_property name="ElementShortName">[4][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/tb/regfile[3]" type="array">
+         <obj_property name="ElementShortName">[3][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/tb/regfile[2]" type="array">
+         <obj_property name="ElementShortName">[2][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/tb/regfile[1]" type="array">
+         <obj_property name="ElementShortName">[1][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/tb/regfile[0]" type="array">
+         <obj_property name="ElementShortName">[0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

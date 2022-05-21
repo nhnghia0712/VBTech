@@ -21,7 +21,7 @@ module fifo
 #(
     parameter DATA_WIDTH = 8,
     parameter DATA_DEPTH = 8,
-    parameter POINTER_WIDTH = 4
+    parameter POINTER_WIDTH = 3
 )
 (
     input reset, clk, write, read,
@@ -33,7 +33,27 @@ module fifo
 
 wire [POINTER_WIDTH-1:0] wr_ptr, rd_ptr;
 
-status_signal #(DATA_DEPTH,POINTER_WIDTH) inst1 (reset, clk, write, read, wr_ptr, rd_ptr, full, empty);
-ram #(DATA_WIDTH, DATA_DEPTH,POINTER_WIDTH) inst2 (clk, write, read, full, empty, wr_ptr, rd_ptr, data_in, data_out);
+status_signal #(POINTER_WIDTH) inst1 (
+	.reset(reset), 
+	.clk(clk), 
+	.write(write), 
+	.read(read), 
+	.wr_ptr(wr_ptr), 
+	.rd_ptr(rd_ptr), 
+	.full(full), 
+	.empty(empty)
+	);
+
+ram #(DATA_WIDTH, DATA_DEPTH,POINTER_WIDTH) inst2 (
+	.clk(clk), 
+	.write(write), 
+	.read(read),
+	.full(full), 
+	.empty(empty),
+	.wr_ptr(wr_ptr), 
+	.rd_ptr(rd_ptr),  
+	.data_in(data_in), 
+	.data_out(data_out)
+	);
 
 endmodule

@@ -1,0 +1,160 @@
+///////////////////////////////////////////////////////////////////////////
+// Company: VB Tech
+// Engineer: Nguyen Hoang Nghia
+//
+// Create Date: Sat, May 21, 2022
+// Design Name: Encoder 16 to 4
+// Module Name: encoder_16to4.v
+// Project Name: BIST Ethernet Packet
+// Target Device: KU5P
+// Tool Versions: 2019.2
+// Description: Encoder 16 to 4
+//
+// Dependencies:
+//
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+//
+/////////////////////////////////////////////////////////////////////////
+module encoder_16to1
+	(
+		d_out, 
+		d_in
+	);
+
+/////////////////////////////////////////////////////////////////////////
+// Parameter Declarations
+
+/////////////////////////////////////////////////////////////////////////
+// Port Declarations
+input [15:0]   d_in;
+/////////////////////////////////////////////////////////////////////////
+// Output Declarations
+output [3:0] d_out;
+
+/////////////////////////////////////////////////////////////////////////
+// Local Logic and Instantiation
+wire [3:0] out16to4;
+wire [1:0] out4to2;
+
+encoder_16to4 ins1 (
+	.d_out(out16to4),
+	.d_in(d_in)
+	);
+
+encoder_4to2 ins2 (
+	.d_out(out4to2),
+	.d_in(out16to4)
+	);
+encoder_2to1 ins3 (
+	.d_out(d_out),
+	.d_in(out4to2)
+	);
+
+endmodule
+
+
+
+
+
+
+
+
+module encoder_16to4
+	(
+		d_out, 
+		d_in
+	);
+
+/////////////////////////////////////////////////////////////////////////
+// Parameter Declarations
+
+/////////////////////////////////////////////////////////////////////////
+// Port Declarations
+input [15:0]   d_in;
+/////////////////////////////////////////////////////////////////////////
+// Output Declarations
+output reg [3:0] d_out;
+
+/////////////////////////////////////////////////////////////////////////
+// Local Logic and Instantiation
+always @ (*)begin
+	case (d_in)
+		16'h0002 : d_out = 1;
+		16'h0004 : d_out = 2;
+		16'h0008 : d_out = 3;
+		16'h0010 : d_out = 4;
+		16'h0020 : d_out = 5;
+		16'h0040 : d_out = 6;
+		16'h0080 : d_out = 7;
+		16'h0100 : d_out = 8;
+		16'h0200 : d_out = 9;
+		16'h0400 : d_out = 10;
+		16'h0800 : d_out = 11;
+		16'h1000 : d_out = 12;
+		16'h2000 : d_out = 13;
+		16'h4000 : d_out = 14;
+		16'h8000 : d_out = 15;
+		default: d_out = 0;
+	endcase
+end
+
+endmodule
+
+
+
+
+
+
+module encoder_4to2
+	(
+		d_out, 
+		d_in
+	);
+
+/////////////////////////////////////////////////////////////////////////
+// Parameter Declarations
+
+/////////////////////////////////////////////////////////////////////////
+// Port Declarations
+input [3:0]   d_in;
+/////////////////////////////////////////////////////////////////////////
+// Output Declarations
+output [1:0] d_out;
+
+/////////////////////////////////////////////////////////////////////////
+// Local Logic and Instantiation
+assign d_out[1] = d_in[3] | d_in[2];
+assign d_out[0] = d_in[3] | ((~d_in[2])&d_in[1]);
+endmodule
+
+
+
+
+
+
+
+
+
+module encoder_2to1
+	(
+		d_out, 
+		d_in
+	);
+
+/////////////////////////////////////////////////////////////////////////
+// Parameter Declarations
+
+/////////////////////////////////////////////////////////////////////////
+// Port Declarations
+input [1:0]   d_in;
+/////////////////////////////////////////////////////////////////////////
+// Output Declarations
+output d_out;
+
+/////////////////////////////////////////////////////////////////////////
+// Local Logic and Instantiation
+assign d_out = d_in[1] & (!d_in[0]);
+
+endmodule

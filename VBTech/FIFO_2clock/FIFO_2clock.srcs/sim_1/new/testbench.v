@@ -27,9 +27,9 @@ module testbench;
 	parameter ENDTIME       = 500;
 	parameter DATA_WIDTH    = 8  ;
 	parameter DATA_DEPTH    = 8  ;
-	parameter POINTER_WIDTH = 4  ;
-	parameter N             = 10 ;
-	parameter T             = 3  ;
+	parameter POINTER_WIDTH = 3  ;
+	parameter N             = 13 ;
+	parameter T             = 7  ;
 	// 5. DUT Input regs
 	reg                  wr_clk  ;
 	reg                  rd_clk  ;
@@ -104,11 +104,11 @@ module testbench;
 				wr_reset = 1'b1;
 			# 4
 				wr_reset = 1'b0;
-			#(`DELAY*50)
+			#(`DELAY*98)
 				wr_reset = 1'b1;
 			# 4
 				wr_reset = 1'b0;
-			#(`DELAY*40)
+			#(`DELAY*60)
 				wr_reset = 1'b1;
 			# 4
 				wr_reset = 1'b0;
@@ -123,11 +123,11 @@ module testbench;
 				rd_reset = 1'b1;
 			# 4
 				rd_reset = 1'b0;
-			#(`DELAY*50)
+			#(`DELAY*98)
 				rd_reset = 1'b1;
 			# 4
 				rd_reset = 1'b0;
-			#(`DELAY*40)
+			#(`DELAY*60)
 				rd_reset = 1'b1;
 			# 4
 				rd_reset = 1'b0;
@@ -137,7 +137,21 @@ module testbench;
 	task operation_process;
 		begin
 			//TEST CASE 1:
+			#(`DELAY*4)
 			for (i = 0; i < N; i = i + 1) begin
+				#(`DELAY*($urandom_range(1,5)))
+					write = 1'b1;
+				read = 1'b0;
+				data_in = $random;
+			end
+			#(`DELAY)
+				for (i = 0; i < T; i = i + 1) begin
+					#(`DELAY*($urandom_range(1,5)))
+						read = 1'b1;
+					write = 1'b0;
+				end
+			#(`DELAY)
+			for (i = 0; i < T; i = i + 1) begin
 				#(`DELAY*($urandom_range(1,5)))
 					write = 1'b1;
 				read = 1'b0;

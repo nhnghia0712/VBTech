@@ -6,9 +6,9 @@ Starting static elaboration
 Pass Through NonSizing Optimizer
 Completed static elaboration
 Starting simulation data flow analysis
-WARNING: [XSIM 43-4099] "D:/GitHub/VBTech/VBTech/FIFO/FIFO.srcs/sources_1/new/fifo.v" Line 1. Module fifo doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/GitHub/VBTech/VBTech/FIFO/FIFO.srcs/sources_1/new/status_signal.v" Line 1. Module status_signal doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/GitHub/VBTech/VBTech/FIFO/FIFO.srcs/sources_1/new/ram.v" Line 1. Module ram doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/GitHub/VBTech/VBTech/FIFO/FIFO.srcs/sources_1/new/fifo.v" Line 20. Module fifo doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/GitHub/VBTech/VBTech/FIFO/FIFO.srcs/sources_1/new/status_signal.v" Line 20. Module status_signal doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/GitHub/VBTech/VBTech/FIFO/FIFO.srcs/sources_1/new/ram.v" Line 20. Module ram doesn't have a timescale but at least one module in design has a timescale.
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
 Compiling module xil_defaultlib.status_signal

@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Thu May 12 15:37:02 2022
+| Date         : Sat May 21 12:32:23 2022
 | Host         : NGHIA running 64-bit major release  (build 9200)
 | Command      : report_utilization -file fifo_utilization_synth.rpt -pb fifo_utilization_synth.pb
 | Design       : fifo
@@ -31,11 +31,11 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| CLB LUTs*               |   26 |     0 |    216960 |  0.01 |
-|   LUT as Logic          |   26 |     0 |    216960 |  0.01 |
+| CLB LUTs*               |   13 |     0 |    216960 | <0.01 |
+|   LUT as Logic          |   13 |     0 |    216960 | <0.01 |
 |   LUT as Memory         |    0 |     0 |     99840 |  0.00 |
-| CLB Registers           |   16 |     0 |    433920 | <0.01 |
-|   Register as Flip Flop |   16 |     0 |    433920 | <0.01 |
+| CLB Registers           |   10 |     0 |    433920 | <0.01 |
+|   Register as Flip Flop |   10 |     0 |    433920 | <0.01 |
 |   Register as Latch     |    0 |     0 |    433920 |  0.00 |
 | CARRY8                  |    0 |     0 |     27120 |  0.00 |
 | F7 Muxes                |    0 |     0 |    108480 |  0.00 |
@@ -60,7 +60,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 16    |          Yes |       Reset |            - |
+| 10    |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -154,15 +154,13 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |   16 |            Register |
-| LUT6     |   14 |                 CLB |
 | INBUF    |   12 |                 I/O |
 | IBUFCTRL |   12 |              Others |
 | OBUF     |   10 |                 I/O |
-| LUT5     |    6 |                 CLB |
-| LUT4     |    4 |                 CLB |
-| LUT3     |    4 |                 CLB |
-| LUT2     |    4 |                 CLB |
+| LUT5     |   10 |                 CLB |
+| FDRE     |   10 |            Register |
+| LUT6     |    5 |                 CLB |
+| LUT2     |    3 |                 CLB |
 | RAMB18E2 |    1 |           Block Ram |
 | BUFGCE   |    1 |               Clock |
 +----------+------+---------------------+

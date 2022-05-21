@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Tue May 17 16:03:41 2022
+| Date         : Fri May 20 16:01:51 2022
 | Host         : NGHIA running 64-bit major release  (build 9200)
 | Command      : report_methodology -file fifo_methodology_drc_routed.rpt -pb fifo_methodology_drc_routed.pb -rpx fifo_methodology_drc_routed.rpx
 | Design       : fifo
@@ -23,13 +23,19 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 0
+             Violations found: 1
              Violations waived: 23
-+------+----------+-------------+------------+
-| Rule | Severity | Description | Violations |
-+------+----------+-------------+------------+
-+------+----------+-------------+------------+
++-----------+----------+----------------------------------+------------+
+| Rule      | Severity | Description                      | Violations |
++-----------+----------+----------------------------------+------------+
+| TIMING-10 | Warning  | Missing property on synchronizer | 1          |
++-----------+----------+----------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
+TIMING-10#1 Warning
+Missing property on synchronizer  
+One or more logic synchronizer has been detected between 2 clock domains but the synchronizer does not have the property ASYNC_REG defined on one or both registers. It is recommended to run report_cdc for a complete and detailed CDC coverage
+Related violations: <none>
+
 

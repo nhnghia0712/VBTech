@@ -1,0 +1,9 @@
+0.6
+2019.2
+Nov  6 2019
+21:57:16
+D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.sim/sim_1/behav/xsim/glbl.v,1573089660,verilog,,,,glbl,,,,,,,,
+D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sim_1/new/testbench.v,1653130643,verilog,,,,testbench,,,,,,,,
+D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v,1653131478,verilog,,D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/decoder_4to16.v,,ctrl_stt_reg,,,,,,,,
+D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/decoder_4to16.v,1653122398,verilog,,D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_16to4.v,,decoder_4to16,,,,,,,,
+D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_16to4.v,1653130280,verilog,,D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sim_1/new/testbench.v,,encoder_16to1;encoder_16to4;encoder_2to1;encoder_4to2,,,,,,,,

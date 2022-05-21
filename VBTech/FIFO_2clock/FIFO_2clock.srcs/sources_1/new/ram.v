@@ -21,7 +21,7 @@
 module ram #(
     parameter DATA_WIDTH    = 8,
     parameter DATA_DEPTH    = 8,
-    parameter POINTER_WIDTH = 4
+    parameter POINTER_WIDTH = 3
 ) (
     input                          wr_clk, rd_clk,
     input                          write, read, full, empty,

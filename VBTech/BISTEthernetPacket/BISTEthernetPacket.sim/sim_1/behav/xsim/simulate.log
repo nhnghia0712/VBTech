@@ -1,0 +1,27 @@
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+----------------------------------------------
+------------------   -----------------------
+----------- SIMULATION RESULT ----------------
+--------------       -------------------
+----------------     ---------------------
+----------------------------------------------
+TIME =                    0, Read = 0, Write = 0, In = 0000
+TIME =                   13, Read = 0, Write = 1, In = 3524
+TIME =                   19, Read = 0, Write = 1, In = 5663
+TIME =                   26, Read = 0, Write = 1, In = 8465
+TIME =                   33, Read = 0, Write = 1, In = cd0d
+TIME =                   34, Read = 0, Write = 1, In = 57ed
+TIME =                   38, Read = 0, Write = 1, In = 24c6
+TIME =                   43, Read = 0, Write = 1, In = f7e5
+TIME =                   50, Read = 0, Write = 1, In = db8f
+TIME =                   51, Read = 0, Write = 1, In = 7ae8
+TIME =                   58, Read = 0, Write = 1, In = 28bd
+TIME =                   64, Read = 0, Write = 1, In = 6263
+TIME =                   71, Read = 0, Write = 1, In = 2120
+TIME =                   75, Read = 0, Write = 1, In = 3e96
+TIME =                   82, Read = 0, Write = 1, In = d653
+TIME =                   86, Read = 0, Write = 1, In = 4a02
+TIME =                   92, Read = 1, Write = 0, In = 4a02
+-------------- THE SIMUALTION FINISHED ------------
+$finish called at time : 5 ns : File "D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sim_1/new/testbench.v" Line 145

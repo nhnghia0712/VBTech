@@ -18,46 +18,58 @@
 //
 /////////////////////////////////////////////////////////////////////////
 module status_signal #(
-    parameter DATA_DEPTH    = 13,
+    parameter DATA_DEPTH = 13,
     parameter POINTER_WIDTH = 4
 ) (
     input                          reset, clk, write, read,
-    output reg [POINTER_WIDTH-1:0] wr_ptr, rd_ptr,
+    output [POINTER_WIDTH-1:0] wr_ptr, rd_ptr,
     output                         full, empty
 );
 
-    assign full  = (wr_ptr == DATA_DEPTH) && (rd_ptr == 0) && (!reset);
-    assign empty = (rd_ptr == wr_ptr) || (reset);
+    reg [POINTER_WIDTH:0] wr_tmp, rd_tmp;
+
+    assign wr_ptr = wr_tmp[POINTER_WIDTH-1:0];
+    assign rd_ptr = rd_tmp[POINTER_WIDTH-1:0];
+    
+
+    assign full  = (wr_tmp[POINTER_WIDTH] != rd_tmp[POINTER_WIDTH]) && (wr_tmp[POINTER_WIDTH-1:0] == rd_tmp[POINTER_WIDTH-1:0]);
+    assign empty = (wr_tmp == rd_tmp);
 
     always @(posedge clk ) begin
         if(reset)begin
-            wr_ptr <= 0;
-            rd_ptr <= 0;
+            wr_tmp <= 0;
+            rd_tmp <= 0;
         end
         else begin
-            case({write,read})
+            case({write&&!full,read&&!empty})
                 2'b00 :
                     begin
-                        wr_ptr <= wr_ptr;
-                        rd_ptr <= rd_ptr;
+                        wr_tmp <= wr_tmp;
+                        rd_tmp <= rd_tmp;
                     end
                 2'b01 :
                     begin
-                        rd_ptr <= (rd_ptr == DATA_DEPTH) ? DATA_DEPTH : rd_ptr + 1;
+                       if(rd_tmp == DATA_DEPTH-1)begin
+                            rd_tmp <= 5'b10000;
+                        end
+                        else rd_tmp <= rd_tmp + 1;
                     end
                 2'b10 :
                     begin
-                        wr_ptr <= (wr_ptr == DATA_DEPTH) ? DATA_DEPTH : wr_ptr + 1;
+                        if(wr_tmp == DATA_DEPTH-1)begin
+                            wr_tmp <= 5'b10000;
+                        end
+                        else wr_tmp <= wr_tmp + 1;
                     end
                 2'b11 :
                     begin
-                        wr_ptr <= wr_ptr;
-                        rd_ptr <= rd_ptr;
+                        wr_tmp <= wr_tmp;
+                        rd_tmp <= rd_tmp;
                     end
                 default :
                     begin
-                        wr_ptr <= wr_ptr;
-                        rd_ptr <= rd_ptr;
+                        wr_tmp <= wr_tmp;
+                        rd_tmp <= rd_tmp;
                     end
             endcase
         end

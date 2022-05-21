@@ -21,7 +21,7 @@
 module fifo #(
 	parameter DATA_WIDTH    = 8,
 	parameter DATA_DEPTH    = 8,
-	parameter POINTER_WIDTH = 4
+	parameter POINTER_WIDTH = 3
 ) (
 	input                   wr_reset, rd_reset, wr_clk, rd_clk, write, read,
 	input  [DATA_WIDTH-1:0] data_in ,
@@ -31,7 +31,7 @@ module fifo #(
 
 	wire [POINTER_WIDTH-1:0] wr_ptr, rd_ptr;
 
-	status_signal #(POINTER_WIDTH,DATA_DEPTH) inst1 (
+	status_signal #(DATA_DEPTH,POINTER_WIDTH) inst1 (
 		wr_reset,
 		rd_reset,
 		wr_clk,

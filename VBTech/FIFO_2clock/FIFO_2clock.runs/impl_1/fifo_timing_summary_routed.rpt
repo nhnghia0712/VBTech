@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version      : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date              : Tue May 17 16:03:51 2022
+| Date              : Fri May 20 16:01:57 2022
 | Host              : NGHIA running 64-bit major release  (build 9200)
 | Command           : report_timing_summary -max_paths 10 -file fifo_timing_summary_routed.rpt -pb fifo_timing_summary_routed.pb -rpx fifo_timing_summary_routed.rpx -warn_on_violation
 | Design            : fifo
@@ -129,7 +129,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-     -0.877       -7.957                     17                   17           NA           NA                     NA                   NA        0.886        0.000                       0                    12  
+     -0.885      -14.787                     41                   41           NA           NA                     NA                   NA        0.886        0.000                       0                    28  
 
 
 Timing constraints are not met.
@@ -153,8 +153,8 @@ wr_clk  {0.000 1.429}        2.857           350.017
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-rd_clk             -0.877       -3.657                      8                    8                                                                              1.124        0.000                       0                     6  
-wr_clk             -0.799       -4.146                      9                    9                                                                              0.886        0.000                       0                     6  
+rd_clk             -0.877       -6.327                     16                   16                                                                              1.124        0.000                       0                    14  
+wr_clk             -0.885       -6.814                     17                   17                                                                              0.886        0.000                       0                    14  
 
 
 ------------------------------------------------------------------------------------------------
@@ -164,8 +164,8 @@ wr_clk             -0.799       -4.146                      9                   
 
 From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
 ----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
-wr_clk        rd_clk             -0.838       -0.838                      1                    1                                                                        
-rd_clk        wr_clk             -0.876       -1.745                      2                    2                                                                        
+wr_clk        rd_clk             -0.253       -0.808                      4                    4                                                                        
+rd_clk        wr_clk             -0.244       -0.838                      4                    4                                                                        
 
 
 ------------------------------------------------------------------------------------------------
@@ -187,7 +187,7 @@ Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing 
 From Clock:  rd_clk
   To Clock:  rd_clk
 
-Setup :            8  Failing Endpoints,  Worst Slack       -0.877ns,  Total Violation       -3.657ns
+Setup :           16  Failing Endpoints,  Worst Slack       -0.877ns,  Total Violation       -6.327ns
 Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
 PW    :            0  Failing Endpoints,  Worst Slack        1.124ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
@@ -196,29 +196,29 @@ PW    :            0  Failing Endpoints,  Worst Slack        1.124ns,  Total Vio
 Max Delay Paths
 --------------------------------------------------------------------------------------
 Slack (VIOLATED) :        -0.877ns  (required time - arrival time)
-  Source:                 inst1/rd_ptr_reg[0]/C
+  Source:                 inst1/rd_bin_reg[0]/C
                             (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
   Destination:            inst2/mem_reg_bram_0/ENARDEN
                             (rising edge-triggered cell RAMB18E2 clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
   Path Group:             rd_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            0.100ns  (MaxDelay Path 0.100ns)
-  Data Path Delay:        0.635ns  (logic 0.260ns (40.945%)  route 0.375ns (59.055%))
-  Logic Levels:           2  (LUT5=1 LUT6=1)
+  Data Path Delay:        0.635ns  (logic 0.261ns (41.102%)  route 0.374ns (58.898%))
+  Logic Levels:           2  (LUT6=2)
   Timing Exception:       MaxDelay Path 0.100ns -datapath_only
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X39Y198                                     0.000     0.000 r  inst1/rd_ptr_reg[0]/C
-    SLICE_X39Y198        FDCE (Prop_GFF_SLICEL_C_Q)
-                                                      0.079     0.079 r  inst1/rd_ptr_reg[0]/Q
-                         net (fo=7, routed)           0.106     0.185    inst1/rd_ptr_reg[2]_0[0]
-    SLICE_X39Y197        LUT6 (Prop_D6LUT_SLICEL_I0_O)
-                                                      0.146     0.331 f  inst1/empty_OBUF_inst_i_2/O
-                         net (fo=2, routed)           0.044     0.375    inst1/empty_OBUF_inst_i_2_n_0
-    SLICE_X39Y197        LUT5 (Prop_E6LUT_SLICEL_I4_O)
-                                                      0.035     0.410 r  inst1/mem_reg_bram_0_i_1/O
-                         net (fo=1, routed)           0.225     0.635    inst2/p_2_in
+    SLICE_X39Y199                                     0.000     0.000 r  inst1/rd_bin_reg[0]/C
+    SLICE_X39Y199        FDCE (Prop_BFF_SLICEL_C_Q)
+                                                      0.079     0.079 r  inst1/rd_bin_reg[0]/Q
+                         net (fo=6, routed)           0.107     0.186    inst1/inst3/rd_bin_reg[0][0]
+    SLICE_X39Y198        LUT6 (Prop_C6LUT_SLICEL_I5_O)
+                                                      0.146     0.332 f  inst1/inst3/empty_OBUF_inst_i_2/O
+                         net (fo=2, routed)           0.044     0.376    inst1/inst3/empty_OBUF_inst_i_2_n_0
+    SLICE_X39Y197        LUT6 (Prop_H6LUT_SLICEL_I5_O)
+                                                      0.036     0.412 r  inst1/inst3/mem_reg_bram_0_i_1/O
+                         net (fo=5, routed)           0.223     0.635    inst2/mem_reg_bram_0_1[0]
     RAMB18_X3Y78         RAMB18E2                                     r  inst2/mem_reg_bram_0/ENARDEN
   -------------------------------------------------------------------    -------------------
 
@@ -231,24 +231,168 @@ Slack (VIOLATED) :        -0.877ns  (required time - arrival time)
   -------------------------------------------------------------------
                          slack                                 -0.877    
 
-Slack (VIOLATED) :        -0.607ns  (required time - arrival time)
-  Source:                 inst1/rd_ptr_reg[0]/C
+Slack (VIOLATED) :        -0.589ns  (required time - arrival time)
+  Source:                 inst1/rd_bin_reg[0]/C
+                            (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
+  Destination:            inst1/rd_bin_reg[3]/CE
+                            (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
+  Path Group:             rd_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            0.100ns  (MaxDelay Path 0.100ns)
+  Data Path Delay:        0.630ns  (logic 0.261ns (41.429%)  route 0.369ns (58.571%))
+  Logic Levels:           2  (LUT6=2)
+  Timing Exception:       MaxDelay Path 0.100ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X39Y199                                     0.000     0.000 r  inst1/rd_bin_reg[0]/C
+    SLICE_X39Y199        FDCE (Prop_BFF_SLICEL_C_Q)
+                                                      0.079     0.079 r  inst1/rd_bin_reg[0]/Q
+                         net (fo=6, routed)           0.107     0.186    inst1/inst3/rd_bin_reg[0][0]
+    SLICE_X39Y198        LUT6 (Prop_C6LUT_SLICEL_I5_O)
+                                                      0.146     0.332 f  inst1/inst3/empty_OBUF_inst_i_2/O
+                         net (fo=2, routed)           0.044     0.376    inst1/inst3/empty_OBUF_inst_i_2_n_0
+    SLICE_X39Y197        LUT6 (Prop_H6LUT_SLICEL_I5_O)
+                                                      0.036     0.412 r  inst1/inst3/mem_reg_bram_0_i_1/O
+                         net (fo=5, routed)           0.218     0.630    inst1/rd_bin_reg[3]_0[0]
+    SLICE_X39Y199        FDCE                                         r  inst1/rd_bin_reg[3]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                    0.100     0.100    
+    SLICE_X39Y199        FDCE (Setup_DFF2_SLICEL_C_CE)
+                                                     -0.059     0.041    inst1/rd_bin_reg[3]
+  -------------------------------------------------------------------
+                         required time                          0.041    
+                         arrival time                          -0.630    
+  -------------------------------------------------------------------
+                         slack                                 -0.589    
+
+Slack (VIOLATED) :        -0.589ns  (required time - arrival time)
+  Source:                 inst1/rd_bin_reg[0]/C
+                            (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
+  Destination:            inst1/rd_bin_reg[0]/CE
+                            (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
+  Path Group:             rd_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            0.100ns  (MaxDelay Path 0.100ns)
+  Data Path Delay:        0.629ns  (logic 0.261ns (41.494%)  route 0.368ns (58.506%))
+  Logic Levels:           2  (LUT6=2)
+  Timing Exception:       MaxDelay Path 0.100ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X39Y199                                     0.000     0.000 r  inst1/rd_bin_reg[0]/C
+    SLICE_X39Y199        FDCE (Prop_BFF_SLICEL_C_Q)
+                                                      0.079     0.079 r  inst1/rd_bin_reg[0]/Q
+                         net (fo=6, routed)           0.107     0.186    inst1/inst3/rd_bin_reg[0][0]
+    SLICE_X39Y198        LUT6 (Prop_C6LUT_SLICEL_I5_O)
+                                                      0.146     0.332 f  inst1/inst3/empty_OBUF_inst_i_2/O
+                         net (fo=2, routed)           0.044     0.376    inst1/inst3/empty_OBUF_inst_i_2_n_0
+    SLICE_X39Y197        LUT6 (Prop_H6LUT_SLICEL_I5_O)
+                                                      0.036     0.412 r  inst1/inst3/mem_reg_bram_0_i_1/O
+                         net (fo=5, routed)           0.217     0.629    inst1/rd_bin_reg[3]_0[0]
+    SLICE_X39Y199        FDCE                                         r  inst1/rd_bin_reg[0]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                    0.100     0.100    
+    SLICE_X39Y199        FDCE (Setup_BFF_SLICEL_C_CE)
+                                                     -0.060     0.040    inst1/rd_bin_reg[0]
+  -------------------------------------------------------------------
+                         required time                          0.040    
+                         arrival time                          -0.629    
+  -------------------------------------------------------------------
+                         slack                                 -0.589    
+
+Slack (VIOLATED) :        -0.589ns  (required time - arrival time)
+  Source:                 inst1/rd_bin_reg[0]/C
+                            (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
+  Destination:            inst1/rd_bin_reg[2]/CE
+                            (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
+  Path Group:             rd_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            0.100ns  (MaxDelay Path 0.100ns)
+  Data Path Delay:        0.629ns  (logic 0.261ns (41.494%)  route 0.368ns (58.506%))
+  Logic Levels:           2  (LUT6=2)
+  Timing Exception:       MaxDelay Path 0.100ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X39Y199                                     0.000     0.000 r  inst1/rd_bin_reg[0]/C
+    SLICE_X39Y199        FDCE (Prop_BFF_SLICEL_C_Q)
+                                                      0.079     0.079 r  inst1/rd_bin_reg[0]/Q
+                         net (fo=6, routed)           0.107     0.186    inst1/inst3/rd_bin_reg[0][0]
+    SLICE_X39Y198        LUT6 (Prop_C6LUT_SLICEL_I5_O)
+                                                      0.146     0.332 f  inst1/inst3/empty_OBUF_inst_i_2/O
+                         net (fo=2, routed)           0.044     0.376    inst1/inst3/empty_OBUF_inst_i_2_n_0
+    SLICE_X39Y197        LUT6 (Prop_H6LUT_SLICEL_I5_O)
+                                                      0.036     0.412 r  inst1/inst3/mem_reg_bram_0_i_1/O
+                         net (fo=5, routed)           0.217     0.629    inst1/rd_bin_reg[3]_0[0]
+    SLICE_X39Y199        FDCE                                         r  inst1/rd_bin_reg[2]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                    0.100     0.100    
+    SLICE_X39Y199        FDCE (Setup_DFF_SLICEL_C_CE)
+                                                     -0.060     0.040    inst1/rd_bin_reg[2]
+  -------------------------------------------------------------------
+                         required time                          0.040    
+                         arrival time                          -0.629    
+  -------------------------------------------------------------------
+                         slack                                 -0.589    
+
+Slack (VIOLATED) :        -0.571ns  (required time - arrival time)
+  Source:                 inst1/rd_bin_reg[0]/C
+                            (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
+  Destination:            inst1/rd_bin_reg[1]/CE
+                            (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
+  Path Group:             rd_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            0.100ns  (MaxDelay Path 0.100ns)
+  Data Path Delay:        0.611ns  (logic 0.261ns (42.717%)  route 0.350ns (57.283%))
+  Logic Levels:           2  (LUT6=2)
+  Timing Exception:       MaxDelay Path 0.100ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X39Y199                                     0.000     0.000 r  inst1/rd_bin_reg[0]/C
+    SLICE_X39Y199        FDCE (Prop_BFF_SLICEL_C_Q)
+                                                      0.079     0.079 r  inst1/rd_bin_reg[0]/Q
+                         net (fo=6, routed)           0.107     0.186    inst1/inst3/rd_bin_reg[0][0]
+    SLICE_X39Y198        LUT6 (Prop_C6LUT_SLICEL_I5_O)
+                                                      0.146     0.332 f  inst1/inst3/empty_OBUF_inst_i_2/O
+                         net (fo=2, routed)           0.044     0.376    inst1/inst3/empty_OBUF_inst_i_2_n_0
+    SLICE_X39Y197        LUT6 (Prop_H6LUT_SLICEL_I5_O)
+                                                      0.036     0.412 r  inst1/inst3/mem_reg_bram_0_i_1/O
+                         net (fo=5, routed)           0.199     0.611    inst1/rd_bin_reg[3]_0[0]
+    SLICE_X39Y199        FDCE                                         r  inst1/rd_bin_reg[1]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                    0.100     0.100    
+    SLICE_X39Y199        FDCE (Setup_GFF_SLICEL_C_CE)
+                                                     -0.060     0.040    inst1/rd_bin_reg[1]
+  -------------------------------------------------------------------
+                         required time                          0.040    
+                         arrival time                          -0.611    
+  -------------------------------------------------------------------
+                         slack                                 -0.571    
+
+Slack (VIOLATED) :        -0.552ns  (required time - arrival time)
+  Source:                 inst1/rd_bin_reg[0]/C
                             (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
   Destination:            inst2/mem_reg_bram_0/ADDRARDADDR[4]
                             (rising edge-triggered cell RAMB18E2 clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
   Path Group:             rd_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            0.100ns  (MaxDelay Path 0.100ns)
-  Data Path Delay:        0.373ns  (logic 0.079ns (21.180%)  route 0.294ns (78.820%))
+  Data Path Delay:        0.318ns  (logic 0.079ns (24.843%)  route 0.239ns (75.157%))
   Logic Levels:           0  
   Timing Exception:       MaxDelay Path 0.100ns -datapath_only
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X39Y198                                     0.000     0.000 r  inst1/rd_ptr_reg[0]/C
-    SLICE_X39Y198        FDCE (Prop_GFF_SLICEL_C_Q)
-                                                      0.079     0.079 r  inst1/rd_ptr_reg[0]/Q
-                         net (fo=7, routed)           0.294     0.373    inst2/mem_reg_bram_0_1[0]
+    SLICE_X39Y199                                     0.000     0.000 r  inst1/rd_bin_reg[0]/C
+    SLICE_X39Y199        FDCE (Prop_BFF_SLICEL_C_Q)
+                                                      0.079     0.079 r  inst1/rd_bin_reg[0]/Q
+                         net (fo=6, routed)           0.239     0.318    inst2/mem_reg_bram_0_2[0]
     RAMB18_X3Y78         RAMB18E2                                     r  inst2/mem_reg_bram_0/ADDRARDADDR[4]
   -------------------------------------------------------------------    -------------------
 
@@ -257,28 +401,28 @@ Slack (VIOLATED) :        -0.607ns  (required time - arrival time)
                                                      -0.334    -0.234    inst2/mem_reg_bram_0
   -------------------------------------------------------------------
                          required time                         -0.234    
-                         arrival time                          -0.373    
+                         arrival time                          -0.318    
   -------------------------------------------------------------------
-                         slack                                 -0.607    
+                         slack                                 -0.552    
 
-Slack (VIOLATED) :        -0.436ns  (required time - arrival time)
-  Source:                 inst1/rd_ptr_reg[1]/C
+Slack (VIOLATED) :        -0.523ns  (required time - arrival time)
+  Source:                 inst1/rd_bin_reg[1]/C
                             (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
   Destination:            inst2/mem_reg_bram_0/ADDRARDADDR[5]
                             (rising edge-triggered cell RAMB18E2 clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
   Path Group:             rd_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            0.100ns  (MaxDelay Path 0.100ns)
-  Data Path Delay:        0.251ns  (logic 0.079ns (31.474%)  route 0.172ns (68.526%))
+  Data Path Delay:        0.338ns  (logic 0.079ns (23.373%)  route 0.259ns (76.627%))
   Logic Levels:           0  
   Timing Exception:       MaxDelay Path 0.100ns -datapath_only
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X40Y197                                     0.000     0.000 r  inst1/rd_ptr_reg[1]/C
-    SLICE_X40Y197        FDCE (Prop_AFF_SLICEL_C_Q)
-                                                      0.079     0.079 r  inst1/rd_ptr_reg[1]/Q
-                         net (fo=7, routed)           0.172     0.251    inst2/mem_reg_bram_0_1[1]
+    SLICE_X39Y199                                     0.000     0.000 r  inst1/rd_bin_reg[1]/C
+    SLICE_X39Y199        FDCE (Prop_GFF_SLICEL_C_Q)
+                                                      0.079     0.079 r  inst1/rd_bin_reg[1]/Q
+                         net (fo=6, routed)           0.259     0.338    inst2/mem_reg_bram_0_2[1]
     RAMB18_X3Y78         RAMB18E2                                     r  inst2/mem_reg_bram_0/ADDRARDADDR[5]
   -------------------------------------------------------------------    -------------------
 
@@ -287,28 +431,28 @@ Slack (VIOLATED) :        -0.436ns  (required time - arrival time)
                                                      -0.285    -0.185    inst2/mem_reg_bram_0
   -------------------------------------------------------------------
                          required time                         -0.185    
-                         arrival time                          -0.251    
+                         arrival time                          -0.338    
   -------------------------------------------------------------------
-                         slack                                 -0.436    
+                         slack                                 -0.523    
 
-Slack (VIOLATED) :        -0.390ns  (required time - arrival time)
-  Source:                 inst1/rd_ptr_reg[2]/C
+Slack (VIOLATED) :        -0.481ns  (required time - arrival time)
+  Source:                 inst1/rd_bin_reg[2]/C
                             (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
   Destination:            inst2/mem_reg_bram_0/ADDRARDADDR[6]
                             (rising edge-triggered cell RAMB18E2 clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
   Path Group:             rd_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            0.100ns  (MaxDelay Path 0.100ns)
-  Data Path Delay:        0.230ns  (logic 0.081ns (35.217%)  route 0.149ns (64.783%))
+  Data Path Delay:        0.321ns  (logic 0.079ns (24.611%)  route 0.242ns (75.389%))
   Logic Levels:           0  
   Timing Exception:       MaxDelay Path 0.100ns -datapath_only
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X40Y197                                     0.000     0.000 r  inst1/rd_ptr_reg[2]/C
-    SLICE_X40Y197        FDCE (Prop_AFF2_SLICEL_C_Q)
-                                                      0.081     0.081 r  inst1/rd_ptr_reg[2]/Q
-                         net (fo=6, routed)           0.149     0.230    inst2/mem_reg_bram_0_1[2]
+    SLICE_X39Y199                                     0.000     0.000 r  inst1/rd_bin_reg[2]/C
+    SLICE_X39Y199        FDCE (Prop_DFF_SLICEL_C_Q)
+                                                      0.079     0.079 r  inst1/rd_bin_reg[2]/Q
+                         net (fo=7, routed)           0.242     0.321    inst2/mem_reg_bram_0_2[2]
     RAMB18_X3Y78         RAMB18E2                                     r  inst2/mem_reg_bram_0/ADDRARDADDR[6]
   -------------------------------------------------------------------    -------------------
 
@@ -317,141 +461,75 @@ Slack (VIOLATED) :        -0.390ns  (required time - arrival time)
                                                      -0.260    -0.160    inst2/mem_reg_bram_0
   -------------------------------------------------------------------
                          required time                         -0.160    
-                         arrival time                          -0.230    
+                         arrival time                          -0.321    
   -------------------------------------------------------------------
-                         slack                                 -0.390    
+                         slack                                 -0.481    
 
-Slack (VIOLATED) :        -0.369ns  (required time - arrival time)
-  Source:                 inst1/rd_ptr_reg[0]/C
+Slack (VIOLATED) :        -0.314ns  (required time - arrival time)
+  Source:                 inst1/rd_bin_reg[1]/C
                             (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
-  Destination:            inst1/rd_ptr_reg[1]/D
+  Destination:            inst1/rd_bin_reg[1]/D
                             (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
   Path Group:             rd_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            0.100ns  (MaxDelay Path 0.100ns)
-  Data Path Delay:        0.494ns  (logic 0.228ns (46.154%)  route 0.266ns (53.846%))
+  Data Path Delay:        0.439ns  (logic 0.176ns (40.091%)  route 0.263ns (59.909%))
   Logic Levels:           1  (LUT2=1)
   Timing Exception:       MaxDelay Path 0.100ns -datapath_only
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X39Y198                                     0.000     0.000 r  inst1/rd_ptr_reg[0]/C
-    SLICE_X39Y198        FDCE (Prop_GFF_SLICEL_C_Q)
-                                                      0.079     0.079 r  inst1/rd_ptr_reg[0]/Q
-                         net (fo=7, routed)           0.218     0.297    inst1/rd_ptr_reg[2]_0[0]
-    SLICE_X40Y197        LUT2 (Prop_A6LUT_SLICEL_I0_O)
-                                                      0.149     0.446 r  inst1/rd_ptr[1]_i_1/O
-                         net (fo=1, routed)           0.048     0.494    inst1/rd_ptr[1]_i_1_n_0
-    SLICE_X40Y197        FDCE                                         r  inst1/rd_ptr_reg[1]/D
+    SLICE_X39Y199                                     0.000     0.000 r  inst1/rd_bin_reg[1]/C
+    SLICE_X39Y199        FDCE (Prop_GFF_SLICEL_C_Q)
+                                                      0.079     0.079 r  inst1/rd_bin_reg[1]/Q
+                         net (fo=6, routed)           0.103     0.182    inst1/inst4/temp_reg[3]_0[1]
+    SLICE_X39Y198        LUT2 (Prop_F6LUT_SLICEL_I1_O)
+                                                      0.097     0.279 r  inst1/inst4/temp[0]_i_1__0/O
+                         net (fo=2, routed)           0.160     0.439    inst1/rd_gray[0]
+    SLICE_X39Y199        FDCE                                         r  inst1/rd_bin_reg[1]/D
   -------------------------------------------------------------------    -------------------
 
                          max delay                    0.100     0.100    
-    SLICE_X40Y197        FDCE (Setup_AFF_SLICEL_C_D)
-                                                      0.025     0.125    inst1/rd_ptr_reg[1]
+    SLICE_X39Y199        FDCE (Setup_GFF_SLICEL_C_D)
+                                                      0.025     0.125    inst1/rd_bin_reg[1]
   -------------------------------------------------------------------
                          required time                          0.125    
-                         arrival time                          -0.494    
+                         arrival time                          -0.439    
   -------------------------------------------------------------------
-                         slack                                 -0.369    
+                         slack                                 -0.314    
 
-Slack (VIOLATED) :        -0.350ns  (required time - arrival time)
-  Source:                 inst1/rd_ptr_reg[0]/C
+Slack (VIOLATED) :        -0.276ns  (required time - arrival time)
+  Source:                 inst1/rd_bin_reg[0]/C
                             (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
-  Destination:            inst1/rd_ptr_reg[2]/D
+  Destination:            inst1/rd_bin_reg[2]/D
                             (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
   Path Group:             rd_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            0.100ns  (MaxDelay Path 0.100ns)
-  Data Path Delay:        0.475ns  (logic 0.240ns (50.526%)  route 0.235ns (49.474%))
+  Data Path Delay:        0.401ns  (logic 0.225ns (56.110%)  route 0.176ns (43.890%))
   Logic Levels:           1  (LUT3=1)
   Timing Exception:       MaxDelay Path 0.100ns -datapath_only
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X39Y198                                     0.000     0.000 r  inst1/rd_ptr_reg[0]/C
-    SLICE_X39Y198        FDCE (Prop_GFF_SLICEL_C_Q)
-                                                      0.079     0.079 r  inst1/rd_ptr_reg[0]/Q
-                         net (fo=7, routed)           0.218     0.297    inst1/rd_ptr_reg[2]_0[0]
-    SLICE_X40Y197        LUT3 (Prop_A5LUT_SLICEL_I0_O)
-                                                      0.161     0.458 r  inst1/rd_ptr[2]_i_1/O
-                         net (fo=1, routed)           0.017     0.475    inst1/rd_ptr[2]_i_1_n_0
-    SLICE_X40Y197        FDCE                                         r  inst1/rd_ptr_reg[2]/D
+    SLICE_X39Y199                                     0.000     0.000 r  inst1/rd_bin_reg[0]/C
+    SLICE_X39Y199        FDCE (Prop_BFF_SLICEL_C_Q)
+                                                      0.079     0.079 r  inst1/rd_bin_reg[0]/Q
+                         net (fo=6, routed)           0.127     0.206    inst1/rd_bin_reg[2]_0[0]
+    SLICE_X39Y199        LUT3 (Prop_D6LUT_SLICEL_I2_O)
+                                                      0.146     0.352 r  inst1/rd_bin[2]_i_1/O
+                         net (fo=1, routed)           0.049     0.401    inst1/p_0_in__0[2]
+    SLICE_X39Y199        FDCE                                         r  inst1/rd_bin_reg[2]/D
   -------------------------------------------------------------------    -------------------
 
                          max delay                    0.100     0.100    
-    SLICE_X40Y197        FDCE (Setup_AFF2_SLICEL_C_D)
-                                                      0.025     0.125    inst1/rd_ptr_reg[2]
+    SLICE_X39Y199        FDCE (Setup_DFF_SLICEL_C_D)
+                                                      0.025     0.125    inst1/rd_bin_reg[2]
   -------------------------------------------------------------------
                          required time                          0.125    
-                         arrival time                          -0.475    
+                         arrival time                          -0.401    
   -------------------------------------------------------------------
-                         slack                                 -0.350    
-
-Slack (VIOLATED) :        -0.325ns  (required time - arrival time)
-  Source:                 inst1/rd_ptr_reg[3]/C
-                            (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
-  Destination:            inst1/rd_ptr_reg[0]/D
-                            (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
-  Path Group:             rd_clk
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            0.100ns  (MaxDelay Path 0.100ns)
-  Data Path Delay:        0.450ns  (logic 0.170ns (37.778%)  route 0.280ns (62.222%))
-  Logic Levels:           1  (LUT4=1)
-  Timing Exception:       MaxDelay Path 0.100ns -datapath_only
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X39Y198                                     0.000     0.000 r  inst1/rd_ptr_reg[3]/C
-    SLICE_X39Y198        FDCE (Prop_GFF2_SLICEL_C_Q)
-                                                      0.081     0.081 f  inst1/rd_ptr_reg[3]/Q
-                         net (fo=5, routed)           0.232     0.313    inst1/rd_ptr[3]
-    SLICE_X39Y198        LUT4 (Prop_G6LUT_SLICEL_I1_O)
-                                                      0.089     0.402 r  inst1/rd_ptr[0]_i_1/O
-                         net (fo=1, routed)           0.048     0.450    inst1/rd_ptr[0]_i_1_n_0
-    SLICE_X39Y198        FDCE                                         r  inst1/rd_ptr_reg[0]/D
-  -------------------------------------------------------------------    -------------------
-
-                         max delay                    0.100     0.100    
-    SLICE_X39Y198        FDCE (Setup_GFF_SLICEL_C_D)
-                                                      0.025     0.125    inst1/rd_ptr_reg[0]
-  -------------------------------------------------------------------
-                         required time                          0.125    
-                         arrival time                          -0.450    
-  -------------------------------------------------------------------
-                         slack                                 -0.325    
-
-Slack (VIOLATED) :        -0.303ns  (required time - arrival time)
-  Source:                 inst1/rd_ptr_reg[3]/C
-                            (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
-  Destination:            inst1/rd_ptr_reg[3]/D
-                            (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
-  Path Group:             rd_clk
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            0.100ns  (MaxDelay Path 0.100ns)
-  Data Path Delay:        0.428ns  (logic 0.180ns (42.056%)  route 0.248ns (57.944%))
-  Logic Levels:           1  (LUT4=1)
-  Timing Exception:       MaxDelay Path 0.100ns -datapath_only
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X39Y198                                     0.000     0.000 r  inst1/rd_ptr_reg[3]/C
-    SLICE_X39Y198        FDCE (Prop_GFF2_SLICEL_C_Q)
-                                                      0.081     0.081 r  inst1/rd_ptr_reg[3]/Q
-                         net (fo=5, routed)           0.232     0.313    inst1/rd_ptr[3]
-    SLICE_X39Y198        LUT4 (Prop_G5LUT_SLICEL_I2_O)
-                                                      0.099     0.412 r  inst1/rd_ptr[3]_i_1/O
-                         net (fo=1, routed)           0.016     0.428    inst1/rd_ptr[3]_i_1_n_0
-    SLICE_X39Y198        FDCE                                         r  inst1/rd_ptr_reg[3]/D
-  -------------------------------------------------------------------    -------------------
-
-                         max delay                    0.100     0.100    
-    SLICE_X39Y198        FDCE (Setup_GFF2_SLICEL_C_D)
-                                                      0.025     0.125    inst1/rd_ptr_reg[3]
-  -------------------------------------------------------------------
-                         required time                          0.125    
-                         arrival time                          -0.428    
-  -------------------------------------------------------------------
-                         slack                                 -0.303    
+                         slack                                 -0.276    
 
 
 
@@ -467,30 +545,34 @@ Sources:            { rd_clk }
 Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location          Pin
 Min Period        n/a     RAMB18E2/CLKARDCLK  n/a            1.569         3.333       1.764      RAMB18_X3Y78      inst2/mem_reg_bram_0/CLKARDCLK
 Min Period        n/a     BUFGCE/I            n/a            1.290         3.333       2.043      BUFGCE_HDIO_X0Y6  rd_clk_IBUF_BUFG_inst/I
-Min Period        n/a     FDCE/C              n/a            0.550         3.333       2.783      SLICE_X39Y198     inst1/rd_ptr_reg[0]/C
-Min Period        n/a     FDCE/C              n/a            0.550         3.333       2.783      SLICE_X40Y197     inst1/rd_ptr_reg[1]/C
-Min Period        n/a     FDCE/C              n/a            0.550         3.333       2.783      SLICE_X40Y197     inst1/rd_ptr_reg[2]/C
-Min Period        n/a     FDCE/C              n/a            0.550         3.333       2.783      SLICE_X39Y198     inst1/rd_ptr_reg[3]/C
-Low Pulse Width   Fast    RAMB18E2/CLKARDCLK  n/a            0.542         1.666       1.124      RAMB18_X3Y78      inst2/mem_reg_bram_0/CLKARDCLK
+Min Period        n/a     FDCE/C              n/a            0.550         3.333       2.783      SLICE_X40Y198     inst1/inst3/data_out_reg[0]/C
+Min Period        n/a     FDCE/C              n/a            0.550         3.333       2.783      SLICE_X39Y197     inst1/inst3/data_out_reg[1]/C
+Min Period        n/a     FDCE/C              n/a            0.550         3.333       2.783      SLICE_X39Y197     inst1/inst3/data_out_reg[2]/C
+Min Period        n/a     FDCE/C              n/a            0.550         3.333       2.783      SLICE_X39Y197     inst1/inst3/data_out_reg[3]/C
+Min Period        n/a     FDCE/C              n/a            0.550         3.333       2.783      SLICE_X39Y195     inst1/inst3/temp_reg[0]/C
+Min Period        n/a     FDCE/C              n/a            0.550         3.333       2.783      SLICE_X39Y195     inst1/inst3/temp_reg[1]/C
+Min Period        n/a     FDCE/C              n/a            0.550         3.333       2.783      SLICE_X39Y197     inst1/inst3/temp_reg[2]/C
+Min Period        n/a     FDCE/C              n/a            0.550         3.333       2.783      SLICE_X39Y195     inst1/inst3/temp_reg[3]/C
 Low Pulse Width   Slow    RAMB18E2/CLKARDCLK  n/a            0.542         1.666       1.124      RAMB18_X3Y78      inst2/mem_reg_bram_0/CLKARDCLK
-Low Pulse Width   Slow    FDCE/C              n/a            0.275         1.666       1.391      SLICE_X39Y198     inst1/rd_ptr_reg[0]/C
-Low Pulse Width   Fast    FDCE/C              n/a            0.275         1.666       1.391      SLICE_X39Y198     inst1/rd_ptr_reg[0]/C
-Low Pulse Width   Slow    FDCE/C              n/a            0.275         1.666       1.391      SLICE_X39Y198     inst1/rd_ptr_reg[3]/C
-Low Pulse Width   Fast    FDCE/C              n/a            0.275         1.666       1.391      SLICE_X39Y198     inst1/rd_ptr_reg[3]/C
-Low Pulse Width   Slow    FDCE/C              n/a            0.275         1.666       1.391      SLICE_X40Y197     inst1/rd_ptr_reg[1]/C
-Low Pulse Width   Slow    FDCE/C              n/a            0.275         1.666       1.391      SLICE_X40Y197     inst1/rd_ptr_reg[2]/C
-Low Pulse Width   Fast    FDCE/C              n/a            0.275         1.666       1.391      SLICE_X40Y197     inst1/rd_ptr_reg[1]/C
-Low Pulse Width   Fast    FDCE/C              n/a            0.275         1.666       1.391      SLICE_X40Y197     inst1/rd_ptr_reg[2]/C
-High Pulse Width  Slow    RAMB18E2/CLKARDCLK  n/a            0.542         1.667       1.125      RAMB18_X3Y78      inst2/mem_reg_bram_0/CLKARDCLK
+Low Pulse Width   Fast    RAMB18E2/CLKARDCLK  n/a            0.542         1.666       1.124      RAMB18_X3Y78      inst2/mem_reg_bram_0/CLKARDCLK
+Low Pulse Width   Slow    FDCE/C              n/a            0.275         1.666       1.391      SLICE_X39Y195     inst1/inst3/temp_reg[1]/C
+Low Pulse Width   Slow    FDCE/C              n/a            0.275         1.666       1.391      SLICE_X40Y198     inst1/inst3/data_out_reg[0]/C
+Low Pulse Width   Fast    FDCE/C              n/a            0.275         1.666       1.391      SLICE_X39Y199     inst1/rd_bin_reg[0]/C
+Low Pulse Width   Fast    FDCE/C              n/a            0.275         1.666       1.391      SLICE_X39Y199     inst1/rd_bin_reg[2]/C
+Low Pulse Width   Fast    FDCE/C              n/a            0.275         1.666       1.391      SLICE_X39Y199     inst1/rd_bin_reg[3]/C
+Low Pulse Width   Fast    FDCE/C              n/a            0.275         1.666       1.391      SLICE_X40Y198     inst1/inst3/data_out_reg[0]/C
+Low Pulse Width   Fast    FDCE/C              n/a            0.275         1.666       1.391      SLICE_X39Y197     inst1/inst3/data_out_reg[1]/C
+Low Pulse Width   Fast    FDCE/C              n/a            0.275         1.666       1.391      SLICE_X39Y197     inst1/inst3/data_out_reg[2]/C
 High Pulse Width  Fast    RAMB18E2/CLKARDCLK  n/a            0.542         1.667       1.125      RAMB18_X3Y78      inst2/mem_reg_bram_0/CLKARDCLK
-High Pulse Width  Slow    FDCE/C              n/a            0.275         1.667       1.392      SLICE_X40Y197     inst1/rd_ptr_reg[1]/C
-High Pulse Width  Fast    FDCE/C              n/a            0.275         1.667       1.392      SLICE_X40Y197     inst1/rd_ptr_reg[1]/C
-High Pulse Width  Slow    FDCE/C              n/a            0.275         1.667       1.392      SLICE_X40Y197     inst1/rd_ptr_reg[2]/C
-High Pulse Width  Fast    FDCE/C              n/a            0.275         1.667       1.392      SLICE_X40Y197     inst1/rd_ptr_reg[2]/C
-High Pulse Width  Fast    FDCE/C              n/a            0.275         1.667       1.392      SLICE_X39Y198     inst1/rd_ptr_reg[0]/C
-High Pulse Width  Fast    FDCE/C              n/a            0.275         1.667       1.392      SLICE_X39Y198     inst1/rd_ptr_reg[3]/C
-High Pulse Width  Slow    FDCE/C              n/a            0.275         1.667       1.392      SLICE_X39Y198     inst1/rd_ptr_reg[0]/C
-High Pulse Width  Slow    FDCE/C              n/a            0.275         1.667       1.392      SLICE_X39Y198     inst1/rd_ptr_reg[3]/C
+High Pulse Width  Slow    RAMB18E2/CLKARDCLK  n/a            0.542         1.667       1.125      RAMB18_X3Y78      inst2/mem_reg_bram_0/CLKARDCLK
+High Pulse Width  Fast    FDCE/C              n/a            0.275         1.667       1.392      SLICE_X40Y198     inst1/inst3/data_out_reg[0]/C
+High Pulse Width  Slow    FDCE/C              n/a            0.275         1.667       1.392      SLICE_X39Y197     inst1/inst3/data_out_reg[1]/C
+High Pulse Width  Fast    FDCE/C              n/a            0.275         1.667       1.392      SLICE_X39Y197     inst1/inst3/data_out_reg[1]/C
+High Pulse Width  Slow    FDCE/C              n/a            0.275         1.667       1.392      SLICE_X39Y197     inst1/inst3/data_out_reg[2]/C
+High Pulse Width  Fast    FDCE/C              n/a            0.275         1.667       1.392      SLICE_X39Y197     inst1/inst3/data_out_reg[2]/C
+High Pulse Width  Slow    FDCE/C              n/a            0.275         1.667       1.392      SLICE_X39Y197     inst1/inst3/data_out_reg[3]/C
+High Pulse Width  Fast    FDCE/C              n/a            0.275         1.667       1.392      SLICE_X39Y197     inst1/inst3/data_out_reg[3]/C
+High Pulse Width  Slow    FDCE/C              n/a            0.275         1.667       1.392      SLICE_X39Y195     inst1/inst3/temp_reg[0]/C
 
 
 
@@ -498,7 +580,7 @@ High Pulse Width  Slow    FDCE/C              n/a            0.275         1.667
 From Clock:  wr_clk
   To Clock:  wr_clk
 
-Setup :            9  Failing Endpoints,  Worst Slack       -0.799ns,  Total Violation       -4.146ns
+Setup :           17  Failing Endpoints,  Worst Slack       -0.885ns,  Total Violation       -6.814ns
 Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
 PW    :            0  Failing Endpoints,  Worst Slack        0.886ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
@@ -506,27 +588,30 @@ PW    :            0  Failing Endpoints,  Worst Slack        0.886ns,  Total Vio
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (VIOLATED) :        -0.799ns  (required time - arrival time)
-  Source:                 inst1/wr_ptr_reg[2]/C
+Slack (VIOLATED) :        -0.885ns  (required time - arrival time)
+  Source:                 inst1/inst4/data_out_reg[1]/C
                             (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
   Destination:            inst2/mem_reg_bram_0/WEBWE[0]
                             (rising edge-triggered cell RAMB18E2 clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
   Path Group:             wr_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            0.100ns  (MaxDelay Path 0.100ns)
-  Data Path Delay:        0.505ns  (logic 0.168ns (33.267%)  route 0.337ns (66.733%))
-  Logic Levels:           1  (LUT6=1)
+  Data Path Delay:        0.591ns  (logic 0.261ns (44.162%)  route 0.330ns (55.838%))
+  Logic Levels:           2  (LUT6=2)
   Timing Exception:       MaxDelay Path 0.100ns -datapath_only
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X39Y198                                     0.000     0.000 r  inst1/wr_ptr_reg[2]/C
-    SLICE_X39Y198        FDCE (Prop_BFF_SLICEL_C_Q)
-                                                      0.079     0.079 r  inst1/wr_ptr_reg[2]/Q
-                         net (fo=7, routed)           0.155     0.234    inst1/Q[2]
-    SLICE_X39Y196        LUT6 (Prop_F6LUT_SLICEL_I3_O)
-                                                      0.089     0.323 r  inst1/mem_reg_bram_0_i_2/O
-                         net (fo=2, routed)           0.182     0.505    inst2/WEBWE[0]
+    SLICE_X39Y197                                     0.000     0.000 r  inst1/inst4/data_out_reg[1]/C
+    SLICE_X39Y197        FDCE (Prop_BFF2_SLICEL_C_Q)
+                                                      0.080     0.080 r  inst1/inst4/data_out_reg[1]/Q
+                         net (fo=1, routed)           0.098     0.178    inst1/inst4/rd_gray_sync[1]
+    SLICE_X39Y196        LUT6 (Prop_D6LUT_SLICEL_I0_O)
+                                                      0.146     0.324 f  inst1/inst4/full_OBUF_inst_i_2/O
+                         net (fo=2, routed)           0.040     0.364    inst1/inst4/full_OBUF_inst_i_2_n_0
+    SLICE_X39Y196        LUT6 (Prop_F6LUT_SLICEL_I5_O)
+                                                      0.035     0.399 r  inst1/inst4/mem_reg_bram_0_i_2/O
+                         net (fo=6, routed)           0.192     0.591    inst2/E[0]
     RAMB18_X3Y78         RAMB18E2                                     r  inst2/mem_reg_bram_0/WEBWE[0]
   -------------------------------------------------------------------    -------------------
 
@@ -535,31 +620,34 @@ Slack (VIOLATED) :        -0.799ns  (required time - arrival time)
                                                      -0.394    -0.294    inst2/mem_reg_bram_0
   -------------------------------------------------------------------
                          required time                         -0.294    
-                         arrival time                          -0.505    
+                         arrival time                          -0.591    
   -------------------------------------------------------------------
-                         slack                                 -0.799    
+                         slack                                 -0.885    
 
-Slack (VIOLATED) :        -0.792ns  (required time - arrival time)
-  Source:                 inst1/wr_ptr_reg[2]/C
+Slack (VIOLATED) :        -0.876ns  (required time - arrival time)
+  Source:                 inst1/inst4/data_out_reg[1]/C
                             (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
   Destination:            inst2/mem_reg_bram_0/ENBWREN
                             (rising edge-triggered cell RAMB18E2 clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
   Path Group:             wr_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            0.100ns  (MaxDelay Path 0.100ns)
-  Data Path Delay:        0.550ns  (logic 0.168ns (30.545%)  route 0.382ns (69.455%))
-  Logic Levels:           1  (LUT6=1)
+  Data Path Delay:        0.634ns  (logic 0.261ns (41.167%)  route 0.373ns (58.833%))
+  Logic Levels:           2  (LUT6=2)
   Timing Exception:       MaxDelay Path 0.100ns -datapath_only
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X39Y198                                     0.000     0.000 r  inst1/wr_ptr_reg[2]/C
-    SLICE_X39Y198        FDCE (Prop_BFF_SLICEL_C_Q)
-                                                      0.079     0.079 r  inst1/wr_ptr_reg[2]/Q
-                         net (fo=7, routed)           0.155     0.234    inst1/Q[2]
-    SLICE_X39Y196        LUT6 (Prop_F6LUT_SLICEL_I3_O)
-                                                      0.089     0.323 r  inst1/mem_reg_bram_0_i_2/O
-                         net (fo=2, routed)           0.227     0.550    inst2/WEBWE[0]
+    SLICE_X39Y197                                     0.000     0.000 r  inst1/inst4/data_out_reg[1]/C
+    SLICE_X39Y197        FDCE (Prop_BFF2_SLICEL_C_Q)
+                                                      0.080     0.080 r  inst1/inst4/data_out_reg[1]/Q
+                         net (fo=1, routed)           0.098     0.178    inst1/inst4/rd_gray_sync[1]
+    SLICE_X39Y196        LUT6 (Prop_D6LUT_SLICEL_I0_O)
+                                                      0.146     0.324 f  inst1/inst4/full_OBUF_inst_i_2/O
+                         net (fo=2, routed)           0.040     0.364    inst1/inst4/full_OBUF_inst_i_2_n_0
+    SLICE_X39Y196        LUT6 (Prop_F6LUT_SLICEL_I5_O)
+                                                      0.035     0.399 r  inst1/inst4/mem_reg_bram_0_i_2/O
+                         net (fo=6, routed)           0.235     0.634    inst2/E[0]
     RAMB18_X3Y78         RAMB18E2                                     r  inst2/mem_reg_bram_0/ENBWREN
   -------------------------------------------------------------------    -------------------
 
@@ -568,28 +656,172 @@ Slack (VIOLATED) :        -0.792ns  (required time - arrival time)
                                                      -0.342    -0.242    inst2/mem_reg_bram_0
   -------------------------------------------------------------------
                          required time                         -0.242    
-                         arrival time                          -0.550    
+                         arrival time                          -0.634    
   -------------------------------------------------------------------
-                         slack                                 -0.792    
+                         slack                                 -0.876    
 
-Slack (VIOLATED) :        -0.470ns  (required time - arrival time)
-  Source:                 inst1/wr_ptr_reg[0]/C
+Slack (VIOLATED) :        -0.575ns  (required time - arrival time)
+  Source:                 inst1/inst4/data_out_reg[1]/C
+                            (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
+  Destination:            inst1/wr_bin_reg[3]/CE
+                            (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
+  Path Group:             wr_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            0.100ns  (MaxDelay Path 0.100ns)
+  Data Path Delay:        0.615ns  (logic 0.261ns (42.439%)  route 0.354ns (57.561%))
+  Logic Levels:           2  (LUT6=2)
+  Timing Exception:       MaxDelay Path 0.100ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X39Y197                                     0.000     0.000 r  inst1/inst4/data_out_reg[1]/C
+    SLICE_X39Y197        FDCE (Prop_BFF2_SLICEL_C_Q)
+                                                      0.080     0.080 r  inst1/inst4/data_out_reg[1]/Q
+                         net (fo=1, routed)           0.098     0.178    inst1/inst4/rd_gray_sync[1]
+    SLICE_X39Y196        LUT6 (Prop_D6LUT_SLICEL_I0_O)
+                                                      0.146     0.324 f  inst1/inst4/full_OBUF_inst_i_2/O
+                         net (fo=2, routed)           0.040     0.364    inst1/inst4/full_OBUF_inst_i_2_n_0
+    SLICE_X39Y196        LUT6 (Prop_F6LUT_SLICEL_I5_O)
+                                                      0.035     0.399 r  inst1/inst4/mem_reg_bram_0_i_2/O
+                         net (fo=6, routed)           0.216     0.615    inst1/E[0]
+    SLICE_X39Y196        FDCE                                         r  inst1/wr_bin_reg[3]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                    0.100     0.100    
+    SLICE_X39Y196        FDCE (Setup_HFF2_SLICEL_C_CE)
+                                                     -0.060     0.040    inst1/wr_bin_reg[3]
+  -------------------------------------------------------------------
+                         required time                          0.040    
+                         arrival time                          -0.615    
+  -------------------------------------------------------------------
+                         slack                                 -0.575    
+
+Slack (VIOLATED) :        -0.573ns  (required time - arrival time)
+  Source:                 inst1/inst4/data_out_reg[1]/C
+                            (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
+  Destination:            inst1/wr_bin_reg[2]/CE
+                            (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
+  Path Group:             wr_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            0.100ns  (MaxDelay Path 0.100ns)
+  Data Path Delay:        0.613ns  (logic 0.261ns (42.577%)  route 0.352ns (57.423%))
+  Logic Levels:           2  (LUT6=2)
+  Timing Exception:       MaxDelay Path 0.100ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X39Y197                                     0.000     0.000 r  inst1/inst4/data_out_reg[1]/C
+    SLICE_X39Y197        FDCE (Prop_BFF2_SLICEL_C_Q)
+                                                      0.080     0.080 r  inst1/inst4/data_out_reg[1]/Q
+                         net (fo=1, routed)           0.098     0.178    inst1/inst4/rd_gray_sync[1]
+    SLICE_X39Y196        LUT6 (Prop_D6LUT_SLICEL_I0_O)
+                                                      0.146     0.324 f  inst1/inst4/full_OBUF_inst_i_2/O
+                         net (fo=2, routed)           0.040     0.364    inst1/inst4/full_OBUF_inst_i_2_n_0
+    SLICE_X39Y196        LUT6 (Prop_F6LUT_SLICEL_I5_O)
+                                                      0.035     0.399 r  inst1/inst4/mem_reg_bram_0_i_2/O
+                         net (fo=6, routed)           0.214     0.613    inst1/E[0]
+    SLICE_X39Y196        FDCE                                         r  inst1/wr_bin_reg[2]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                    0.100     0.100    
+    SLICE_X39Y196        FDCE (Setup_HFF_SLICEL_C_CE)
+                                                     -0.060     0.040    inst1/wr_bin_reg[2]
+  -------------------------------------------------------------------
+                         required time                          0.040    
+                         arrival time                          -0.613    
+  -------------------------------------------------------------------
+                         slack                                 -0.573    
+
+Slack (VIOLATED) :        -0.505ns  (required time - arrival time)
+  Source:                 inst1/inst4/data_out_reg[1]/C
+                            (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
+  Destination:            inst1/wr_bin_reg[0]/CE
+                            (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
+  Path Group:             wr_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            0.100ns  (MaxDelay Path 0.100ns)
+  Data Path Delay:        0.545ns  (logic 0.261ns (47.890%)  route 0.284ns (52.110%))
+  Logic Levels:           2  (LUT6=2)
+  Timing Exception:       MaxDelay Path 0.100ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X39Y197                                     0.000     0.000 r  inst1/inst4/data_out_reg[1]/C
+    SLICE_X39Y197        FDCE (Prop_BFF2_SLICEL_C_Q)
+                                                      0.080     0.080 r  inst1/inst4/data_out_reg[1]/Q
+                         net (fo=1, routed)           0.098     0.178    inst1/inst4/rd_gray_sync[1]
+    SLICE_X39Y196        LUT6 (Prop_D6LUT_SLICEL_I0_O)
+                                                      0.146     0.324 f  inst1/inst4/full_OBUF_inst_i_2/O
+                         net (fo=2, routed)           0.040     0.364    inst1/inst4/full_OBUF_inst_i_2_n_0
+    SLICE_X39Y196        LUT6 (Prop_F6LUT_SLICEL_I5_O)
+                                                      0.035     0.399 r  inst1/inst4/mem_reg_bram_0_i_2/O
+                         net (fo=6, routed)           0.146     0.545    inst1/E[0]
+    SLICE_X39Y196        FDCE                                         r  inst1/wr_bin_reg[0]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                    0.100     0.100    
+    SLICE_X39Y196        FDCE (Setup_CFF_SLICEL_C_CE)
+                                                     -0.060     0.040    inst1/wr_bin_reg[0]
+  -------------------------------------------------------------------
+                         required time                          0.040    
+                         arrival time                          -0.545    
+  -------------------------------------------------------------------
+                         slack                                 -0.505    
+
+Slack (VIOLATED) :        -0.505ns  (required time - arrival time)
+  Source:                 inst1/inst4/data_out_reg[1]/C
+                            (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
+  Destination:            inst1/wr_bin_reg[1]/CE
+                            (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
+  Path Group:             wr_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            0.100ns  (MaxDelay Path 0.100ns)
+  Data Path Delay:        0.545ns  (logic 0.261ns (47.890%)  route 0.284ns (52.110%))
+  Logic Levels:           2  (LUT6=2)
+  Timing Exception:       MaxDelay Path 0.100ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X39Y197                                     0.000     0.000 r  inst1/inst4/data_out_reg[1]/C
+    SLICE_X39Y197        FDCE (Prop_BFF2_SLICEL_C_Q)
+                                                      0.080     0.080 r  inst1/inst4/data_out_reg[1]/Q
+                         net (fo=1, routed)           0.098     0.178    inst1/inst4/rd_gray_sync[1]
+    SLICE_X39Y196        LUT6 (Prop_D6LUT_SLICEL_I0_O)
+                                                      0.146     0.324 f  inst1/inst4/full_OBUF_inst_i_2/O
+                         net (fo=2, routed)           0.040     0.364    inst1/inst4/full_OBUF_inst_i_2_n_0
+    SLICE_X39Y196        LUT6 (Prop_F6LUT_SLICEL_I5_O)
+                                                      0.035     0.399 r  inst1/inst4/mem_reg_bram_0_i_2/O
+                         net (fo=6, routed)           0.146     0.545    inst1/E[0]
+    SLICE_X39Y196        FDCE                                         r  inst1/wr_bin_reg[1]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                    0.100     0.100    
+    SLICE_X39Y196        FDCE (Setup_BFF_SLICEL_C_CE)
+                                                     -0.060     0.040    inst1/wr_bin_reg[1]
+  -------------------------------------------------------------------
+                         required time                          0.040    
+                         arrival time                          -0.545    
+  -------------------------------------------------------------------
+                         slack                                 -0.505    
+
+Slack (VIOLATED) :        -0.505ns  (required time - arrival time)
+  Source:                 inst1/wr_bin_reg[0]/C
                             (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
   Destination:            inst2/mem_reg_bram_0/ADDRBWRADDR[4]
                             (rising edge-triggered cell RAMB18E2 clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
   Path Group:             wr_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            0.100ns  (MaxDelay Path 0.100ns)
-  Data Path Delay:        0.211ns  (logic 0.079ns (37.441%)  route 0.132ns (62.559%))
+  Data Path Delay:        0.246ns  (logic 0.079ns (32.114%)  route 0.167ns (67.886%))
   Logic Levels:           0  
   Timing Exception:       MaxDelay Path 0.100ns -datapath_only
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X39Y196                                     0.000     0.000 r  inst1/wr_ptr_reg[0]/C
-    SLICE_X39Y196        FDCE (Prop_HFF_SLICEL_C_Q)
-                                                      0.079     0.079 r  inst1/wr_ptr_reg[0]/Q
-                         net (fo=8, routed)           0.132     0.211    inst2/Q[0]
+    SLICE_X39Y196                                     0.000     0.000 r  inst1/wr_bin_reg[0]/C
+    SLICE_X39Y196        FDCE (Prop_CFF_SLICEL_C_Q)
+                                                      0.079     0.079 r  inst1/wr_bin_reg[0]/Q
+                         net (fo=6, routed)           0.167     0.246    inst2/out[0]
     RAMB18_X3Y78         RAMB18E2                                     r  inst2/mem_reg_bram_0/ADDRBWRADDR[4]
   -------------------------------------------------------------------    -------------------
 
@@ -598,61 +830,28 @@ Slack (VIOLATED) :        -0.470ns  (required time - arrival time)
                                                      -0.359    -0.259    inst2/mem_reg_bram_0
   -------------------------------------------------------------------
                          required time                         -0.259    
-                         arrival time                          -0.211    
+                         arrival time                          -0.246    
   -------------------------------------------------------------------
-                         slack                                 -0.470    
+                         slack                                 -0.505    
 
-Slack (VIOLATED) :        -0.429ns  (required time - arrival time)
-  Source:                 inst1/wr_ptr_reg[1]/C
-                            (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
-  Destination:            inst1/wr_ptr_reg[2]/D
-                            (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
-  Path Group:             wr_clk
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            0.100ns  (MaxDelay Path 0.100ns)
-  Data Path Delay:        0.554ns  (logic 0.203ns (36.643%)  route 0.351ns (63.357%))
-  Logic Levels:           1  (LUT3=1)
-  Timing Exception:       MaxDelay Path 0.100ns -datapath_only
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X39Y197                                     0.000     0.000 r  inst1/wr_ptr_reg[1]/C
-    SLICE_X39Y197        FDCE (Prop_GFF_SLICEL_C_Q)
-                                                      0.079     0.079 r  inst1/wr_ptr_reg[1]/Q
-                         net (fo=8, routed)           0.302     0.381    inst1/Q[1]
-    SLICE_X39Y198        LUT3 (Prop_B6LUT_SLICEL_I2_O)
-                                                      0.124     0.505 r  inst1/wr_ptr[2]_i_1/O
-                         net (fo=1, routed)           0.049     0.554    inst1/p_0_in[2]
-    SLICE_X39Y198        FDCE                                         r  inst1/wr_ptr_reg[2]/D
-  -------------------------------------------------------------------    -------------------
-
-                         max delay                    0.100     0.100    
-    SLICE_X39Y198        FDCE (Setup_BFF_SLICEL_C_D)
-                                                      0.025     0.125    inst1/wr_ptr_reg[2]
-  -------------------------------------------------------------------
-                         required time                          0.125    
-                         arrival time                          -0.554    
-  -------------------------------------------------------------------
-                         slack                                 -0.429    
-
-Slack (VIOLATED) :        -0.422ns  (required time - arrival time)
-  Source:                 inst1/wr_ptr_reg[1]/C
+Slack (VIOLATED) :        -0.414ns  (required time - arrival time)
+  Source:                 inst1/wr_bin_reg[1]/C
                             (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
   Destination:            inst2/mem_reg_bram_0/ADDRBWRADDR[5]
                             (rising edge-triggered cell RAMB18E2 clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
   Path Group:             wr_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            0.100ns  (MaxDelay Path 0.100ns)
-  Data Path Delay:        0.249ns  (logic 0.079ns (31.727%)  route 0.170ns (68.273%))
+  Data Path Delay:        0.241ns  (logic 0.079ns (32.780%)  route 0.162ns (67.220%))
   Logic Levels:           0  
   Timing Exception:       MaxDelay Path 0.100ns -datapath_only
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X39Y197                                     0.000     0.000 r  inst1/wr_ptr_reg[1]/C
-    SLICE_X39Y197        FDCE (Prop_GFF_SLICEL_C_Q)
-                                                      0.079     0.079 r  inst1/wr_ptr_reg[1]/Q
-                         net (fo=8, routed)           0.170     0.249    inst2/Q[1]
+    SLICE_X39Y196                                     0.000     0.000 r  inst1/wr_bin_reg[1]/C
+    SLICE_X39Y196        FDCE (Prop_BFF_SLICEL_C_Q)
+                                                      0.079     0.079 r  inst1/wr_bin_reg[1]/Q
+                         net (fo=6, routed)           0.162     0.241    inst2/out[1]
     RAMB18_X3Y78         RAMB18E2                                     r  inst2/mem_reg_bram_0/ADDRBWRADDR[5]
   -------------------------------------------------------------------    -------------------
 
@@ -661,28 +860,28 @@ Slack (VIOLATED) :        -0.422ns  (required time - arrival time)
                                                      -0.273    -0.173    inst2/mem_reg_bram_0
   -------------------------------------------------------------------
                          required time                         -0.173    
-                         arrival time                          -0.249    
+                         arrival time                          -0.241    
   -------------------------------------------------------------------
-                         slack                                 -0.422    
+                         slack                                 -0.414    
 
-Slack (VIOLATED) :        -0.416ns  (required time - arrival time)
-  Source:                 inst1/wr_ptr_reg[2]/C
+Slack (VIOLATED) :        -0.413ns  (required time - arrival time)
+  Source:                 inst1/wr_bin_reg[2]/C
                             (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
   Destination:            inst2/mem_reg_bram_0/ADDRBWRADDR[6]
                             (rising edge-triggered cell RAMB18E2 clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
   Path Group:             wr_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            0.100ns  (MaxDelay Path 0.100ns)
-  Data Path Delay:        0.249ns  (logic 0.079ns (31.727%)  route 0.170ns (68.273%))
+  Data Path Delay:        0.246ns  (logic 0.079ns (32.114%)  route 0.167ns (67.886%))
   Logic Levels:           0  
   Timing Exception:       MaxDelay Path 0.100ns -datapath_only
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X39Y198                                     0.000     0.000 r  inst1/wr_ptr_reg[2]/C
-    SLICE_X39Y198        FDCE (Prop_BFF_SLICEL_C_Q)
-                                                      0.079     0.079 r  inst1/wr_ptr_reg[2]/Q
-                         net (fo=7, routed)           0.170     0.249    inst2/Q[2]
+    SLICE_X39Y196                                     0.000     0.000 r  inst1/wr_bin_reg[2]/C
+    SLICE_X39Y196        FDCE (Prop_HFF_SLICEL_C_Q)
+                                                      0.079     0.079 r  inst1/wr_bin_reg[2]/Q
+                         net (fo=7, routed)           0.167     0.246    inst2/out[2]
     RAMB18_X3Y78         RAMB18E2                                     r  inst2/mem_reg_bram_0/ADDRBWRADDR[6]
   -------------------------------------------------------------------    -------------------
 
@@ -691,108 +890,42 @@ Slack (VIOLATED) :        -0.416ns  (required time - arrival time)
                                                      -0.267    -0.167    inst2/mem_reg_bram_0
   -------------------------------------------------------------------
                          required time                         -0.167    
-                         arrival time                          -0.249    
+                         arrival time                          -0.246    
   -------------------------------------------------------------------
-                         slack                                 -0.416    
+                         slack                                 -0.413    
 
-Slack (VIOLATED) :        -0.415ns  (required time - arrival time)
-  Source:                 inst1/wr_ptr_reg[1]/C
+Slack (VIOLATED) :        -0.327ns  (required time - arrival time)
+  Source:                 inst1/wr_bin_reg[2]/C
                             (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
-  Destination:            inst1/wr_ptr_reg[3]/D
+  Destination:            inst1/wr_bin_reg[2]/D
                             (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
   Path Group:             wr_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            0.100ns  (MaxDelay Path 0.100ns)
-  Data Path Delay:        0.540ns  (logic 0.220ns (40.741%)  route 0.320ns (59.259%))
-  Logic Levels:           1  (LUT4=1)
+  Data Path Delay:        0.452ns  (logic 0.229ns (50.664%)  route 0.223ns (49.336%))
+  Logic Levels:           1  (LUT3=1)
   Timing Exception:       MaxDelay Path 0.100ns -datapath_only
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X39Y197                                     0.000     0.000 r  inst1/wr_ptr_reg[1]/C
-    SLICE_X39Y197        FDCE (Prop_GFF_SLICEL_C_Q)
-                                                      0.079     0.079 r  inst1/wr_ptr_reg[1]/Q
-                         net (fo=8, routed)           0.302     0.381    inst1/Q[1]
-    SLICE_X39Y198        LUT4 (Prop_B5LUT_SLICEL_I0_O)
-                                                      0.141     0.522 r  inst1/wr_ptr[3]_i_1/O
-                         net (fo=1, routed)           0.018     0.540    inst1/p_0_in[3]
-    SLICE_X39Y198        FDCE                                         r  inst1/wr_ptr_reg[3]/D
-  -------------------------------------------------------------------    -------------------
-
-                         max delay                    0.100     0.100    
-    SLICE_X39Y198        FDCE (Setup_BFF2_SLICEL_C_D)
-                                                      0.025     0.125    inst1/wr_ptr_reg[3]
-  -------------------------------------------------------------------
-                         required time                          0.125    
-                         arrival time                          -0.540    
-  -------------------------------------------------------------------
-                         slack                                 -0.415    
-
-Slack (VIOLATED) :        -0.240ns  (required time - arrival time)
-  Source:                 inst1/wr_ptr_reg[2]/C
-                            (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
-  Destination:            inst1/wr_ptr_reg[0]/D
-                            (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
-  Path Group:             wr_clk
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            0.100ns  (MaxDelay Path 0.100ns)
-  Data Path Delay:        0.365ns  (logic 0.203ns (55.616%)  route 0.162ns (44.384%))
-  Logic Levels:           1  (LUT4=1)
-  Timing Exception:       MaxDelay Path 0.100ns -datapath_only
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X39Y198                                     0.000     0.000 r  inst1/wr_ptr_reg[2]/C
-    SLICE_X39Y198        FDCE (Prop_BFF_SLICEL_C_Q)
-                                                      0.079     0.079 r  inst1/wr_ptr_reg[2]/Q
-                         net (fo=7, routed)           0.111     0.190    inst1/Q[2]
-    SLICE_X39Y196        LUT4 (Prop_H6LUT_SLICEL_I2_O)
-                                                      0.124     0.314 r  inst1/wr_ptr[0]_i_1/O
-                         net (fo=1, routed)           0.051     0.365    inst1/wr_ptr[0]_i_1_n_0
-    SLICE_X39Y196        FDCE                                         r  inst1/wr_ptr_reg[0]/D
+    SLICE_X39Y196                                     0.000     0.000 r  inst1/wr_bin_reg[2]/C
+    SLICE_X39Y196        FDCE (Prop_HFF_SLICEL_C_Q)
+                                                      0.079     0.079 r  inst1/wr_bin_reg[2]/Q
+                         net (fo=7, routed)           0.172     0.251    inst1/out[2]
+    SLICE_X39Y196        LUT3 (Prop_H6LUT_SLICEL_I0_O)
+                                                      0.150     0.401 r  inst1/wr_bin[2]_i_1/O
+                         net (fo=1, routed)           0.051     0.452    inst1/p_0_in[2]
+    SLICE_X39Y196        FDCE                                         r  inst1/wr_bin_reg[2]/D
   -------------------------------------------------------------------    -------------------
 
                          max delay                    0.100     0.100    
     SLICE_X39Y196        FDCE (Setup_HFF_SLICEL_C_D)
-                                                      0.025     0.125    inst1/wr_ptr_reg[0]
+                                                      0.025     0.125    inst1/wr_bin_reg[2]
   -------------------------------------------------------------------
                          required time                          0.125    
-                         arrival time                          -0.365    
+                         arrival time                          -0.452    
   -------------------------------------------------------------------
-                         slack                                 -0.240    
-
-Slack (VIOLATED) :        -0.163ns  (required time - arrival time)
-  Source:                 inst1/wr_ptr_reg[1]/C
-                            (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
-  Destination:            inst1/wr_ptr_reg[1]/D
-                            (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
-  Path Group:             wr_clk
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            0.100ns  (MaxDelay Path 0.100ns)
-  Data Path Delay:        0.288ns  (logic 0.176ns (61.111%)  route 0.112ns (38.889%))
-  Logic Levels:           1  (LUT2=1)
-  Timing Exception:       MaxDelay Path 0.100ns -datapath_only
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X39Y197                                     0.000     0.000 r  inst1/wr_ptr_reg[1]/C
-    SLICE_X39Y197        FDCE (Prop_GFF_SLICEL_C_Q)
-                                                      0.079     0.079 r  inst1/wr_ptr_reg[1]/Q
-                         net (fo=8, routed)           0.064     0.143    inst1/Q[1]
-    SLICE_X39Y197        LUT2 (Prop_G6LUT_SLICEL_I1_O)
-                                                      0.097     0.240 r  inst1/wr_ptr[1]_i_1/O
-                         net (fo=1, routed)           0.048     0.288    inst1/p_0_in[1]
-    SLICE_X39Y197        FDCE                                         r  inst1/wr_ptr_reg[1]/D
-  -------------------------------------------------------------------    -------------------
-
-                         max delay                    0.100     0.100    
-    SLICE_X39Y197        FDCE (Setup_GFF_SLICEL_C_D)
-                                                      0.025     0.125    inst1/wr_ptr_reg[1]
-  -------------------------------------------------------------------
-                         required time                          0.125    
-                         arrival time                          -0.288    
-  -------------------------------------------------------------------
-                         slack                                 -0.163    
+                         slack                                 -0.327    
 
 
 
@@ -808,30 +941,34 @@ Sources:            { wr_clk }
 Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location          Pin
 Min Period        n/a     RAMB18E2/CLKBWRCLK  n/a            1.355         2.857       1.502      RAMB18_X3Y78      inst2/mem_reg_bram_0/CLKBWRCLK
 Min Period        n/a     BUFGCE/I            n/a            1.290         2.857       1.567      BUFGCE_HDIO_X1Y7  wr_clk_IBUF_BUFG_inst/I
-Min Period        n/a     FDCE/C              n/a            0.550         2.857       2.307      SLICE_X39Y196     inst1/wr_ptr_reg[0]/C
-Min Period        n/a     FDCE/C              n/a            0.550         2.857       2.307      SLICE_X39Y197     inst1/wr_ptr_reg[1]/C
-Min Period        n/a     FDCE/C              n/a            0.550         2.857       2.307      SLICE_X39Y198     inst1/wr_ptr_reg[2]/C
-Min Period        n/a     FDCE/C              n/a            0.550         2.857       2.307      SLICE_X39Y198     inst1/wr_ptr_reg[3]/C
+Min Period        n/a     FDCE/C              n/a            0.550         2.857       2.307      SLICE_X40Y196     inst1/inst4/data_out_reg[0]/C
+Min Period        n/a     FDCE/C              n/a            0.550         2.857       2.307      SLICE_X39Y197     inst1/inst4/data_out_reg[1]/C
+Min Period        n/a     FDCE/C              n/a            0.550         2.857       2.307      SLICE_X40Y196     inst1/inst4/data_out_reg[2]/C
+Min Period        n/a     FDCE/C              n/a            0.550         2.857       2.307      SLICE_X39Y197     inst1/inst4/data_out_reg[3]/C
+Min Period        n/a     FDCE/C              n/a            0.550         2.857       2.307      SLICE_X39Y198     inst1/inst4/temp_reg[0]/C
+Min Period        n/a     FDCE/C              n/a            0.550         2.857       2.307      SLICE_X39Y198     inst1/inst4/temp_reg[1]/C
+Min Period        n/a     FDCE/C              n/a            0.550         2.857       2.307      SLICE_X39Y198     inst1/inst4/temp_reg[2]/C
+Min Period        n/a     FDCE/C              n/a            0.550         2.857       2.307      SLICE_X39Y198     inst1/inst4/temp_reg[3]/C
 Low Pulse Width   Slow    RAMB18E2/CLKBWRCLK  n/a            0.542         1.428       0.886      RAMB18_X3Y78      inst2/mem_reg_bram_0/CLKBWRCLK
 Low Pulse Width   Fast    RAMB18E2/CLKBWRCLK  n/a            0.542         1.428       0.886      RAMB18_X3Y78      inst2/mem_reg_bram_0/CLKBWRCLK
-Low Pulse Width   Slow    FDCE/C              n/a            0.275         1.428       1.153      SLICE_X39Y196     inst1/wr_ptr_reg[0]/C
-Low Pulse Width   Slow    FDCE/C              n/a            0.275         1.428       1.153      SLICE_X39Y197     inst1/wr_ptr_reg[1]/C
-Low Pulse Width   Fast    FDCE/C              n/a            0.275         1.428       1.153      SLICE_X39Y197     inst1/wr_ptr_reg[1]/C
-Low Pulse Width   Fast    FDCE/C              n/a            0.275         1.428       1.153      SLICE_X39Y198     inst1/wr_ptr_reg[2]/C
-Low Pulse Width   Fast    FDCE/C              n/a            0.275         1.428       1.153      SLICE_X39Y198     inst1/wr_ptr_reg[3]/C
-Low Pulse Width   Fast    FDCE/C              n/a            0.275         1.428       1.153      SLICE_X39Y196     inst1/wr_ptr_reg[0]/C
-Low Pulse Width   Slow    FDCE/C              n/a            0.275         1.428       1.153      SLICE_X39Y198     inst1/wr_ptr_reg[2]/C
-Low Pulse Width   Slow    FDCE/C              n/a            0.275         1.428       1.153      SLICE_X39Y198     inst1/wr_ptr_reg[3]/C
-High Pulse Width  Fast    RAMB18E2/CLKBWRCLK  n/a            0.542         1.429       0.887      RAMB18_X3Y78      inst2/mem_reg_bram_0/CLKBWRCLK
+Low Pulse Width   Slow    FDCE/C              n/a            0.275         1.428       1.153      SLICE_X39Y198     inst1/inst4/temp_reg[0]/C
+Low Pulse Width   Slow    FDCE/C              n/a            0.275         1.428       1.153      SLICE_X39Y198     inst1/inst4/temp_reg[1]/C
+Low Pulse Width   Slow    FDCE/C              n/a            0.275         1.428       1.153      SLICE_X39Y198     inst1/inst4/temp_reg[2]/C
+Low Pulse Width   Slow    FDCE/C              n/a            0.275         1.428       1.153      SLICE_X39Y198     inst1/inst4/temp_reg[3]/C
+Low Pulse Width   Slow    FDCE/C              n/a            0.275         1.428       1.153      SLICE_X39Y196     inst1/wr_bin_reg[0]/C
+Low Pulse Width   Slow    FDCE/C              n/a            0.275         1.428       1.153      SLICE_X39Y196     inst1/wr_bin_reg[1]/C
+Low Pulse Width   Slow    FDCE/C              n/a            0.275         1.428       1.153      SLICE_X39Y196     inst1/wr_bin_reg[2]/C
+Low Pulse Width   Slow    FDCE/C              n/a            0.275         1.428       1.153      SLICE_X39Y196     inst1/wr_bin_reg[3]/C
 High Pulse Width  Slow    RAMB18E2/CLKBWRCLK  n/a            0.542         1.429       0.887      RAMB18_X3Y78      inst2/mem_reg_bram_0/CLKBWRCLK
-High Pulse Width  Fast    FDCE/C              n/a            0.275         1.429       1.154      SLICE_X39Y196     inst1/wr_ptr_reg[0]/C
-High Pulse Width  Slow    FDCE/C              n/a            0.275         1.429       1.154      SLICE_X39Y197     inst1/wr_ptr_reg[1]/C
-High Pulse Width  Slow    FDCE/C              n/a            0.275         1.429       1.154      SLICE_X39Y198     inst1/wr_ptr_reg[2]/C
-High Pulse Width  Slow    FDCE/C              n/a            0.275         1.429       1.154      SLICE_X39Y198     inst1/wr_ptr_reg[3]/C
-High Pulse Width  Fast    FDCE/C              n/a            0.275         1.429       1.154      SLICE_X39Y197     inst1/wr_ptr_reg[1]/C
-High Pulse Width  Slow    FDCE/C              n/a            0.275         1.429       1.154      SLICE_X39Y196     inst1/wr_ptr_reg[0]/C
-High Pulse Width  Fast    FDCE/C              n/a            0.275         1.429       1.154      SLICE_X39Y198     inst1/wr_ptr_reg[2]/C
-High Pulse Width  Fast    FDCE/C              n/a            0.275         1.429       1.154      SLICE_X39Y198     inst1/wr_ptr_reg[3]/C
+High Pulse Width  Fast    RAMB18E2/CLKBWRCLK  n/a            0.542         1.429       0.887      RAMB18_X3Y78      inst2/mem_reg_bram_0/CLKBWRCLK
+High Pulse Width  Slow    FDCE/C              n/a            0.275         1.429       1.154      SLICE_X40Y196     inst1/inst4/data_out_reg[0]/C
+High Pulse Width  Slow    FDCE/C              n/a            0.275         1.429       1.154      SLICE_X39Y197     inst1/inst4/data_out_reg[1]/C
+High Pulse Width  Fast    FDCE/C              n/a            0.275         1.429       1.154      SLICE_X40Y196     inst1/inst4/data_out_reg[2]/C
+High Pulse Width  Slow    FDCE/C              n/a            0.275         1.429       1.154      SLICE_X39Y197     inst1/inst4/data_out_reg[3]/C
+High Pulse Width  Fast    FDCE/C              n/a            0.275         1.429       1.154      SLICE_X39Y198     inst1/inst4/temp_reg[0]/C
+High Pulse Width  Fast    FDCE/C              n/a            0.275         1.429       1.154      SLICE_X39Y198     inst1/inst4/temp_reg[1]/C
+High Pulse Width  Fast    FDCE/C              n/a            0.275         1.429       1.154      SLICE_X39Y198     inst1/inst4/temp_reg[2]/C
+High Pulse Width  Fast    FDCE/C              n/a            0.275         1.429       1.154      SLICE_X39Y198     inst1/inst4/temp_reg[3]/C
 
 
 
@@ -839,48 +976,141 @@ High Pulse Width  Fast    FDCE/C              n/a            0.275         1.429
 From Clock:  wr_clk
   To Clock:  rd_clk
 
-Setup :            1  Failing Endpoint ,  Worst Slack       -0.838ns,  Total Violation       -0.838ns
+Setup :            4  Failing Endpoints,  Worst Slack       -0.253ns,  Total Violation       -0.808ns
 Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (VIOLATED) :        -0.838ns  (required time - arrival time)
-  Source:                 inst1/wr_ptr_reg[0]/C
+Slack (VIOLATED) :        -0.253ns  (required time - arrival time)
+  Source:                 inst1/wr_bin_reg[0]/C
                             (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
-  Destination:            inst2/mem_reg_bram_0/ENARDEN
-                            (rising edge-triggered cell RAMB18E2 clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
+  Destination:            inst1/inst3/temp_reg[0]/D
+                            (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
   Path Group:             rd_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            0.100ns  (MaxDelay Path 0.100ns)
-  Data Path Delay:        0.596ns  (logic 0.213ns (35.738%)  route 0.383ns (64.262%))
-  Logic Levels:           2  (LUT5=1 LUT6=1)
+  Data Path Delay:        0.378ns  (logic 0.169ns (44.709%)  route 0.209ns (55.291%))
+  Logic Levels:           1  (LUT2=1)
   Timing Exception:       MaxDelay Path 0.100ns -datapath_only
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X39Y196                                     0.000     0.000 r  inst1/wr_ptr_reg[0]/C
-    SLICE_X39Y196        FDCE (Prop_HFF_SLICEL_C_Q)
-                                                      0.079     0.079 r  inst1/wr_ptr_reg[0]/Q
-                         net (fo=8, routed)           0.114     0.193    inst1/Q[0]
-    SLICE_X39Y197        LUT6 (Prop_D6LUT_SLICEL_I1_O)
-                                                      0.099     0.292 f  inst1/empty_OBUF_inst_i_2/O
-                         net (fo=2, routed)           0.044     0.336    inst1/empty_OBUF_inst_i_2_n_0
-    SLICE_X39Y197        LUT5 (Prop_E6LUT_SLICEL_I4_O)
-                                                      0.035     0.371 r  inst1/mem_reg_bram_0_i_1/O
-                         net (fo=1, routed)           0.225     0.596    inst2/p_2_in
-    RAMB18_X3Y78         RAMB18E2                                     r  inst2/mem_reg_bram_0/ENARDEN
+    SLICE_X39Y196                                     0.000     0.000 r  inst1/wr_bin_reg[0]/C
+    SLICE_X39Y196        FDCE (Prop_CFF_SLICEL_C_Q)
+                                                      0.079     0.079 r  inst1/wr_bin_reg[0]/Q
+                         net (fo=6, routed)           0.062     0.141    inst1/inst3/Q[0]
+    SLICE_X39Y196        LUT2 (Prop_B6LUT_SLICEL_I0_O)
+                                                      0.090     0.231 r  inst1/inst3/temp[0]_i_1/O
+                         net (fo=2, routed)           0.147     0.378    inst1/inst3/D[0]
+    SLICE_X39Y195        FDCE                                         r  inst1/inst3/temp_reg[0]/D
   -------------------------------------------------------------------    -------------------
 
                          max delay                    0.100     0.100    
-    RAMB18_X3Y78         RAMB18E2 (Setup_RAMB18E2_L_RAMB180_CLKARDCLK_ENARDEN)
-                                                     -0.342    -0.242    inst2/mem_reg_bram_0
+    SLICE_X39Y195        FDCE (Setup_DFF2_SLICEL_C_D)
+                                                      0.025     0.125    inst1/inst3/temp_reg[0]
   -------------------------------------------------------------------
-                         required time                         -0.242    
-                         arrival time                          -0.596    
+                         required time                          0.125    
+                         arrival time                          -0.378    
   -------------------------------------------------------------------
-                         slack                                 -0.838    
+                         slack                                 -0.253    
+
+Slack (VIOLATED) :        -0.189ns  (required time - arrival time)
+  Source:                 inst1/wr_bin_reg[2]/C
+                            (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
+  Destination:            inst1/inst3/temp_reg[1]/D
+                            (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
+  Path Group:             rd_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            0.100ns  (MaxDelay Path 0.100ns)
+  Data Path Delay:        0.314ns  (logic 0.168ns (53.503%)  route 0.146ns (46.497%))
+  Logic Levels:           1  (LUT2=1)
+  Timing Exception:       MaxDelay Path 0.100ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X39Y196                                     0.000     0.000 r  inst1/wr_bin_reg[2]/C
+    SLICE_X39Y196        FDCE (Prop_HFF_SLICEL_C_Q)
+                                                      0.079     0.079 r  inst1/wr_bin_reg[2]/Q
+                         net (fo=7, routed)           0.095     0.174    inst1/inst3/Q[2]
+    SLICE_X39Y195        LUT2 (Prop_F6LUT_SLICEL_I1_O)
+                                                      0.089     0.263 r  inst1/inst3/temp[1]_i_1/O
+                         net (fo=1, routed)           0.051     0.314    inst1/inst3/wr_gray[1]
+    SLICE_X39Y195        FDCE                                         r  inst1/inst3/temp_reg[1]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                    0.100     0.100    
+    SLICE_X39Y195        FDCE (Setup_FFF_SLICEL_C_D)
+                                                      0.025     0.125    inst1/inst3/temp_reg[1]
+  -------------------------------------------------------------------
+                         required time                          0.125    
+                         arrival time                          -0.314    
+  -------------------------------------------------------------------
+                         slack                                 -0.189    
+
+Slack (VIOLATED) :        -0.188ns  (required time - arrival time)
+  Source:                 inst1/wr_bin_reg[2]/C
+                            (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
+  Destination:            inst1/inst3/temp_reg[2]/D
+                            (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
+  Path Group:             rd_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            0.100ns  (MaxDelay Path 0.100ns)
+  Data Path Delay:        0.313ns  (logic 0.169ns (53.994%)  route 0.144ns (46.006%))
+  Logic Levels:           1  (LUT2=1)
+  Timing Exception:       MaxDelay Path 0.100ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X39Y196                                     0.000     0.000 r  inst1/wr_bin_reg[2]/C
+    SLICE_X39Y196        FDCE (Prop_HFF_SLICEL_C_Q)
+                                                      0.079     0.079 r  inst1/wr_bin_reg[2]/Q
+                         net (fo=7, routed)           0.098     0.177    inst1/inst3/Q[2]
+    SLICE_X39Y197        LUT2 (Prop_E6LUT_SLICEL_I0_O)
+                                                      0.090     0.267 r  inst1/inst3/temp[2]_i_1/O
+                         net (fo=1, routed)           0.046     0.313    inst1/inst3/wr_gray[2]
+    SLICE_X39Y197        FDCE                                         r  inst1/inst3/temp_reg[2]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                    0.100     0.100    
+    SLICE_X39Y197        FDCE (Setup_EFF_SLICEL_C_D)
+                                                      0.025     0.125    inst1/inst3/temp_reg[2]
+  -------------------------------------------------------------------
+                         required time                          0.125    
+                         arrival time                          -0.313    
+  -------------------------------------------------------------------
+                         slack                                 -0.188    
+
+Slack (VIOLATED) :        -0.178ns  (required time - arrival time)
+  Source:                 inst1/wr_bin_reg[3]/C
+                            (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
+  Destination:            inst1/inst3/temp_reg[3]/D
+                            (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
+  Path Group:             rd_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            0.100ns  (MaxDelay Path 0.100ns)
+  Data Path Delay:        0.303ns  (logic 0.080ns (26.403%)  route 0.223ns (73.597%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 0.100ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X39Y196                                     0.000     0.000 r  inst1/wr_bin_reg[3]/C
+    SLICE_X39Y196        FDCE (Prop_HFF2_SLICEL_C_Q)
+                                                      0.080     0.080 r  inst1/wr_bin_reg[3]/Q
+                         net (fo=5, routed)           0.223     0.303    inst1/inst3/Q[3]
+    SLICE_X39Y195        FDCE                                         r  inst1/inst3/temp_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                    0.100     0.100    
+    SLICE_X39Y195        FDCE (Setup_BFF2_SLICEL_C_D)
+                                                      0.025     0.125    inst1/inst3/temp_reg[3]
+  -------------------------------------------------------------------
+                         required time                          0.125    
+                         arrival time                          -0.303    
+  -------------------------------------------------------------------
+                         slack                                 -0.178    
 
 
 
@@ -890,84 +1120,141 @@ Slack (VIOLATED) :        -0.838ns  (required time - arrival time)
 From Clock:  rd_clk
   To Clock:  wr_clk
 
-Setup :            2  Failing Endpoints,  Worst Slack       -0.876ns,  Total Violation       -1.745ns
+Setup :            4  Failing Endpoints,  Worst Slack       -0.244ns,  Total Violation       -0.838ns
 Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (VIOLATED) :        -0.876ns  (required time - arrival time)
-  Source:                 inst1/rd_ptr_reg[2]/C
+Slack (VIOLATED) :        -0.244ns  (required time - arrival time)
+  Source:                 inst1/rd_bin_reg[2]/C
                             (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
-  Destination:            inst2/mem_reg_bram_0/WEBWE[0]
-                            (rising edge-triggered cell RAMB18E2 clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
+  Destination:            inst1/inst4/temp_reg[2]/D
+                            (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
   Path Group:             wr_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            0.100ns  (MaxDelay Path 0.100ns)
-  Data Path Delay:        0.582ns  (logic 0.205ns (35.223%)  route 0.377ns (64.777%))
-  Logic Levels:           2  (LUT5=1 LUT6=1)
+  Data Path Delay:        0.369ns  (logic 0.203ns (55.014%)  route 0.166ns (44.986%))
+  Logic Levels:           1  (LUT2=1)
   Timing Exception:       MaxDelay Path 0.100ns -datapath_only
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X40Y197                                     0.000     0.000 r  inst1/rd_ptr_reg[2]/C
-    SLICE_X40Y197        FDCE (Prop_AFF2_SLICEL_C_Q)
-                                                      0.081     0.081 r  inst1/rd_ptr_reg[2]/Q
-                         net (fo=6, routed)           0.107     0.188    inst1/rd_ptr_reg[2]_0[2]
-    SLICE_X39Y197        LUT5 (Prop_F6LUT_SLICEL_I2_O)
-                                                      0.089     0.277 f  inst1/full_OBUF_inst_i_2/O
-                         net (fo=2, routed)           0.088     0.365    inst1/full_OBUF_inst_i_2_n_0
-    SLICE_X39Y196        LUT6 (Prop_F6LUT_SLICEL_I1_O)
-                                                      0.035     0.400 r  inst1/mem_reg_bram_0_i_2/O
-                         net (fo=2, routed)           0.182     0.582    inst2/WEBWE[0]
-    RAMB18_X3Y78         RAMB18E2                                     r  inst2/mem_reg_bram_0/WEBWE[0]
+    SLICE_X39Y199                                     0.000     0.000 r  inst1/rd_bin_reg[2]/C
+    SLICE_X39Y199        FDCE (Prop_DFF_SLICEL_C_Q)
+                                                      0.079     0.079 r  inst1/rd_bin_reg[2]/Q
+                         net (fo=7, routed)           0.115     0.194    inst1/inst4/temp_reg[3]_0[2]
+    SLICE_X39Y198        LUT2 (Prop_H6LUT_SLICEL_I0_O)
+                                                      0.124     0.318 r  inst1/inst4/temp[2]_i_1__0/O
+                         net (fo=1, routed)           0.051     0.369    inst1/inst4/rd_gray[2]
+    SLICE_X39Y198        FDCE                                         r  inst1/inst4/temp_reg[2]/D
   -------------------------------------------------------------------    -------------------
 
                          max delay                    0.100     0.100    
-    RAMB18_X3Y78         RAMB18E2 (Setup_RAMB18E2_L_RAMB180_CLKBWRCLK_WEBWE[0])
-                                                     -0.394    -0.294    inst2/mem_reg_bram_0
+    SLICE_X39Y198        FDCE (Setup_HFF_SLICEL_C_D)
+                                                      0.025     0.125    inst1/inst4/temp_reg[2]
   -------------------------------------------------------------------
-                         required time                         -0.294    
-                         arrival time                          -0.582    
+                         required time                          0.125    
+                         arrival time                          -0.369    
   -------------------------------------------------------------------
-                         slack                                 -0.876    
+                         slack                                 -0.244    
 
-Slack (VIOLATED) :        -0.869ns  (required time - arrival time)
-  Source:                 inst1/rd_ptr_reg[2]/C
+Slack (VIOLATED) :        -0.205ns  (required time - arrival time)
+  Source:                 inst1/rd_bin_reg[1]/C
                             (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
-  Destination:            inst2/mem_reg_bram_0/ENBWREN
-                            (rising edge-triggered cell RAMB18E2 clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
+  Destination:            inst1/inst4/temp_reg[0]/D
+                            (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
   Path Group:             wr_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            0.100ns  (MaxDelay Path 0.100ns)
-  Data Path Delay:        0.627ns  (logic 0.205ns (32.695%)  route 0.422ns (67.305%))
-  Logic Levels:           2  (LUT5=1 LUT6=1)
+  Data Path Delay:        0.330ns  (logic 0.176ns (53.333%)  route 0.154ns (46.667%))
+  Logic Levels:           1  (LUT2=1)
   Timing Exception:       MaxDelay Path 0.100ns -datapath_only
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X40Y197                                     0.000     0.000 r  inst1/rd_ptr_reg[2]/C
-    SLICE_X40Y197        FDCE (Prop_AFF2_SLICEL_C_Q)
-                                                      0.081     0.081 r  inst1/rd_ptr_reg[2]/Q
-                         net (fo=6, routed)           0.107     0.188    inst1/rd_ptr_reg[2]_0[2]
-    SLICE_X39Y197        LUT5 (Prop_F6LUT_SLICEL_I2_O)
-                                                      0.089     0.277 f  inst1/full_OBUF_inst_i_2/O
-                         net (fo=2, routed)           0.088     0.365    inst1/full_OBUF_inst_i_2_n_0
-    SLICE_X39Y196        LUT6 (Prop_F6LUT_SLICEL_I1_O)
-                                                      0.035     0.400 r  inst1/mem_reg_bram_0_i_2/O
-                         net (fo=2, routed)           0.227     0.627    inst2/WEBWE[0]
-    RAMB18_X3Y78         RAMB18E2                                     r  inst2/mem_reg_bram_0/ENBWREN
+    SLICE_X39Y199                                     0.000     0.000 r  inst1/rd_bin_reg[1]/C
+    SLICE_X39Y199        FDCE (Prop_GFF_SLICEL_C_Q)
+                                                      0.079     0.079 r  inst1/rd_bin_reg[1]/Q
+                         net (fo=6, routed)           0.103     0.182    inst1/inst4/temp_reg[3]_0[1]
+    SLICE_X39Y198        LUT2 (Prop_F6LUT_SLICEL_I1_O)
+                                                      0.097     0.279 r  inst1/inst4/temp[0]_i_1__0/O
+                         net (fo=2, routed)           0.051     0.330    inst1/inst4/D[0]
+    SLICE_X39Y198        FDCE                                         r  inst1/inst4/temp_reg[0]/D
   -------------------------------------------------------------------    -------------------
 
                          max delay                    0.100     0.100    
-    RAMB18_X3Y78         RAMB18E2 (Setup_RAMB18E2_L_RAMB180_CLKBWRCLK_ENBWREN)
-                                                     -0.342    -0.242    inst2/mem_reg_bram_0
+    SLICE_X39Y198        FDCE (Setup_FFF2_SLICEL_C_D)
+                                                      0.025     0.125    inst1/inst4/temp_reg[0]
   -------------------------------------------------------------------
-                         required time                         -0.242    
-                         arrival time                          -0.627    
+                         required time                          0.125    
+                         arrival time                          -0.330    
   -------------------------------------------------------------------
-                         slack                                 -0.869    
+                         slack                                 -0.205    
+
+Slack (VIOLATED) :        -0.197ns  (required time - arrival time)
+  Source:                 inst1/rd_bin_reg[1]/C
+                            (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
+  Destination:            inst1/inst4/temp_reg[1]/D
+                            (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
+  Path Group:             wr_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            0.100ns  (MaxDelay Path 0.100ns)
+  Data Path Delay:        0.322ns  (logic 0.176ns (54.658%)  route 0.146ns (45.342%))
+  Logic Levels:           1  (LUT2=1)
+  Timing Exception:       MaxDelay Path 0.100ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X39Y199                                     0.000     0.000 r  inst1/rd_bin_reg[1]/C
+    SLICE_X39Y199        FDCE (Prop_GFF_SLICEL_C_Q)
+                                                      0.079     0.079 r  inst1/rd_bin_reg[1]/Q
+                         net (fo=6, routed)           0.098     0.177    inst1/inst4/temp_reg[3]_0[1]
+    SLICE_X39Y198        LUT2 (Prop_G6LUT_SLICEL_I0_O)
+                                                      0.097     0.274 r  inst1/inst4/temp[1]_i_1__0/O
+                         net (fo=1, routed)           0.048     0.322    inst1/inst4/rd_gray[1]
+    SLICE_X39Y198        FDCE                                         r  inst1/inst4/temp_reg[1]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                    0.100     0.100    
+    SLICE_X39Y198        FDCE (Setup_GFF_SLICEL_C_D)
+                                                      0.025     0.125    inst1/inst4/temp_reg[1]
+  -------------------------------------------------------------------
+                         required time                          0.125    
+                         arrival time                          -0.322    
+  -------------------------------------------------------------------
+                         slack                                 -0.197    
+
+Slack (VIOLATED) :        -0.192ns  (required time - arrival time)
+  Source:                 inst1/rd_bin_reg[3]/C
+                            (rising edge-triggered cell FDCE clocked by rd_clk  {rise@0.000ns fall@1.667ns period=3.333ns})
+  Destination:            inst1/inst4/temp_reg[3]/D
+                            (rising edge-triggered cell FDCE clocked by wr_clk  {rise@0.000ns fall@1.429ns period=2.857ns})
+  Path Group:             wr_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            0.100ns  (MaxDelay Path 0.100ns)
+  Data Path Delay:        0.317ns  (logic 0.081ns (25.552%)  route 0.236ns (74.448%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 0.100ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X39Y199                                     0.000     0.000 r  inst1/rd_bin_reg[3]/C
+    SLICE_X39Y199        FDCE (Prop_DFF2_SLICEL_C_Q)
+                                                      0.081     0.081 r  inst1/rd_bin_reg[3]/Q
+                         net (fo=5, routed)           0.236     0.317    inst1/inst4/temp_reg[3]_0[3]
+    SLICE_X39Y198        FDCE                                         r  inst1/inst4/temp_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                    0.100     0.100    
+    SLICE_X39Y198        FDCE (Setup_EFF2_SLICEL_C_D)
+                                                      0.025     0.125    inst1/inst4/temp_reg[3]
+  -------------------------------------------------------------------
+                         required time                          0.125    
+                         arrival time                          -0.317    
+  -------------------------------------------------------------------
+                         slack                                 -0.192    
 
 
 

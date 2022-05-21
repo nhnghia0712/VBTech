@@ -8,9 +8,18 @@ Completed static elaboration
 Starting simulation data flow analysis
 WARNING: [XSIM 43-4099] "D:/GitHub/VBTech/VBTech/FIFO_2clock/FIFO_2clock.srcs/sources_1/new/fifo.v" Line 21. Module fifo doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/GitHub/VBTech/VBTech/FIFO_2clock/FIFO_2clock.srcs/sources_1/new/status_signal.v" Line 21. Module status_signal doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/GitHub/VBTech/VBTech/FIFO_2clock/FIFO_2clock.srcs/sources_1/new/bin_to_gray.v" Line 21. Module bin_to_gray doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/GitHub/VBTech/VBTech/FIFO_2clock/FIFO_2clock.srcs/sources_1/new/bin_to_gray.v" Line 21. Module bin_to_gray doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/GitHub/VBTech/VBTech/FIFO_2clock/FIFO_2clock.srcs/sources_1/new/sync.v" Line 21. Module sync doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/GitHub/VBTech/VBTech/FIFO_2clock/FIFO_2clock.srcs/sources_1/new/sync.v" Line 21. Module sync doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/GitHub/VBTech/VBTech/FIFO_2clock/FIFO_2clock.srcs/sources_1/new/gray_to_bin.v" Line 21. Module gray_to_bin doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/GitHub/VBTech/VBTech/FIFO_2clock/FIFO_2clock.srcs/sources_1/new/gray_to_bin.v" Line 21. Module gray_to_bin doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/GitHub/VBTech/VBTech/FIFO_2clock/FIFO_2clock.srcs/sources_1/new/ram.v" Line 21. Module ram doesn't have a timescale but at least one module in design has a timescale.
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.bin_to_gray
+Compiling module xil_defaultlib.sync
+Compiling module xil_defaultlib.gray_to_bin
 Compiling module xil_defaultlib.status_signal
 Compiling module xil_defaultlib.ram
 Compiling module xil_defaultlib.fifo
