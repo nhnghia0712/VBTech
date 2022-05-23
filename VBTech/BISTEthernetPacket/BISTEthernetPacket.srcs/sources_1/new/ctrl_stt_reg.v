@@ -82,7 +82,6 @@ decoder_4to16 inst1 (
 	.d_in (error_status     )
 );
 
-
 always @(posedge cpu_clk) begin
 	if(cpu_we && !cpu_cs) begin
 		regfile[4]        <= rx_num_packet;

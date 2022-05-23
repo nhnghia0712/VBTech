@@ -105,9 +105,9 @@ module testbench ();
   task operation_process;
     begin
       //TEST CASE 1:
-      #(`DELAY*4)
+      #(`DELAY*8)
         for (i = 0; i < 15; i = i + 1) begin
-          #(`DELAY*($urandom_range(1,5)))
+          #(`DELAY*2)
             cpu_we = 1'b1;
           cpu_oe = 1'b0;
           cpu_din = $random;
@@ -117,7 +117,7 @@ module testbench ();
         end
       #(`DELAY)
         for (i = 0; i < 15; i = i + 1) begin
-          #(`DELAY*($urandom_range(1,5)))
+          #(`DELAY*4)
             cpu_oe = 1'b1;
           cpu_we = 1'b0;
           cpu_adrr = i;
