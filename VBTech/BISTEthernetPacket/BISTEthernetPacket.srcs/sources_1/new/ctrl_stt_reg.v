@@ -49,11 +49,11 @@ input cpu_cs ;
 input cpu_we ;
 input cpu_oe ;
 
-input [15:0] cpu_adrr     ;
-input [15:0] cpu_din      ;
-input [15:0] rx_num_packet;
+input [15:0] cpu_adrr;
+input [15:0] cpu_din ;
 
-input [3:0] error_status;
+input [15:0] rx_num_packet;
+input [ 3:0] error_status ;
 /////////////////////////////////////////////////////////////////////////
 // Output Declarations
 output [15:0] cpu_dout;
@@ -82,17 +82,17 @@ decoder_4to16 inst1 (
 	.d_in (error_status     )
 );
 
-always @(posedge cpu_clk) begin
+always @(posedge cpu_clk or negedge cpu_cs) begin
 	if(cpu_we && !cpu_cs) begin
-		regfile[4]        <= rx_num_packet;
-		regfile[5]        <= temp_error_status;		
+		regfile[4] <= rx_num_packet;
+		regfile[5] <= temp_error_status;
 		if(cpu_adrr<4) begin
 			regfile[cpu_adrr] <= cpu_din;
 		end
 	end
 end
 
-always @(posedge cpu_clk) begin
+always @(posedge cpu_clk or negedge cpu_cs) begin
 	if(cpu_oe && !cpu_cs) begin
 		cpu_dout <= regfile[cpu_adrr];
 

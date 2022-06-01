@@ -36,21 +36,21 @@ output d_out;
 /////////////////////////////////////////////////////////////////////////
 // Local Logic and Instantiation
 wire [3:0] out16to4;
-wire [1:0] out4to2;
+wire [1:0] out4to2 ;
 
 encoder_16to4 inst1 (
 	.d_out(out16to4),
-	.d_in(d_in)
-	);
+	.d_in (d_in    )
+);
 
 encoder_4to2 inst2 (
-	.d_out(out4to2),
-	.d_in(out16to4)
-	);
+	.d_out(out4to2 ),
+	.d_in (out16to4)
+);
 
 encoder_2to1 ins3 (
-	.d_out(d_out),
-	.d_in(out4to2)
-	);
+	.d_out(d_out  ),
+	.d_in (out4to2)
+);
 
 endmodule

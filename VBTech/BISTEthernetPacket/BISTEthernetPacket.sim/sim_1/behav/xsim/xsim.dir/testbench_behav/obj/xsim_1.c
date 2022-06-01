@@ -48,8 +48,10 @@
 #endif
 typedef void (*funcp)(char *, char *);
 extern int main(int, char**);
+extern void execute_23(char*, char *);
 extern void execute_24(char*, char *);
-extern void execute_25(char*, char *);
+extern void execute_70(char*, char *);
+extern void execute_71(char*, char *);
 extern void execute_72(char*, char *);
 extern void execute_73(char*, char *);
 extern void execute_74(char*, char *);
@@ -60,26 +62,24 @@ extern void execute_78(char*, char *);
 extern void execute_79(char*, char *);
 extern void execute_80(char*, char *);
 extern void execute_81(char*, char *);
-extern void execute_82(char*, char *);
-extern void execute_83(char*, char *);
+extern void execute_4(char*, char *);
 extern void execute_5(char*, char *);
-extern void execute_6(char*, char *);
-extern void execute_70(char*, char *);
-extern void execute_71(char*, char *);
+extern void execute_68(char*, char *);
+extern void execute_69(char*, char *);
+extern void execute_40(char*, char *);
 extern void execute_41(char*, char *);
-extern void execute_43(char*, char *);
-extern void execute_44(char*, char *);
-extern void execute_57(char*, char *);
+extern void execute_42(char*, char *);
+extern void execute_55(char*, char *);
+extern void execute_37(char*, char *);
 extern void execute_38(char*, char *);
 extern void execute_39(char*, char *);
-extern void execute_40(char*, char *);
+extern void execute_82(char*, char *);
+extern void execute_83(char*, char *);
 extern void execute_84(char*, char *);
 extern void execute_85(char*, char *);
 extern void execute_86(char*, char *);
-extern void execute_87(char*, char *);
-extern void execute_88(char*, char *);
 extern void vlog_transfunc_eventcallback(char*, char*, unsigned, unsigned, unsigned, char *);
-funcp funcTab[31] = {(funcp)execute_24, (funcp)execute_25, (funcp)execute_72, (funcp)execute_73, (funcp)execute_74, (funcp)execute_75, (funcp)execute_76, (funcp)execute_77, (funcp)execute_78, (funcp)execute_79, (funcp)execute_80, (funcp)execute_81, (funcp)execute_82, (funcp)execute_83, (funcp)execute_5, (funcp)execute_6, (funcp)execute_70, (funcp)execute_71, (funcp)execute_41, (funcp)execute_43, (funcp)execute_44, (funcp)execute_57, (funcp)execute_38, (funcp)execute_39, (funcp)execute_40, (funcp)execute_84, (funcp)execute_85, (funcp)execute_86, (funcp)execute_87, (funcp)execute_88, (funcp)vlog_transfunc_eventcallback};
+funcp funcTab[31] = {(funcp)execute_23, (funcp)execute_24, (funcp)execute_70, (funcp)execute_71, (funcp)execute_72, (funcp)execute_73, (funcp)execute_74, (funcp)execute_75, (funcp)execute_76, (funcp)execute_77, (funcp)execute_78, (funcp)execute_79, (funcp)execute_80, (funcp)execute_81, (funcp)execute_4, (funcp)execute_5, (funcp)execute_68, (funcp)execute_69, (funcp)execute_40, (funcp)execute_41, (funcp)execute_42, (funcp)execute_55, (funcp)execute_37, (funcp)execute_38, (funcp)execute_39, (funcp)execute_82, (funcp)execute_83, (funcp)execute_84, (funcp)execute_85, (funcp)execute_86, (funcp)vlog_transfunc_eventcallback};
 const int NumRelocateId= 31;
 
 void relocate(char *dp)
