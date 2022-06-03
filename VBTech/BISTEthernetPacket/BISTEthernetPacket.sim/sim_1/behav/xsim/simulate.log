@@ -1,2 +1,4 @@
 Vivado Simulator 2019.2
 Time resolution is 1 ps
+WARNING: file D:/GitHub/VBTech/VBTech/BISTEthernetPacket/txt_file/transmitter_out.txt could not be opened
+$finish called at time : 250800 ps : File "D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sim_1/new/tb_transmitter.v" Line 116

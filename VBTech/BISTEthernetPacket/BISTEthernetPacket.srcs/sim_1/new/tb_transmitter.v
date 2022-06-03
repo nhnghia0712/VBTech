@@ -23,16 +23,19 @@
 module tb_transmitter();
 
 parameter PKT_CH_W = 16;
+parameter N = 0.1;
 
-reg        clk_sys   ;
-reg        reset     ;
-reg        run       ;
-reg [47:0] dest_addr ;
-reg [47:0] srcs_addr ;
-reg [31:0] vlan_tag  ;
-reg [15:0] ether_type;
-reg [15:0] data_steam;
-reg [31:0] crc       ;
+reg        clk_sys     ;
+reg        reset       ;
+reg        run         ;
+reg [47:0] dest_addr   ;
+reg [47:0] srcs_addr   ;
+reg [31:0] vlan_tag    ;
+reg [15:0] ether_type  ;
+reg [191:0] header_p1722;
+reg [ 63:0] header_iec  ;
+reg [ 7:0] samples     ;
+reg [31:0] crc         ;
 
 wire                pkt_sof_out  ;
 wire                pkt_eof_out  ;
@@ -42,6 +45,8 @@ wire [PKT_CH_W-1:0] pkt_chid_out ;
 wire [         5:0] pkt_cnt_out  ;
 wire [         3:0] pkt_alarm_out;
 
+reg data_out;
+
 transmitter inst14 (
 	.clk_sys      (clk_sys      ),
 	.reset        (reset        ),
@@ -50,7 +55,9 @@ transmitter inst14 (
 	.srcs_addr    (srcs_addr    ),
 	.vlan_tag     (vlan_tag     ),
 	.ether_type   (ether_type   ),
-	.data_steam   (data_steam   ),
+	.header_p1722 (header_p1722 ),
+	.header_iec   (header_iec   ),
+	.samples      (samples      ),
 	.crc          (crc          ),
 	
 	.pkt_sof_out  (pkt_sof_out  ),
@@ -70,25 +77,51 @@ initial begin
 	srcs_addr = 0;
 	vlan_tag = 0;
 	ether_type = 0;
-	data_steam = 0;
+	header_p1722 = 0;
+	header_iec = 0;
+	samples = 0;
 	crc = 0;
-	#2
-		reset = 1;
-	#2
-		reset = 0;
-	#4
-		run = 1;
+	data_out = $fopen("D:/GitHub/VBTech/VBTech/BISTEthernetPacket/txt_file/transmitter_out.txt", "wire");
+	#(N*2)
+	reset = 1;
+
+	#(N*2)
+	reset = 0;
+	run = 1;
 	dest_addr = $urandom;
 	srcs_addr= $urandom;
 	vlan_tag = $urandom;
 	ether_type = $urandom;
-	data_steam = $urandom;
+	header_p1722 = $urandom;
+	header_iec = $urandom;
+	samples = $urandom;
 	crc = $urandom;
-	#20
-		run = 0;
-	#1000000
+	#(N*4)
+	run=0;
+
+	// #(N*2310)
+	// run = 1;
+	// dest_addr = $urandom;
+	// srcs_addr= $urandom;
+	// vlan_tag = $urandom;
+	// ether_type = $urandom;
+	// header_p1722 = $urandom;
+	// header_iec = $urandom;
+	// samples = $urandom;
+	// crc = $urandom;
+	// #(N*4)
+	// run=0;
+
+	#(N*2500)
 		$finish;
 end
 
- always  #0.4  clk_sys   =   ~clk_sys;
+always  #N  clk_sys   =   ~clk_sys;
+
+always @(posedge clk_sys) begin
+  if(pkt_valid_out)begin
+    $fdisplay(data_out,"%b",pkt_data_out);
+  end
+end
+
 endmodule
