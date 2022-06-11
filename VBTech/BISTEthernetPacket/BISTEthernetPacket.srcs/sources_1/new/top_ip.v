@@ -3,12 +3,12 @@
 // Engineer: Nguyen Hoang Nghia
 //
 // Create Date: Mon, May 9, 2022
-// Design Name: 
+// Design Name: BIST Ethernet Packet
 // Module Name: top_ip.v
-// Project Name: 
-// Target Device: 
-// Tool Versions: 
-// Description: 
+// Project Name: BIST Ethernet Packet
+// Target Device: KU5P
+// Tool Versions: 2019.2
+// Description: BIST Ethernet Packet
 //
 // Dependencies:
 //
@@ -70,10 +70,15 @@ wire [15:0] tx_num_packet_gray     ;
 wire [15:0] tx_num_packet_gray_sync;
 wire [15:0] tx_num_packet_bin_sync ;
 
-wire [3:0] error_status          ;
-wire [3:0] error_status_gray     ;
-wire [3:0] error_status_gray_sync;
-wire [3:0] error_status_bin_sync ;
+wire [3:0] error_data_status          ;
+wire [3:0] error_data_status_gray     ;
+wire [3:0] error_data_status_gray_sync;
+wire [3:0] error_data_status_bin_sync ;
+
+wire [3:0] error_length_status          ;
+wire [3:0] error_length_status_gray     ;
+wire [3:0] error_length_status_gray_sync;
+wire [3:0] error_length_status_bin_sync ;
 
 wire [15:0] rx_num_packet          ;
 wire [15:0] rx_num_packet_gray     ;
@@ -83,30 +88,30 @@ wire [15:0] rx_num_packet_bin_sync ;
 wire                pkt_sof_out  ;
 wire                pkt_eof_out  ;
 wire                pkt_valid_out;
-wire [     D_W-1:0] pkt_data_out ;
+wire [ (D_W*8)-1:0] pkt_data_out ;
 wire [PKT_CH_W-1:0] pkt_chid_out ;
 wire [         5:0] pkt_cnt_out  ;
-wire [         3:0] pkt_alarm_out;
 
 
 ctrl_stt_reg inst1 (
-	.cpu_clk      (cpu_clk               ),
-	.cpu_cs       (cpu_cs                ),
-	.cpu_we       (cpu_we                ),
-	.cpu_oe       (cpu_oe                ),
-	.cpu_adrr     (cpu_adrr              ),
-	.cpu_din      (cpu_din               ),
+	.cpu_clk            (cpu_clk                     ),
+	.cpu_cs             (cpu_cs                      ),
+	.cpu_we             (cpu_we                      ),
+	.cpu_oe             (cpu_oe                      ),
+	.cpu_adrr           (cpu_adrr                    ),
+	.cpu_din            (cpu_din                     ),
 	
 	
-	.error_status (error_status_bin_sync ),
-	.rx_num_packet(rx_num_packet_bin_sync),
+	.error_data_status  (error_data_status_bin_sync  ),
+	.error_length_status(error_length_status_bin_sync),
+	.rx_num_packet      (rx_num_packet_bin_sync      ),
 	
-	.cpu_dout     (cpu_dout              ),
+	.cpu_dout           (cpu_dout                    ),
 	
-	.run          (run                   ),
-	.enable       (enable                ),
-	.length       (length                ),
-	.tx_num_packet(tx_num_packet         )
+	.run                (run                         ),
+	.enable             (enable                      ),
+	.length             (length                      ),
+	.tx_num_packet      (tx_num_packet               )
 );
 
 // Binary to Gray code
@@ -179,23 +184,27 @@ transmitter inst14 (
 	.pkt_valid_out(pkt_valid_out         ),
 	.pkt_data_out (pkt_data_out          ),
 	.pkt_chid_out (pkt_chid_out          ),
-	.pkt_cnt_out  (pkt_cnt_out           ),
-	.pkt_alarm_out(pkt_alarm_out         )
+	.pkt_cnt_out  (pkt_cnt_out           )
 );
 
 //Ethernet Packet Checker & Receiver
 receiver inst15 (
-	.clk_sys      (clk_sys      ),
-	.pkt_sof_in   (pkt_sof_out  ),
-	.pkt_eof_in   (pkt_eof_out  ),
-	.pkt_valid_in (pkt_valid_out),
-	.pkt_data_in  (pkt_data_out ),
-	.pkt_chid_in  (pkt_chid_out ),
-	.pkt_cnt_in   (pkt_cnt_out  ),
-	.pkt_alarm_in (pkt_alarm_out),
+	.clk_sys            (clk_sys               ),
+	.pkt_sof_in         (pkt_sof_out           ),
+	.pkt_eof_in         (pkt_eof_out           ),
+	.pkt_valid_in       (pkt_valid_out         ),
+	.pkt_data_in        (pkt_data_out          ),
+	.pkt_chid_in        (pkt_chid_out          ),
+	.pkt_cnt_in         (pkt_cnt_out           ),
 	
-	.rx_num_packet(rx_num_packet),
-	.error_status (error_status )
+	.run                (run_sync              ),
+	.enable             (enable_bin_sync       ),
+	.length             (length_bin_sync       ),
+	.tx_num_packet      (tx_num_packet_bin_sync),
+	
+	.rx_num_packet      (rx_num_packet         ),
+	.error_data_status  (error_data_status     ),
+	.error_length_status(error_length_status   )
 );
 
 // Binary to Gray code
@@ -205,8 +214,13 @@ bin_to_gray #(16) inst16 (
 );
 
 bin_to_gray #(4) inst17 (
-	.data_in (error_status     ),
-	.data_out(error_status_gray)
+	.data_in (error_data_status     ),
+	.data_out(error_data_status_gray)
+);
+
+bin_to_gray #(4) inst22 (
+	.data_in (error_length_status     ),
+	.data_out(error_length_status_gray)
 );
 
 // Synchronous block with 2 Dff
@@ -218,8 +232,14 @@ sync #(16) inst18 (
 
 sync #(4) inst19 (
 	.clk     (cpu_clk               ),
-	.data_in (error_status_gray     ),
-	.data_out(error_status_gray_sync)
+	.data_in (error_data_status_gray),
+	.data_out(error_data_status_sync)
+);
+
+sync #(4) inst23 (
+	.clk     (cpu_clk                      ),
+	.data_in (error_length_status_gray     ),
+	.data_out(error_length_status_gray_sync)
 );
 
 //Gray code to binary
@@ -229,7 +249,12 @@ gray_to_bin #(16) inst20 (
 );
 
 gray_to_bin #(4) inst21 (
-	.data_in (error_status_gray_sync),
-	.data_out(error_status_bin_sync )
+	.data_in (error_data_status_gray_sync),
+	.data_out(error_data_status_bin_sync )
+);
+
+gray_to_bin #(4) inst24 (
+	.data_in (error_length_status_gray_sync),
+	.data_out(error_length_status_bin_sync )
 );
 endmodule

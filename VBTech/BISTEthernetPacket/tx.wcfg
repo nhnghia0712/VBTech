@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_transmitter_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_transmitter" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="21690fs"></ZoomStartTime>
+      <ZoomEndTime time="37351fs"></ZoomEndTime>
+      <Cursor1Time time="24900fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="207"></NameColumnWidth>
+      <ValueColumnWidth column_width="95"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="12" />
+   <wvobject fp_name="/tb_transmitter/clk_sys" type="logic">
+      <obj_property name="ElementShortName">clk_sys</obj_property>
+      <obj_property name="ObjectShortName">clk_sys</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_transmitter/run" type="logic">
+      <obj_property name="ElementShortName">run</obj_property>
+      <obj_property name="ObjectShortName">run</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_transmitter/enable" type="array">
+      <obj_property name="ElementShortName">enable[3:0]</obj_property>
+      <obj_property name="ObjectShortName">enable[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_transmitter/length" type="array">
+      <obj_property name="ElementShortName">length[15:0]</obj_property>
+      <obj_property name="ObjectShortName">length[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_transmitter/tx_num_packet" type="array">
+      <obj_property name="ElementShortName">tx_num_packet[15:0]</obj_property>
+      <obj_property name="ObjectShortName">tx_num_packet[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_transmitter/pkt_sof_out" type="logic">
+      <obj_property name="ElementShortName">pkt_sof_out</obj_property>
+      <obj_property name="ObjectShortName">pkt_sof_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_transmitter/pkt_eof_out" type="logic">
+      <obj_property name="ElementShortName">pkt_eof_out</obj_property>
+      <obj_property name="ObjectShortName">pkt_eof_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_transmitter/pkt_valid_out" type="logic">
+      <obj_property name="ElementShortName">pkt_valid_out</obj_property>
+      <obj_property name="ObjectShortName">pkt_valid_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_transmitter/pkt_data_out" type="array">
+      <obj_property name="ElementShortName">pkt_data_out[255:0]</obj_property>
+      <obj_property name="ObjectShortName">pkt_data_out[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_transmitter/pkt_chid_out" type="array">
+      <obj_property name="ElementShortName">pkt_chid_out[1:0]</obj_property>
+      <obj_property name="ObjectShortName">pkt_chid_out[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_transmitter/pkt_cnt_out" type="array">
+      <obj_property name="ElementShortName">pkt_cnt_out[5:0]</obj_property>
+      <obj_property name="ObjectShortName">pkt_cnt_out[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_transmitter/data_out" type="array">
+      <obj_property name="ElementShortName">data_out[255:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out[255:0]</obj_property>
+   </wvobject>
+</wave_config>

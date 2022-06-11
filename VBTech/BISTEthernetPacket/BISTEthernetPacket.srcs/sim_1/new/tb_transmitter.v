@@ -4,12 +4,12 @@
 // Engineer: 
 // 
 // Create Date: 05/31/2022 03:55:32 PM
-// Design Name: 
+// Design Name: Test Bench For Ethernet Packet Generator and Transmitter
 // Module Name: tb_transmitter
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
+// Project Name: BIST Ethernet Packet
+// Target Devices: KU5P
+// Tool Versions: 2019.2
+// Description: Test Bench
 // 
 // Dependencies: 
 // 
@@ -22,97 +22,77 @@
 
 module tb_transmitter();
 
-parameter PKT_CH_W = 16;
-parameter N = 0.1;
+parameter N            = 0.1;
 
-reg        clk_sys     ;
-reg        reset       ;
-reg        run         ;
-reg [47:0] dest_addr   ;
-reg [47:0] srcs_addr   ;
-reg [31:0] vlan_tag    ;
-reg [15:0] ether_type  ;
-reg [191:0] header_p1722;
-reg [ 63:0] header_iec  ;
-reg [ 7:0] samples     ;
-reg [31:0] crc         ;
+parameter CHID_NUM     = 4  ;
+parameter LENGTH_W     = 16 ;
+parameter NUM_PKT_W = 16 ;
+
+parameter D_W          = 32 ;
+parameter PKT_CH_W     = 2  ;
+
+reg                 clk_sys      ;
+reg                 run          ;
+reg [ CHID_NUM-1:0] enable       ;
+reg [ LENGTH_W-1:0] length       ;
+reg [NUM_PKT_W-1:0] tx_num_packet;
 
 wire                pkt_sof_out  ;
 wire                pkt_eof_out  ;
 wire                pkt_valid_out;
-wire                pkt_data_out ;
+wire [ (D_W*8)-1:0] pkt_data_out ;
 wire [PKT_CH_W-1:0] pkt_chid_out ;
 wire [         5:0] pkt_cnt_out  ;
-wire [         3:0] pkt_alarm_out;
 
-reg data_out;
+reg [ (D_W*8)-1:0] data_out;
 
 transmitter inst14 (
 	.clk_sys      (clk_sys      ),
-	.reset        (reset        ),
 	.run          (run          ),
-	.dest_addr    (dest_addr    ),
-	.srcs_addr    (srcs_addr    ),
-	.vlan_tag     (vlan_tag     ),
-	.ether_type   (ether_type   ),
-	.header_p1722 (header_p1722 ),
-	.header_iec   (header_iec   ),
-	.samples      (samples      ),
-	.crc          (crc          ),
+	.enable       (enable       ),
+	.length       (length       ),
+	.tx_num_packet(tx_num_packet),
 	
 	.pkt_sof_out  (pkt_sof_out  ),
 	.pkt_eof_out  (pkt_eof_out  ),
 	.pkt_valid_out(pkt_valid_out),
 	.pkt_data_out (pkt_data_out ),
 	.pkt_chid_out (pkt_chid_out ),
-	.pkt_cnt_out  (pkt_cnt_out  ),
-	.pkt_alarm_out(pkt_alarm_out)
+	.pkt_cnt_out  (pkt_cnt_out  )
 );
 
 initial begin
+	//test case 1
 	clk_sys = 0;
-	reset = 0;
 	run = 0;
-	dest_addr = 0;
-	srcs_addr = 0;
-	vlan_tag = 0;
-	ether_type = 0;
-	header_p1722 = 0;
-	header_iec = 0;
-	samples = 0;
-	crc = 0;
+	enable = 0;
+	length = 0;
+	tx_num_packet = 0;
 	data_out = $fopen("D:/GitHub/VBTech/VBTech/BISTEthernetPacket/txt_file/transmitter_out.txt", "wire");
-	#(N*2)
-	reset = 1;
-
-	#(N*2)
-	reset = 0;
-	run = 1;
-	dest_addr = $urandom;
-	srcs_addr= $urandom;
-	vlan_tag = $urandom;
-	ether_type = $urandom;
-	header_p1722 = $urandom;
-	header_iec = $urandom;
-	samples = $urandom;
-	crc = $urandom;
+	#(N*5)
+	enable = 'd1;
+	run = 'b1;
+	length = 'd128;
+	tx_num_packet= 'd5;
 	#(N*4)
 	run=0;
+	#(N*1245)
 
-	// #(N*2310)
-	// run = 1;
-	// dest_addr = $urandom;
-	// srcs_addr= $urandom;
-	// vlan_tag = $urandom;
-	// ether_type = $urandom;
-	// header_p1722 = $urandom;
-	// header_iec = $urandom;
-	// samples = $urandom;
-	// crc = $urandom;
-	// #(N*4)
-	// run=0;
+	// test case 2
+	run = 'b1;
+	length = 'd64;
+	tx_num_packet= 'd4;
+	#(N*4)
+	run=0;
+	#(N*447	)
 
-	#(N*2500)
+	// test case 3
+	run = 'b1;
+	length = 'd1518;
+	tx_num_packet= 'd2;
+	#(N*4)
+	run=0;
+	#(N*6402)
 		$finish;
 end
 
@@ -122,6 +102,15 @@ always @(posedge clk_sys) begin
   if(pkt_valid_out)begin
     $fdisplay(data_out,"%b",pkt_data_out);
   end
+end
+
+always @(pkt_sof_out, pkt_eof_out, pkt_valid_out, pkt_data_out, pkt_chid_out,pkt_cnt_out) begin
+	$display("\npkt_sof_out=%h",pkt_sof_out);
+	$display("pkt_eof_out=%h",pkt_eof_out);
+	$display("pkt_valid_out=%h",pkt_valid_out);
+	$display("pkt_data_out=%h",pkt_data_out);
+	$display("pkt_chid_out=%h",pkt_chid_out);
+	$display("pkt_cnt_out=%h",pkt_cnt_out);
 end
 
 endmodule

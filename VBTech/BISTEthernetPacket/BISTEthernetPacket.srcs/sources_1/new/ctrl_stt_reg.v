@@ -28,7 +28,8 @@ module ctrl_stt_reg
 		cpu_din,
 
 
-		error_status,
+		error_data_status,
+		error_length_status,
 		rx_num_packet,
 
 		cpu_dout,
@@ -52,8 +53,9 @@ input cpu_oe ;
 input [15:0] cpu_adrr;
 input [15:0] cpu_din ;
 
-input [15:0] rx_num_packet;
-input [ 3:0] error_status ;
+input [15:0] rx_num_packet      ;
+input [ 3:0] error_data_status  ;
+input [ 3:0] error_length_status;
 /////////////////////////////////////////////////////////////////////////
 // Output Declarations
 output [15:0] cpu_dout;
@@ -64,28 +66,45 @@ output [15:0] length       ;
 output [15:0] tx_num_packet;
 /////////////////////////////////////////////////////////////////////////
 // Local Logic and Instantiation
-reg [15:0] cpu_dout;
+wire [15:0] cpu_dout;
 
 wire        run          ;
 wire [ 3:0] enable       ;
-reg  [15:0] length       ;
-reg  [15:0] tx_num_packet;
+wire [15:0] length       ;
+wire [15:0] tx_num_packet;
 
-reg [15:0] regfile[5:0];
+wire        run_sync               ;
+wire        run_sync_temp          ;
+wire [ 3:0] enable_sync            ;
+wire [ 3:0] enable_sync_temp       ;
+reg  [15:0] length_sync            ;
+wire [15:0] length_sync_temp       ;
+reg  [15:0] tx_num_packet_sync     ;
+wire [15:0] tx_num_packet_sync_temp;
+reg  [15:0] cpu_dout_sync          ;
+wire [15:0] cpu_dout_sync_temp     ;
+
+reg [15:0] regfile[6:0];
 
 reg  [15:0] temp_run         ;
 reg  [15:0] temp_enable      ;
 wire [15:0] temp_error_status;
 
+
 decoder_4to16 inst1 (
-	.d_out(temp_error_status),
-	.d_in (error_status     )
+	.d_out(temp_error_data_status),
+	.d_in (error_data_status     )
 );
 
+decoder_4to16 inst4 (
+	.d_out(temp_error_length_status),
+	.d_in (errorlength_status     )
+);
 always @(posedge cpu_clk or negedge cpu_cs) begin
 	if(cpu_we && !cpu_cs) begin
 		regfile[4] <= rx_num_packet;
-		regfile[5] <= temp_error_status;
+		regfile[5] <= temp_error_data_status;
+		regfile[6] <= temp_error_length_status;
 		if(cpu_adrr<4) begin
 			regfile[cpu_adrr] <= cpu_din;
 		end
@@ -94,7 +113,7 @@ end
 
 always @(posedge cpu_clk or negedge cpu_cs) begin
 	if(cpu_oe && !cpu_cs) begin
-		cpu_dout <= regfile[cpu_adrr];
+		cpu_dout_sync <= regfile[cpu_adrr];
 
 		temp_run      <= regfile[0];
 		temp_enable   <= regfile[1];
@@ -104,12 +123,14 @@ always @(posedge cpu_clk or negedge cpu_cs) begin
 end
 
 encoder_16to1 ins2 (
-	.d_out(run     ),
+	.d_out(run),
 	.d_in (temp_run)
 );
 
 encoder_16to4 ins3 (
-	.d_out(enable     ),
+	.d_out(enable),
 	.d_in (temp_enable)
 );
+
+
 endmodule

@@ -1,4 +1,27 @@
 Vivado Simulator 2019.2
 Time resolution is 1 ps
-WARNING: file D:/GitHub/VBTech/VBTech/BISTEthernetPacket/txt_file/transmitter_out.txt could not be opened
-$finish called at time : 250800 ps : File "D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sim_1/new/tb_transmitter.v" Line 116
+
+DATA_FROM_TX=aaaaaaaaaaaa555555555555111111112222 == DATA_SAMPLE=aaaaaaaaaaaa555555555555111111112222
+Pass
+
+LENGTH FROM_TX=  160 != LENGTH_USER=  128
+Error
+
+DATA_FROM_TX=aaaaaaaaaaaa555555555555111111112222 == DATA_SAMPLE=aaaaaaaaaaaa555555555555111111112222
+Pass
+
+LENGTH FROM_TX=  160 != LENGTH_USER=  128
+Error
+
+DATA_FROM_TX=aaaaaaaaaaaa555555555555111111112222 == DATA_SAMPLE=aaaaaaaaaaaa555555555555111111112222
+Pass
+
+LENGTH FROM_TX=  160 != LENGTH_USER=  128
+Error
+
+DATA_FROM_TX=aaaaaaaaaaaa555555555555111111112222 == DATA_SAMPLE=aaaaaaaaaaaa555555555555111111112222
+Pass
+
+LENGTH FROM_TX=  160 != LENGTH_USER=  128
+Error
+$finish called at time : 130900 ps : File "D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sim_1/new/tb_receiver.v" Line 116

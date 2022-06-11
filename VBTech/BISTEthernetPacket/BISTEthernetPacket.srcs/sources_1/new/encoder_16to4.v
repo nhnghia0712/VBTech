@@ -35,7 +35,11 @@ output [3:0] d_out;
 
 /////////////////////////////////////////////////////////////////////////
 // Local Logic and Instantiation
-wire [7:0] out4to2;
+assign d_out[3] = d_in[15] | d_in[14] | d_in[13] | d_in[12] | d_in[11] | d_in[10] | d_in[9] | d_in[8];
+assign d_out[2] = d_in[7] | d_in[6] | d_in[5] | d_in[4];
+assign d_out[1] = d_in[15] | d_in[14] | d_in[11] | d_in[10] | d_in[7] | d_in[6] | d_in[3] | d_in[2];
+assign d_out[0] = d_in[15] | d_in[13] | d_in[11] | d_in[9] | d_in[7] | d_in[5] | d_in[3] | d_in[1];
+// wire [7:0] out4to2;
 
 // encoder_4to2 inst1 (
 // 	.d_out(out4to2[7:6]),
@@ -54,15 +58,15 @@ wire [7:0] out4to2;
 // 	.d_in(d_in[3:0])
 // 	);
 
-encoder_4to2 inst1[3:0] (
-	.d_out(out4to2),
-	.d_in(d_in)
-	);
+// encoder_4to2 inst1[3:0] (
+// 	.d_out(out4to2),
+// 	.d_in(d_in)
+// 	);
 
- encoder_4to2 inst2[1:0] (
-	.d_out(d_out),
-	.d_in(out4to2)
-	);
+//  encoder_4to2 inst2[1:0] (
+// 	.d_out(d_out),
+// 	.d_in(out4to2)
+// 	);
 // encoder_4to2 inst5 (
 // 	.d_out(d_out[3:2]),
 // 	.d_in(out4to2[7:4])

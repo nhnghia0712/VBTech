@@ -3,110 +3,117 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="tb_transmitter_behav.wdb" id="1">
+      <db_ref path="tb_csr_behav.wdb" id="1">
          <top_modules>
             <top_module name="glbl" />
-            <top_module name="tb_transmitter" />
+            <top_module name="tb_csr" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="227960fs"></ZoomStartTime>
-      <ZoomEndTime time="230636fs"></ZoomEndTime>
-      <Cursor1Time time="231900fs"></Cursor1Time>
+      <ZoomStartTime time="3fs"></ZoomStartTime>
+      <ZoomEndTime time="630fs"></ZoomEndTime>
+      <Cursor1Time time="267fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="207"></NameColumnWidth>
-      <ValueColumnWidth column_width="86"></ValueColumnWidth>
+      <ValueColumnWidth column_width="76"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="21" />
-   <wvobject fp_name="/tb_transmitter/clk_sys" type="logic">
-      <obj_property name="ElementShortName">clk_sys</obj_property>
-      <obj_property name="ObjectShortName">clk_sys</obj_property>
+   <WVObjectSize size="14" />
+   <wvobject fp_name="/tb_csr/cpu_clk" type="logic">
+      <obj_property name="ElementShortName">cpu_clk</obj_property>
+      <obj_property name="ObjectShortName">cpu_clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_transmitter/reset" type="logic">
-      <obj_property name="ElementShortName">reset</obj_property>
-      <obj_property name="ObjectShortName">reset</obj_property>
+   <wvobject fp_name="/tb_csr/cpu_cs" type="logic">
+      <obj_property name="ElementShortName">cpu_cs</obj_property>
+      <obj_property name="ObjectShortName">cpu_cs</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_transmitter/run" type="logic">
+   <wvobject fp_name="/tb_csr/cpu_we" type="logic">
+      <obj_property name="ElementShortName">cpu_we</obj_property>
+      <obj_property name="ObjectShortName">cpu_we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_csr/cpu_oe" type="logic">
+      <obj_property name="ElementShortName">cpu_oe</obj_property>
+      <obj_property name="ObjectShortName">cpu_oe</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_csr/cpu_adrr" type="array">
+      <obj_property name="ElementShortName">cpu_adrr[15:0]</obj_property>
+      <obj_property name="ObjectShortName">cpu_adrr[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_csr/cpu_din" type="array">
+      <obj_property name="ElementShortName">cpu_din[15:0]</obj_property>
+      <obj_property name="ObjectShortName">cpu_din[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_csr/rx_num_packet" type="array">
+      <obj_property name="ElementShortName">rx_num_packet[15:0]</obj_property>
+      <obj_property name="ObjectShortName">rx_num_packet[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_csr/error_status" type="array">
+      <obj_property name="ElementShortName">error_status[3:0]</obj_property>
+      <obj_property name="ObjectShortName">error_status[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_csr/cpu_dout" type="array">
+      <obj_property name="ElementShortName">cpu_dout[15:0]</obj_property>
+      <obj_property name="ObjectShortName">cpu_dout[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_csr/run" type="logic">
       <obj_property name="ElementShortName">run</obj_property>
       <obj_property name="ObjectShortName">run</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_transmitter/dest_addr" type="array">
-      <obj_property name="ElementShortName">dest_addr[47:0]</obj_property>
-      <obj_property name="ObjectShortName">dest_addr[47:0]</obj_property>
+   <wvobject fp_name="/tb_csr/enable" type="array">
+      <obj_property name="ElementShortName">enable[3:0]</obj_property>
+      <obj_property name="ObjectShortName">enable[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_transmitter/srcs_addr" type="array">
-      <obj_property name="ElementShortName">srcs_addr[47:0]</obj_property>
-      <obj_property name="ObjectShortName">srcs_addr[47:0]</obj_property>
+   <wvobject fp_name="/tb_csr/length" type="array">
+      <obj_property name="ElementShortName">length[15:0]</obj_property>
+      <obj_property name="ObjectShortName">length[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_transmitter/vlan_tag" type="array">
-      <obj_property name="ElementShortName">vlan_tag[31:0]</obj_property>
-      <obj_property name="ObjectShortName">vlan_tag[31:0]</obj_property>
+   <wvobject fp_name="/tb_csr/tx_num_packet" type="array">
+      <obj_property name="ElementShortName">tx_num_packet[15:0]</obj_property>
+      <obj_property name="ObjectShortName">tx_num_packet[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_transmitter/ether_type" type="array">
-      <obj_property name="ElementShortName">ether_type[15:0]</obj_property>
-      <obj_property name="ObjectShortName">ether_type[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_transmitter/header_p1722" type="array">
-      <obj_property name="ElementShortName">header_p1722[23:0]</obj_property>
-      <obj_property name="ObjectShortName">header_p1722[23:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_transmitter/header_iec" type="array">
-      <obj_property name="ElementShortName">header_iec[7:0]</obj_property>
-      <obj_property name="ObjectShortName">header_iec[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_transmitter/samples" type="array">
-      <obj_property name="ElementShortName">samples[7:0]</obj_property>
-      <obj_property name="ObjectShortName">samples[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_transmitter/crc" type="array">
-      <obj_property name="ElementShortName">crc[31:0]</obj_property>
-      <obj_property name="ObjectShortName">crc[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_transmitter/pkt_sof_out" type="logic">
-      <obj_property name="ElementShortName">pkt_sof_out</obj_property>
-      <obj_property name="ObjectShortName">pkt_sof_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_transmitter/pkt_eof_out" type="logic">
-      <obj_property name="ElementShortName">pkt_eof_out</obj_property>
-      <obj_property name="ObjectShortName">pkt_eof_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_transmitter/pkt_valid_out" type="logic">
-      <obj_property name="ElementShortName">pkt_valid_out</obj_property>
-      <obj_property name="ObjectShortName">pkt_valid_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_transmitter/pkt_data_out" type="logic">
-      <obj_property name="ElementShortName">pkt_data_out</obj_property>
-      <obj_property name="ObjectShortName">pkt_data_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_transmitter/pkt_chid_out" type="array">
-      <obj_property name="ElementShortName">pkt_chid_out[15:0]</obj_property>
-      <obj_property name="ObjectShortName">pkt_chid_out[15:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_transmitter/pkt_cnt_out" type="array">
-      <obj_property name="ElementShortName">pkt_cnt_out[5:0]</obj_property>
-      <obj_property name="ObjectShortName">pkt_cnt_out[5:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_transmitter/pkt_alarm_out" type="array">
-      <obj_property name="ElementShortName">pkt_alarm_out[3:0]</obj_property>
-      <obj_property name="ObjectShortName">pkt_alarm_out[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_transmitter/inst14/state_reg" type="array">
-      <obj_property name="ElementShortName">state_reg[3:0]</obj_property>
-      <obj_property name="ObjectShortName">state_reg[3:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_transmitter/inst14/counterA_reg" type="array">
-      <obj_property name="ElementShortName">counterA_reg[5:0]</obj_property>
-      <obj_property name="ObjectShortName">counterA_reg[5:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_transmitter/inst14/counterB_reg" type="array">
-      <obj_property name="ElementShortName">counterB_reg[10:0]</obj_property>
-      <obj_property name="ObjectShortName">counterB_reg[10:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/tb_csr/tb/regfile" type="array">
+      <obj_property name="ElementShortName">regfile[5:0][15:0]</obj_property>
+      <obj_property name="ObjectShortName">regfile[5:0][15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/tb_csr/tb/regfile[5]" type="array">
+         <obj_property name="ElementShortName">[5][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][15:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_csr/tb/regfile[4]" type="array">
+         <obj_property name="ElementShortName">[4][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][15:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_csr/tb/regfile[3]" type="array">
+         <obj_property name="ElementShortName">[3][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][15:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_csr/tb/regfile[2]" type="array">
+         <obj_property name="ElementShortName">[2][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][15:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_csr/tb/regfile[1]" type="array">
+         <obj_property name="ElementShortName">[1][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][15:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_csr/tb/regfile[0]" type="array">
+         <obj_property name="ElementShortName">[0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][15:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
    </wvobject>
 </wave_config>

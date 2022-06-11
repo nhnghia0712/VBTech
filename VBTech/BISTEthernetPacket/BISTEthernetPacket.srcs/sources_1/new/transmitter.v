@@ -3,12 +3,12 @@
 // Engineer: Nguyen Hoang Nghia
 //
 // Create Date: Wed, May 25, 2022	
-// Design Name: 
+// Design Name: Ethernet Packet Generator and Transmitter
 // Module Name: transmitter.v
-// Project Name: 
-// Target Device: 
-// Tool Versions: 
-// Description: 
+// Project Name: BIST Ethernet Packet
+// Target Device: KU5P
+// Tool Versions: 2019.2
+// Description: Ethernet Packet Generator and Transmitter
 //
 // Dependencies:
 //
@@ -21,310 +21,293 @@
 module transmitter
 	(
 		clk_sys,
-		reset,
 		run,
-		dest_addr,
-		srcs_addr,
-		vlan_tag,
-		ether_type,
-		header_p1722,
-		header_iec,
-		samples,
-		crc,
+		enable,
+		length,
+		tx_num_packet,
 
 		pkt_sof_out,
 		pkt_eof_out,
 		pkt_valid_out,
 		pkt_data_out,
 		pkt_chid_out,
-		pkt_cnt_out,
-		pkt_alarm_out
+		pkt_cnt_out
 	);
 
 /////////////////////////////////////////////////////////////////////////
 // Parameter Declarations
-parameter PKT_CH_W = 16;
+parameter CHID_NUM     = 4 ;
+parameter LENGTH_W     = 16;
+parameter NUM_PKT_W = 16;
 
-parameter PREAMBLE_W     = 64 ;
-parameter ADDR_W         = 48 ;
-parameter TYPE_W         = 16 ;
-parameter TAG_CRC_W      = 32 ;
-parameter P1722_HEADER_W = 192;
-parameter IEC_HEADER_W   = 64 ;
-parameter DATA_W         = 8  ;
+parameter D_W      = 32;
+parameter PKT_CH_W = 2 ;
 
-parameter N = 110;
-parameter SAMPLES_W = DATA_W * N;
+parameter PAYLOAD_W = 1500;
+
+parameter DA   = 'hAA_AA_AA_AA_AA_AA;
+parameter SA   = 'h55_55_55_55_55_55;
+parameter VLAN = 'h11_11_11_11   ;
+parameter TYPE = 'h22_22         ;
+
 //  FSM state encoding
-localparam s0  = 4'd0 ;
-localparam s1  = 4'd1 ;
-localparam s2  = 4'd2 ;
-localparam s3  = 4'd3 ;
-localparam s4  = 4'd4 ;
-localparam s5  = 4'd5 ;
-localparam s6  = 4'd6 ;
-localparam s7  = 4'd7 ;
-localparam s8  = 4'd8 ;
-localparam s9  = 4'd9 ;
-localparam s10 = 4'd10;
+localparam s0  = 3'd0 ;
+localparam s1  = 3'd1 ;
+localparam s2  = 3'd2 ;
+localparam s3  = 3'd3 ;
+localparam s4  = 3'd4 ;
+localparam s5  = 3'd5 ;
+localparam s6  = 3'd6 ;
 /////////////////////////////////////////////////////////////////////////
 // Port Declarations
-input                      clk_sys     ;
-input                      reset       ;
-input                      run         ;
-input [        ADDR_W-1:0] dest_addr   ;
-input [        ADDR_W-1:0] srcs_addr   ;
-input [     TAG_CRC_W-1:0] vlan_tag    ;
-input [        TYPE_W-1:0] ether_type  ;
-input [P1722_HEADER_W-1:0] header_p1722;
-input [  IEC_HEADER_W-1:0] header_iec  ;
-input [        DATA_W-1:0] samples     ;
-input [     TAG_CRC_W-1:0] crc         ;
+input                 clk_sys      ;
+input                 run          ;
+input [ CHID_NUM-1:0] enable       ;
+input [ LENGTH_W-1:0] length       ;
+input [NUM_PKT_W-1:0] tx_num_packet;
+
 /////////////////////////////////////////////////////////////////////////
 // Output Declarations
 output                pkt_sof_out  ;
 output                pkt_eof_out  ;
 output                pkt_valid_out;
-output                pkt_data_out ;
+output [ (D_W*8)-1:0] pkt_data_out ;
 output [PKT_CH_W-1:0] pkt_chid_out ;
 output [         5:0] pkt_cnt_out  ;
-output [         3:0] pkt_alarm_out;
 /////////////////////////////////////////////////////////////////////////
 // Local Logic and Instantiation
-reg [5:0] pkt_cnt_out;
+reg [PKT_CH_W-1:0] pkt_chid_out ;
 
-reg [ 3:0] state_reg      ;
-reg [10:0] counterB_reg   ;
-reg [ 5:0] counterA_reg   ;
-reg        preambleBit_reg;
+reg               pkt_sof_out_reg, pkt_sof_out_next;
+reg               pkt_eof_out_reg, pkt_eof_out_next;
+reg               pkt_valid_out_reg, pkt_valid_out_next;
+reg [(D_W*8)-1:0] pkt_data_out_reg, pkt_data_out_next;
+reg [        5:0] pkt_cnt_out_reg, pkt_cnt_out_next;
 
-reg       pkt_sof_out_reg  ;
-reg       pkt_eof_out_reg  ;
-reg       pkt_valid_out_reg;
-reg       pkt_data_out_reg ;
-reg [3:0] pkt_alarm_out_reg;
-///////////////////////////////////////////////////////////////////////
-reg [ 3:0] state_next      ;
-reg [10:0] counterB_next   ;
-reg [ 5:0] counterA_next   ;
-reg        preambleBit_next;
+reg [         NUM_PKT_W-1:0] tx_num_packet_reg, tx_num_packet_next;
+reg [          LENGTH_W-1:0] length_reg, length_next;
+reg [((PAYLOAD_W+18)*8)-1:0] data_out_reg, data_out_next;
+reg [                  15:0] counter_reg, counter_next;
 
-reg       pkt_sof_out_next  ;
-reg       pkt_eof_out_next  ;
-reg       pkt_valid_out_next;
-reg       pkt_data_out_next ;
-reg [3:0] pkt_alarm_out_next;
+reg [              2:0] state_reg, state_next;
+reg [(PAYLOAD_W*8)-1:0] payload_reg, payload_next;
+
+reg [ (D_W*8)-1:0] data [47:0];
+
 //  Present state logic
-always@(posedge clk_sys) begin
-	if(reset) begin
-		state_reg         <= s0;
-		pkt_sof_out_reg   <= 0;
-		pkt_eof_out_reg   <= 0;
-		pkt_valid_out_reg <= 0;
-		pkt_data_out_reg  <= 0;
-		pkt_alarm_out_reg <= 0;
+always@(posedge clk_sys)begin
+	if(enable == 'd0)begin
+		state_reg    <= s0;
+		pkt_chid_out <= 'd0;
 
-		counterA_reg    <= PREAMBLE_W-2;
-		counterB_reg    <= 0;
-		preambleBit_reg <= 1'b1;
-		temp            <= 0;
+		pkt_sof_out_reg   <= 'b0;
+		pkt_eof_out_reg   <= 'b0;
+		pkt_valid_out_reg <= 'b0;
+		pkt_data_out_reg  <= 'd0;
+		pkt_cnt_out_reg   <= 'd0;
+
+		payload_reg       <= 'd0;
+		length_reg        <= 'd0;
+		tx_num_packet_reg <= 'd0;
+		data_out_reg      <= 'd0;
+
+		counter_reg <= 'd0;
 	end
-	else begin
-		state_reg         <= state_next;
+
+	else if (enable[0])begin
+		state_reg    <= state_next;
+		pkt_chid_out <= 'd0;
+
 		pkt_sof_out_reg   <= pkt_sof_out_next;
 		pkt_eof_out_reg   <= pkt_eof_out_next;
 		pkt_valid_out_reg <= pkt_valid_out_next;
 		pkt_data_out_reg  <= pkt_data_out_next;
-		pkt_alarm_out_reg <= pkt_alarm_out_next;
+		pkt_cnt_out_reg   <= pkt_cnt_out_next;
 
-		counterA_reg    <= counterA_next;
-		counterB_reg    <= counterB_next;
-		preambleBit_reg <= preambleBit_next;
+		payload_reg       <= payload_next;
+		tx_num_packet_reg <= tx_num_packet_next;
+		length_reg        <= length_next;
+		data_out_reg      <= data_out_next;
+
+		counter_reg <= counter_next;
 	end
-end
-//  Next state logic
-always@(*) begin
+
+	else if (enable[1])begin
+		state_reg    <= state_next;
+		pkt_chid_out <= 'd1;
+
+		pkt_sof_out_reg   <= pkt_sof_out_next;
+		pkt_eof_out_reg   <= pkt_eof_out_next;
+		pkt_valid_out_reg <= pkt_valid_out_next;
+		pkt_data_out_reg  <= pkt_data_out_next;
+		pkt_cnt_out_reg   <= pkt_cnt_out_next;
+
+		payload_reg       <= payload_next;
+		tx_num_packet_reg <= tx_num_packet_next;
+		length_reg        <= length_next;
+		data_out_reg      <= data_out_next;
+
+		counter_reg <= counter_next;
+	end
+
+	else if (enable[2])begin
+		state_reg    <= state_next;
+		pkt_chid_out <= 'd2;
+
+		pkt_sof_out_reg   <= pkt_sof_out_next;
+		pkt_eof_out_reg   <= pkt_eof_out_next;
+		pkt_valid_out_reg <= pkt_valid_out_next;
+		pkt_data_out_reg  <= pkt_data_out_next;
+		pkt_cnt_out_reg   <= pkt_cnt_out_next;
+
+		payload_reg       <= payload_next;
+		tx_num_packet_reg <= tx_num_packet_next;
+		length_reg        <= length_next;
+		data_out_reg      <= data_out_next;
+
+		counter_reg <= counter_next;
+	end
+
+	else if (enable[3])begin
+		state_reg    <= state_next;
+		pkt_chid_out <= 'd3;
+
+		pkt_sof_out_reg   <= pkt_sof_out_next;
+		pkt_eof_out_reg   <= pkt_eof_out_next;
+		pkt_valid_out_reg <= pkt_valid_out_next;
+		pkt_data_out_reg  <= pkt_data_out_next;
+		pkt_cnt_out_reg   <= pkt_cnt_out_next;
+
+		payload_reg       <= payload_next;
+		tx_num_packet_reg <= tx_num_packet_next;
+		length_reg        <= length_next;
+		data_out_reg      <= data_out_next;
+
+		counter_reg <= counter_next;
+	end
+end 
+
+always@* begin
 	state_next         = state_reg;
 	pkt_sof_out_next   = pkt_sof_out_reg;
 	pkt_eof_out_next   = pkt_eof_out_reg;
 	pkt_valid_out_next = pkt_valid_out_reg;
 	pkt_data_out_next  = pkt_data_out_reg;
-	pkt_alarm_out_next = pkt_alarm_out_reg;
+	pkt_cnt_out_next   = pkt_cnt_out_reg;
 
-	counterA_next    = counterA_reg;
-	counterB_next    = counterB_reg;
-	preambleBit_next = preambleBit_reg;
+	tx_num_packet_next = tx_num_packet_reg;
 
+	payload_next  = payload_reg;
+	length_next   = length_reg;
+	data_out_next = data_out_reg;
+
+	counter_next = counter_reg;
 	case(state_reg)
-		s0 : begin
+		s0 : begin: IDLE
+			pkt_eof_out_next = 'b0;
+			pkt_valid_out_next = 'b0;
+
 			if(run)
 				begin
-					pkt_valid_out_next = 1'b1;
-					pkt_data_out_next  = preambleBit_reg;
+					state_next = s1;
+					tx_num_packet_next = tx_num_packet;
+				end
+		end
+
+		s1 : begin: RUN
+			pkt_valid_out_next = 'b0;
+			pkt_eof_out_next   = 'b0;
+			state_next         = s2;
+			length_next        = length;
+			counter_next       = 'd1;
+		end
+
+		s2 : begin: GENERATE_PAYLOAD
+			if(counter_reg <= (length-18))begin
+				payload_next[8*(counter_reg-1)+:8] = length - 17 - counter_reg;
+				counter_next                       = counter_reg + 'b1;
+			end
+			else begin
+				state_next   = s3;
+				counter_next = 'd0;
+			end
+		end
+
+		s3 : begin: MERGE_DATA_INTO_FRAME
+			data_out_next = {DA[47:0],SA[47:0],VLAN[31:0],TYPE[15:0],payload_reg[(PAYLOAD_W*8)-1:0] <<  ((PAYLOAD_W*8)-((length-18)*8))};
+			state_next    = s4;
+		end
+
+		s4 : begin: SORT_DATA_FRAME
+			data_out_next = data_out_reg >> ((PAYLOAD_W*8)-((length-18)*8));
+			state_next    = s5;
+		end
+
+		s5 : begin: STORE_DATA_INTO_FRAME
+			if(counter_reg <= (length/32) - 1)begin
+				data[counter_reg] = data_out_reg[counter_reg*D_W*8 +: D_W*8];
+				counter_next      = counter_reg + 'b1;
+			end
+			else begin
+				state_next   = s6;
+				counter_next = (length/32) - 1;
+			end
+		end
+
+		s6 : begin: EXPORT_PACKET
+			pkt_data_out_next  = data [counter_reg];
+			pkt_valid_out_next = 'b1;
+
+			if (counter_reg == (length/32) - 1) begin
+				pkt_sof_out_next = 'b1;
+			end
+			else begin
+				pkt_sof_out_next = 'b0;
+			end
+
+			if (length >= D_W) begin
+				pkt_cnt_out_next = D_W;
+				length_next      = length_reg - D_W;
+			end
+			else begin
+				pkt_cnt_out_next = length_reg;
+				length_next      = 'd0;
+			end
+
+			if (counter_reg == 0) begin
+				if(tx_num_packet_reg == 1)begin
+					counter_next = 'd0;
+					state_next   = s0;
+				end
+				else if(tx_num_packet_reg > 0)begin
+					tx_num_packet_next = tx_num_packet_reg - 'b1;
+					counter_next       = 'd0;
 					state_next         = s1;
-					pkt_sof_out_next   = 1'b1;
 				end
+				pkt_eof_out_next = 'b1;
+			end else begin
+				counter_next     = counter_reg - 1'b1;
+				pkt_eof_out_next = 'b0;
+			end
+
 		end
 
-
-		s1 : begin:  Preamble_and_SFD
-			pkt_data_out_next = ~preambleBit_reg;
-			pkt_sof_out_next  = 1'b0;
-
-			if(counterA_reg == 6'd0)
-				begin
-					pkt_data_out_next = 1;
-					counterA_next     = ADDR_W-1;
-					preambleBit_next  = 1'b1;
-					state_next        = s2;
-				end
-			else
-				begin
-					counterA_next    = counterA_reg - 1;
-					preambleBit_next = ~preambleBit_reg;
-				end
-		end
-
-		s2 : begin:  Destination_Address
-			pkt_data_out_next = dest_addr[counterA_reg];
-
-			if(counterA_reg == 0)
-				begin
-					counterA_next = ADDR_W-1;
-					state_next    = s3;
-				end
-			else
-				counterA_next = counterA_reg - 1;
-		end
-
-		s3 : begin:  Source_Address
-			pkt_data_out_next = srcs_addr[counterA_reg];
-
-			if(counterA_reg == 0)
-				begin
-					counterA_next = TAG_CRC_W-1;
-					state_next    = s4;
-				end
-			else
-				counterA_next = counterA_reg - 1;
-		end
-
-		s4 : begin:  Vlan_Tag
-			pkt_data_out_next = vlan_tag[counterA_reg];
-
-			if(counterA_reg == 0)
-				begin
-					counterA_next = TYPE_W-1;
-					state_next    = s5;
-				end
-			else
-				begin
-					counterA_next = counterA_reg - 1;
-				end
-		end
-
-		s5 : begin:  Ethernet_Type
-			pkt_data_out_next = ether_type[counterA_reg];
-
-			if(counterA_reg == 0)
-				begin
-					counterA_next = P1722_HEADER_W-1;
-					state_next    = s6;
-				end
-			else
-				begin
-					counterA_next = counterA_reg - 1;
-				end
-		end
-
-		s6 : begin:  Header_IEEE_P1722_Packet
-			pkt_data_out_next = header_p1722[counterA_reg];
-
-			if(counterA_reg == 0)
-				begin
-					counterA_next = IEC_HEADER_W-1;
-					state_next    = s7;
-				end
-			else
-				begin
-					counterA_next = counterA_reg - 1;
-				end
-		end
-
-		s7 : begin:  IEC_61883_Header
-			pkt_data_out_next = header_iec[counterA_reg];
-
-			if(counterA_reg == 0)
-				begin
-					counterA_next = DATA_W-1;
-					state_next    = s8;
-				end
-			else
-				begin
-					counterA_next = counterA_reg - 1;
-				end
-		end
-		s8 : begin:  Samples
-			pkt_data_out_next = samples[counterA_reg];
-			if(counterA_reg == 0)
-				begin
-					counterA_next = DATA_W-1;
-				end
-			else
-				begin
-					counterA_next = counterA_reg - 1'b1;
-				end
-
-			if(counterB_reg == SAMPLES_W-1)
-				begin
-					counterA_next = TAG_CRC_W-1;
-					state_next    = s9;
-				end
-			else
-				begin
-					counterB_next = counterB_reg + 1'b1;
-				end
-		end
-
-		s9 : begin:  CRC
-			pkt_data_out_next = crc[counterA_reg];
-
-			if(counterA_reg == 0)
-				begin
-					state_next         = s10;
-					counterA_next      = PREAMBLE_W-2;
-					counterB_next      = 10'd0;
-					pkt_eof_out_next   = 1'b1;
-				end
-			else
-				counterA_next = counterA_reg - 1;
-		end
-		s10 : begin: EndState
-			pkt_data_out_next = 1'bx;
-			state_next       = s0;
-			pkt_eof_out_next = 1'b0;
-			pkt_valid_out_next = 1'b0;
-		end
 	endcase
 end
-
+    
 //  Output logic
-assign  pkt_sof_out =   pkt_sof_out_reg;
-assign  pkt_eof_out =   pkt_eof_out_reg;
-assign  pkt_valid_out =   pkt_valid_out_reg;
-assign  pkt_data_out      =   pkt_data_out_reg;
-assign  pkt_chid_out      =   'd1;
-assign  pkt_alarm_out =   pkt_alarm_out_reg;
+	assign pkt_valid_out = pkt_valid_out_reg;
+	assign pkt_sof_out   = pkt_sof_out_reg;
+	assign pkt_data_out  = pkt_data_out_reg;
+	assign pkt_eof_out   = pkt_eof_out_reg;
+	assign pkt_cnt_out   = pkt_cnt_out_reg;
 
-reg [5:0] temp;
+// Debug
+// always @(data_out_reg) begin
+// 	$display("\ndata_out_reg=%h",data_out_reg);
+// end
 
-always @(posedge clk_sys) begin
-	if(pkt_eof_out_next) begin
-		temp <= temp + 1;
-		pkt_cnt_out <= temp;
-	end 
-	else begin
-		pkt_cnt_out <= 'dx;
-	end
-end
+// always @(payload_reg) begin
+// 	$display("\npayload_reg=%h",payload_reg);
+// end
 endmodule

@@ -3,12 +3,12 @@
 // Engineer: Nguyen Hoang Nghia
 //
 // Create Date: Mon, May 9, 2022
-// Design Name: 
+// Design Name: Synchronous Block
 // Module Name: sync.v
-// Project Name: 
-// Target Device: 
-// Tool Versions: 
-// Description: 
+// Project Name: BIST Ethernet Packet
+// Target Device: KU5P
+// Tool Versions: 2019.2
+// Description: Synchronous 2 D Flip-flop
 //
 // Dependencies:
 //

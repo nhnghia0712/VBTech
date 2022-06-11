@@ -35,6 +35,6 @@ output d_out;
 
 /////////////////////////////////////////////////////////////////////////
 // Local Logic and Instantiation
-assign d_out = d_in[1] & (!d_in[0]);
+assign d_out = d_in[1];
 
 endmodule

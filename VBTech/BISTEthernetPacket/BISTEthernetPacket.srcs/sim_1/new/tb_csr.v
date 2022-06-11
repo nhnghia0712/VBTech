@@ -3,12 +3,12 @@
 // Engineer: Nguyen Hoang Nghia
 //
 // Create Date:Sat, May 21, 2022
-// Design Name: Test Bench
+// Design Name: Test Bench For Control And Status Register
 // Module Name: testbench.v
 // Project Name: BIST Ethernet Packet
 // Target Device: KU5P
 // Tool Versions: 2019.2
-// Description:
+// Description: Test Bench
 //
 // Dependencies:
 //
@@ -23,7 +23,7 @@
 // 3. Include Statements
 module tb_csr ();
   // 4. Parameter definitions
-  parameter ENDTIME = 500;
+  parameter ENDTIME = 200;
   // 5. DUT Input regs
   reg        cpu_clk      ;
   reg        cpu_cs       ;
