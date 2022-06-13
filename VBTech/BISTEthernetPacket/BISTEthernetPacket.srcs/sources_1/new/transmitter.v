@@ -36,8 +36,8 @@ module transmitter
 
 /////////////////////////////////////////////////////////////////////////
 // Parameter Declarations
-parameter CHID_NUM     = 4 ;
-parameter LENGTH_W     = 16;
+parameter CHID_NUM  = 4 ;
+parameter LENGTH_W  = 16;
 parameter NUM_PKT_W = 16;
 
 parameter D_W      = 32;
@@ -68,24 +68,23 @@ input [NUM_PKT_W-1:0] tx_num_packet;
 
 /////////////////////////////////////////////////////////////////////////
 // Output Declarations
-output                pkt_sof_out  ;
-output                pkt_eof_out  ;
-output                pkt_valid_out;
-output [ (D_W*8)-1:0] pkt_data_out ;
+output               pkt_sof_out  ;
+output               pkt_eof_out  ;
+output               pkt_valid_out;
+output [(D_W*8)-1:0] pkt_data_out ;
 output [PKT_CH_W-1:0] pkt_chid_out ;
-output [         5:0] pkt_cnt_out  ;
+output [LENGTH_W-1:0] pkt_cnt_out;
 /////////////////////////////////////////////////////////////////////////
 // Local Logic and Instantiation
 reg [PKT_CH_W-1:0] pkt_chid_out ;
 
-reg               pkt_sof_out_reg, pkt_sof_out_next;
-reg               pkt_eof_out_reg, pkt_eof_out_next;
-reg               pkt_valid_out_reg, pkt_valid_out_next;
-reg [(D_W*8)-1:0] pkt_data_out_reg, pkt_data_out_next;
-reg [        5:0] pkt_cnt_out_reg, pkt_cnt_out_next;
+reg                pkt_sof_out_reg, pkt_sof_out_next;
+reg                pkt_eof_out_reg, pkt_eof_out_next;
+reg                pkt_valid_out_reg, pkt_valid_out_next;
+reg [ (D_W*8)-1:0] pkt_data_out_reg, pkt_data_out_next;
+reg [LENGTH_W-1:0] pkt_cnt_out_reg, pkt_cnt_out_next;
 
 reg [         NUM_PKT_W-1:0] tx_num_packet_reg, tx_num_packet_next;
-reg [          LENGTH_W-1:0] length_reg, length_next;
 reg [((PAYLOAD_W+18)*8)-1:0] data_out_reg, data_out_next;
 reg [                  15:0] counter_reg, counter_next;
 
@@ -107,7 +106,6 @@ always@(posedge clk_sys)begin
 		pkt_cnt_out_reg   <= 'd0;
 
 		payload_reg       <= 'd0;
-		length_reg        <= 'd0;
 		tx_num_packet_reg <= 'd0;
 		data_out_reg      <= 'd0;
 
@@ -126,7 +124,6 @@ always@(posedge clk_sys)begin
 
 		payload_reg       <= payload_next;
 		tx_num_packet_reg <= tx_num_packet_next;
-		length_reg        <= length_next;
 		data_out_reg      <= data_out_next;
 
 		counter_reg <= counter_next;
@@ -144,7 +141,6 @@ always@(posedge clk_sys)begin
 
 		payload_reg       <= payload_next;
 		tx_num_packet_reg <= tx_num_packet_next;
-		length_reg        <= length_next;
 		data_out_reg      <= data_out_next;
 
 		counter_reg <= counter_next;
@@ -162,7 +158,6 @@ always@(posedge clk_sys)begin
 
 		payload_reg       <= payload_next;
 		tx_num_packet_reg <= tx_num_packet_next;
-		length_reg        <= length_next;
 		data_out_reg      <= data_out_next;
 
 		counter_reg <= counter_next;
@@ -180,7 +175,6 @@ always@(posedge clk_sys)begin
 
 		payload_reg       <= payload_next;
 		tx_num_packet_reg <= tx_num_packet_next;
-		length_reg        <= length_next;
 		data_out_reg      <= data_out_next;
 
 		counter_reg <= counter_next;
@@ -198,7 +192,6 @@ always@* begin
 	tx_num_packet_next = tx_num_packet_reg;
 
 	payload_next  = payload_reg;
-	length_next   = length_reg;
 	data_out_next = data_out_reg;
 
 	counter_next = counter_reg;
@@ -218,7 +211,7 @@ always@* begin
 			pkt_valid_out_next = 'b0;
 			pkt_eof_out_next   = 'b0;
 			state_next         = s2;
-			length_next        = length;
+			pkt_cnt_out_next   = length;
 			counter_next       = 'd1;
 		end
 
@@ -256,6 +249,7 @@ always@* begin
 
 		s6 : begin: EXPORT_PACKET
 			pkt_data_out_next  = data [counter_reg];
+			
 			pkt_valid_out_next = 'b1;
 
 			if (counter_reg == (length/32) - 1) begin
@@ -265,13 +259,11 @@ always@* begin
 				pkt_sof_out_next = 'b0;
 			end
 
-			if (length >= D_W) begin
-				pkt_cnt_out_next = D_W;
-				length_next      = length_reg - D_W;
+			if (pkt_cnt_out_reg >= D_W) begin
+				pkt_cnt_out_next      = pkt_cnt_out_reg - D_W;
 			end
 			else begin
-				pkt_cnt_out_next = length_reg;
-				length_next      = 'd0;
+				pkt_cnt_out_next      = 'd0;
 			end
 
 			if (counter_reg == 0) begin
@@ -303,9 +295,9 @@ end
 	assign pkt_cnt_out   = pkt_cnt_out_reg;
 
 // Debug
-// always @(data_out_reg) begin
-// 	$display("\ndata_out_reg=%h",data_out_reg);
-// end
+always @(pkt_data_out) begin
+	$display("\npkt_data_out=%h",pkt_data_out);
+end
 
 // always @(payload_reg) begin
 // 	$display("\npayload_reg=%h",payload_reg);

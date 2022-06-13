@@ -40,7 +40,7 @@ wire                pkt_eof_in  ;
 wire                pkt_valid_in;
 wire [ (D_W*8)-1:0] pkt_data_in ;
 wire [PKT_CH_W-1:0] pkt_chid_in ;
-wire [         5:0] pkt_cnt_in  ;
+wire [LENGTH_W-1:0] pkt_cnt_in  ;
 
 //reg [ (D_W*8)-1:0] data_out;
 
@@ -71,7 +71,7 @@ transmitter inst (
 	.clk_sys      (clk_sys     ),
 	.run          (run         ),
 	.enable       (enable      ),
-	.length       ('d160      ),
+	.length       ('d128      ),
 	.tx_num_packet('d5         ),
 	
 	.pkt_sof_out  (pkt_sof_in  ),
@@ -97,14 +97,17 @@ initial begin
 	tx_num_packet= 'd5;
 	#(N*4)
 	run=0;
-	#(N*1300)
-	// // test case 2
-	// run = 'b1;
-	// length = 'd1504;
-	// tx_num_packet= 'd47;
-	// #(N*4)
-	// run=0;
-	// #(N*3080)
+	#(N*1236)
+	enable = 0;
+	#(N*4)
+	// test case 2
+	enable = 'd1;
+	run = 'b1;
+	length = 'd160;
+	tx_num_packet= 'd5;
+	#(N*4)
+	run=0;
+	#(N*3080)
 
 	// // test case 3
 	// run = 'b1;

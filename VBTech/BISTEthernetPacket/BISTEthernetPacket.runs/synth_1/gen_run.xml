@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xcku5p-ffvb676-2-e" LaunchTime="1654839078">
-  <File Type="PA-TCL" Name="transmitter.tcl"/>
-  <File Type="REPORTS-TCL" Name="transmitter_reports.tcl"/>
-  <File Type="RDS-RDS" Name="transmitter.vds"/>
-  <File Type="RDS-DCP" Name="transmitter.dcp"/>
+<GenRun Id="synth_1" LaunchPart="xcku5p-ffvb676-2-e" LaunchTime="1655113117">
+  <File Type="PA-TCL" Name="top_ip.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="top_ip_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="top_ip_reports.tcl"/>
+  <File Type="RDS-RDS" Name="top_ip.vds"/>
+  <File Type="RDS-UTIL" Name="top_ip_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="top_ip_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="top_ip.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="top_ip_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="top_ip_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/new/transmitter.v">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/new/bin_to_gray.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -23,7 +20,6 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/ctrl_stt_reg.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -31,7 +27,6 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/decoder_4to16.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -39,7 +34,6 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/encoder_16to1.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -47,7 +41,6 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/encoder_16to4.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -55,7 +48,6 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/encoder_2to1.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -63,7 +55,6 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/encoder_4to2.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -71,7 +62,6 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/gray_to_bin.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -79,7 +69,6 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/receiver.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -87,7 +76,13 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/sync.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/transmitter.v">
+      <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -95,7 +90,6 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/top_ip.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -103,19 +97,19 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="transmitter"/>
+      <Option Name="TopModule" Val="top_ip"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
     <Filter Type="Constrs"/>
-    <File Path="$PSRCDIR/constrs_1/new/constraint.xdc">
+    <File Path="$PSRCDIR/constrs_1/new/const_top_ip.xdc">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
       </FileInfo>
     </File>
     <Config>
-      <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/new/constraint.xdc"/>
+      <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/new/const_top_ip.xdc"/>
       <Option Name="ConstrsType" Val="XDC"/>
     </Config>
   </FileSet>

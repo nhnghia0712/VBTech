@@ -1,6 +1,6 @@
 
 *** Running vivado
-    with args -log transmitter.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source transmitter.tcl
+    with args -log top_ip.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_ip.tcl
 
 
 ****** Vivado v2019.2 (64-bit)
@@ -8,17 +8,81 @@
   **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
     ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 
-source transmitter.tcl -notrace
-Command: synth_design -top transmitter -part xcku5p-ffvb676-2-e
+source top_ip.tcl -notrace
+Command: synth_design -top top_ip -part xcku5p-ffvb676-2-e
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xcku5p'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcku5p'
 INFO: [Device 21-403] Loading part xcku5p-ffvb676-2-e
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 6848 
+INFO: Helper process launched with PID 11848 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1557.938 ; gain = 98.914
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1556.660 ; gain = 99.164
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top_ip' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/top_ip.v:21]
+	Parameter CHID_NUM bound to: 4 - type: integer 
+	Parameter LENGTH_W bound to: 16 - type: integer 
+	Parameter NUM_PKT_W bound to: 16 - type: integer 
+	Parameter D_W bound to: 32 - type: integer 
+	Parameter PKT_CH_W bound to: 2 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'ctrl_stt_reg' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:21]
+INFO: [Synth 8-6157] synthesizing module 'decoder_4to16' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/decoder_4to16.v:21]
+	Parameter tmp bound to: 16'b0000000000000001 
+INFO: [Synth 8-6155] done synthesizing module 'decoder_4to16' (1#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/decoder_4to16.v:21]
+INFO: [Synth 8-6157] synthesizing module 'encoder_16to1' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_16to1.v:20]
+INFO: [Synth 8-6157] synthesizing module 'encoder_16to4' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_16to4.v:20]
+INFO: [Synth 8-6155] done synthesizing module 'encoder_16to4' (2#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_16to4.v:20]
+INFO: [Synth 8-6157] synthesizing module 'encoder_4to2' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_4to2.v:20]
+INFO: [Synth 8-6155] done synthesizing module 'encoder_4to2' (3#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_4to2.v:20]
+INFO: [Synth 8-6157] synthesizing module 'encoder_2to1' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_2to1.v:20]
+INFO: [Synth 8-6155] done synthesizing module 'encoder_2to1' (4#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_2to1.v:20]
+INFO: [Synth 8-6155] done synthesizing module 'encoder_16to1' (5#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_16to1.v:20]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[6] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[5] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[4] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[3] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[2] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[1] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[0] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register cpu_dout_reg in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:106]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register temp_run_reg in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:108]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register temp_enable_reg in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:109]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register length_reg in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:110]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register tx_num_packet_reg in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:111]
+WARNING: [Synth 8-5788] Register regfile_reg[6] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+WARNING: [Synth 8-5788] Register regfile_reg[5] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+WARNING: [Synth 8-5788] Register regfile_reg[4] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+WARNING: [Synth 8-5788] Register regfile_reg[3] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+WARNING: [Synth 8-5788] Register regfile_reg[2] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+WARNING: [Synth 8-5788] Register regfile_reg[1] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+WARNING: [Synth 8-5788] Register regfile_reg[0] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+WARNING: [Synth 8-5788] Register cpu_dout_reg in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:106]
+WARNING: [Synth 8-5788] Register temp_run_reg in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:108]
+WARNING: [Synth 8-5788] Register temp_enable_reg in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:109]
+WARNING: [Synth 8-5788] Register length_reg in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:110]
+WARNING: [Synth 8-5788] Register tx_num_packet_reg in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:111]
+INFO: [Synth 8-6155] done synthesizing module 'ctrl_stt_reg' (6#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:21]
+INFO: [Synth 8-6157] synthesizing module 'bin_to_gray' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/bin_to_gray.v:21]
+	Parameter DATA_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'bin_to_gray' (7#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/bin_to_gray.v:21]
+INFO: [Synth 8-6157] synthesizing module 'bin_to_gray__parameterized0' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/bin_to_gray.v:21]
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'bin_to_gray__parameterized0' (7#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/bin_to_gray.v:21]
+INFO: [Synth 8-6157] synthesizing module 'sync' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/sync.v:21]
+	Parameter DATA_WIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'sync' (8#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/sync.v:21]
+INFO: [Synth 8-6157] synthesizing module 'sync__parameterized0' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/sync.v:21]
+	Parameter DATA_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'sync__parameterized0' (8#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/sync.v:21]
+INFO: [Synth 8-6157] synthesizing module 'sync__parameterized1' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/sync.v:21]
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'sync__parameterized1' (8#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/sync.v:21]
+INFO: [Synth 8-6157] synthesizing module 'gray_to_bin' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/gray_to_bin.v:21]
+	Parameter DATA_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'gray_to_bin' (9#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/gray_to_bin.v:21]
+INFO: [Synth 8-6157] synthesizing module 'gray_to_bin__parameterized0' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/gray_to_bin.v:21]
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'gray_to_bin__parameterized0' (9#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/gray_to_bin.v:21]
 INFO: [Synth 8-6157] synthesizing module 'transmitter' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:21]
 	Parameter CHID_NUM bound to: 4 - type: integer 
 	Parameter LENGTH_W bound to: 16 - type: integer 
@@ -35,10 +99,71 @@ INFO: [Synth 8-6157] synthesizing module 'transmitter' [D:/GitHub/VBTech/VBTech/
 	Parameter s2 bound to: 3'b010 
 	Parameter s3 bound to: 3'b011 
 	Parameter s4 bound to: 3'b100 
-INFO: [Synth 8-155] case statement is not full and has no default [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:193]
-INFO: [Synth 8-6155] done synthesizing module 'transmitter' (1#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:21]
+	Parameter s5 bound to: 3'b101 
+	Parameter s6 bound to: 3'b110 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:198]
+INFO: [Synth 8-251] 
+pkt_data_out=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:299]
+INFO: [Synth 8-6155] done synthesizing module 'transmitter' (10#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:21]
+INFO: [Synth 8-6157] synthesizing module 'receiver' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:21]
+	Parameter CHID_NUM bound to: 4 - type: integer 
+	Parameter LENGTH_W bound to: 16 - type: integer 
+	Parameter NUM_PKT_W bound to: 16 - type: integer 
+	Parameter D_W bound to: 32 - type: integer 
+	Parameter PKT_CH_W bound to: 2 - type: integer 
+	Parameter PAYLOAD_W bound to: 1500 - type: integer 
+	Parameter DA bound to: 48'b101010101010101010101010101010101010101010101010 
+	Parameter SA bound to: 48'b010101010101010101010101010101010101010101010101 
+	Parameter VLAN bound to: 286331153 - type: integer 
+	Parameter TYPE bound to: 8738 - type: integer 
+	Parameter s0 bound to: 3'b000 
+	Parameter s1 bound to: 3'b001 
+	Parameter s2 bound to: 3'b010 
+	Parameter s3 bound to: 3'b011 
+	Parameter s4 bound to: 3'b100 
+WARNING: [Synth 8-6090] variable 'pkt_data_in_next' is written by both blocking and non-blocking assignments, entire logic could be removed [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:159]
+WARNING: [Synth 8-6090] variable 'pkt_cnt_in_next' is written by both blocking and non-blocking assignments, entire logic could be removed [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:160]
+WARNING: [Synth 8-6090] variable 'state_next' is written by both blocking and non-blocking assignments, entire logic could be removed [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:161]
+WARNING: [Synth 8-6090] variable 'counter_next' is written by both blocking and non-blocking assignments, entire logic could be removed [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:162]
+INFO: [Synth 8-251] 
+DATA_FROM_TX=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx == DATA_SAMPLE=aaaaaaaaaaaa555555555555111111112222 [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:186]
+INFO: [Synth 8-251] Pass [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:187]
+INFO: [Synth 8-251] 
+DATA_FROM_TX=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx != DATA_SAMPLE=aaaaaaaaaaaa555555555555111111112222 [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:191]
+INFO: [Synth 8-251] Error [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:192]
+INFO: [Synth 8-251] 
+LENGTH_FROM_TX=x == LENGTH_USER=x [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:214]
+INFO: [Synth 8-251] Pass [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:215]
+INFO: [Synth 8-251] 
+LENGTH FROM_TX=x != LENGTH_USER=x [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:219]
+INFO: [Synth 8-251] Error [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:220]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:148]
+INFO: [Synth 8-251] 
+rx_num_packet=x [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:233]
+WARNING: [Synth 8-6014] Unused sequential element pkt_cnt_in_reg_reg was removed.  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:110]
+INFO: [Synth 8-6155] done synthesizing module 'receiver' (11#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'top_ip' (12#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/top_ip.v:21]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[15]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[14]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[13]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[12]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[11]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[10]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[9]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[8]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[7]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[6]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[5]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[4]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[3]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[2]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[1]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[0]
+WARNING: [Synth 8-3331] design encoder_16to4 has unconnected port d_in[0]
+WARNING: [Synth 8-3331] design encoder_2to1 has unconnected port d_in[0]
+WARNING: [Synth 8-3331] design encoder_4to2 has unconnected port d_in[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:09 . Memory (MB): peak = 1688.941 ; gain = 229.918
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1699.688 ; gain = 242.191
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -51,28 +176,27 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 1688.941 ; gain = 229.918
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1699.688 ; gain = 242.191
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 1688.941 ; gain = 229.918
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1699.688 ; gain = 242.191
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1688.941 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1707.285 ; gain = 3.137
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/constrs_1/new/constraint.xdc]
-create_clock: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2178.078 ; gain = 21.105
-Finished Parsing XDC File [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/constrs_1/new/constraint.xdc]
+Parsing XDC File [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/constrs_1/new/const_top_ip.xdc]
+Finished Parsing XDC File [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/constrs_1/new/const_top_ip.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 2178.078 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 2255.422 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.853 . Memory (MB): peak = 2178.078 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.738 . Memory (MB): peak = 2255.422 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:51 ; elapsed = 00:00:58 . Memory (MB): peak = 2178.078 ; gain = 719.055
+Finished Constraint Validation : Time (s): cpu = 00:00:33 ; elapsed = 00:00:40 . Memory (MB): peak = 2255.422 ; gain = 797.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
@@ -80,15 +204,76 @@ Start Loading Part and Timing Information
 Loading part: xcku5p-ffvb676-2-e
 INFO: [Synth 8-6742] Reading net delay rules and data
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:51 ; elapsed = 00:00:58 . Memory (MB): peak = 2178.078 ; gain = 719.055
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:33 ; elapsed = 00:00:40 . Memory (MB): peak = 2255.422 ; gain = 797.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:52 ; elapsed = 00:00:58 . Memory (MB): peak = 2178.078 ; gain = 719.055
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:40 . Memory (MB): peak = 2255.422 ; gain = 797.926
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg_reg' in module 'transmitter'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg_reg' in module 'receiver'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                      s0 |                              000 |                              000
+                      s1 |                              001 |                              001
+                      s2 |                              010 |                              010
+                      s3 |                              011 |                              011
+                      s4 |                              100 |                              100
+                      s5 |                              101 |                              101
+                      s6 |                              110 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg_reg' using encoding 'sequential' in module 'transmitter'
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[47]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[46]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[45]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[44]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[43]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[42]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[41]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[40]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[39]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[38]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[37]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[36]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[35]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[34]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[33]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[32]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[31]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[30]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[29]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[28]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[27]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[26]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[25]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[24]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[23]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[22]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[21]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[20]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[19]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[18]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[17]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[16]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[15]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[14]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[13]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[12]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[11]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[10]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[9]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[8]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[7]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[6]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[5]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[4]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[3]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[2]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[1]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[0]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -98,157 +283,271 @@ INFO: [Synth 8-802] inferred FSM for state register 'state_reg_reg' in module 't
                       s3 |                              011 |                              011
                       s4 |                              100 |                              100
 ---------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'state_reg_reg' using encoding 'sequential' in module 'transmitter'
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg_reg' using encoding 'sequential' in module 'receiver'
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[0]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:169]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:02:16 ; elapsed = 00:02:27 . Memory (MB): peak = 3137.348 ; gain = 1678.324
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:17 ; elapsed = 00:01:30 . Memory (MB): peak = 3161.594 ; gain = 1704.098
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
 +------+-----------------------------+------------+----------+
 |      |RTL Partition                |Replication |Instances |
 +------+-----------------------------+------------+----------+
-|1     |case__26_transmitter__GD     |           1|     24290|
-|2     |fsm__GB1                     |           1|     36150|
-|3     |datapath__10_transmitter__GD |           1|    198560|
-|4     |case__40_transmitter__GD     |           1|     65280|
-|5     |datapath__9_transmitter__GD  |           1|    196400|
-|6     |transmitter__GCB3            |           1|     44831|
-|7     |reg__2_transmitter           |           1|     12000|
-|8     |case__41_transmitter__GD     |           1|     65280|
-|9     |case__42_transmitter__GD     |           1|     65280|
-|10    |case__43_transmitter__GD     |           1|     65280|
-|11    |case__44_transmitter__GD     |           1|     65280|
-|12    |case__45_transmitter__GD     |           1|     65280|
-|13    |case__46_transmitter__GD     |           1|     65280|
-|14    |case__47_transmitter__GD     |           1|     65280|
-|15    |case__48_transmitter__GD     |           1|     65280|
-|16    |case__49_transmitter__GD     |           1|     65280|
-|17    |case__50_transmitter__GD     |           1|     65280|
-|18    |case__51_transmitter__GD     |           1|     65280|
-|19    |case__53_transmitter__GD     |           1|     65280|
-|20    |case__52_transmitter__GD     |           1|     65280|
-|21    |case__54_transmitter__GD     |           1|     65280|
-|22    |transmitter__GCB19           |           1|       124|
-|23    |case__55_transmitter__GD     |           1|     65280|
-|24    |case__56_transmitter__GD     |           1|     65280|
-|25    |case__57_transmitter__GD     |           1|     65280|
-|26    |case__58_transmitter__GD     |           1|     65280|
-|27    |case__59_transmitter__GD     |           1|     65280|
-|28    |case__60_transmitter__GD     |           1|     65280|
-|29    |case__61_transmitter__GD     |           1|     65280|
-|30    |case__62_transmitter__GD     |           1|     65280|
-|31    |case__64_transmitter__GD     |           1|     65280|
-|32    |case__63_transmitter__GD     |           1|     65280|
-|33    |case__65_transmitter__GD     |           1|     65280|
-|34    |case__66_transmitter__GD     |           1|     65280|
-|35    |case__67_transmitter__GD     |           1|     65280|
-|36    |case__39_transmitter__GD     |           1|     65280|
-|37    |muxpart__13_transmitter      |           1|     16128|
-|38    |case__68_transmitter__GD     |           1|     65280|
-|39    |case__69_transmitter__GD     |           1|     65280|
-|40    |case__70_transmitter__GD     |           1|     65280|
-|41    |case__71_transmitter__GD     |           1|     65280|
-|42    |case__72_transmitter__GD     |           1|     65280|
-|43    |case__73_transmitter__GD     |           1|     65280|
-|44    |case__74_transmitter__GD     |           1|     65280|
-|45    |case__75_transmitter__GD     |           1|     65280|
-|46    |case__76_transmitter__GD     |           1|     65280|
-|47    |case__77_transmitter__GD     |           1|     65280|
-|48    |reg__3_transmitter           |           1|     12144|
-|49    |case__78_transmitter__GD     |           1|     65280|
-|50    |case__79_transmitter__GD     |           1|     65280|
-|51    |case__80_transmitter__GD     |           1|     65280|
-|52    |case__81_transmitter__GD     |           1|     65280|
-|53    |case__82_transmitter__GD     |           1|     65280|
-|54    |case__83_transmitter__GD     |           1|     65280|
-|55    |case__84_transmitter__GD     |           1|     65280|
-|56    |case__85_transmitter__GD     |           1|     65280|
-|57    |transmitter__GCB54           |           1|       262|
-|58    |case__86_transmitter__GD     |           1|     65280|
-|59    |case__102_transmitter__GD    |           1|     65280|
-|60    |case__101_transmitter__GD    |           1|     65280|
-|61    |case__100_transmitter__GD    |           1|     65280|
-|62    |case__99_transmitter__GD     |           1|     65280|
-|63    |case__98_transmitter__GD     |           1|     65280|
-|64    |case__97_transmitter__GD     |           1|     65280|
-|65    |case__96_transmitter__GD     |           1|     65280|
-|66    |case__95_transmitter__GD     |           1|     65280|
-|67    |case__94_transmitter__GD     |           1|     65280|
-|68    |case__93_transmitter__GD     |           1|     65280|
-|69    |case__92_transmitter__GD     |           1|     65280|
-|70    |case__91_transmitter__GD     |           1|     65280|
-|71    |case__90_transmitter__GD     |           1|     65280|
-|72    |case__89_transmitter__GD     |           1|     65280|
-|73    |case__88_transmitter__GD     |           1|     65280|
-|74    |case__87_transmitter__GD     |           1|     65280|
-|75    |transmitter__GCB72           |           1|       681|
-|76    |transmitter__GCB73           |           1|     60000|
-|77    |logic__26_transmitter__GD    |           1|     12000|
-|78    |datapath__12_transmitter__GD |           1|     44769|
+|1     |fsm__GB0                     |           1|     36404|
+|2     |case__149_transmitter__GD    |           1|     36207|
+|3     |datapath__12_transmitter__GD |           1|    198560|
+|4     |case__161_transmitter__GD    |           1|     65280|
+|5     |datapath__11_transmitter__GD |           1|    196400|
+|6     |case__19_transmitter__GD     |           1|     48000|
+|7     |reg__21_transmitter          |           1|     12000|
+|8     |datapath__10_transmitter__GD |           1|     44769|
+|9     |case__162_transmitter__GD    |           1|     65280|
+|10    |case__163_transmitter__GD    |           1|     65280|
+|11    |case__164_transmitter__GD    |           1|     65280|
+|12    |case__165_transmitter__GD    |           1|     65280|
+|13    |case__166_transmitter__GD    |           1|     65280|
+|14    |case__167_transmitter__GD    |           1|     65280|
+|15    |case__168_transmitter__GD    |           1|     65280|
+|16    |case__169_transmitter__GD    |           1|     65280|
+|17    |case__170_transmitter__GD    |           1|     65280|
+|18    |case__171_transmitter__GD    |           1|     65280|
+|19    |case__172_transmitter__GD    |           1|     65280|
+|20    |case__174_transmitter__GD    |           1|     65280|
+|21    |case__173_transmitter__GD    |           1|     65280|
+|22    |case__175_transmitter__GD    |           1|     65280|
+|23    |case__176_transmitter__GD    |           1|     65280|
+|24    |case__177_transmitter__GD    |           1|     65280|
+|25    |case__178_transmitter__GD    |           1|     65280|
+|26    |case__179_transmitter__GD    |           1|     65280|
+|27    |case__180_transmitter__GD    |           1|     65280|
+|28    |case__181_transmitter__GD    |           1|     65280|
+|29    |case__182_transmitter__GD    |           1|     65280|
+|30    |case__183_transmitter__GD    |           1|     65280|
+|31    |case__185_transmitter__GD    |           1|     65280|
+|32    |case__184_transmitter__GD    |           1|     65280|
+|33    |case__186_transmitter__GD    |           1|     65280|
+|34    |case__187_transmitter__GD    |           1|     65280|
+|35    |case__188_transmitter__GD    |           1|     65280|
+|36    |case__160_transmitter__GD    |           1|     65280|
+|37    |muxpart__121_transmitter     |           1|     16128|
+|38    |case__189_transmitter__GD    |           1|     65280|
+|39    |case__190_transmitter__GD    |           1|     65280|
+|40    |case__191_transmitter__GD    |           1|     65280|
+|41    |case__192_transmitter__GD    |           1|     65280|
+|42    |case__193_transmitter__GD    |           1|     65280|
+|43    |case__194_transmitter__GD    |           1|     65280|
+|44    |case__195_transmitter__GD    |           1|     65280|
+|45    |case__196_transmitter__GD    |           1|     65280|
+|46    |case__197_transmitter__GD    |           1|     65280|
+|47    |transmitter__GCB44           |           1|     24320|
+|48    |case__198_transmitter__GD    |           1|     65280|
+|49    |reg__22_transmitter          |           1|     12144|
+|50    |case__199_transmitter__GD    |           1|     65280|
+|51    |case__200_transmitter__GD    |           1|     65280|
+|52    |reg__28_transmitter          |           1|       256|
+|53    |case__201_transmitter__GD    |           1|     65280|
+|54    |case__202_transmitter__GD    |           1|     65280|
+|55    |case__203_transmitter__GD    |           1|     65280|
+|56    |case__204_transmitter__GD    |           1|     65280|
+|57    |case__205_transmitter__GD    |           1|     65280|
+|58    |case__206_transmitter__GD    |           1|     65280|
+|59    |case__207_transmitter__GD    |           1|     65280|
+|60    |case__223_transmitter__GD    |           1|     65280|
+|61    |case__208_transmitter__GD    |           1|     65280|
+|62    |transmitter__GCB59           |           1|      1044|
+|63    |case__221_transmitter__GD    |           1|     65280|
+|64    |case__220_transmitter__GD    |           1|     65280|
+|65    |case__218_transmitter__GD    |           1|     65280|
+|66    |case__217_transmitter__GD    |           1|     65280|
+|67    |case__215_transmitter__GD    |           1|     65280|
+|68    |case__214_transmitter__GD    |           1|     65280|
+|69    |case__213_transmitter__GD    |           1|     65280|
+|70    |case__216_transmitter__GD    |           1|     65280|
+|71    |case__212_transmitter__GD    |           1|     65280|
+|72    |case__211_transmitter__GD    |           1|     65280|
+|73    |case__219_transmitter__GD    |           1|     65280|
+|74    |case__210_transmitter__GD    |           1|     65280|
+|75    |case__209_transmitter__GD    |           1|     65280|
+|76    |case__222_transmitter__GD    |           1|     65280|
+|77    |transmitter__GCB74           |           1|     44831|
+|78    |transmitter__GCB75           |           1|     25726|
+|79    |case__256_receiver__GD       |           1|     65280|
+|80    |receiver__GB1                |           1|      1851|
+|81    |case__255_receiver__GD       |           1|     65280|
+|82    |top_ip__GC0                  |           1|      1743|
 +------+-----------------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-3538] Detected potentially large (wide) register payload_reg_reg [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:104]
-INFO: [Synth 8-3538] Detected potentially large (wide) register data_out_reg_reg [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:106]
+INFO: [Synth 8-3538] Detected potentially large (wide) register payload_reg_reg [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:108]
+INFO: [Synth 8-3538] Detected potentially large (wide) register data_out_reg_reg [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:110]
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 4     
-	   2 Input     16 Bit       Adders := 2     
+	   2 Input     32 Bit       Adders := 5     
+	   2 Input     16 Bit       Adders := 9     
 	   3 Input      8 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 108   
 +---Registers : 
 	            12144 Bit    Registers := 1     
 	            12000 Bit    Registers := 1     
-	              256 Bit    Registers := 1     
-	               16 Bit    Registers := 3     
-	                6 Bit    Registers := 1     
+	              256 Bit    Registers := 2     
+	               16 Bit    Registers := 27    
+	                4 Bit    Registers := 8     
 	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 3     
+	                1 Bit    Registers := 5     
 +---Muxes : 
-	   5 Input  12144 Bit        Muxes := 1     
-	   5 Input  12000 Bit        Muxes := 2     
+	   7 Input  12144 Bit        Muxes := 1     
+	   7 Input  12000 Bit        Muxes := 1     
+	   5 Input  12000 Bit        Muxes := 1     
 	   2 Input  12000 Bit        Muxes := 1     
-	   5 Input     16 Bit        Muxes := 2     
-	   2 Input     16 Bit        Muxes := 3     
-	   2 Input      6 Bit        Muxes := 1     
-	   5 Input      3 Bit        Muxes := 1     
+	   2 Input    256 Bit        Muxes := 1     
+	   7 Input     16 Bit        Muxes := 3     
+	   2 Input     16 Bit        Muxes := 19    
+	   5 Input     16 Bit        Muxes := 3     
+	   5 Input      4 Bit        Muxes := 2     
+	   7 Input      3 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 2     
+	   5 Input      3 Bit        Muxes := 2     
 	   2 Input      2 Bit        Muxes := 4     
-	   5 Input      1 Bit        Muxes := 8     
-	   2 Input      1 Bit        Muxes := 26    
+	   7 Input      1 Bit        Muxes := 56    
+	   2 Input      1 Bit        Muxes := 46    
+	   5 Input      1 Bit        Muxes := 6     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-3538] Detected potentially large (wide) register payload_reg_reg [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:104]
-INFO: [Synth 8-3538] Detected potentially large (wide) register data_out_reg_reg [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:106]
+INFO: [Synth 8-3538] Detected potentially large (wide) register payload_reg_reg [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:108]
+INFO: [Synth 8-3538] Detected potentially large (wide) register data_out_reg_reg [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:110]
 Hierarchical RTL Component report 
 Module transmitter 
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     32 Bit       Adders := 4     
-	   2 Input     16 Bit       Adders := 2     
+	   2 Input     16 Bit       Adders := 5     
 	   3 Input      8 Bit       Adders := 1     
 +---Registers : 
 	            12144 Bit    Registers := 1     
 	            12000 Bit    Registers := 1     
 	              256 Bit    Registers := 1     
-	               16 Bit    Registers := 3     
-	                6 Bit    Registers := 1     
+	               16 Bit    Registers := 4     
 	                2 Bit    Registers := 1     
 	                1 Bit    Registers := 3     
 +---Muxes : 
-	   5 Input  12144 Bit        Muxes := 1     
-	   5 Input  12000 Bit        Muxes := 2     
+	   7 Input  12144 Bit        Muxes := 1     
+	   7 Input  12000 Bit        Muxes := 1     
+	   5 Input  12000 Bit        Muxes := 1     
 	   2 Input  12000 Bit        Muxes := 1     
-	   5 Input     16 Bit        Muxes := 2     
-	   2 Input     16 Bit        Muxes := 3     
-	   2 Input      6 Bit        Muxes := 1     
-	   5 Input      3 Bit        Muxes := 1     
+	   7 Input     16 Bit        Muxes := 3     
+	   2 Input     16 Bit        Muxes := 4     
+	   7 Input      3 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 4     
-	   5 Input      1 Bit        Muxes := 8     
-	   2 Input      1 Bit        Muxes := 26    
+	   7 Input      1 Bit        Muxes := 56    
+	   2 Input      1 Bit        Muxes := 40    
+Module receiver 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input     16 Bit       Adders := 4     
++---Registers : 
+	              256 Bit    Registers := 1     
+	               16 Bit    Registers := 5     
+	                4 Bit    Registers := 2     
++---Muxes : 
+	   2 Input    256 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 1     
+	   5 Input     16 Bit        Muxes := 3     
+	   5 Input      4 Bit        Muxes := 2     
+	   5 Input      3 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+	   5 Input      1 Bit        Muxes := 6     
+Module ctrl_stt_reg 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 12    
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 14    
+	   2 Input      1 Bit        Muxes := 2     
+Module bin_to_gray__1 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
+Module bin_to_gray__parameterized0__1 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 15    
+Module bin_to_gray__parameterized0__2 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 15    
+Module sync 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 2     
+Module sync__parameterized0__1 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 2     
+Module sync__parameterized1__1 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 2     
+Module sync__parameterized1__2 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 2     
+Module gray_to_bin__1 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
+Module gray_to_bin__parameterized0__1 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 15    
+Module gray_to_bin__parameterized0__2 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 15    
+Module bin_to_gray__parameterized0 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 15    
+Module bin_to_gray__2 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
+Module bin_to_gray 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
+Module sync__parameterized1 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 2     
+Module sync__parameterized0__2 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 2     
+Module sync__parameterized0 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 2     
+Module gray_to_bin__parameterized0 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 15    
+Module gray_to_bin__2 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
+Module gray_to_bin 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -262,102 +561,1235 @@ BRAMs: 960 (col length: RAMB18 96 RAMB36 48)
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5580] Multithreading enabled for synth_design using a maximum of 2 processes.
+Parallel Worker Creation Failure: Worker 0 has died.  Skipping 
+Parallel Worker Creation Failure: Worker 1 has died.  Skipping 
+Adjusting Job Scheduling: Worker 0 unavailable.  Skipping 
+Adjusting Job Scheduling: Worker 1 unavailable.  Skipping 
+Failed to find any parallel workers.  Continuing in single-core optimization.
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-4471] merging register 'counter_reg_reg[15:0]' into 'counter_reg_reg[15:0]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:108]
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-4471] merging register 'counter_reg_reg[15:0]' into 'counter_reg_reg[15:0]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:112]
+INFO: [Synth 8-4471] merging register 'counter_reg_reg[15:0]' into 'counter_reg_reg[15:0]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:115]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:05:43 ; elapsed = 00:08:03 . Memory (MB): peak = 3272.441 ; gain = 1813.418
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:05:35 ; elapsed = 00:08:35 . Memory (MB): peak = 3453.977 ; gain = 1996.480
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
 +------+-----------------------------+------------+----------+
 |      |RTL Partition                |Replication |Instances |
 +------+-----------------------------+------------+----------+
-|1     |case__26_transmitter__GD     |           1|     24288|
-|2     |fsm__GB1                     |           1|     36162|
-|3     |datapath__10_transmitter__GD |           1|    198560|
-|4     |case__40_transmitter__GD     |           1|      2295|
-|5     |datapath__9_transmitter__GD  |           1|    196400|
-|6     |transmitter__GCB3            |           1|     44806|
-|7     |reg__2_transmitter           |           1|     12000|
-|8     |case__41_transmitter__GD     |           1|      2295|
-|9     |case__42_transmitter__GD     |           1|      2295|
-|10    |case__43_transmitter__GD     |           1|      2295|
-|11    |case__44_transmitter__GD     |           1|      2295|
-|12    |case__45_transmitter__GD     |           1|      2295|
-|13    |case__46_transmitter__GD     |           1|      2295|
-|14    |case__47_transmitter__GD     |           1|      2295|
-|15    |case__48_transmitter__GD     |           1|      2295|
-|16    |case__49_transmitter__GD     |           1|      2295|
-|17    |case__50_transmitter__GD     |           1|      2295|
-|18    |case__51_transmitter__GD     |           1|      2295|
-|19    |case__53_transmitter__GD     |           1|      2295|
-|20    |case__52_transmitter__GD     |           1|      2295|
-|21    |case__54_transmitter__GD     |           1|      2295|
-|22    |transmitter__GCB19           |           1|        21|
-|23    |case__55_transmitter__GD     |           1|      2295|
-|24    |case__56_transmitter__GD     |           1|      2295|
-|25    |case__57_transmitter__GD     |           1|      2295|
-|26    |case__58_transmitter__GD     |           1|      2295|
-|27    |case__59_transmitter__GD     |           1|      2295|
-|28    |case__60_transmitter__GD     |           1|      2295|
-|29    |case__61_transmitter__GD     |           1|      2295|
-|30    |case__62_transmitter__GD     |           1|      2295|
-|31    |case__64_transmitter__GD     |           1|      2295|
-|32    |case__63_transmitter__GD     |           1|      2295|
-|33    |case__65_transmitter__GD     |           1|      2295|
-|34    |case__66_transmitter__GD     |           1|      2295|
-|35    |case__67_transmitter__GD     |           1|      2295|
-|36    |case__39_transmitter__GD     |           1|      2295|
-|37    |muxpart__13_transmitter      |           1|     16128|
-|38    |case__68_transmitter__GD     |           1|      2295|
-|39    |case__69_transmitter__GD     |           1|      2295|
-|40    |case__70_transmitter__GD     |           1|      2295|
-|41    |case__71_transmitter__GD     |           1|      2295|
-|42    |case__72_transmitter__GD     |           1|      2295|
-|43    |case__73_transmitter__GD     |           1|      2295|
-|44    |case__74_transmitter__GD     |           1|      2295|
-|45    |case__75_transmitter__GD     |           1|      2295|
-|46    |case__76_transmitter__GD     |           1|      2295|
-|47    |case__77_transmitter__GD     |           1|      2295|
-|48    |reg__3_transmitter           |           1|     12144|
-|49    |case__78_transmitter__GD     |           1|      2295|
-|50    |case__79_transmitter__GD     |           1|      2295|
-|51    |case__80_transmitter__GD     |           1|      2295|
-|52    |case__81_transmitter__GD     |           1|      2295|
-|53    |case__82_transmitter__GD     |           1|      2295|
-|54    |case__83_transmitter__GD     |           1|      2295|
-|55    |case__84_transmitter__GD     |           1|      2295|
-|56    |case__85_transmitter__GD     |           1|      2295|
-|57    |transmitter__GCB54           |           1|       262|
-|58    |case__86_transmitter__GD     |           1|      2295|
-|59    |case__102_transmitter__GD    |           1|      2295|
-|60    |case__101_transmitter__GD    |           1|      2295|
-|61    |case__100_transmitter__GD    |           1|      2295|
-|62    |case__99_transmitter__GD     |           1|      2295|
-|63    |case__98_transmitter__GD     |           1|      2295|
-|64    |case__97_transmitter__GD     |           1|      2295|
-|65    |case__96_transmitter__GD     |           1|      2295|
-|66    |case__95_transmitter__GD     |           1|      2295|
-|67    |case__94_transmitter__GD     |           1|      2295|
-|68    |case__93_transmitter__GD     |           1|      2295|
-|69    |case__92_transmitter__GD     |           1|      2295|
-|70    |case__91_transmitter__GD     |           1|      2295|
-|71    |case__90_transmitter__GD     |           1|      2295|
-|72    |case__89_transmitter__GD     |           1|      2295|
-|73    |case__88_transmitter__GD     |           1|      2295|
-|74    |case__87_transmitter__GD     |           1|      2295|
-|75    |transmitter__GCB72           |           1|       474|
-|76    |transmitter__GCB73           |           1|     72000|
-|77    |logic__26_transmitter__GD    |           1|         0|
-|78    |datapath__12_transmitter__GD |           1|      1882|
+|1     |fsm__GB0                     |           1|     25842|
+|2     |case__149_transmitter__GD    |           1|     36204|
+|3     |datapath__12_transmitter__GD |           1|    162121|
+|4     |datapath__11_transmitter__GD |           1|    160393|
+|5     |case__19_transmitter__GD     |           1|     48000|
+|6     |reg__21_transmitter          |           1|     24000|
+|7     |datapath__10_transmitter__GD |           1|     44759|
+|8     |muxpart__121_transmitter     |           1|      9072|
+|9     |transmitter__GCB44           |           1|     13680|
+|10    |reg__22_transmitter          |           1|     12144|
+|11    |reg__28_transmitter          |           1|       144|
+|12    |transmitter__GCB59           |           1|       612|
+|13    |transmitter__GCB74           |           1|      1917|
+|14    |transmitter__GCB75           |           1|      1682|
+|15    |receiver__GB1                |           1|      1157|
+|16    |top_ip__GC0                  |           1|       910|
 +------+-----------------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:06:08 ; elapsed = 00:08:44 . Memory (MB): peak = 3272.441 ; gain = 1813.418
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:05:53 ; elapsed = 00:09:01 . Memory (MB): peak = 3453.977 ; gain = 1996.480
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+TclStackFree: incorrect freePtr. Call out of sequence?
+
+*** Running vivado
+    with args -log top_ip.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_ip.tcl
+
+
+****** Vivado v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source top_ip.tcl -notrace
+Command: synth_design -top top_ip -part xcku5p-ffvb676-2-e
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xcku5p'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcku5p'
+INFO: [Device 21-403] Loading part xcku5p-ffvb676-2-e
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 8692 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 1555.926 ; gain = 98.844
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top_ip' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/top_ip.v:21]
+	Parameter CHID_NUM bound to: 4 - type: integer 
+	Parameter LENGTH_W bound to: 16 - type: integer 
+	Parameter NUM_PKT_W bound to: 16 - type: integer 
+	Parameter D_W bound to: 32 - type: integer 
+	Parameter PKT_CH_W bound to: 2 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'ctrl_stt_reg' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:21]
+INFO: [Synth 8-6157] synthesizing module 'decoder_4to16' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/decoder_4to16.v:21]
+	Parameter tmp bound to: 16'b0000000000000001 
+INFO: [Synth 8-6155] done synthesizing module 'decoder_4to16' (1#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/decoder_4to16.v:21]
+INFO: [Synth 8-6157] synthesizing module 'encoder_16to1' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_16to1.v:20]
+INFO: [Synth 8-6157] synthesizing module 'encoder_16to4' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_16to4.v:20]
+INFO: [Synth 8-6155] done synthesizing module 'encoder_16to4' (2#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_16to4.v:20]
+INFO: [Synth 8-6157] synthesizing module 'encoder_4to2' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_4to2.v:20]
+INFO: [Synth 8-6155] done synthesizing module 'encoder_4to2' (3#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_4to2.v:20]
+INFO: [Synth 8-6157] synthesizing module 'encoder_2to1' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_2to1.v:20]
+INFO: [Synth 8-6155] done synthesizing module 'encoder_2to1' (4#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_2to1.v:20]
+INFO: [Synth 8-6155] done synthesizing module 'encoder_16to1' (5#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_16to1.v:20]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[6] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[5] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[4] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[3] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[2] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[1] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[0] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register cpu_dout_reg in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:106]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register temp_run_reg in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:108]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register temp_enable_reg in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:109]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register length_reg in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:110]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register tx_num_packet_reg in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:111]
+WARNING: [Synth 8-5788] Register regfile_reg[6] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+WARNING: [Synth 8-5788] Register regfile_reg[5] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+WARNING: [Synth 8-5788] Register regfile_reg[4] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+WARNING: [Synth 8-5788] Register regfile_reg[3] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+WARNING: [Synth 8-5788] Register regfile_reg[2] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+WARNING: [Synth 8-5788] Register regfile_reg[1] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+WARNING: [Synth 8-5788] Register regfile_reg[0] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+WARNING: [Synth 8-5788] Register cpu_dout_reg in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:106]
+WARNING: [Synth 8-5788] Register temp_run_reg in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:108]
+WARNING: [Synth 8-5788] Register temp_enable_reg in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:109]
+WARNING: [Synth 8-5788] Register length_reg in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:110]
+WARNING: [Synth 8-5788] Register tx_num_packet_reg in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:111]
+INFO: [Synth 8-6155] done synthesizing module 'ctrl_stt_reg' (6#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:21]
+INFO: [Synth 8-6157] synthesizing module 'bin_to_gray' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/bin_to_gray.v:21]
+	Parameter DATA_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'bin_to_gray' (7#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/bin_to_gray.v:21]
+INFO: [Synth 8-6157] synthesizing module 'bin_to_gray__parameterized0' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/bin_to_gray.v:21]
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'bin_to_gray__parameterized0' (7#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/bin_to_gray.v:21]
+INFO: [Synth 8-6157] synthesizing module 'sync' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/sync.v:21]
+	Parameter DATA_WIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'sync' (8#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/sync.v:21]
+INFO: [Synth 8-6157] synthesizing module 'sync__parameterized0' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/sync.v:21]
+	Parameter DATA_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'sync__parameterized0' (8#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/sync.v:21]
+INFO: [Synth 8-6157] synthesizing module 'sync__parameterized1' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/sync.v:21]
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'sync__parameterized1' (8#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/sync.v:21]
+INFO: [Synth 8-6157] synthesizing module 'gray_to_bin' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/gray_to_bin.v:21]
+	Parameter DATA_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'gray_to_bin' (9#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/gray_to_bin.v:21]
+INFO: [Synth 8-6157] synthesizing module 'gray_to_bin__parameterized0' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/gray_to_bin.v:21]
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'gray_to_bin__parameterized0' (9#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/gray_to_bin.v:21]
+INFO: [Synth 8-6157] synthesizing module 'transmitter' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:21]
+	Parameter CHID_NUM bound to: 4 - type: integer 
+	Parameter LENGTH_W bound to: 16 - type: integer 
+	Parameter NUM_PKT_W bound to: 16 - type: integer 
+	Parameter D_W bound to: 32 - type: integer 
+	Parameter PKT_CH_W bound to: 2 - type: integer 
+	Parameter PAYLOAD_W bound to: 1500 - type: integer 
+	Parameter DA bound to: 48'b101010101010101010101010101010101010101010101010 
+	Parameter SA bound to: 48'b010101010101010101010101010101010101010101010101 
+	Parameter VLAN bound to: 286331153 - type: integer 
+	Parameter TYPE bound to: 8738 - type: integer 
+	Parameter s0 bound to: 3'b000 
+	Parameter s1 bound to: 3'b001 
+	Parameter s2 bound to: 3'b010 
+	Parameter s3 bound to: 3'b011 
+	Parameter s4 bound to: 3'b100 
+	Parameter s5 bound to: 3'b101 
+	Parameter s6 bound to: 3'b110 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:198]
+INFO: [Synth 8-251] 
+pkt_data_out=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:299]
+INFO: [Synth 8-6155] done synthesizing module 'transmitter' (10#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:21]
+INFO: [Synth 8-6157] synthesizing module 'receiver' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:21]
+	Parameter CHID_NUM bound to: 4 - type: integer 
+	Parameter LENGTH_W bound to: 16 - type: integer 
+	Parameter NUM_PKT_W bound to: 16 - type: integer 
+	Parameter D_W bound to: 32 - type: integer 
+	Parameter PKT_CH_W bound to: 2 - type: integer 
+	Parameter PAYLOAD_W bound to: 1500 - type: integer 
+	Parameter DA bound to: 48'b101010101010101010101010101010101010101010101010 
+	Parameter SA bound to: 48'b010101010101010101010101010101010101010101010101 
+	Parameter VLAN bound to: 286331153 - type: integer 
+	Parameter TYPE bound to: 8738 - type: integer 
+	Parameter s0 bound to: 3'b000 
+	Parameter s1 bound to: 3'b001 
+	Parameter s2 bound to: 3'b010 
+	Parameter s3 bound to: 3'b011 
+	Parameter s4 bound to: 3'b100 
+WARNING: [Synth 8-6090] variable 'pkt_data_in_next' is written by both blocking and non-blocking assignments, entire logic could be removed [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:159]
+WARNING: [Synth 8-6090] variable 'pkt_cnt_in_next' is written by both blocking and non-blocking assignments, entire logic could be removed [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:160]
+WARNING: [Synth 8-6090] variable 'state_next' is written by both blocking and non-blocking assignments, entire logic could be removed [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:161]
+WARNING: [Synth 8-6090] variable 'counter_next' is written by both blocking and non-blocking assignments, entire logic could be removed [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:162]
+INFO: [Synth 8-251] 
+DATA_FROM_TX=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx == DATA_SAMPLE=aaaaaaaaaaaa555555555555111111112222 [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:186]
+INFO: [Synth 8-251] Pass [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:187]
+INFO: [Synth 8-251] 
+DATA_FROM_TX=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx != DATA_SAMPLE=aaaaaaaaaaaa555555555555111111112222 [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:191]
+INFO: [Synth 8-251] Error [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:192]
+INFO: [Synth 8-251] 
+LENGTH_FROM_TX=x == LENGTH_USER=x [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:214]
+INFO: [Synth 8-251] Pass [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:215]
+INFO: [Synth 8-251] 
+LENGTH FROM_TX=x != LENGTH_USER=x [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:219]
+INFO: [Synth 8-251] Error [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:220]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:148]
+INFO: [Synth 8-251] 
+rx_num_packet=x [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:233]
+WARNING: [Synth 8-6014] Unused sequential element pkt_cnt_in_reg_reg was removed.  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:110]
+INFO: [Synth 8-6155] done synthesizing module 'receiver' (11#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'top_ip' (12#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/top_ip.v:21]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[15]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[14]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[13]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[12]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[11]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[10]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[9]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[8]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[7]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[6]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[5]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[4]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[3]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[2]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[1]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[0]
+WARNING: [Synth 8-3331] design encoder_16to4 has unconnected port d_in[0]
+WARNING: [Synth 8-3331] design encoder_2to1 has unconnected port d_in[0]
+WARNING: [Synth 8-3331] design encoder_4to2 has unconnected port d_in[0]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 1698.473 ; gain = 241.391
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 1698.473 ; gain = 241.391
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 1698.473 ; gain = 241.391
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1705.320 ; gain = 4.016
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/constrs_1/new/const_top_ip.xdc]
+create_clock: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2255.055 ; gain = 20.516
+Finished Parsing XDC File [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/constrs_1/new/const_top_ip.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 2255.055 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2255.055 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:01:03 ; elapsed = 00:01:13 . Memory (MB): peak = 2255.055 ; gain = 797.973
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xcku5p-ffvb676-2-e
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:03 ; elapsed = 00:01:13 . Memory (MB): peak = 2255.055 ; gain = 797.973
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:03 ; elapsed = 00:01:13 . Memory (MB): peak = 2255.055 ; gain = 797.973
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg_reg' in module 'transmitter'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg_reg' in module 'receiver'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                      s0 |                              000 |                              000
+                      s1 |                              001 |                              001
+                      s2 |                              010 |                              010
+                      s3 |                              011 |                              011
+                      s4 |                              100 |                              100
+                      s5 |                              101 |                              101
+                      s6 |                              110 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg_reg' using encoding 'sequential' in module 'transmitter'
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[47]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[46]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[45]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[44]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[43]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[42]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[41]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[40]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[39]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[38]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[37]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[36]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[35]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[34]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[33]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[32]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[31]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[30]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[29]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[28]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[27]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[26]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[25]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[24]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[23]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[22]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[21]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[20]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[19]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[18]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[17]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[16]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[15]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[14]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[13]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[12]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[11]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[10]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[9]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[8]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[7]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[6]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[5]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[4]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[3]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[2]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[1]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[0]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                      s0 |                              000 |                              000
+                      s1 |                              001 |                              001
+                      s2 |                              010 |                              010
+                      s3 |                              011 |                              011
+                      s4 |                              100 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg_reg' using encoding 'sequential' in module 'receiver'
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[0]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:169]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:02:27 ; elapsed = 00:03:00 . Memory (MB): peak = 3156.363 ; gain = 1699.281
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+-----------------------------+------------+----------+
+|      |RTL Partition                |Replication |Instances |
++------+-----------------------------+------------+----------+
+|1     |fsm__GB0                     |           1|     36404|
+|2     |case__149_transmitter__GD    |           1|     36207|
+|3     |datapath__12_transmitter__GD |           1|    198560|
+|4     |case__161_transmitter__GD    |           1|     65280|
+|5     |datapath__11_transmitter__GD |           1|    196400|
+|6     |case__19_transmitter__GD     |           1|     48000|
+|7     |reg__21_transmitter          |           1|     12000|
+|8     |datapath__10_transmitter__GD |           1|     44769|
+|9     |case__162_transmitter__GD    |           1|     65280|
+|10    |case__163_transmitter__GD    |           1|     65280|
+|11    |case__164_transmitter__GD    |           1|     65280|
+|12    |case__165_transmitter__GD    |           1|     65280|
+|13    |case__166_transmitter__GD    |           1|     65280|
+|14    |case__167_transmitter__GD    |           1|     65280|
+|15    |case__168_transmitter__GD    |           1|     65280|
+|16    |case__169_transmitter__GD    |           1|     65280|
+|17    |case__170_transmitter__GD    |           1|     65280|
+|18    |case__171_transmitter__GD    |           1|     65280|
+|19    |case__172_transmitter__GD    |           1|     65280|
+|20    |case__174_transmitter__GD    |           1|     65280|
+|21    |case__173_transmitter__GD    |           1|     65280|
+|22    |case__175_transmitter__GD    |           1|     65280|
+|23    |case__176_transmitter__GD    |           1|     65280|
+|24    |case__177_transmitter__GD    |           1|     65280|
+|25    |case__178_transmitter__GD    |           1|     65280|
+|26    |case__179_transmitter__GD    |           1|     65280|
+|27    |case__180_transmitter__GD    |           1|     65280|
+|28    |case__181_transmitter__GD    |           1|     65280|
+|29    |case__182_transmitter__GD    |           1|     65280|
+|30    |case__183_transmitter__GD    |           1|     65280|
+|31    |case__185_transmitter__GD    |           1|     65280|
+|32    |case__184_transmitter__GD    |           1|     65280|
+|33    |case__186_transmitter__GD    |           1|     65280|
+|34    |case__187_transmitter__GD    |           1|     65280|
+|35    |case__188_transmitter__GD    |           1|     65280|
+|36    |case__160_transmitter__GD    |           1|     65280|
+|37    |muxpart__121_transmitter     |           1|     16128|
+|38    |case__189_transmitter__GD    |           1|     65280|
+|39    |case__190_transmitter__GD    |           1|     65280|
+|40    |case__191_transmitter__GD    |           1|     65280|
+|41    |case__192_transmitter__GD    |           1|     65280|
+|42    |case__193_transmitter__GD    |           1|     65280|
+|43    |case__194_transmitter__GD    |           1|     65280|
+|44    |case__195_transmitter__GD    |           1|     65280|
+|45    |case__196_transmitter__GD    |           1|     65280|
+|46    |case__197_transmitter__GD    |           1|     65280|
+|47    |transmitter__GCB44           |           1|     24320|
+|48    |case__198_transmitter__GD    |           1|     65280|
+|49    |reg__22_transmitter          |           1|     12144|
+|50    |case__199_transmitter__GD    |           1|     65280|
+|51    |case__200_transmitter__GD    |           1|     65280|
+|52    |reg__28_transmitter          |           1|       256|
+|53    |case__201_transmitter__GD    |           1|     65280|
+|54    |case__202_transmitter__GD    |           1|     65280|
+|55    |case__203_transmitter__GD    |           1|     65280|
+|56    |case__204_transmitter__GD    |           1|     65280|
+|57    |case__205_transmitter__GD    |           1|     65280|
+|58    |case__206_transmitter__GD    |           1|     65280|
+|59    |case__207_transmitter__GD    |           1|     65280|
+|60    |case__223_transmitter__GD    |           1|     65280|
+|61    |case__208_transmitter__GD    |           1|     65280|
+|62    |transmitter__GCB59           |           1|      1044|
+|63    |case__221_transmitter__GD    |           1|     65280|
+|64    |case__220_transmitter__GD    |           1|     65280|
+|65    |case__218_transmitter__GD    |           1|     65280|
+|66    |case__217_transmitter__GD    |           1|     65280|
+|67    |case__215_transmitter__GD    |           1|     65280|
+|68    |case__214_transmitter__GD    |           1|     65280|
+|69    |case__213_transmitter__GD    |           1|     65280|
+|70    |case__216_transmitter__GD    |           1|     65280|
+|71    |case__212_transmitter__GD    |           1|     65280|
+|72    |case__211_transmitter__GD    |           1|     65280|
+|73    |case__219_transmitter__GD    |           1|     65280|
+|74    |case__210_transmitter__GD    |           1|     65280|
+|75    |case__209_transmitter__GD    |           1|     65280|
+|76    |case__222_transmitter__GD    |           1|     65280|
+|77    |transmitter__GCB74           |           1|     44831|
+|78    |transmitter__GCB75           |           1|     25726|
+|79    |case__256_receiver__GD       |           1|     65280|
+|80    |receiver__GB1                |           1|      1851|
+|81    |case__255_receiver__GD       |           1|     65280|
+|82    |top_ip__GC0                  |           1|      1743|
++------+-----------------------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3538] Detected potentially large (wide) register payload_reg_reg [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:108]
+INFO: [Synth 8-3538] Detected potentially large (wide) register data_out_reg_reg [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:110]
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 5     
+	   2 Input     16 Bit       Adders := 9     
+	   3 Input      8 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 108   
++---Registers : 
+	            12144 Bit    Registers := 1     
+	            12000 Bit    Registers := 1     
+	              256 Bit    Registers := 2     
+	               16 Bit    Registers := 27    
+	                4 Bit    Registers := 8     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 5     
++---Muxes : 
+	   7 Input  12144 Bit        Muxes := 1     
+	   7 Input  12000 Bit        Muxes := 1     
+	   5 Input  12000 Bit        Muxes := 1     
+	   2 Input  12000 Bit        Muxes := 1     
+	   2 Input    256 Bit        Muxes := 1     
+	   7 Input     16 Bit        Muxes := 3     
+	   2 Input     16 Bit        Muxes := 19    
+	   5 Input     16 Bit        Muxes := 3     
+	   5 Input      4 Bit        Muxes := 2     
+	   7 Input      3 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 2     
+	   5 Input      3 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 4     
+	   7 Input      1 Bit        Muxes := 56    
+	   2 Input      1 Bit        Muxes := 46    
+	   5 Input      1 Bit        Muxes := 6     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3538] Detected potentially large (wide) register payload_reg_reg [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:108]
+INFO: [Synth 8-3538] Detected potentially large (wide) register data_out_reg_reg [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:110]
+Hierarchical RTL Component report 
+Module transmitter 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 4     
+	   2 Input     16 Bit       Adders := 5     
+	   3 Input      8 Bit       Adders := 1     
++---Registers : 
+	            12144 Bit    Registers := 1     
+	            12000 Bit    Registers := 1     
+	              256 Bit    Registers := 1     
+	               16 Bit    Registers := 4     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   7 Input  12144 Bit        Muxes := 1     
+	   7 Input  12000 Bit        Muxes := 1     
+	   5 Input  12000 Bit        Muxes := 1     
+	   2 Input  12000 Bit        Muxes := 1     
+	   7 Input     16 Bit        Muxes := 3     
+	   2 Input     16 Bit        Muxes := 4     
+	   7 Input      3 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 4     
+	   7 Input      1 Bit        Muxes := 56    
+	   2 Input      1 Bit        Muxes := 40    
+Module receiver 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input     16 Bit       Adders := 4     
++---Registers : 
+	              256 Bit    Registers := 1     
+	               16 Bit    Registers := 5     
+	                4 Bit    Registers := 2     
++---Muxes : 
+	   2 Input    256 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 1     
+	   5 Input     16 Bit        Muxes := 3     
+	   5 Input      4 Bit        Muxes := 2     
+	   5 Input      3 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+	   5 Input      1 Bit        Muxes := 6     
+Module ctrl_stt_reg 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 12    
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 14    
+	   2 Input      1 Bit        Muxes := 2     
+Module bin_to_gray__1 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
+Module bin_to_gray__parameterized0__1 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 15    
+Module bin_to_gray__parameterized0__2 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 15    
+Module sync 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 2     
+Module sync__parameterized0__1 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 2     
+Module sync__parameterized1__1 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 2     
+Module sync__parameterized1__2 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 2     
+Module gray_to_bin__1 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
+Module gray_to_bin__parameterized0__1 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 15    
+Module gray_to_bin__parameterized0__2 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 15    
+Module bin_to_gray__parameterized0 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 15    
+Module bin_to_gray__2 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
+Module bin_to_gray 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
+Module sync__parameterized1 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 2     
+Module sync__parameterized0__2 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 2     
+Module sync__parameterized0 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 2     
+Module gray_to_bin__parameterized0 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 15    
+Module gray_to_bin__2 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
+Module gray_to_bin 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 1824 (col length:96)
+BRAMs: 960 (col length: RAMB18 96 RAMB36 48)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5580] Multithreading enabled for synth_design using a maximum of 2 processes.
+Parallel Worker Creation Failure: Worker 1 has died.  Skipping 
+Parallel Worker Creation Failure: Worker 0 has died.  Skipping 
+Adjusting Job Scheduling: Worker 0 unavailable.  Skipping 
+Adjusting Job Scheduling: Worker 1 unavailable.  Skipping 
+Failed to find any parallel workers.  Continuing in single-core optimization.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-4471] merging register 'counter_reg_reg[15:0]' into 'counter_reg_reg[15:0]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:112]
+INFO: [Synth 8-4471] merging register 'counter_reg_reg[15:0]' into 'counter_reg_reg[15:0]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:115]
+Abnormal program termination (EXCEPTION_ACCESS_VIOLATION)
+Please check 'D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.runs/synth_1/hs_err_pid5636.log' for details
+
+*** Running vivado
+    with args -log top_ip.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_ip.tcl
+
+
+****** Vivado v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source top_ip.tcl -notrace
+Command: synth_design -top top_ip -part xcku5p-ffvb676-2-e
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xcku5p'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcku5p'
+INFO: [Device 21-403] Loading part xcku5p-ffvb676-2-e
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 6128 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1555.059 ; gain = 98.105
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top_ip' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/top_ip.v:21]
+	Parameter CHID_NUM bound to: 4 - type: integer 
+	Parameter LENGTH_W bound to: 16 - type: integer 
+	Parameter NUM_PKT_W bound to: 16 - type: integer 
+	Parameter D_W bound to: 32 - type: integer 
+	Parameter PKT_CH_W bound to: 2 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'ctrl_stt_reg' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:21]
+INFO: [Synth 8-6157] synthesizing module 'decoder_4to16' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/decoder_4to16.v:21]
+	Parameter tmp bound to: 16'b0000000000000001 
+INFO: [Synth 8-6155] done synthesizing module 'decoder_4to16' (1#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/decoder_4to16.v:21]
+INFO: [Synth 8-6157] synthesizing module 'encoder_16to1' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_16to1.v:20]
+INFO: [Synth 8-6157] synthesizing module 'encoder_16to4' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_16to4.v:20]
+INFO: [Synth 8-6155] done synthesizing module 'encoder_16to4' (2#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_16to4.v:20]
+INFO: [Synth 8-6157] synthesizing module 'encoder_4to2' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_4to2.v:20]
+INFO: [Synth 8-6155] done synthesizing module 'encoder_4to2' (3#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_4to2.v:20]
+INFO: [Synth 8-6157] synthesizing module 'encoder_2to1' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_2to1.v:20]
+INFO: [Synth 8-6155] done synthesizing module 'encoder_2to1' (4#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_2to1.v:20]
+INFO: [Synth 8-6155] done synthesizing module 'encoder_16to1' (5#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_16to1.v:20]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[6] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[5] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[4] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[3] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[2] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[1] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[0] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register cpu_dout_reg in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:106]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register temp_run_reg in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:108]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register temp_enable_reg in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:109]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register length_reg in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:110]
+CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register tx_num_packet_reg in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:111]
+WARNING: [Synth 8-5788] Register regfile_reg[6] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+WARNING: [Synth 8-5788] Register regfile_reg[5] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+WARNING: [Synth 8-5788] Register regfile_reg[4] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+WARNING: [Synth 8-5788] Register regfile_reg[3] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+WARNING: [Synth 8-5788] Register regfile_reg[2] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+WARNING: [Synth 8-5788] Register regfile_reg[1] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+WARNING: [Synth 8-5788] Register regfile_reg[0] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+WARNING: [Synth 8-5788] Register cpu_dout_reg in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:106]
+WARNING: [Synth 8-5788] Register temp_run_reg in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:108]
+WARNING: [Synth 8-5788] Register temp_enable_reg in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:109]
+WARNING: [Synth 8-5788] Register length_reg in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:110]
+WARNING: [Synth 8-5788] Register tx_num_packet_reg in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:111]
+INFO: [Synth 8-6155] done synthesizing module 'ctrl_stt_reg' (6#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:21]
+INFO: [Synth 8-6157] synthesizing module 'bin_to_gray' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/bin_to_gray.v:21]
+	Parameter DATA_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'bin_to_gray' (7#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/bin_to_gray.v:21]
+INFO: [Synth 8-6157] synthesizing module 'bin_to_gray__parameterized0' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/bin_to_gray.v:21]
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'bin_to_gray__parameterized0' (7#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/bin_to_gray.v:21]
+INFO: [Synth 8-6157] synthesizing module 'sync' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/sync.v:21]
+	Parameter DATA_WIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'sync' (8#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/sync.v:21]
+INFO: [Synth 8-6157] synthesizing module 'sync__parameterized0' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/sync.v:21]
+	Parameter DATA_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'sync__parameterized0' (8#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/sync.v:21]
+INFO: [Synth 8-6157] synthesizing module 'sync__parameterized1' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/sync.v:21]
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'sync__parameterized1' (8#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/sync.v:21]
+INFO: [Synth 8-6157] synthesizing module 'gray_to_bin' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/gray_to_bin.v:21]
+	Parameter DATA_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'gray_to_bin' (9#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/gray_to_bin.v:21]
+INFO: [Synth 8-6157] synthesizing module 'gray_to_bin__parameterized0' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/gray_to_bin.v:21]
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'gray_to_bin__parameterized0' (9#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/gray_to_bin.v:21]
+INFO: [Synth 8-6157] synthesizing module 'transmitter' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:21]
+	Parameter CHID_NUM bound to: 4 - type: integer 
+	Parameter LENGTH_W bound to: 16 - type: integer 
+	Parameter NUM_PKT_W bound to: 16 - type: integer 
+	Parameter D_W bound to: 32 - type: integer 
+	Parameter PKT_CH_W bound to: 2 - type: integer 
+	Parameter PAYLOAD_W bound to: 1500 - type: integer 
+	Parameter DA bound to: 48'b101010101010101010101010101010101010101010101010 
+	Parameter SA bound to: 48'b010101010101010101010101010101010101010101010101 
+	Parameter VLAN bound to: 286331153 - type: integer 
+	Parameter TYPE bound to: 8738 - type: integer 
+	Parameter s0 bound to: 3'b000 
+	Parameter s1 bound to: 3'b001 
+	Parameter s2 bound to: 3'b010 
+	Parameter s3 bound to: 3'b011 
+	Parameter s4 bound to: 3'b100 
+	Parameter s5 bound to: 3'b101 
+	Parameter s6 bound to: 3'b110 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:198]
+INFO: [Synth 8-251] 
+pkt_data_out=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:299]
+INFO: [Synth 8-6155] done synthesizing module 'transmitter' (10#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:21]
+INFO: [Synth 8-6157] synthesizing module 'receiver' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:21]
+	Parameter CHID_NUM bound to: 4 - type: integer 
+	Parameter LENGTH_W bound to: 16 - type: integer 
+	Parameter NUM_PKT_W bound to: 16 - type: integer 
+	Parameter D_W bound to: 32 - type: integer 
+	Parameter PKT_CH_W bound to: 2 - type: integer 
+	Parameter PAYLOAD_W bound to: 1500 - type: integer 
+	Parameter DA bound to: 48'b101010101010101010101010101010101010101010101010 
+	Parameter SA bound to: 48'b010101010101010101010101010101010101010101010101 
+	Parameter VLAN bound to: 286331153 - type: integer 
+	Parameter TYPE bound to: 8738 - type: integer 
+	Parameter s0 bound to: 3'b000 
+	Parameter s1 bound to: 3'b001 
+	Parameter s2 bound to: 3'b010 
+	Parameter s3 bound to: 3'b011 
+	Parameter s4 bound to: 3'b100 
+WARNING: [Synth 8-6090] variable 'pkt_data_in_next' is written by both blocking and non-blocking assignments, entire logic could be removed [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:159]
+WARNING: [Synth 8-6090] variable 'pkt_cnt_in_next' is written by both blocking and non-blocking assignments, entire logic could be removed [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:160]
+WARNING: [Synth 8-6090] variable 'state_next' is written by both blocking and non-blocking assignments, entire logic could be removed [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:161]
+WARNING: [Synth 8-6090] variable 'counter_next' is written by both blocking and non-blocking assignments, entire logic could be removed [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:162]
+INFO: [Synth 8-251] 
+DATA_FROM_TX=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx == DATA_SAMPLE=aaaaaaaaaaaa555555555555111111112222 [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:186]
+INFO: [Synth 8-251] Pass [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:187]
+INFO: [Synth 8-251] 
+DATA_FROM_TX=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx != DATA_SAMPLE=aaaaaaaaaaaa555555555555111111112222 [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:191]
+INFO: [Synth 8-251] Error [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:192]
+INFO: [Synth 8-251] 
+LENGTH_FROM_TX=x == LENGTH_USER=x [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:214]
+INFO: [Synth 8-251] Pass [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:215]
+INFO: [Synth 8-251] 
+LENGTH FROM_TX=x != LENGTH_USER=x [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:219]
+INFO: [Synth 8-251] Error [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:220]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:148]
+INFO: [Synth 8-251] 
+rx_num_packet=x [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:233]
+WARNING: [Synth 8-6014] Unused sequential element pkt_cnt_in_reg_reg was removed.  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:110]
+INFO: [Synth 8-6155] done synthesizing module 'receiver' (11#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'top_ip' (12#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/top_ip.v:21]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[15]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[14]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[13]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[12]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[11]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[10]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[9]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[8]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[7]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[6]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[5]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[4]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[3]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[2]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[1]
+WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[0]
+WARNING: [Synth 8-3331] design encoder_16to4 has unconnected port d_in[0]
+WARNING: [Synth 8-3331] design encoder_2to1 has unconnected port d_in[0]
+WARNING: [Synth 8-3331] design encoder_4to2 has unconnected port d_in[0]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1698.637 ; gain = 241.684
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 1698.637 ; gain = 241.684
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 1698.637 ; gain = 241.684
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1704.223 ; gain = 4.016
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/constrs_1/new/const_top_ip.xdc]
+Finished Parsing XDC File [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/constrs_1/new/const_top_ip.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 2254.113 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.575 . Memory (MB): peak = 2254.113 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 2254.113 ; gain = 797.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xcku5p-ffvb676-2-e
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 2254.113 ; gain = 797.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 2254.113 ; gain = 797.160
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg_reg' in module 'transmitter'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg_reg' in module 'receiver'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                      s0 |                              000 |                              000
+                      s1 |                              001 |                              001
+                      s2 |                              010 |                              010
+                      s3 |                              011 |                              011
+                      s4 |                              100 |                              100
+                      s5 |                              101 |                              101
+                      s6 |                              110 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg_reg' using encoding 'sequential' in module 'transmitter'
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[47]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[46]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[45]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[44]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[43]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[42]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[41]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[40]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[39]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[38]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[37]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[36]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[35]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[34]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[33]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[32]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[31]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[30]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[29]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[28]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[27]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[26]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[25]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[24]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[23]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[22]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[21]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[20]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[19]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[18]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[17]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[16]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[15]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[14]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[13]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[12]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[11]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[10]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[9]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[8]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[7]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[6]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[5]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[4]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[3]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[2]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[1]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[0]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:241]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                      s0 |                              000 |                              000
+                      s1 |                              001 |                              001
+                      s2 |                              010 |                              010
+                      s3 |                              011 |                              011
+                      s4 |                              100 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg_reg' using encoding 'sequential' in module 'receiver'
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg[0]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:169]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:23 ; elapsed = 00:01:44 . Memory (MB): peak = 3156.266 ; gain = 1699.312
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+-----------------------------+------------+----------+
+|      |RTL Partition                |Replication |Instances |
++------+-----------------------------+------------+----------+
+|1     |fsm__GB0                     |           1|     36404|
+|2     |case__149_transmitter__GD    |           1|     36207|
+|3     |datapath__12_transmitter__GD |           1|    198560|
+|4     |case__161_transmitter__GD    |           1|     65280|
+|5     |datapath__11_transmitter__GD |           1|    196400|
+|6     |case__19_transmitter__GD     |           1|     48000|
+|7     |reg__21_transmitter          |           1|     12000|
+|8     |datapath__10_transmitter__GD |           1|     44769|
+|9     |case__162_transmitter__GD    |           1|     65280|
+|10    |case__163_transmitter__GD    |           1|     65280|
+|11    |case__164_transmitter__GD    |           1|     65280|
+|12    |case__165_transmitter__GD    |           1|     65280|
+|13    |case__166_transmitter__GD    |           1|     65280|
+|14    |case__167_transmitter__GD    |           1|     65280|
+|15    |case__168_transmitter__GD    |           1|     65280|
+|16    |case__169_transmitter__GD    |           1|     65280|
+|17    |case__170_transmitter__GD    |           1|     65280|
+|18    |case__171_transmitter__GD    |           1|     65280|
+|19    |case__172_transmitter__GD    |           1|     65280|
+|20    |case__174_transmitter__GD    |           1|     65280|
+|21    |case__173_transmitter__GD    |           1|     65280|
+|22    |case__175_transmitter__GD    |           1|     65280|
+|23    |case__176_transmitter__GD    |           1|     65280|
+|24    |case__177_transmitter__GD    |           1|     65280|
+|25    |case__178_transmitter__GD    |           1|     65280|
+|26    |case__179_transmitter__GD    |           1|     65280|
+|27    |case__180_transmitter__GD    |           1|     65280|
+|28    |case__181_transmitter__GD    |           1|     65280|
+|29    |case__182_transmitter__GD    |           1|     65280|
+|30    |case__183_transmitter__GD    |           1|     65280|
+|31    |case__185_transmitter__GD    |           1|     65280|
+|32    |case__184_transmitter__GD    |           1|     65280|
+|33    |case__186_transmitter__GD    |           1|     65280|
+|34    |case__187_transmitter__GD    |           1|     65280|
+|35    |case__188_transmitter__GD    |           1|     65280|
+|36    |case__160_transmitter__GD    |           1|     65280|
+|37    |muxpart__121_transmitter     |           1|     16128|
+|38    |case__189_transmitter__GD    |           1|     65280|
+|39    |case__190_transmitter__GD    |           1|     65280|
+|40    |case__191_transmitter__GD    |           1|     65280|
+|41    |case__192_transmitter__GD    |           1|     65280|
+|42    |case__193_transmitter__GD    |           1|     65280|
+|43    |case__194_transmitter__GD    |           1|     65280|
+|44    |case__195_transmitter__GD    |           1|     65280|
+|45    |case__196_transmitter__GD    |           1|     65280|
+|46    |case__197_transmitter__GD    |           1|     65280|
+|47    |transmitter__GCB44           |           1|     24320|
+|48    |case__198_transmitter__GD    |           1|     65280|
+|49    |reg__22_transmitter          |           1|     12144|
+|50    |case__199_transmitter__GD    |           1|     65280|
+|51    |case__200_transmitter__GD    |           1|     65280|
+|52    |reg__28_transmitter          |           1|       256|
+|53    |case__201_transmitter__GD    |           1|     65280|
+|54    |case__202_transmitter__GD    |           1|     65280|
+|55    |case__203_transmitter__GD    |           1|     65280|
+|56    |case__204_transmitter__GD    |           1|     65280|
+|57    |case__205_transmitter__GD    |           1|     65280|
+|58    |case__206_transmitter__GD    |           1|     65280|
+|59    |case__207_transmitter__GD    |           1|     65280|
+|60    |case__223_transmitter__GD    |           1|     65280|
+|61    |case__208_transmitter__GD    |           1|     65280|
+|62    |transmitter__GCB59           |           1|      1044|
+|63    |case__221_transmitter__GD    |           1|     65280|
+|64    |case__220_transmitter__GD    |           1|     65280|
+|65    |case__218_transmitter__GD    |           1|     65280|
+|66    |case__217_transmitter__GD    |           1|     65280|
+|67    |case__215_transmitter__GD    |           1|     65280|
+|68    |case__214_transmitter__GD    |           1|     65280|
+|69    |case__213_transmitter__GD    |           1|     65280|
+|70    |case__216_transmitter__GD    |           1|     65280|
+|71    |case__212_transmitter__GD    |           1|     65280|
+|72    |case__211_transmitter__GD    |           1|     65280|
+|73    |case__219_transmitter__GD    |           1|     65280|
+|74    |case__210_transmitter__GD    |           1|     65280|
+|75    |case__209_transmitter__GD    |           1|     65280|
+|76    |case__222_transmitter__GD    |           1|     65280|
+|77    |transmitter__GCB74           |           1|     44831|
+|78    |transmitter__GCB75           |           1|     25726|
+|79    |case__256_receiver__GD       |           1|     65280|
+|80    |receiver__GB1                |           1|      1851|
+|81    |case__255_receiver__GD       |           1|     65280|
+|82    |top_ip__GC0                  |           1|      1743|
++------+-----------------------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3538] Detected potentially large (wide) register payload_reg_reg [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:108]
+INFO: [Synth 8-3538] Detected potentially large (wide) register data_out_reg_reg [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:110]
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 5     
+	   2 Input     16 Bit       Adders := 9     
+	   3 Input      8 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 108   
++---Registers : 
+	            12144 Bit    Registers := 1     
+	            12000 Bit    Registers := 1     
+	              256 Bit    Registers := 2     
+	               16 Bit    Registers := 27    
+	                4 Bit    Registers := 8     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 5     
++---Muxes : 
+	   7 Input  12144 Bit        Muxes := 1     
+	   7 Input  12000 Bit        Muxes := 1     
+	   5 Input  12000 Bit        Muxes := 1     
+	   2 Input  12000 Bit        Muxes := 1     
+	   2 Input    256 Bit        Muxes := 1     
+	   7 Input     16 Bit        Muxes := 3     
+	   2 Input     16 Bit        Muxes := 19    
+	   5 Input     16 Bit        Muxes := 3     
+	   5 Input      4 Bit        Muxes := 2     
+	   7 Input      3 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 2     
+	   5 Input      3 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 4     
+	   7 Input      1 Bit        Muxes := 56    
+	   2 Input      1 Bit        Muxes := 46    
+	   5 Input      1 Bit        Muxes := 6     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3538] Detected potentially large (wide) register payload_reg_reg [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:108]
+INFO: [Synth 8-3538] Detected potentially large (wide) register data_out_reg_reg [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:110]
+Hierarchical RTL Component report 
+Module transmitter 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 4     
+	   2 Input     16 Bit       Adders := 5     
+	   3 Input      8 Bit       Adders := 1     
++---Registers : 
+	            12144 Bit    Registers := 1     
+	            12000 Bit    Registers := 1     
+	              256 Bit    Registers := 1     
+	               16 Bit    Registers := 4     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   7 Input  12144 Bit        Muxes := 1     
+	   7 Input  12000 Bit        Muxes := 1     
+	   5 Input  12000 Bit        Muxes := 1     
+	   2 Input  12000 Bit        Muxes := 1     
+	   7 Input     16 Bit        Muxes := 3     
+	   2 Input     16 Bit        Muxes := 4     
+	   7 Input      3 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 4     
+	   7 Input      1 Bit        Muxes := 56    
+	   2 Input      1 Bit        Muxes := 40    
+Module receiver 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input     16 Bit       Adders := 4     
++---Registers : 
+	              256 Bit    Registers := 1     
+	               16 Bit    Registers := 5     
+	                4 Bit    Registers := 2     
++---Muxes : 
+	   2 Input    256 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 1     
+	   5 Input     16 Bit        Muxes := 3     
+	   5 Input      4 Bit        Muxes := 2     
+	   5 Input      3 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+	   5 Input      1 Bit        Muxes := 6     
+Module ctrl_stt_reg 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 12    
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 14    
+	   2 Input      1 Bit        Muxes := 2     
+Module bin_to_gray__1 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
+Module bin_to_gray__parameterized0__1 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 15    
+Module bin_to_gray__parameterized0__2 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 15    
+Module sync 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 2     
+Module sync__parameterized0__1 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 2     
+Module sync__parameterized1__1 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 2     
+Module sync__parameterized1__2 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 2     
+Module gray_to_bin__1 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
+Module gray_to_bin__parameterized0__1 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 15    
+Module gray_to_bin__parameterized0__2 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 15    
+Module bin_to_gray__parameterized0 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 15    
+Module bin_to_gray__2 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
+Module bin_to_gray 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
+Module sync__parameterized1 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 2     
+Module sync__parameterized0__2 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 2     
+Module sync__parameterized0 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 2     
+Module gray_to_bin__parameterized0 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 15    
+Module gray_to_bin__2 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
+Module gray_to_bin 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 1824 (col length:96)
+BRAMs: 960 (col length: RAMB18 96 RAMB36 48)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5580] Multithreading enabled for synth_design using a maximum of 2 processes.
+ERROR: [Common 17-217] Failed to load feature 'core'.
+Parallel Worker Creation Failure: Worker 1 has died.  Skipping 
+TclStackFree: incorrect freePtr. Call out of sequence?
+Parallel Worker Creation Failure: Worker 0 has died.  Skipping 
+Adjusting Job Scheduling: Worker 0 unavailable.  Skipping 
+Adjusting Job Scheduling: Worker 1 unavailable.  Skipping 
+Failed to find any parallel workers.  Continuing in single-core optimization.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-4471] merging register 'counter_reg_reg[15:0]' into 'counter_reg_reg[15:0]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:112]
+INFO: [Synth 8-4471] merging register 'counter_reg_reg[15:0]' into 'counter_reg_reg[15:0]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:115]
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:05:42 ; elapsed = 00:09:58 . Memory (MB): peak = 3447.379 ; gain = 1990.426
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+-----------------------------+------------+----------+
+|      |RTL Partition                |Replication |Instances |
++------+-----------------------------+------------+----------+
+|1     |fsm__GB0                     |           1|     25842|
+|2     |case__149_transmitter__GD    |           1|     36204|
+|3     |datapath__12_transmitter__GD |           1|    162121|
+|4     |datapath__11_transmitter__GD |           1|    160393|
+|5     |case__19_transmitter__GD     |           1|     48000|
+|6     |reg__21_transmitter          |           1|     24000|
+|7     |datapath__10_transmitter__GD |           1|     44759|
+|8     |muxpart__121_transmitter     |           1|      9072|
+|9     |transmitter__GCB44           |           1|     13680|
+|10    |reg__22_transmitter          |           1|     12144|
+|11    |reg__28_transmitter          |           1|       144|
+|12    |transmitter__GCB59           |           1|       612|
+|13    |transmitter__GCB74           |           1|      1917|
+|14    |transmitter__GCB75           |           1|      1682|
+|15    |receiver__GB1                |           1|      1157|
+|16    |top_ip__GC0                  |           1|       910|
++------+-----------------------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:06:04 ; elapsed = 00:10:34 . Memory (MB): peak = 3447.379 ; gain = 1990.426
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization

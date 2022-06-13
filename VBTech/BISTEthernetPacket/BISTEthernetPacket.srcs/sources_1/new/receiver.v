@@ -69,7 +69,7 @@ input                pkt_eof_in  ;
 input                pkt_valid_in;
 input [ (D_W*8)-1:0] pkt_data_in ;
 input [PKT_CH_W-1:0] pkt_chid_in ;
-input [         5:0] pkt_cnt_in  ;
+input [LENGTH_W-1:0] pkt_cnt_in  ;
 
 input                    run          ;
 input [    CHID_NUM-1:0] enable       ;
@@ -85,8 +85,8 @@ reg [2:0] state_reg, state_next;
 
 reg [LENGTH_W-1:0] length_reg, length_next;
 
-reg [(D_W*8)-1:0] pkt_data_in_reg, pkt_data_in_next;
-reg [        5:0] pkt_cnt_in_reg, pkt_cnt_in_next;
+reg [ (D_W*8)-1:0] pkt_data_in_reg, pkt_data_in_next;
+reg [LENGTH_W-1:0] pkt_cnt_in_reg, pkt_cnt_in_next;
 
 reg [CHID_NUM-1:0] error_length_status_reg, error_length_status_next;
 reg [CHID_NUM-1:0] error_data_status_reg, error_data_status_next;
@@ -160,24 +160,27 @@ always@* begin
 				pkt_cnt_in_next  <= pkt_cnt_in;
 				state_next       <= s2;
 				counter_next <= 'd0;
-				length_next  <= 'd0;
+				length_next = length_reg +  D_W;
 			end
 		end
 
-		s2 : begin: TRANSMIT_DATA_PACKET_TO_COMPARE
+		s2 : begin: STORE_DATA_PACKET_TO_COMPARE
 			if(counter_reg <= (length/32) - 1)begin
 				data[counter_reg] = pkt_data_in_reg[counter_reg*D_W*8 +: D_W*8];
-				length_next = length_reg +  pkt_cnt_in_reg;
 				counter_next = counter_reg + 'b1;
 			end
-			else begin
-				state_next   = s3;
-				counter_next = 'd0;
-			end
 
+			if(pkt_eof_in)begin
+				counter_next = 'd0;
+				state_next   = s3;
+				length_next = length_reg;
+			end
+			else begin
+				length_next = length_reg +  D_W;
+			end
 		end
 
-		s3 : begin: COMPARE_DATA_PACKET_AND_CALCULATE_RX_NUM
+		s3 : begin: COMPARE_DATA_PACKET
 			if ( (data[0][(D_W*8)-1:(D_W-18)*8]) == {DA[47:0],SA[47:0],VLAN[31:0],TYPE[15:0]}) begin
 				error_data_status_next[pkt_chid_in] = 'b0;
 				$display( "\nDATA_FROM_TX=%h == DATA_SAMPLE=%h",(data[0][(D_W*8)-1:(D_W-18)*8]), {DA[47:0],SA[47:0],VLAN[31:0],TYPE[15:0]}); 
@@ -188,21 +191,23 @@ always@* begin
 				$display( "\nDATA_FROM_TX=%h != DATA_SAMPLE=%h",(data[0][(D_W*8)-1:(D_W-18)*8]), {DA[47:0],SA[47:0],VLAN[31:0],TYPE[15:0]}); 				
 				$display( "Error"); 
 			end
-			length_next = length_reg +  pkt_cnt_in_reg;
-			counter_next = 'd0;
-			state_next   = s4;
+
+				counter_next = 'd0;
+				state_next   = s4;
+				length_next = length_reg +  D_W;
 		end
 
-		s4 : begin: COMPARE_PACKET_LENGTH
+		s4 : begin: COMPARE_PACKET_LENGTH_AND_CALCULATE_RX_NUM
 			if(tx_num_packet_reg == 'd0)begin
 					counter_next = 'd0;
 					state_next   = s0;
 				end
-				else if(tx_num_packet_reg > 0)begin
+				else if(tx_num_packet_reg > 1)begin
 					tx_num_packet_next = tx_num_packet_reg - 'b1;
 					rx_num_packet_next = rx_num_packet_reg + 'b1;
 					counter_next       = 'd0;
 					state_next         = s1;
+					length_next = 'd0;
 				end
 			if (length_reg == length) begin
 				error_length_status_next[pkt_chid_in] = 'b0;
@@ -224,8 +229,7 @@ end
 	assign rx_num_packet       = rx_num_packet_reg;
 
 // Debug
-// always @(data[pkt_chid_in]) begin
-// 	$display( "\ndata=%h",data[pkt_chid_in][((length-18)*8) +:(18*8)] ); 
-// 	$display( "Sample=%h",{DA[47:0],SA[47:0],VLAN[31:0],TYPE[15:0]} ); 
-// end
+always @(rx_num_packet) begin
+	$display( "\nrx_num_packet=%d",rx_num_packet ); 
+end
 endmodule

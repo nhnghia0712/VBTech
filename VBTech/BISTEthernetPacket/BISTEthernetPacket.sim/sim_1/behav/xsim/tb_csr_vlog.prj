@@ -6,7 +6,6 @@ verilog xil_defaultlib  \
 "../../../../BISTEthernetPacket.srcs/sources_1/new/encoder_16to4.v" \
 "../../../../BISTEthernetPacket.srcs/sources_1/new/encoder_2to1.v" \
 "../../../../BISTEthernetPacket.srcs/sources_1/new/encoder_4to2.v" \
-"../../../../BISTEthernetPacket.srcs/sources_1/new/sync.v" \
 "../../../../BISTEthernetPacket.srcs/sim_1/new/tb_csr.v" \
 
 # compile glbl module

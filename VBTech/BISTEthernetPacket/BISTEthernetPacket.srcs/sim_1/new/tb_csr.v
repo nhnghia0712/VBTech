@@ -23,7 +23,7 @@
 // 3. Include Statements
 module tb_csr ();
   // 4. Parameter definitions
-  parameter ENDTIME = 200;
+  parameter ENDTIME = 164;
   // 5. DUT Input regs
   reg        cpu_clk      ;
   reg        cpu_cs       ;
@@ -31,7 +31,8 @@ module tb_csr ();
   reg        cpu_oe       ;
   reg [15:0] cpu_adrr     ;
   reg [15:0] cpu_din      ;
-  reg [ 3:0] error_status ;
+  reg [ 3:0] error_data_status ;
+  reg [ 3:0] error_length_status ;
   reg [15:0] rx_num_packet;
   // 6. DUT Output wires
   wire [15:0] cpu_dout     ;
@@ -43,31 +44,32 @@ module tb_csr ();
   integer i;
 
   ctrl_stt_reg tb (
-    .cpu_cs       (cpu_cs       ),
-    .cpu_clk      (cpu_clk      ),
-    .cpu_we       (cpu_we       ),
-    .cpu_oe       (cpu_oe       ),
-    .cpu_adrr     (cpu_adrr     ),
-    .cpu_din      (cpu_din      ),
-    .error_status (error_status ),
-    .rx_num_packet(rx_num_packet),
-    .cpu_dout     (cpu_dout     ),
-    .run          (run          ),
-    .enable       (enable       ),
-    .length       (length       ),
-    .tx_num_packet(tx_num_packet)
+    .cpu_cs             (cpu_cs             ),
+    .cpu_clk            (cpu_clk            ),
+    .cpu_we             (cpu_we             ),
+    .cpu_oe             (cpu_oe             ),
+    .cpu_adrr           (cpu_adrr           ),
+    .cpu_din            (cpu_din            ),
+    .error_data_status  (error_data_status  ),
+    .error_length_status(error_length_status),
+    .rx_num_packet      (rx_num_packet      ),
+    .cpu_dout           (cpu_dout           ),
+    .run                (run                ),
+    .enable             (enable             ),
+    .length             (length             ),
+    .tx_num_packet      (tx_num_packet      )
   );
   // 8. Initial Conditions
   initial
     begin
-      cpu_clk     = 1'b0;
-      cpu_cs     = 1'b0;
-      cpu_we     = 1'b0;
-      cpu_oe     = 1'b0;
-      cpu_din     = 16'd0;
-      cpu_adrr = 16'd0;
-      error_status =4'd0;
-      rx_num_packet =16'd0;
+      cpu_clk     = 'b0;
+      cpu_cs     = 'b0;
+      cpu_we     = 'b0;
+      cpu_oe     = 'b0;
+      cpu_din     = 'd0;
+      cpu_adrr = 'd0;
+      error_data_status = 'd0;
+      error_length_status = 'd0;
     end
   // 9. Generating Test Vectors
   initial
@@ -95,9 +97,9 @@ module tb_csr ();
     begin
       #(`DELAY*2)
         cpu_cs = 1'b0;
-      # 4
+      #(`DELAY*2)
         cpu_cs = 1'b1;
-      # 4
+      #(`DELAY*2)
         cpu_cs = 1'b0;
     end
   endtask
@@ -105,21 +107,23 @@ module tb_csr ();
   task operation_process;
     begin
       //TEST CASE 1:
-      #(`DELAY*8)
+      #(`DELAY*14)
         for (i = 0; i < 15; i = i + 1) begin
           #(`DELAY*2)
             cpu_we = 1'b1;
           cpu_oe = 1'b0;
           cpu_din = $random;
-          error_status = $random;
+          error_data_status = $random;
+          error_length_status = $random;
           rx_num_packet = $random;
           cpu_adrr = i;
         end
-      #(`DELAY)
+      cpu_we = 1'b0;
+      #(`DELAY*7)
         for (i = 0; i < 15; i = i + 1) begin
           #(`DELAY*4)
             cpu_oe = 1'b1;
-          cpu_we = 1'b0;
+
           cpu_adrr = i;
         end
     end

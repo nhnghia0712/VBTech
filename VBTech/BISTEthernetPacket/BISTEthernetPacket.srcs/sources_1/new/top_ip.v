@@ -33,8 +33,12 @@ module top_ip
 
 /////////////////////////////////////////////////////////////////////////
 // Parameter Declarations
-parameter D_W      = 16;
-parameter PKT_CH_W = 16;
+parameter CHID_NUM  = 4 ;
+parameter LENGTH_W  = 16;
+parameter NUM_PKT_W = 16;
+
+parameter D_W      = 32;
+parameter PKT_CH_W = 2 ;
 
 /////////////////////////////////////////////////////////////////////////
 // Port Declarations
@@ -90,7 +94,7 @@ wire                pkt_eof_out  ;
 wire                pkt_valid_out;
 wire [ (D_W*8)-1:0] pkt_data_out ;
 wire [PKT_CH_W-1:0] pkt_chid_out ;
-wire [         5:0] pkt_cnt_out  ;
+wire [        15:0] pkt_cnt_out  ;
 
 
 ctrl_stt_reg inst1 (
@@ -231,9 +235,9 @@ sync #(16) inst18 (
 );
 
 sync #(4) inst19 (
-	.clk     (cpu_clk               ),
-	.data_in (error_data_status_gray),
-	.data_out(error_data_status_sync)
+	.clk     (cpu_clk                    ),
+	.data_in (error_data_status_gray     ),
+	.data_out(error_data_status_gray_sync)
 );
 
 sync #(4) inst23 (

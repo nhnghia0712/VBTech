@@ -66,30 +66,20 @@ output [15:0] length       ;
 output [15:0] tx_num_packet;
 /////////////////////////////////////////////////////////////////////////
 // Local Logic and Instantiation
-wire [15:0] cpu_dout;
+reg [15:0] cpu_dout;
 
 wire        run          ;
 wire [ 3:0] enable       ;
-wire [15:0] length       ;
-wire [15:0] tx_num_packet;
+reg  [15:0] length       ;
+reg  [15:0] tx_num_packet;
 
-wire        run_sync               ;
-wire        run_sync_temp          ;
-wire [ 3:0] enable_sync            ;
-wire [ 3:0] enable_sync_temp       ;
-reg  [15:0] length_sync            ;
-wire [15:0] length_sync_temp       ;
-reg  [15:0] tx_num_packet_sync     ;
-wire [15:0] tx_num_packet_sync_temp;
-reg  [15:0] cpu_dout_sync          ;
-wire [15:0] cpu_dout_sync_temp     ;
 
 reg [15:0] regfile[6:0];
 
-reg  [15:0] temp_run         ;
-reg  [15:0] temp_enable      ;
-wire [15:0] temp_error_status;
-
+reg  [15:0] temp_run               ;
+reg  [15:0] temp_enable            ;
+wire [15:0] temp_error_data_status ;
+wire [15:0] temp_error_length_status;
 
 decoder_4to16 inst1 (
 	.d_out(temp_error_data_status),
@@ -98,7 +88,7 @@ decoder_4to16 inst1 (
 
 decoder_4to16 inst4 (
 	.d_out(temp_error_length_status),
-	.d_in (errorlength_status     )
+	.d_in (error_length_status     )
 );
 always @(posedge cpu_clk or negedge cpu_cs) begin
 	if(cpu_we && !cpu_cs) begin
@@ -113,7 +103,7 @@ end
 
 always @(posedge cpu_clk or negedge cpu_cs) begin
 	if(cpu_oe && !cpu_cs) begin
-		cpu_dout_sync <= regfile[cpu_adrr];
+		cpu_dout <= regfile[cpu_adrr];
 
 		temp_run      <= regfile[0];
 		temp_enable   <= regfile[1];
@@ -132,5 +122,9 @@ encoder_16to4 ins3 (
 	.d_in (temp_enable)
 );
 
+// Debug
+// always @(cpu_dout) begin
+// 	$display("\ncpu_dout=%d",cpu_dout);
+// end
 
 endmodule

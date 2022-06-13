@@ -42,7 +42,7 @@ wire                pkt_eof_out  ;
 wire                pkt_valid_out;
 wire [ (D_W*8)-1:0] pkt_data_out ;
 wire [PKT_CH_W-1:0] pkt_chid_out ;
-wire [         5:0] pkt_cnt_out  ;
+wire [LENGTH_W-1:0] pkt_cnt_out  ;
 
 reg [ (D_W*8)-1:0] data_out;
 
@@ -77,17 +77,21 @@ initial begin
 	#(N*4)
 	run=0;
 	#(N*1245)
-
+	enable = 0;
+	#(N*4)
 	// test case 2
+	enable = 'd1;
 	run = 'b1;
 	length = 'd64;
 	tx_num_packet= 'd4;
 	#(N*4)
 	run=0;
 	#(N*447	)
-
+	enable = 0;
+	#(N*4)
 	// test case 3
 	run = 'b1;
+	enable = 'd1;
 	length = 'd1518;
 	tx_num_packet= 'd2;
 	#(N*4)
@@ -109,8 +113,8 @@ always @(pkt_sof_out, pkt_eof_out, pkt_valid_out, pkt_data_out, pkt_chid_out,pkt
 	$display("pkt_eof_out=%h",pkt_eof_out);
 	$display("pkt_valid_out=%h",pkt_valid_out);
 	$display("pkt_data_out=%h",pkt_data_out);
-	$display("pkt_chid_out=%h",pkt_chid_out);
-	$display("pkt_cnt_out=%h",pkt_cnt_out);
+	$display("pkt_chid_out=%d",pkt_chid_out);
+	$display("pkt_cnt_out=%d",pkt_cnt_out);
 end
 
 endmodule

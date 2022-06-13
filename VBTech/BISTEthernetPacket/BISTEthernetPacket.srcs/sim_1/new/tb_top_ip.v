@@ -24,18 +24,18 @@
 // 3. Include Statements
 module tb_top_ip ();
 	// 4. Parameter definitions
-	parameter ENDTIME = 2000;
+	parameter ENDTIME = 2300;
 	// 5. DUT Input regs
-	reg        clk_sys      ;
-	reg        cpu_clk      ;
-	reg        cpu_cs       ;
-	reg        cpu_we       ;
-	reg        cpu_oe       ;
-	reg [15:0] cpu_adrr     ;
-	reg [15:0] cpu_din      ;
+	reg        clk_sys ;
+	reg        cpu_clk ;
+	reg        cpu_cs  ;
+	reg        cpu_we  ;
+	reg        cpu_oe  ;
+	reg [15:0] cpu_adrr;
+	reg [15:0] cpu_din ;
 
 	// 6. DUT Output wires
-	wire [15:0] cpu_dout     ;
+	wire [15:0] cpu_dout;
 
 
 	integer i;
@@ -73,7 +73,7 @@ module tb_top_ip ();
 			clock_generator_sys;
 			reset_generator;
 			operation_process;
-			debug_fifo;
+			//debug_fifo;
 			endsimulation;
 		join
 	endtask
@@ -119,80 +119,99 @@ module tb_top_ip ();
 			// 		cpu_we = 1'b0;
 			// 		cpu_adrr = i;
 			// 	end
-			#(`DELAY*6)
-			cpu_we = 1'b1;
+			#(`DELAY*16)
+
+				cpu_we = 1'b1;
 			cpu_din     = 16'd0;
 			cpu_adrr = 16'd0;
 			#(`DELAY*2)
-			cpu_din     = 16'd0;
-			cpu_adrr = 16'd1;
+
+				cpu_adrr = 16'd1;
 			#(`DELAY*2)
-			cpu_din     = 16'd0;
-			cpu_adrr = 16'd2;
+
+				cpu_adrr = 16'd2;
 			#(`DELAY*2)
-			cpu_din     = 16'd0;
-			cpu_adrr = 16'd3;
+
+				cpu_adrr = 16'd3;
 			#(`DELAY*2)
-			cpu_we = 1'b0;
-			cpu_oe = 1'b1;
+
+				cpu_we = 1'b0;
+			#(`DELAY*10)
+
+				cpu_oe = 1'b1;
+			#(`DELAY*10)
+
+				cpu_oe = 1'b0;
+			#(`DELAY*10)
+
+				cpu_we = 1'b1;
+			cpu_din = 16'd16;
 			cpu_adrr = 16'd0;
 			#(`DELAY*2)
+
+				cpu_din = 16'd2;
 			cpu_adrr = 16'd1;
 			#(`DELAY*2)
+
+				cpu_din = 16'd128;
 			cpu_adrr = 16'd2;
 			#(`DELAY*2)
-			cpu_adrr = 16'd3;
-			#(`DELAY*6)
-			cpu_we = 1'b1;
-			cpu_oe = 1'b0;
-			cpu_din     = 16'd16;
-			cpu_adrr = 16'd0;
-			#(`DELAY*2)
-			cpu_din     = 16'd2;
-			cpu_adrr = 16'd1;
-			#(`DELAY*2)
-			cpu_din     = 16'd128;
-			cpu_adrr = 16'd2;
-			#(`DELAY*2)
-			cpu_din = 16'd4;
+
+				cpu_din = 16'd5;
 			cpu_adrr = 16'd3;
 			#(`DELAY*2)
-			cpu_we = 1'b0;
-			cpu_oe = 1'b1;
-			cpu_adrr = 16'd1;
-			#(`DELAY*2)
-			cpu_adrr = 16'd2;
-			#(`DELAY*2)
-			cpu_adrr = 16'd3;
-			#(`DELAY*2)
-			cpu_adrr = 16'd0;
-			#(`DELAY*2)
-			cpu_we = 1'b1;
-			cpu_oe = 1'b0;
+
+				cpu_we = 1'b0;
+			#(`DELAY*10)
+
+				cpu_oe = 1'b1;
+			#(`DELAY*10)
+
+				cpu_oe = 1'b0;
+			#(`DELAY*10)
+
+				cpu_we = 1'b1;
 			cpu_adrr = 16'd0;
 			cpu_din = 16'd0;
-			#(`DELAY*4)
-			cpu_we = 1'b0;
-			cpu_oe = 1'b1;
-			cpu_adrr = 16'd0;
 			#(`DELAY*2)
+
+				cpu_we = 1'b0;
+			#(`DELAY*10)
+
+				cpu_oe = 1'b1;
+			#(`DELAY*2)
+
+				cpu_oe = 1'b0;
+			#(`DELAY*1450)
+
+				cpu_we = 1'b1;
+			#(`DELAY*2)
+
+				cpu_we = 1'b0;
+			#(`DELAY*10)
+
+				cpu_oe = 1'b1;
 			cpu_adrr = 16'd4;
 			#(`DELAY*2)
-			cpu_adrr = 16'd5;
+
+				cpu_adrr = 16'd5;
+			#(`DELAY*2)
+
+				cpu_adrr = 16'd6;
 		end
 	endtask
 	// 10. Debug fifo
-	task debug_fifo;
-		begin
-			$display("----------------------------------------------");
-			$display("------------------   -----------------------");
-			$display("----------- SIMULATION RESULT ----------------");
-			$display("--------------       -------------------");
-			$display("----------------     ---------------------");
-			$display("----------------------------------------------");
-			$monitor("TIME = %d, Read = %b, Write = %b, In = %h",$time, cpu_oe, cpu_we, cpu_din);
-		end
-	endtask
+	// task debug_fifo;
+	// 	begin
+	// 		$display("----------------------------------------------");
+	// 		$display("------------------   -----------------------");
+	// 		$display("----------- SIMULATION RESULT ----------------");
+	// 		$display("--------------       -------------------");
+	// 		$display("----------------     ---------------------");
+	// 		$display("----------------------------------------------");
+	// 		$monitor("TIME = %d, Read = %b, Write = %b, In = %h",$time, cpu_oe, cpu_we, cpu_din);
+	// 	end
+	// endtask
 
 	//11. Determines the simulation limit
 	task endsimulation;
