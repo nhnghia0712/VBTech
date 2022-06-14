@@ -58,6 +58,7 @@ localparam s3  = 3'd3 ;
 localparam s4  = 3'd4 ;
 localparam s5  = 3'd5 ;
 localparam s6  = 3'd6 ;
+localparam s7  = 3'd7 ;
 /////////////////////////////////////////////////////////////////////////
 // Port Declarations
 input                 clk_sys      ;
@@ -86,12 +87,16 @@ reg [LENGTH_W-1:0] pkt_cnt_out_reg, pkt_cnt_out_next;
 
 reg [         NUM_PKT_W-1:0] tx_num_packet_reg, tx_num_packet_next;
 reg [((PAYLOAD_W+18)*8)-1:0] data_out_reg, data_out_next;
-reg [                  15:0] counter_reg, counter_next;
+reg [((PAYLOAD_W+18)*8)-1:0] data_tmp_reg, data_tmp_next;
+reg [          LENGTH_W-1:0] counter_reg, counter_next;
+reg [          LENGTH_W-1:0] data_cnt_reg, data_cnt_next;
+reg [          LENGTH_W-1:0] cnt_reg, cnt_next;
 
 reg [              2:0] state_reg, state_next;
 reg [(PAYLOAD_W*8)-1:0] payload_reg, payload_next;
 
-reg [ (D_W*8)-1:0] data [47:0];
+reg [        7:0] data        [PAYLOAD_W+17:0];
+reg [(D_W*8)-1:0] data_regfile[          47:0];
 
 //  Present state logic
 always@(posedge clk_sys)begin
@@ -108,8 +113,11 @@ always@(posedge clk_sys)begin
 		payload_reg       <= 'd0;
 		tx_num_packet_reg <= 'd0;
 		data_out_reg      <= 'd0;
+		data_tmp_reg      <= 'd0;
 
-		counter_reg <= 'd0;
+		counter_reg  <= 'd0;
+		data_cnt_reg <= 'd1;
+		cnt_reg      <= 'd0;
 	end
 
 	else if (enable[0])begin
@@ -125,8 +133,11 @@ always@(posedge clk_sys)begin
 		payload_reg       <= payload_next;
 		tx_num_packet_reg <= tx_num_packet_next;
 		data_out_reg      <= data_out_next;
+		data_tmp_reg      <= data_tmp_next;
 
-		counter_reg <= counter_next;
+		counter_reg  <= counter_next;
+		data_cnt_reg <= data_cnt_next;
+		cnt_reg      <= cnt_next;
 	end
 
 	else if (enable[1])begin
@@ -142,8 +153,11 @@ always@(posedge clk_sys)begin
 		payload_reg       <= payload_next;
 		tx_num_packet_reg <= tx_num_packet_next;
 		data_out_reg      <= data_out_next;
+		data_tmp_reg      <= data_tmp_next;
 
-		counter_reg <= counter_next;
+		counter_reg  <= counter_next;
+		data_cnt_reg <= data_cnt_next;
+		cnt_reg      <= cnt_next;
 	end
 
 	else if (enable[2])begin
@@ -159,8 +173,11 @@ always@(posedge clk_sys)begin
 		payload_reg       <= payload_next;
 		tx_num_packet_reg <= tx_num_packet_next;
 		data_out_reg      <= data_out_next;
+		data_tmp_reg      <= data_tmp_next;
 
-		counter_reg <= counter_next;
+		counter_reg  <= counter_next;
+		data_cnt_reg <= data_cnt_next;
+		cnt_reg      <= cnt_next;
 	end
 
 	else if (enable[3])begin
@@ -176,8 +193,11 @@ always@(posedge clk_sys)begin
 		payload_reg       <= payload_next;
 		tx_num_packet_reg <= tx_num_packet_next;
 		data_out_reg      <= data_out_next;
+		data_tmp_reg      <= data_tmp_next;
 
-		counter_reg <= counter_next;
+		counter_reg  <= counter_next;
+		data_cnt_reg <= data_cnt_next;
+		cnt_reg      <= cnt_next;
 	end
 end 
 
@@ -193,8 +213,12 @@ always@* begin
 
 	payload_next  = payload_reg;
 	data_out_next = data_out_reg;
+	data_tmp_next = data_tmp_reg;
 
 	counter_next = counter_reg;
+	data_cnt_next = data_cnt_reg;
+	cnt_next = cnt_reg;
+
 	case(state_reg)
 		s0 : begin: IDLE
 			pkt_eof_out_next = 'b0;
@@ -204,6 +228,7 @@ always@* begin
 				begin
 					state_next = s1;
 					tx_num_packet_next = tx_num_packet;
+					data_cnt_next = 'd1;
 				end
 		end
 
@@ -217,8 +242,9 @@ always@* begin
 
 		s2 : begin: GENERATE_PAYLOAD
 			if(counter_reg <= (length-18))begin
-				payload_next[8*(counter_reg-1)+:8] = length - 17 - counter_reg;
+				payload_next[8*(counter_reg-1)+:8] = data_cnt_reg;
 				counter_next                       = counter_reg + 'b1;
+				data_cnt_next = data_cnt_reg + 'b1;
 			end
 			else begin
 				state_next   = s3;
@@ -226,33 +252,50 @@ always@* begin
 			end
 		end
 
-		s3 : begin: MERGE_DATA_INTO_FRAME
-			data_out_next = {DA[47:0],SA[47:0],VLAN[31:0],TYPE[15:0],payload_reg[(PAYLOAD_W*8)-1:0] <<  ((PAYLOAD_W*8)-((length-18)*8))};
+		s3 : begin: MERGE_DATA_INTO_PACKET
+			data_out_next = {payload_reg[(PAYLOAD_W*8)-1:0],TYPE[15:0],VLAN[31:0],SA[47:0],DA[47:0]};
 			state_next    = s4;
 		end
 
-		s4 : begin: SORT_DATA_FRAME
-			data_out_next = data_out_reg >> ((PAYLOAD_W*8)-((length-18)*8));
-			state_next    = s5;
-		end
-
-		s5 : begin: STORE_DATA_INTO_FRAME
-			if(counter_reg <= (length/32) - 1)begin
-				data[counter_reg] = data_out_reg[counter_reg*D_W*8 +: D_W*8];
+		s4 : begin: SORT_DATA_PACKET_1
+			if(counter_reg <= length - 1)begin
+				data[counter_reg] = data_out_reg[counter_reg*8 +: 8];
 				counter_next      = counter_reg + 'b1;
 			end
 			else begin
-				state_next   = s6;
-				counter_next = (length/32) - 1;
+				state_next   = s5;
+				counter_next = length - 1;
 			end
 		end
 
-		s6 : begin: EXPORT_PACKET
-			pkt_data_out_next  = data [counter_reg];
-			
+		s5 : begin: SORT_DATA_PACKET_2
+			if(cnt_reg <= length)begin
+				data_tmp_next[(cnt_reg*8) +: 8] = data [counter_reg];
+				counter_next      = counter_reg - 'b1;
+				cnt_next     = cnt_reg + 1'b1;
+			end
+			else begin
+				state_next   = s6;
+				counter_next = 0;
+			end
+		end
+
+		s6 :  begin: SORT_DATA_PACKET_3
+			if(counter_reg <= (length/32) - 1)begin
+				data_regfile [counter_reg] = data_tmp_reg[counter_reg*D_W*8 +: D_W*8];
+				counter_next      = counter_reg + 'b1;
+			end
+			else begin
+				state_next   = s7;
+				counter_next = (length/32) - 1;
+			end
+		end
+		s7 : begin: EXPORT_PACKET
+			pkt_data_out_next  = data_regfile[counter_reg];
+
 			pkt_valid_out_next = 'b1;
 
-			if (counter_reg == (length/32) - 1) begin
+			if (counter_reg == (length/32)-1) begin
 				pkt_sof_out_next = 'b1;
 			end
 			else begin
@@ -274,6 +317,7 @@ always@* begin
 				else if(tx_num_packet_reg > 0)begin
 					tx_num_packet_next = tx_num_packet_reg - 'b1;
 					counter_next       = 'd0;
+					cnt_next       = 'd0;
 					state_next         = s1;
 				end
 				pkt_eof_out_next = 'b1;
@@ -295,9 +339,9 @@ end
 	assign pkt_cnt_out   = pkt_cnt_out_reg;
 
 // Debug
-always @(pkt_data_out) begin
-	$display("\npkt_data_out=%h",pkt_data_out);
-end
+// always @(pkt_data_out) begin
+// 	$display("\npkt_data_out=%h",pkt_data_out);
+// end
 
 // always @(payload_reg) begin
 // 	$display("\npayload_reg=%h",payload_reg);

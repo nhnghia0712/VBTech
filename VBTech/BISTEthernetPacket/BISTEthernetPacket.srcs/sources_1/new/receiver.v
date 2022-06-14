@@ -35,7 +35,8 @@ module receiver
 
 		error_data_status,
 		error_length_status,
-		rx_num_packet
+		rx_num_packet,
+		done
 
 	);
 
@@ -77,10 +78,13 @@ input [    LENGTH_W-1:0] length       ;
 input [NUM_PKT_W-1:0] tx_num_packet;
 /////////////////////////////////////////////////////////////////////////
 // Output Declarations
-output [ CHID_NUM-1:0] error_data_status      ;
-output [ CHID_NUM-1:0] error_length_status    ;
-output [NUM_PKT_W-1:0] rx_num_packet          ;
+output [ CHID_NUM-1:0] error_data_status  ;
+output [ CHID_NUM-1:0] error_length_status;
+output [NUM_PKT_W-1:0] rx_num_packet      ;
+output                 done               ;
 /////////////////////////////////////////////////////////////////////////
+reg done;
+
 reg [2:0] state_reg, state_next;
 
 reg [LENGTH_W-1:0] length_reg, length_next;
@@ -151,6 +155,7 @@ always@* begin
 				begin
 					state_next   = s1;
 					tx_num_packet_next = tx_num_packet;
+					done = 'b0;
 				end
 		end
 
@@ -198,9 +203,10 @@ always@* begin
 		end
 
 		s4 : begin: COMPARE_PACKET_LENGTH_AND_CALCULATE_RX_NUM
-			if(tx_num_packet_reg == 'd0)begin
+			if(tx_num_packet_reg == 'd1)begin
 					counter_next = 'd0;
 					state_next   = s0;
+					done = 'b1;
 				end
 				else if(tx_num_packet_reg > 1)begin
 					tx_num_packet_next = tx_num_packet_reg - 'b1;

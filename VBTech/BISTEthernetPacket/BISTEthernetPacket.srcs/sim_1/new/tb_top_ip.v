@@ -24,7 +24,7 @@
 // 3. Include Statements
 module tb_top_ip ();
 	// 4. Parameter definitions
-	parameter ENDTIME = 2300;
+	parameter ENDTIME = 7000;
 	// 5. DUT Input regs
 	reg        clk_sys ;
 	reg        cpu_clk ;
@@ -36,7 +36,7 @@ module tb_top_ip ();
 
 	// 6. DUT Output wires
 	wire [15:0] cpu_dout;
-
+	wire        done    ;
 
 	integer i;
 
@@ -48,7 +48,8 @@ module tb_top_ip ();
 		.cpu_adrr(cpu_adrr),
 		.cpu_din (cpu_din ),
 		.clk_sys (clk_sys ),
-		.cpu_dout(cpu_dout)
+		.cpu_dout(cpu_dout),
+		.done    (done    )
 	);
 	// 8. Initial Conditions
 	initial
@@ -182,7 +183,7 @@ module tb_top_ip ();
 			#(`DELAY*2)
 
 				cpu_oe = 1'b0;
-			#(`DELAY*1450)
+			#(`DELAY*4517)
 
 				cpu_we = 1'b1;
 			#(`DELAY*2)

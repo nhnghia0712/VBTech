@@ -47,6 +47,7 @@ wire [LENGTH_W-1:0] pkt_cnt_in  ;
 wire [NUM_PKT_W-1:0] rx_num_packet      ;
 wire [ CHID_NUM-1:0] error_data_status  ;
 wire [ CHID_NUM-1:0] error_length_status;
+wire                 done               ;
 
 receiver DUT (
 	.clk_sys            (clk_sys            ),
@@ -58,13 +59,14 @@ receiver DUT (
 	.pkt_sof_in         (pkt_sof_in         ),
 	.pkt_eof_in         (pkt_eof_in         ),
 	.pkt_valid_in       (pkt_valid_in       ),
-	.pkt_data_in        (pkt_data_in       ),
-	.pkt_chid_in        (pkt_chid_in       ),
-	.pkt_cnt_in         (pkt_cnt_in        ),
+	.pkt_data_in        (pkt_data_in        ),
+	.pkt_chid_in        (pkt_chid_in        ),
+	.pkt_cnt_in         (pkt_cnt_in         ),
 	
 	.rx_num_packet      (rx_num_packet      ),
 	.error_data_status  (error_data_status  ),
-	.error_length_status(error_length_status)
+	.error_length_status(error_length_status),
+	.done               (done               )
 );
 
 transmitter inst (
@@ -97,7 +99,8 @@ initial begin
 	tx_num_packet= 'd5;
 	#(N*4)
 	run=0;
-	#(N*1236)
+	#(N*4000)
+
 	enable = 0;
 	#(N*4)
 	// test case 2
@@ -107,7 +110,7 @@ initial begin
 	tx_num_packet= 'd5;
 	#(N*4)
 	run=0;
-	#(N*3080)
+	#(N*4000)
 
 	// // test case 3
 	// run = 'b1;

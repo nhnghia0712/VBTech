@@ -28,7 +28,8 @@ module top_ip
 		cpu_adrr,
 		cpu_din,
 
-		cpu_dout
+		cpu_dout,
+		done
 	);
 
 /////////////////////////////////////////////////////////////////////////
@@ -54,6 +55,7 @@ input [15:0] cpu_din ;
 /////////////////////////////////////////////////////////////////////////
 // Output Declarations
 output [15:0] cpu_dout;
+output done;
 /////////////////////////////////////////////////////////////////////////
 // Local Logic and Instantiation
 wire run     ;
@@ -208,7 +210,8 @@ receiver inst15 (
 	
 	.rx_num_packet      (rx_num_packet         ),
 	.error_data_status  (error_data_status     ),
-	.error_length_status(error_length_status   )
+	.error_length_status(error_length_status   ),
+	.done               (done                  )
 );
 
 // Binary to Gray code

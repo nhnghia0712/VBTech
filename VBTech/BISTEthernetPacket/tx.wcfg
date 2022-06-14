@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="3833fs"></ZoomStartTime>
-      <ZoomEndTime time="26834fs"></ZoomEndTime>
-      <Cursor1Time time="23000fs"></Cursor1Time>
+      <ZoomStartTime time="65620fs"></ZoomStartTime>
+      <ZoomEndTime time="66411fs"></ZoomEndTime>
+      <Cursor1Time time="66262fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="207"></NameColumnWidth>
-      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+      <ValueColumnWidth column_width="80"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="21" />
+   <WVObjectSize size="22" />
    <wvobject fp_name="/tb_top_ip/clk_sys" type="logic">
       <obj_property name="ElementShortName">clk_sys</obj_property>
       <obj_property name="ObjectShortName">clk_sys</obj_property>
@@ -40,20 +40,24 @@
       <obj_property name="ElementShortName">cpu_oe</obj_property>
       <obj_property name="ObjectShortName">cpu_oe</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_top_ip/cpu_adrr" type="array">
-      <obj_property name="ElementShortName">cpu_adrr[15:0]</obj_property>
-      <obj_property name="ObjectShortName">cpu_adrr[15:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
    <wvobject fp_name="/tb_top_ip/cpu_din" type="array">
       <obj_property name="ElementShortName">cpu_din[15:0]</obj_property>
       <obj_property name="ObjectShortName">cpu_din[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top_ip/cpu_adrr" type="array">
+      <obj_property name="ElementShortName">cpu_adrr[15:0]</obj_property>
+      <obj_property name="ObjectShortName">cpu_adrr[15:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_top_ip/cpu_dout" type="array">
       <obj_property name="ElementShortName">cpu_dout[15:0]</obj_property>
       <obj_property name="ObjectShortName">cpu_dout[15:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top_ip/done" type="logic">
+      <obj_property name="ElementShortName">done</obj_property>
+      <obj_property name="ObjectShortName">done</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_top_ip/DUT/inst14/run" type="logic">
       <obj_property name="ElementShortName">run</obj_property>
