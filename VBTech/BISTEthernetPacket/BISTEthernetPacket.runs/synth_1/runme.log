@@ -327,3 +327,16 @@ WARNING: [Synth 8-327] inferring latch for variable 'data_reg[1468]' [D:/GitHub/
 WARNING: [Synth 8-327] inferring latch for variable 'data_reg[1467]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:262]
 WARNING: [Synth 8-327] inferring latch for variable 'data_reg[1466]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:262]
 INFO: [Common 17-14] Message 'Synth 8-327' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                      s0 |                              000 |                              000
+                      s1 |                              001 |                              001
+                      s2 |                              010 |                              010
+                      s3 |                              011 |                              011
+                      s4 |                              100 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg_reg' using encoding 'sequential' in module 'receiver'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:03:04 ; elapsed = 00:05:08 . Memory (MB): peak = 3457.465 ; gain = 2000.383
+---------------------------------------------------------------------------------
