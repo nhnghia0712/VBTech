@@ -29,7 +29,9 @@ module top_ip
 		cpu_din,
 
 		cpu_dout,
-		done
+		done,
+		pkt_data_out,
+		pkt_valid_out
 	);
 
 /////////////////////////////////////////////////////////////////////////
@@ -54,8 +56,10 @@ input [15:0] cpu_adrr;
 input [15:0] cpu_din ;
 /////////////////////////////////////////////////////////////////////////
 // Output Declarations
-output [15:0] cpu_dout;
-output done;
+output [       15:0] cpu_dout     ;
+output               done         ;
+output [(D_W*8)-1:0] pkt_data_out ;
+output               pkt_valid_out;
 /////////////////////////////////////////////////////////////////////////
 // Local Logic and Instantiation
 wire run     ;

@@ -90,7 +90,7 @@ reg [2:0] state_reg, state_next;
 reg [LENGTH_W-1:0] length_reg, length_next;
 
 reg [ (D_W*8)-1:0] pkt_data_in_reg, pkt_data_in_next;
-reg [LENGTH_W-1:0] pkt_cnt_in_reg, pkt_cnt_in_next;
+//reg [LENGTH_W-1:0] pkt_cnt_in_reg, pkt_cnt_in_next;
 
 reg [CHID_NUM-1:0] error_length_status_reg, error_length_status_next;
 reg [CHID_NUM-1:0] error_data_status_reg, error_data_status_next;
@@ -111,7 +111,7 @@ always@(posedge clk_sys)begin
 		rx_num_packet_reg <= 'd1;
 
 		pkt_data_in_reg <= 'd0;
-		pkt_cnt_in_reg  <= 'd0;
+		//pkt_cnt_in_reg  <= 'd0;
 
 		error_length_status_reg <= 'd0;
 		error_data_status_reg   <= 'd0;
@@ -127,7 +127,7 @@ always@(posedge clk_sys)begin
 		rx_num_packet_reg <= rx_num_packet_next;
 
 		pkt_data_in_reg <= pkt_data_in_next;
-		pkt_cnt_in_reg  <= pkt_cnt_in_next;
+		//pkt_cnt_in_reg  <= pkt_cnt_in_next;
 
 		error_length_status_reg <= error_length_status_next;
 		error_data_status_reg   <= error_data_status_next;
@@ -144,7 +144,7 @@ always@* begin
 	rx_num_packet_next = rx_num_packet_reg;
 
 	pkt_data_in_next = pkt_data_in_reg;
-	pkt_cnt_in_next  = pkt_cnt_in_reg;
+	//pkt_cnt_in_next  = pkt_cnt_in_reg;
 
 	error_length_status_next = error_length_status_reg;
 	error_data_status_next   = error_data_status_reg;
@@ -162,7 +162,7 @@ always@* begin
 		s1 : begin: RUN
 			if (pkt_sof_in && pkt_valid_in) begin
 				pkt_data_in_next <= pkt_data_in;
-				pkt_cnt_in_next  <= pkt_cnt_in;
+				//pkt_cnt_in_next  <= pkt_cnt_in;
 				state_next       <= s2;
 				counter_next <= 'd0;
 				length_next = length_reg +  D_W;
@@ -235,7 +235,7 @@ end
 	assign rx_num_packet       = rx_num_packet_reg;
 
 // Debug
-always @(rx_num_packet) begin
-	$display( "\nrx_num_packet=%d",rx_num_packet ); 
-end
+// always @(rx_num_packet) begin
+// 	$display( "\nrx_num_packet=%d",rx_num_packet ); 
+// end
 endmodule

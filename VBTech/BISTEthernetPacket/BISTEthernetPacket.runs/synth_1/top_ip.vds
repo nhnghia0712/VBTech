@@ -2,24 +2,22 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Tue Jun 14 15:13:04 2022
-# Process ID: 13968
+# Start of session at: Wed Jun 15 16:36:08 2022
+# Process ID: 6804
 # Current directory: D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.runs/synth_1
 # Command line: vivado.exe -log top_ip.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_ip.tcl
 # Log file: D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.runs/synth_1/top_ip.vds
 # Journal file: D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source top_ip.tcl -notrace
-create_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 425.746 ; gain = 137.270
 Command: synth_design -top top_ip -part xcku5p-ffvb676-2-e
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xcku5p'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcku5p'
-INFO: [Device 21-403] Loading part xcku5p-ffvb676-2-e
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 5148 
+INFO: Helper process launched with PID 6732 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:08 . Memory (MB): peak = 1554.934 ; gain = 97.852
+Starting Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 687.633 ; gain = 237.422
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'top_ip' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/top_ip.v:21]
 	Parameter CHID_NUM bound to: 4 - type: integer 
@@ -39,30 +37,6 @@ INFO: [Synth 8-6155] done synthesizing module 'encoder_4to2' (3#1) [D:/GitHub/VB
 INFO: [Synth 8-6157] synthesizing module 'encoder_2to1' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_2to1.v:20]
 INFO: [Synth 8-6155] done synthesizing module 'encoder_2to1' (4#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_2to1.v:20]
 INFO: [Synth 8-6155] done synthesizing module 'encoder_16to1' (5#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/encoder_16to1.v:20]
-CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[6] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
-CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[5] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
-CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[4] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
-CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[3] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
-CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[2] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
-CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[1] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
-CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register regfile_reg[0] in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
-CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register cpu_dout_reg in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:106]
-CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register temp_run_reg in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:108]
-CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register temp_enable_reg in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:109]
-CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register length_reg in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:110]
-CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register tx_num_packet_reg in module ctrl_stt_reg. [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:111]
-WARNING: [Synth 8-5788] Register regfile_reg[6] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
-WARNING: [Synth 8-5788] Register regfile_reg[5] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
-WARNING: [Synth 8-5788] Register regfile_reg[4] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
-WARNING: [Synth 8-5788] Register regfile_reg[3] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
-WARNING: [Synth 8-5788] Register regfile_reg[2] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
-WARNING: [Synth 8-5788] Register regfile_reg[1] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
-WARNING: [Synth 8-5788] Register regfile_reg[0] in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
-WARNING: [Synth 8-5788] Register cpu_dout_reg in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:106]
-WARNING: [Synth 8-5788] Register temp_run_reg in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:108]
-WARNING: [Synth 8-5788] Register temp_enable_reg in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:109]
-WARNING: [Synth 8-5788] Register length_reg in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:110]
-WARNING: [Synth 8-5788] Register tx_num_packet_reg in module ctrl_stt_reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:111]
 INFO: [Synth 8-6155] done synthesizing module 'ctrl_stt_reg' (6#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:21]
 INFO: [Synth 8-6157] synthesizing module 'bin_to_gray' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/bin_to_gray.v:21]
 	Parameter DATA_WIDTH bound to: 4 - type: integer 
@@ -122,7 +96,6 @@ INFO: [Synth 8-6157] synthesizing module 'receiver' [D:/GitHub/VBTech/VBTech/BIS
 	Parameter s3 bound to: 3'b011 
 	Parameter s4 bound to: 3'b100 
 WARNING: [Synth 8-6090] variable 'pkt_data_in_next' is written by both blocking and non-blocking assignments, entire logic could be removed [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:164]
-WARNING: [Synth 8-6090] variable 'pkt_cnt_in_next' is written by both blocking and non-blocking assignments, entire logic could be removed [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:165]
 WARNING: [Synth 8-6090] variable 'state_next' is written by both blocking and non-blocking assignments, entire logic could be removed [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:166]
 WARNING: [Synth 8-6090] variable 'counter_next' is written by both blocking and non-blocking assignments, entire logic could be removed [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:167]
 INFO: [Synth 8-251] 
@@ -138,9 +111,6 @@ INFO: [Synth 8-251]
 LENGTH FROM_TX=x != LENGTH_USER=x [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:225]
 INFO: [Synth 8-251] Error [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:226]
 INFO: [Synth 8-155] case statement is not full and has no default [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:152]
-INFO: [Synth 8-251] 
-rx_num_packet=x [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:239]
-WARNING: [Synth 8-6014] Unused sequential element pkt_cnt_in_reg_reg was removed.  [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:114]
 INFO: [Synth 8-6155] done synthesizing module 'receiver' (11#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:21]
 INFO: [Synth 8-6155] done synthesizing module 'top_ip' (12#1) [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/top_ip.v:21]
 WARNING: [Synth 8-3331] design receiver has unconnected port pkt_cnt_in[15]
@@ -163,40 +133,10 @@ WARNING: [Synth 8-3331] design encoder_16to4 has unconnected port d_in[0]
 WARNING: [Synth 8-3331] design encoder_2to1 has unconnected port d_in[0]
 WARNING: [Synth 8-3331] design encoder_4to2 has unconnected port d_in[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:17 ; elapsed = 00:00:23 . Memory (MB): peak = 1903.574 ; gain = 446.492
----------------------------------------------------------------------------------
-
-Report Check Netlist: 
-+------+------------------+-------+---------+-------+------------------+
-|      |Item              |Errors |Warnings |Status |Description       |
-+------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
-+------+------------------+-------+---------+-------+------------------+
----------------------------------------------------------------------------------
-Start Handling Custom Attributes
+Finished Synthesize : Time (s): cpu = 00:00:27 ; elapsed = 00:00:37 . Memory (MB): peak = 1036.691 ; gain = 586.480
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:22 ; elapsed = 00:00:29 . Memory (MB): peak = 1903.574 ; gain = 446.492
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:29 . Memory (MB): peak = 1903.574 ; gain = 446.492
----------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1919.441 ; gain = 5.527
-INFO: [Project 1-570] Preparing netlist for logic optimization
-
-Processing XDC Constraints
-Initializing timing engine
-Parsing XDC File [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/constrs_1/new/const_top_ip.xdc]
-Finished Parsing XDC File [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/constrs_1/new/const_top_ip.xdc]
-Completed Processing XDC Constraints
-
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 2625.516 ; gain = 0.000
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-Constraint Validation Runtime : Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2625.516 ; gain = 0.000
----------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:01:07 ; elapsed = 00:01:36 . Memory (MB): peak = 2625.516 ; gain = 1168.434
+Finished Constraint Validation : Time (s): cpu = 00:00:31 ; elapsed = 00:00:43 . Memory (MB): peak = 1036.691 ; gain = 586.480
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
@@ -204,14 +144,9 @@ Start Loading Part and Timing Information
 Loading part: xcku5p-ffvb676-2-e
 INFO: [Synth 8-6742] Reading net delay rules and data
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:01:07 ; elapsed = 00:01:37 . Memory (MB): peak = 2625.516 ; gain = 1168.434
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:31 ; elapsed = 00:00:43 . Memory (MB): peak = 1036.691 ; gain = 586.480
 ---------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Applying 'set_property' XDC Constraints
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:07 ; elapsed = 00:01:37 . Memory (MB): peak = 2625.516 ; gain = 1168.434
----------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xcku5p-ffvb676-2-e
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg_reg' in module 'transmitter'
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg_reg' in module 'receiver'
 ---------------------------------------------------------------------------------------------------
@@ -328,3 +263,827 @@ WARNING: [Synth 8-327] inferring latch for variable 'data_reg[1468]' [D:/GitHub/
 WARNING: [Synth 8-327] inferring latch for variable 'data_reg[1467]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:262]
 WARNING: [Synth 8-327] inferring latch for variable 'data_reg[1466]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:262]
 INFO: [Common 17-14] Message 'Synth 8-327' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                      s0 |                              000 |                              000
+                      s1 |                              001 |                              001
+                      s2 |                              010 |                              010
+                      s3 |                              011 |                              011
+                      s4 |                              100 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg_reg' using encoding 'sequential' in module 'receiver'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:02:13 ; elapsed = 00:02:56 . Memory (MB): peak = 3398.086 ; gain = 2947.875
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+-----------------------------+------------+----------+
+|      |RTL Partition                |Replication |Instances |
++------+-----------------------------+------------+----------+
+|1     |fsm__GB0                     |           1|     40092|
+|2     |fsm__GB1                     |           1|     40226|
+|3     |case__3192_transmitter__GD   |           1|     65280|
+|4     |reg__22_transmitter          |           1|     12144|
+|5     |case__3193_transmitter__GD   |           1|     65280|
+|6     |case__3194_transmitter__GD   |           1|     65280|
+|7     |case__3195_transmitter__GD   |           1|     65280|
+|8     |case__3196_transmitter__GD   |           1|     65280|
+|9     |case__3197_transmitter__GD   |           1|     65280|
+|10    |case__3198_transmitter__GD   |           1|     65280|
+|11    |case__3199_transmitter__GD   |           1|     65280|
+|12    |transmitter__GCB9            |           1|     45030|
+|13    |case__3200_transmitter__GD   |           1|     65280|
+|14    |case__3201_transmitter__GD   |           1|     65280|
+|15    |case__3202_transmitter__GD   |           1|     65280|
+|16    |case__3203_transmitter__GD   |           1|     65280|
+|17    |case__3204_transmitter__GD   |           1|     65280|
+|18    |case__3205_transmitter__GD   |           1|     65280|
+|19    |case__3206_transmitter__GD   |           1|     65280|
+|20    |case__3207_transmitter__GD   |           1|     65280|
+|21    |case__3208_transmitter__GD   |           1|     65280|
+|22    |case__3209_transmitter__GD   |           1|     65280|
+|23    |case__3210_transmitter__GD   |           1|     65280|
+|24    |case__3211_transmitter__GD   |           1|     65280|
+|25    |case__3212_transmitter__GD   |           1|     65280|
+|26    |case__3214_transmitter__GD   |           1|     65280|
+|27    |case__3213_transmitter__GD   |           1|     65280|
+|28    |case__3215_transmitter__GD   |           1|     65280|
+|29    |case__3216_transmitter__GD   |           1|     65280|
+|30    |muxpart__3122_transmitter    |           1|     16128|
+|31    |case__3217_transmitter__GD   |           1|     65280|
+|32    |case__3218_transmitter__GD   |           1|     65280|
+|33    |case__3219_transmitter__GD   |           1|     65280|
+|34    |case__3220_transmitter__GD   |           1|     65280|
+|35    |case__3221_transmitter__GD   |           1|     65280|
+|36    |case__3222_transmitter__GD   |           1|     65280|
+|37    |case__3223_transmitter__GD   |           1|     65280|
+|38    |case__3224_transmitter__GD   |           1|     65280|
+|39    |case__3225_transmitter__GD   |           1|     65280|
+|40    |case__3226_transmitter__GD   |           1|     65280|
+|41    |case__3228_transmitter__GD   |           1|     65280|
+|42    |case__3229_transmitter__GD   |           1|     65280|
+|43    |case__3230_transmitter__GD   |           1|     65280|
+|44    |case__3231_transmitter__GD   |           1|     65280|
+|45    |case__3227_transmitter__GD   |           1|     65280|
+|46    |case__3233_transmitter__GD   |           1|     65280|
+|47    |case__3232_transmitter__GD   |           1|     65280|
+|48    |transmitter__GCB45           |           1|     19968|
+|49    |transmitter__GCB46           |           1|      4352|
+|50    |case__3235_transmitter__GD   |           1|     65280|
+|51    |case__3236_transmitter__GD   |           1|     65280|
+|52    |case__3234_transmitter__GD   |           1|     65280|
+|53    |case__3238_transmitter__GD   |           1|     65280|
+|54    |transmitter__GCB51           |           1|     34344|
+|55    |transmitter__GCB52           |           1|     10200|
+|56    |transmitter__GCB53           |           1|     12240|
+|57    |transmitter__GCB54           |           1|     16320|
+|58    |transmitter__GCB55           |           1|     18360|
+|59    |transmitter__GCB56           |           1|     24984|
+|60    |transmitter__GCB57           |           1|     30603|
+|61    |transmitter__GCB58           |           1|     45271|
+|62    |transmitter__GCB59           |           1|      8166|
+|63    |transmitter__GCB60           |           1|       856|
+|64    |transmitter__GCB61           |           1|      2154|
+|65    |case__3237_transmitter__GD   |           1|     65280|
+|66    |case__3239_transmitter__GD   |           1|     65280|
+|67    |case__3240_transmitter__GD   |           1|     65280|
+|68    |case__3254_transmitter__GD   |           1|     65280|
+|69    |case__3255_transmitter__GD   |           1|     65280|
+|70    |transmitter__GCB67           |           1|      3511|
+|71    |datapath__11_transmitter__GD |           1|     45013|
+|72    |logic__3192_transmitter__GD  |           1|     12144|
+|73    |transmitter__GCB70           |           1|     14676|
+|74    |case__3253_transmitter__GD   |           1|     65280|
+|75    |case__3252_transmitter__GD   |           1|     65280|
+|76    |case__3251_transmitter__GD   |           1|     65280|
+|77    |case__3250_transmitter__GD   |           1|     65280|
+|78    |case__3249_transmitter__GD   |           1|     65280|
+|79    |case__3248_transmitter__GD   |           1|     65280|
+|80    |case__3246_transmitter__GD   |           1|     65280|
+|81    |case__3245_transmitter__GD   |           1|     65280|
+|82    |case__3243_transmitter__GD   |           1|     65280|
+|83    |case__3244_transmitter__GD   |           1|     65280|
+|84    |case__3242_transmitter__GD   |           1|     65280|
+|85    |case__3241_transmitter__GD   |           1|     65280|
+|86    |case__3247_transmitter__GD   |           1|     65280|
+|87    |transmitter__GCB84           |           1|     48654|
+|88    |transmitter__GCB85           |           1|     42394|
+|89    |datapath__8_transmitter__GD  |           1|     44769|
+|90    |logic__3173_transmitter__GD  |           1|     12000|
+|91    |transmitter__GCB88           |           1|     13219|
+|92    |transmitter__GCB89           |           1|        22|
+|93    |transmitter__GCB90           |           1|       284|
+|94    |transmitter__GCB91           |           1|       263|
+|95    |transmitter__GCB92           |           1|       337|
+|96    |transmitter__GCB93           |           1|       392|
+|97    |transmitter__GCB94           |           1|       377|
+|98    |transmitter__GCB95           |           1|       441|
+|99    |transmitter__GCB96           |           1|       565|
+|100   |transmitter__GCB97           |           1|       592|
+|101   |transmitter__GCB98           |           1|       598|
+|102   |transmitter__GCB99           |           1|       591|
+|103   |transmitter__GCB100          |           1|     48521|
+|104   |transmitter__GCB101          |           1|     24290|
+|105   |case__3356_receiver__GD      |           1|     65280|
+|106   |receiver__GB1                |           1|      1855|
+|107   |case__3355_receiver__GD      |           1|     65280|
+|108   |top_ip__GC0                  |           1|      1499|
++------+-----------------------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3538] Detected potentially large (wide) register data_tmp_reg_reg [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:116]
+INFO: [Synth 8-3538] Detected potentially large (wide) register data_out_reg_reg [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:115]
+INFO: [Synth 8-3538] Detected potentially large (wide) register payload_reg_reg [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:113]
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 5     
+	   2 Input     16 Bit       Adders := 12    
++---XORs : 
+	   2 Input      1 Bit         XORs := 108   
++---Registers : 
+	            12144 Bit    Registers := 2     
+	            12000 Bit    Registers := 1     
+	              256 Bit    Registers := 2     
+	               16 Bit    Registers := 25    
+	                4 Bit    Registers := 8     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 5     
++---Muxes : 
+	   8 Input  12144 Bit        Muxes := 1     
+	   2 Input  12144 Bit        Muxes := 1     
+	   5 Input  12144 Bit        Muxes := 1     
+	   8 Input  12000 Bit        Muxes := 1     
+	   2 Input  12000 Bit        Muxes := 1     
+	   5 Input  12000 Bit        Muxes := 1     
+	   2 Input    256 Bit        Muxes := 1     
+	   8 Input     16 Bit        Muxes := 4     
+	   2 Input     16 Bit        Muxes := 12    
+	   5 Input     16 Bit        Muxes := 3     
+	   5 Input      4 Bit        Muxes := 2     
+	   8 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 2     
+	   5 Input      3 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 4     
+	   8 Input      1 Bit        Muxes := 1575  
+	   2 Input      1 Bit        Muxes := 56    
+	   5 Input      1 Bit        Muxes := 7     
+	   7 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3538] Detected potentially large (wide) register data_tmp_reg_reg [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:116]
+INFO: [Synth 8-3538] Detected potentially large (wide) register data_out_reg_reg [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:115]
+INFO: [Synth 8-3538] Detected potentially large (wide) register payload_reg_reg [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:113]
+Hierarchical RTL Component report 
+Module transmitter 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 4     
+	   2 Input     16 Bit       Adders := 8     
++---Registers : 
+	            12144 Bit    Registers := 2     
+	            12000 Bit    Registers := 1     
+	              256 Bit    Registers := 1     
+	               16 Bit    Registers := 7     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   8 Input  12144 Bit        Muxes := 1     
+	   2 Input  12144 Bit        Muxes := 1     
+	   5 Input  12144 Bit        Muxes := 1     
+	   8 Input  12000 Bit        Muxes := 1     
+	   2 Input  12000 Bit        Muxes := 1     
+	   5 Input  12000 Bit        Muxes := 1     
+	   8 Input     16 Bit        Muxes := 4     
+	   2 Input     16 Bit        Muxes := 5     
+	   8 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 4     
+	   8 Input      1 Bit        Muxes := 1575  
+	   2 Input      1 Bit        Muxes := 49    
+Module receiver 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input     16 Bit       Adders := 4     
++---Registers : 
+	              256 Bit    Registers := 1     
+	               16 Bit    Registers := 5     
+	                4 Bit    Registers := 2     
++---Muxes : 
+	   2 Input    256 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 1     
+	   5 Input     16 Bit        Muxes := 3     
+	   5 Input      4 Bit        Muxes := 2     
+	   5 Input      3 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 5     
+	   5 Input      1 Bit        Muxes := 7     
+	   7 Input      1 Bit        Muxes := 1     
+Module ctrl_stt_reg 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 7     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 6     
+	   2 Input      1 Bit        Muxes := 2     
+Module bin_to_gray__1 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
+Module bin_to_gray__parameterized0__1 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 15    
+Module bin_to_gray__parameterized0__2 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 15    
+Module sync 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 2     
+Module sync__parameterized0__1 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 2     
+Module sync__parameterized1__1 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 2     
+Module sync__parameterized1__2 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 2     
+Module gray_to_bin__1 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
+Module gray_to_bin__parameterized0__1 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 15    
+Module gray_to_bin__parameterized0__2 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 15    
+Module bin_to_gray__parameterized0 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 15    
+Module bin_to_gray__2 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
+Module bin_to_gray 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
+Module sync__parameterized1 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 2     
+Module sync__parameterized0__2 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 2     
+Module sync__parameterized0 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 2     
+Module gray_to_bin__parameterized0 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 15    
+Module gray_to_bin__2 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
+Module gray_to_bin 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 1824 (col length:96)
+BRAMs: 960 (col length: RAMB18 96 RAMB36 48)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5580] Multithreading enabled for synth_design using a maximum of 2 processes.
+No constraint files found.
+Parallel Worker Creation Failure: Worker 0 has died.  Skipping 
+Parallel Worker Creation Failure: Worker 1 has died.  Skipping 
+Adjusting Job Scheduling: Worker 0 unavailable.  Skipping 
+Adjusting Job Scheduling: Worker 1 unavailable.  Skipping 
+Failed to find any parallel workers.  Continuing in single-core optimization.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-4471] merging register 'cnt_reg_reg[15:0]' into 'cnt_reg_reg[15:0]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:120]
+INFO: [Synth 8-4471] merging register 'counter_reg_reg[15:0]' into 'counter_reg_reg[15:0]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/transmitter.v:118]
+INFO: [Synth 8-4471] merging register 'counter_reg_reg[15:0]' into 'counter_reg_reg[15:0]' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/receiver.v:119]
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[134] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[102] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[38] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[118] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[22] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[126] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[30] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[110] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[46] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[142] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[130] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[98] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[34] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[114] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[122] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[106] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[42] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[138] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[132] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[36] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[20] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[28] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[44] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[140] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[128] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[32] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[40] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[136] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[69] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[101] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[117] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[53] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[85] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[125] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[61] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[93] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[109] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[77] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[65] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[97] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[113] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[49] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[81] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[121] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[57] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[89] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[105] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[73] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[131] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[67] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[99] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[115] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[51] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[83] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[123] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[59] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[91] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[107] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[75] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[139] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[127] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[63] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[95] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[111] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[79] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[143] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[119] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[55] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[87] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[103] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[71] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_out_reg_reg[135] )
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/temp_reg[0]' (FD) to 'i_0/inst9/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/temp_reg[1]' (FD) to 'i_0/inst9/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/temp_reg[2]' (FD) to 'i_0/inst9/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/temp_reg[3]' (FD) to 'i_0/inst9/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/temp_reg[4]' (FD) to 'i_0/inst9/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/temp_reg[5]' (FD) to 'i_0/inst9/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/temp_reg[6]' (FD) to 'i_0/inst9/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/temp_reg[7]' (FD) to 'i_0/inst9/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/temp_reg[8]' (FD) to 'i_0/inst9/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/temp_reg[9]' (FD) to 'i_0/inst9/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/temp_reg[10]' (FD) to 'i_0/inst9/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/temp_reg[11]' (FD) to 'i_0/inst9/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/temp_reg[12]' (FD) to 'i_0/inst9/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/temp_reg[13]' (FD) to 'i_0/inst9/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/temp_reg[14]' (FD) to 'i_0/inst9/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/temp_reg[15]' (FD) to 'i_0/inst8/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/temp_reg[0]' (FD) to 'i_0/inst8/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/temp_reg[1]' (FD) to 'i_0/inst8/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/temp_reg[2]' (FD) to 'i_0/inst8/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/temp_reg[3]' (FD) to 'i_0/inst8/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/temp_reg[4]' (FD) to 'i_0/inst8/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/temp_reg[5]' (FD) to 'i_0/inst8/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/temp_reg[6]' (FD) to 'i_0/inst8/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/temp_reg[7]' (FD) to 'i_0/inst8/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/temp_reg[8]' (FD) to 'i_0/inst8/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/temp_reg[9]' (FD) to 'i_0/inst8/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/temp_reg[10]' (FD) to 'i_0/inst8/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/temp_reg[11]' (FD) to 'i_0/inst8/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/temp_reg[12]' (FD) to 'i_0/inst8/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/temp_reg[13]' (FD) to 'i_0/inst8/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/temp_reg[14]' (FD) to 'i_0/inst8/temp_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/temp_reg[15]' (FD) to 'i_0/inst7/temp_reg[3]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst7/temp_reg[0]' (FD) to 'i_0/inst7/temp_reg[3]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst7/temp_reg[1]' (FD) to 'i_0/inst7/temp_reg[3]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst7/temp_reg[2]' (FD) to 'i_0/inst7/temp_reg[3]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst7/temp_reg[3]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst6/temp_reg[0] )
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/data_out_reg[0]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/data_out_reg[1]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/data_out_reg[2]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/data_out_reg[3]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/data_out_reg[4]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/data_out_reg[5]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/data_out_reg[6]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/data_out_reg[7]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/data_out_reg[8]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/data_out_reg[9]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/data_out_reg[10]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/data_out_reg[11]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/data_out_reg[12]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/data_out_reg[13]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/data_out_reg[14]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst9/data_out_reg[15]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/data_out_reg[0]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/data_out_reg[1]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/data_out_reg[2]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/data_out_reg[3]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/data_out_reg[4]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/data_out_reg[5]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/data_out_reg[6]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/data_out_reg[7]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/data_out_reg[8]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/data_out_reg[9]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/data_out_reg[10]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/data_out_reg[11]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/data_out_reg[12]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/data_out_reg[13]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/data_out_reg[14]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst8/data_out_reg[15]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst7/data_out_reg[0]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst7/data_out_reg[1]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst7/data_out_reg[2]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst7/data_out_reg[3]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_0/inst6/data_out_reg[0]' (FD) to 'i_0/inst6/temp_reg[0]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst6/temp_reg[0] )
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/cpu_dout_reg[15]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/cpu_dout_reg[14]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/cpu_dout_reg[13]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/cpu_dout_reg[12]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/cpu_dout_reg[11]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/cpu_dout_reg[10]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/cpu_dout_reg[9]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/cpu_dout_reg[8]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/cpu_dout_reg[7]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/cpu_dout_reg[6]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/cpu_dout_reg[5]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/cpu_dout_reg[4]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/cpu_dout_reg[3]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/cpu_dout_reg[2]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/cpu_dout_reg[1]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/cpu_dout_reg[0]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:99]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/length_reg[15]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/length_reg[14]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/length_reg[13]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/length_reg[12]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/length_reg[11]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/length_reg[10]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/length_reg[9]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/length_reg[8]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/length_reg[7]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/length_reg[6]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/length_reg[5]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/length_reg[4]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/length_reg[3]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/length_reg[2]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/length_reg[1]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/length_reg[0]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:97]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/tx_num_packet_reg[15]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/tx_num_packet_reg[14]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/tx_num_packet_reg[13]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/tx_num_packet_reg[12]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/tx_num_packet_reg[11]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/tx_num_packet_reg[10]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/tx_num_packet_reg[9]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/tx_num_packet_reg[8]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/tx_num_packet_reg[7]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/tx_num_packet_reg[6]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/tx_num_packet_reg[5]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/tx_num_packet_reg[4]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/tx_num_packet_reg[3]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/tx_num_packet_reg[2]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/tx_num_packet_reg[1]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/tx_num_packet_reg[0]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:98]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/temp_run_reg[15]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/inst1/temp_run_reg[14]__0/Q' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+INFO: [Common 17-14] Message 'Synth 8-6859' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sources_1/new/ctrl_stt_reg.v:96]
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\tx_num_packet_reg_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\tx_num_packet_reg_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\tx_num_packet_reg_reg[13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\tx_num_packet_reg_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\tx_num_packet_reg_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\tx_num_packet_reg_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\tx_num_packet_reg_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\tx_num_packet_reg_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\tx_num_packet_reg_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\tx_num_packet_reg_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\tx_num_packet_reg_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\tx_num_packet_reg_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\tx_num_packet_reg_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\tx_num_packet_reg_reg[2] )
+INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:13:33 ; elapsed = 00:22:13 . Memory (MB): peak = 3672.156 ; gain = 3221.945
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:13:33 ; elapsed = 00:22:13 . Memory (MB): peak = 3672.156 ; gain = 3221.945
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:13:33 ; elapsed = 00:22:13 . Memory (MB): peak = 3672.156 ; gain = 3221.945
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:13:40 ; elapsed = 00:22:22 . Memory (MB): peak = 3672.156 ; gain = 3221.945
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:13:40 ; elapsed = 00:22:22 . Memory (MB): peak = 3672.156 ; gain = 3221.945
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:13:40 ; elapsed = 00:22:22 . Memory (MB): peak = 3672.156 ; gain = 3221.945
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:13:40 ; elapsed = 00:22:22 . Memory (MB): peak = 3672.156 ; gain = 3221.945
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:13:40 ; elapsed = 00:22:22 . Memory (MB): peak = 3672.156 ; gain = 3221.945
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:13:40 ; elapsed = 00:22:22 . Memory (MB): peak = 3672.156 ; gain = 3221.945
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |OBUF |   274|
++------+-----+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |   274|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:13:40 ; elapsed = 00:22:22 . Memory (MB): peak = 3672.156 ; gain = 3221.945
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 225 critical warnings and 1590 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:13:40 ; elapsed = 00:22:22 . Memory (MB): peak = 3672.156 ; gain = 3221.945
+Synthesis Optimization Complete : Time (s): cpu = 00:13:40 ; elapsed = 00:22:22 . Memory (MB): peak = 3672.156 ; gain = 3221.945
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 3672.156 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3672.156 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+239 Infos, 122 Warnings, 175 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:13:57 ; elapsed = 00:23:38 . Memory (MB): peak = 3672.156 ; gain = 3246.770
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3672.156 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.runs/synth_1/top_ip.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file top_ip_utilization_synth.rpt -pb top_ip_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Jun 15 16:59:58 2022...

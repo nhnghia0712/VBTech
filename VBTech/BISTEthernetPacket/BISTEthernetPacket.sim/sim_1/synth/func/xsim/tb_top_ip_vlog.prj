@@ -1,0 +1,7 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"tb_top_ip_func_synth.v" \
+"../../../../../BISTEthernetPacket.srcs/sim_1/new/tb_top_ip.v" \
+
+# Do not sort compile order
+nosort

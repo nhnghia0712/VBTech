@@ -1,5 +1,0 @@
-set_property SRC_FILE_INFO {cfile:D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/constrs_1/new/const_top_ip.xdc rfile:../../../../../BISTEthernetPacket.srcs/constrs_1/new/const_top_ip.xdc id:1} [current_design]
-set_property src_info {type:XDC file:1 line:1 export:INPUT save:INPUT read:READ} [current_design]
-create_clock -period 3.333 -name clk_sys -waveform {0.000 1.667} [get_ports clk_sys]
-set_property src_info {type:XDC file:1 line:2 export:INPUT save:INPUT read:READ} [current_design]
-create_clock -period 2.857 -name cpu_clk -waveform {0.000 1.429} [get_ports cpu_clk]

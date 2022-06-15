@@ -22,12 +22,7 @@ module bin_to_gray #(parameter DATA_WIDTH = 4) (
 	input  [DATA_WIDTH-1:0] data_in ,
 	output [DATA_WIDTH-1:0] data_out
 );
-
-// assign data_out[DATA_WIDTH-1] = data_in[DATA_WIDTH-1];
-// assign data_out[DATA_WIDTH-2] = data_in[DATA_WIDTH-1] ^ data_in[DATA_WIDTH-2];
-// assign data_out[DATA_WIDTH-3] = data_in[DATA_WIDTH-2] ^ data_in[DATA_WIDTH-3];
-// assign data_out[DATA_WIDTH-4] = data_in[DATA_WIDTH-3] ^ data_in[DATA_WIDTH-4];
-
+//////////////////////////////////////////////////////////////////////////
 function [DATA_WIDTH-1:0] binary2gray;
 	integer i;
 	input [DATA_WIDTH-1:0] value_in;

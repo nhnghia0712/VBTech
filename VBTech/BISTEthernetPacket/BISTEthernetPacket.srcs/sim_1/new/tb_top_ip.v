@@ -21,11 +21,12 @@
 `timescale     10 ps/ 1 ps
 `define          DELAY 1.429
 `define          DELAY2 1.667
-// 3. Include Statements
+// 2. Include Statements
 module tb_top_ip ();
-	// 4. Parameter definitions
+// 3. Parameter definitions
 	parameter ENDTIME = 7000;
-	// 5. DUT Input regs
+	parameter D_W     = 32  ;
+// 4. DUT Input regs
 	reg        clk_sys ;
 	reg        cpu_clk ;
 	reg        cpu_cs  ;
@@ -34,24 +35,32 @@ module tb_top_ip ();
 	reg [15:0] cpu_adrr;
 	reg [15:0] cpu_din ;
 
-	// 6. DUT Output wires
-	wire [15:0] cpu_dout;
-	wire        done    ;
+// 5. DUT Output wires
+	wire [       15:0] cpu_dout     ;
+	wire               done         ;
+	wire [(D_W*8)-1:0] pkt_data_out ;
+	wire               pkt_valid_out;
+	wire [       15:0] rx_num_packet;
 
 	integer i;
 
+	reg [(D_W*8)-1:0] out;
+
 	top_ip DUT (
-		.cpu_cs  (cpu_cs  ),
-		.cpu_clk (cpu_clk ),
-		.cpu_we  (cpu_we  ),
-		.cpu_oe  (cpu_oe  ),
-		.cpu_adrr(cpu_adrr),
-		.cpu_din (cpu_din ),
-		.clk_sys (clk_sys ),
-		.cpu_dout(cpu_dout),
-		.done    (done    )
+		.cpu_cs       (cpu_cs       ),
+		.cpu_clk      (cpu_clk      ),
+		.cpu_we       (cpu_we       ),
+		.cpu_oe       (cpu_oe       ),
+		.cpu_adrr     (cpu_adrr     ),
+		.cpu_din      (cpu_din      ),
+		.clk_sys      (clk_sys      ),
+		.cpu_dout     (cpu_dout     ),
+		.done         (done         ),
+		.pkt_data_out (pkt_data_out ),
+		.pkt_valid_out(pkt_valid_out)
 	);
-	// 8. Initial Conditions
+
+// 6. Initial Conditions
 	initial
 		begin
 			clk_sys = 1'b0;
@@ -61,8 +70,10 @@ module tb_top_ip ();
 			cpu_oe     = 1'b0;
 			cpu_din     = 16'd0;
 			cpu_adrr = 16'd0;
+
+			out = $fopen("D:/GitHub/VBTech/VBTech/BISTEthernetPacket/text_file/top_ip.txt");
 		end
-	// 9. Generating Test Vectors
+// 7. Generating Test Vectors
 	initial
 		begin
 			main;
@@ -74,7 +85,6 @@ module tb_top_ip ();
 			clock_generator_sys;
 			reset_generator;
 			operation_process;
-			//debug_fifo;
 			endsimulation;
 		join
 	endtask
@@ -105,45 +115,7 @@ module tb_top_ip ();
 	task operation_process;
 		begin
 			//TEST CASE 1:
-			// #(`DELAY*8)
-			// 	for (i = 0; i < 15; i = i + 1) begin
-			// 		#(`DELAY*2)
-			// 			cpu_we = 1'b1;
-			// 		cpu_oe = 1'b0;
-			// 		cpu_din = $random;
-			// 		cpu_adrr = i;
-			// 	end
-			// #(`DELAY)
-			// 	for (i = 0; i < 15; i = i + 1) begin
-			// 		#(`DELAY*4)
-			// 			cpu_oe = 1'b1;
-			// 		cpu_we = 1'b0;
-			// 		cpu_adrr = i;
-			// 	end
 			#(`DELAY*16)
-
-				cpu_we = 1'b1;
-			cpu_din     = 16'd0;
-			cpu_adrr = 16'd0;
-			#(`DELAY*2)
-
-				cpu_adrr = 16'd1;
-			#(`DELAY*2)
-
-				cpu_adrr = 16'd2;
-			#(`DELAY*2)
-
-				cpu_adrr = 16'd3;
-			#(`DELAY*2)
-
-				cpu_we = 1'b0;
-			#(`DELAY*10)
-
-				cpu_oe = 1'b1;
-			#(`DELAY*10)
-
-				cpu_oe = 1'b0;
-			#(`DELAY*10)
 
 				cpu_we = 1'b1;
 			cpu_din = 16'd16;
@@ -166,7 +138,7 @@ module tb_top_ip ();
 			#(`DELAY*10)
 
 				cpu_oe = 1'b1;
-			#(`DELAY*10)
+			#(`DELAY*2)
 
 				cpu_oe = 1'b0;
 			#(`DELAY*10)
@@ -183,7 +155,7 @@ module tb_top_ip ();
 			#(`DELAY*2)
 
 				cpu_oe = 1'b0;
-			#(`DELAY*4517)
+			#(`DELAY*4519)
 
 				cpu_we = 1'b1;
 			#(`DELAY*2)
@@ -201,20 +173,16 @@ module tb_top_ip ();
 				cpu_adrr = 16'd6;
 		end
 	endtask
-	// 10. Debug fifo
-	// task debug_fifo;
-	// 	begin
-	// 		$display("----------------------------------------------");
-	// 		$display("------------------   -----------------------");
-	// 		$display("----------- SIMULATION RESULT ----------------");
-	// 		$display("--------------       -------------------");
-	// 		$display("----------------     ---------------------");
-	// 		$display("----------------------------------------------");
-	// 		$monitor("TIME = %d, Read = %b, Write = %b, In = %h",$time, cpu_oe, cpu_we, cpu_din);
-	// 	end
-	// endtask
 
-	//11. Determines the simulation limit
+//8. Debug
+always @(posedge clk_sys) begin
+  if(pkt_valid_out == 1)begin
+    $fdisplay(out,"%h",pkt_data_out);
+    $display("\npkt_data_out=%h",pkt_data_out);
+  end
+end
+
+//9. Determines the simulation limit
 	task endsimulation;
 		begin
 			#ENDTIME

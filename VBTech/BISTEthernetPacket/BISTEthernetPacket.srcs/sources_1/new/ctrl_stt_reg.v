@@ -90,8 +90,15 @@ decoder_4to16 inst4 (
 	.d_out(temp_error_length_status),
 	.d_in (error_length_status     )
 );
-always @(posedge cpu_clk or negedge cpu_cs) begin
-	if(cpu_we && !cpu_cs) begin
+always @(posedge cpu_clk) begin
+	if(cpu_cs)begin
+		temp_run      <= 'd0;
+		temp_enable   <= 'd0;
+		length        <= 'd0;
+		tx_num_packet <= 'd0;
+		cpu_dout      <= 'd0;
+	end
+	else if(cpu_we) begin
 		regfile[4] <= rx_num_packet;
 		regfile[5] <= temp_error_data_status;
 		regfile[6] <= temp_error_length_status;
@@ -101,7 +108,7 @@ always @(posedge cpu_clk or negedge cpu_cs) begin
 	end
 end
 
-always @(posedge cpu_clk or negedge cpu_cs) begin
+always @(posedge cpu_clk) begin
 	if(cpu_oe && !cpu_cs) begin
 		cpu_dout <= regfile[cpu_adrr];
 

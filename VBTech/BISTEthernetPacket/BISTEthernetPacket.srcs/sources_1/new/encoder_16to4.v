@@ -39,42 +39,5 @@ assign d_out[3] = d_in[15] | d_in[14] | d_in[13] | d_in[12] | d_in[11] | d_in[10
 assign d_out[2] = d_in[7] | d_in[6] | d_in[5] | d_in[4];
 assign d_out[1] = d_in[15] | d_in[14] | d_in[11] | d_in[10] | d_in[7] | d_in[6] | d_in[3] | d_in[2];
 assign d_out[0] = d_in[15] | d_in[13] | d_in[11] | d_in[9] | d_in[7] | d_in[5] | d_in[3] | d_in[1];
-// wire [7:0] out4to2;
-
-// encoder_4to2 inst1 (
-// 	.d_out(out4to2[7:6]),
-// 	.d_in(d_in[15:12])
-// 	);
-// encoder_4to2 inst2 (
-// 	.d_out(out4to2[5:4]),
-// 	.d_in(d_in[11:8])
-// 	);
-// encoder_4to2 inst3 (
-// 	.d_out(out4to2[3:2]),
-// 	.d_in(d_in[7:4])
-// 	);
-// encoder_4to2 inst4 (
-// 	.d_out(out4to2[1:0]),
-// 	.d_in(d_in[3:0])
-// 	);
-
-// encoder_4to2 inst1[3:0] (
-// 	.d_out(out4to2),
-// 	.d_in(d_in)
-// 	);
-
-//  encoder_4to2 inst2[1:0] (
-// 	.d_out(d_out),
-// 	.d_in(out4to2)
-// 	);
-// encoder_4to2 inst5 (
-// 	.d_out(d_out[3:2]),
-// 	.d_in(out4to2[7:4])
-// 	);
-
-// encoder_4to2 inst6 (
-// 	.d_out(d_out[1:0]),
-// 	.d_in(out4to2[3:0])
-// 	);
 
 endmodule

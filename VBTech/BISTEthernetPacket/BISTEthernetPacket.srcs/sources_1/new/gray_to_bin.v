@@ -24,13 +24,6 @@ module gray_to_bin #(parameter  DATA_WIDTH = 4) (
 );
 
 /////////////////////////////////////////////////////////////////////////
-// Parameter Declarations
-
-// assign data_out[DATA_WIDTH-1] = data_in[DATA_WIDTH-1];
-// assign data_out[DATA_WIDTH-2] = data_in[DATA_WIDTH-1] ^ data_in[DATA_WIDTH-2];
-// assign data_out[DATA_WIDTH-3] = data_in[DATA_WIDTH-1] ^ data_in[DATA_WIDTH-2] ^ data_in[DATA_WIDTH-3];
-// assign data_out[DATA_WIDTH-4] = data_in[DATA_WIDTH-1] ^ data_in[DATA_WIDTH-2] ^ data_in[DATA_WIDTH-3] ^ data_in[DATA_WIDTH-4];
-
 function [DATA_WIDTH-1:0] gray2binary;
 	integer i;
 	input [DATA_WIDTH-1:0] value_in;

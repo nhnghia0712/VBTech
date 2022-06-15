@@ -23,7 +23,7 @@
 // 3. Include Statements
 module tb_csr ();
   // 4. Parameter definitions
-  parameter ENDTIME = 164;
+  parameter ENDTIME = 100;
   // 5. DUT Input regs
   reg        cpu_clk      ;
   reg        cpu_cs       ;
@@ -68,6 +68,7 @@ module tb_csr ();
       cpu_oe     = 'b0;
       cpu_din     = 'd0;
       cpu_adrr = 'd0;
+      rx_num_packet = 'd0;
       error_data_status = 'd0;
       error_length_status = 'd0;
     end
@@ -108,7 +109,7 @@ module tb_csr ();
     begin
       //TEST CASE 1:
       #(`DELAY*14)
-        for (i = 0; i < 15; i = i + 1) begin
+        for (i = 0; i < 7; i = i + 1) begin
           #(`DELAY*2)
             cpu_we = 1'b1;
           cpu_oe = 1'b0;
@@ -120,7 +121,7 @@ module tb_csr ();
         end
       cpu_we = 1'b0;
       #(`DELAY*7)
-        for (i = 0; i < 15; i = i + 1) begin
+        for (i = 0; i < 7; i = i + 1) begin
           #(`DELAY*4)
             cpu_oe = 1'b1;
 
