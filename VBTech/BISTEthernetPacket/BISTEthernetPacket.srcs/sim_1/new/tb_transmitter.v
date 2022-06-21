@@ -76,18 +76,18 @@ module tb_transmitter ();
 		tx_num_packet= 'd5;
 		#(N*4)
 			run=0;
-		#(N*3816)
+		#(N*2700)
 			enable = 0;
 		#(N*4)
 
 		// test case 2
 		enable = 'd1;
 		run = 'b1;
-		length = 'd64;
+		length = 'd172;
 		tx_num_packet= 'd4;
 		#(N*4)
 		run=0;
-		#(N*1498)
+		#(N*3000)
 		// enable = 0;
 		// #(N*4)
 		// // test case 3

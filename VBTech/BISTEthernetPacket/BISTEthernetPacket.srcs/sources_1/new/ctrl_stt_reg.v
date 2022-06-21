@@ -20,6 +20,7 @@
 
 module ctrl_stt_reg
 	(
+		cpu_reset,
 		cpu_clk,
 		cpu_cs,
 		cpu_we,
@@ -45,10 +46,11 @@ module ctrl_stt_reg
 
 /////////////////////////////////////////////////////////////////////////
 // Port Declarations
-input cpu_clk;
-input cpu_cs ;
-input cpu_we ;
-input cpu_oe ;
+input cpu_reset;
+input cpu_clk  ;
+input cpu_cs   ;
+input cpu_we   ;
+input cpu_oe   ;
 
 input [15:0] cpu_adrr;
 input [15:0] cpu_din ;
@@ -91,14 +93,13 @@ decoder_4to16 inst4 (
 	.d_in (error_length_status     )
 );
 always @(posedge cpu_clk) begin
-	if(cpu_cs)begin
-		temp_run      <= 'd0;
-		temp_enable   <= 'd0;
-		length        <= 'd0;
-		tx_num_packet <= 'd0;
-		cpu_dout      <= 'd0;
+	if(!cpu_reset && !cpu_cs)begin
+		regfile[4] <= 'd0;
+		regfile[5] <= 'd0;
+		regfile[6] <= 'd0;
+
 	end
-	else if(cpu_we) begin
+	else if(!cpu_we && !cpu_cs) begin
 		regfile[4] <= rx_num_packet;
 		regfile[5] <= temp_error_data_status;
 		regfile[6] <= temp_error_length_status;
@@ -109,7 +110,7 @@ always @(posedge cpu_clk) begin
 end
 
 always @(posedge cpu_clk) begin
-	if(cpu_oe && !cpu_cs) begin
+	if(!cpu_oe && !cpu_cs) begin
 		cpu_dout <= regfile[cpu_adrr];
 
 		temp_run      <= regfile[0];

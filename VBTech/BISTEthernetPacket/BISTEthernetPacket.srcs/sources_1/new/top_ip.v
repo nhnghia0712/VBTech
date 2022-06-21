@@ -22,6 +22,7 @@ module top_ip
 	(
 		clk_sys,
 		cpu_clk,
+		cpu_reset,
 		cpu_cs,
 		cpu_we,
 		cpu_oe,
@@ -47,10 +48,11 @@ parameter PKT_CH_W = 2 ;
 // Port Declarations
 input clk_sys;
 
-input cpu_clk;
-input cpu_cs ;
-input cpu_we ;
-input cpu_oe ;
+input cpu_clk  ;
+input cpu_reset;
+input cpu_cs   ;
+input cpu_we   ;
+input cpu_oe   ;
 
 input [15:0] cpu_adrr;
 input [15:0] cpu_din ;
@@ -104,6 +106,7 @@ wire [        15:0] pkt_cnt_out  ;
 
 
 ctrl_stt_reg inst1 (
+	.cpu_reset          (cpu_reset                   ),
 	.cpu_clk            (cpu_clk                     ),
 	.cpu_cs             (cpu_cs                      ),
 	.cpu_we             (cpu_we                      ),

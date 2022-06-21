@@ -161,10 +161,10 @@ always@* begin
 
 		s1 : begin: RUN
 			if (pkt_sof_in && pkt_valid_in) begin
-				pkt_data_in_next <= pkt_data_in;
+				pkt_data_in_next = pkt_data_in;
 				//pkt_cnt_in_next  <= pkt_cnt_in;
-				state_next       <= s2;
-				counter_next <= 'd0;
+				state_next       = s2;
+				counter_next = 'd0;
 				length_next = length_reg +  D_W;
 			end
 		end

@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="65620fs"></ZoomStartTime>
-      <ZoomEndTime time="66411fs"></ZoomEndTime>
-      <Cursor1Time time="66262fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="70001fs"></ZoomEndTime>
+      <Cursor1Time time="67636fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="207"></NameColumnWidth>
-      <ValueColumnWidth column_width="80"></ValueColumnWidth>
+      <ValueColumnWidth column_width="75"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="22" />
+   <WVObjectSize size="23" />
    <wvobject fp_name="/tb_top_ip/clk_sys" type="logic">
       <obj_property name="ElementShortName">clk_sys</obj_property>
       <obj_property name="ObjectShortName">clk_sys</obj_property>
@@ -27,6 +27,10 @@
    <wvobject fp_name="/tb_top_ip/cpu_clk" type="logic">
       <obj_property name="ElementShortName">cpu_clk</obj_property>
       <obj_property name="ObjectShortName">cpu_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top_ip/cpu_reset" type="logic">
+      <obj_property name="ElementShortName">cpu_reset</obj_property>
+      <obj_property name="ObjectShortName">cpu_reset</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_top_ip/cpu_cs" type="logic">
       <obj_property name="ElementShortName">cpu_cs</obj_property>

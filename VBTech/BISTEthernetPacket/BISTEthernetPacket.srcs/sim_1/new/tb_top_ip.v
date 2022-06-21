@@ -24,16 +24,17 @@
 // 2. Include Statements
 module tb_top_ip ();
 // 3. Parameter definitions
-	parameter ENDTIME = 7000;
+	parameter ENDTIME = 4900;
 	parameter D_W     = 32  ;
 // 4. DUT Input regs
-	reg        clk_sys ;
-	reg        cpu_clk ;
-	reg        cpu_cs  ;
-	reg        cpu_we  ;
-	reg        cpu_oe  ;
-	reg [15:0] cpu_adrr;
-	reg [15:0] cpu_din ;
+	reg        clk_sys  ;
+	reg        cpu_clk  ;
+	reg        cpu_reset;
+	reg        cpu_cs   ;
+	reg        cpu_we   ;
+	reg        cpu_oe   ;
+	reg [15:0] cpu_adrr ;
+	reg [15:0] cpu_din  ;
 
 // 5. DUT Output wires
 	wire [       15:0] cpu_dout     ;
@@ -47,6 +48,7 @@ module tb_top_ip ();
 	reg [(D_W*8)-1:0] out;
 
 	top_ip DUT (
+		.cpu_reset    (cpu_reset    ),
 		.cpu_cs       (cpu_cs       ),
 		.cpu_clk      (cpu_clk      ),
 		.cpu_we       (cpu_we       ),
@@ -64,12 +66,13 @@ module tb_top_ip ();
 	initial
 		begin
 			clk_sys = 1'b0;
-			cpu_clk     = 1'b0;
-			cpu_cs     = 1'b0;
-			cpu_we     = 1'b0;
-			cpu_oe     = 1'b0;
-			cpu_din     = 16'd0;
-			cpu_adrr = 16'd0;
+			cpu_reset = 'b1;
+			cpu_clk     = 'b0;
+			cpu_cs     = 'b1;
+			cpu_we     = 'b1;
+			cpu_oe     = 'b1;
+			cpu_din     = 'd0;
+			cpu_adrr = 'd0;
 
 			out = $fopen("D:/GitHub/VBTech/VBTech/BISTEthernetPacket/text_file/top_ip.txt");
 		end
@@ -84,6 +87,7 @@ module tb_top_ip ();
 			clock_generator_cpu;
 			clock_generator_sys;
 			reset_generator;
+			chipselect_generator;
 			operation_process;
 			endsimulation;
 		join
@@ -100,87 +104,180 @@ module tb_top_ip ();
 			forever #`DELAY2 clk_sys = !clk_sys;
 		end
 	endtask
-
 	task reset_generator;
 		begin
 			#(`DELAY*2)
-				cpu_cs = 1'b0;
+				cpu_reset = 1'b1;
+			#(`DELAY*2)
+				cpu_reset = 1'b0;
+			#(`DELAY*2)
+				cpu_reset = 1'b1;
+			#(`DELAY*3385)
+				cpu_reset = 1'b0;
+		end
+	endtask
+
+	task chipselect_generator;
+		begin
 			#(`DELAY*2)
 				cpu_cs = 1'b1;
 			#(`DELAY*2)
 				cpu_cs = 1'b0;
+			#(`DELAY*2)
+				cpu_cs = 1'b0;
+			#(`DELAY*3395)
+				cpu_cs = 1'b1;
 		end
 	endtask
 
 	task operation_process;
 		begin
 			//TEST CASE 1:
-			#(`DELAY*16)
+			cpu_we = 1'b0;
+			cpu_din = 16'd0;
+			cpu_adrr = 16'd0;
+			#(`DELAY*2)
 
 				cpu_we = 1'b1;
+			cpu_din = $urandom;
+			cpu_adrr = 16'd0;
+			#(`DELAY*10)
+
+				cpu_we = 1'b0;
+			cpu_din = 16'd0;
+			cpu_adrr = 16'd1;
+			#(`DELAY*2)
+
+				cpu_we = 1'b1;
+			cpu_din = $urandom;
+			cpu_adrr = 16'd1;
+			#(`DELAY*10)
+
+				cpu_we = 1'b0;
+			cpu_din = 16'd0;
+			cpu_adrr = 16'd2;
+			#(`DELAY*2)
+
+				cpu_we = 1'b1;
+			cpu_din = $urandom;
+			cpu_adrr = 16'd2;
+			#(`DELAY*10)
+
+				cpu_we = 1'b0;
+			cpu_din = 16'd0;
+			cpu_adrr = 16'd3;
+			#(`DELAY*2)
+
+				cpu_we = 1'b1;
+			cpu_din = $urandom;
+			cpu_adrr = 16'd3;
+			#(`DELAY*10)
+
+				cpu_oe = 1'b0;
+			#(`DELAY*2)
+
+				cpu_oe = 1'b1;
+			#(`DELAY*10)
+
+				#(`DELAY*16)
+
+					cpu_we = 1'b0;
 			cpu_din = 16'd16;
 			cpu_adrr = 16'd0;
 			#(`DELAY*2)
 
-				cpu_din = 16'd2;
+				cpu_we = 1'b1;
+			cpu_din = $urandom;
+			cpu_adrr = 16'd0;
+			#(`DELAY*10)
+
+				cpu_we = 1'b0;
+			cpu_din = 16'd2;
 			cpu_adrr = 16'd1;
 			#(`DELAY*2)
 
-				cpu_din = 16'd128;
+				cpu_we = 1'b1;
+			cpu_din = $urandom;
+			cpu_adrr = 16'd1;
+			#(`DELAY*10)
+
+				cpu_we = 1'b0;
+			cpu_din = 16'd128;
 			cpu_adrr = 16'd2;
 			#(`DELAY*2)
 
-				cpu_din = 16'd5;
+				cpu_we = 1'b1;
+			cpu_din = $urandom;
+			cpu_adrr = 16'd2;
+			#(`DELAY*10)
+
+				cpu_we = 1'b0;
+			cpu_din = 16'd5;
 			cpu_adrr = 16'd3;
 			#(`DELAY*2)
 
-				cpu_we = 1'b0;
+				cpu_we = 1'b1;
+			cpu_din = $urandom;
+			cpu_adrr = 16'd3;
 			#(`DELAY*10)
-
-				cpu_oe = 1'b1;
-			#(`DELAY*2)
 
 				cpu_oe = 1'b0;
+			#(`DELAY*2)
+
+				cpu_oe = 1'b1;
 			#(`DELAY*10)
 
-				cpu_we = 1'b1;
+				cpu_we = 1'b0;
 			cpu_adrr = 16'd0;
 			cpu_din = 16'd0;
 			#(`DELAY*2)
 
-				cpu_we = 1'b0;
+				cpu_we = 1'b1;
+			cpu_adrr = 16'd0;
+			cpu_din = 'd0;
 			#(`DELAY*10)
-
-				cpu_oe = 1'b1;
-			#(`DELAY*2)
 
 				cpu_oe = 1'b0;
-			#(`DELAY*4519)
-
-				cpu_we = 1'b1;
 			#(`DELAY*2)
 
+				cpu_oe = 1'b1;
+			#(`DELAY*3187)
+
 				cpu_we = 1'b0;
+			#(`DELAY*2)
+
+				cpu_we = 1'b1;
 			#(`DELAY*10)
 
-				cpu_oe = 1'b1;
+				cpu_oe = 1'b0;
 			cpu_adrr = 16'd4;
 			#(`DELAY*2)
 
-				cpu_adrr = 16'd5;
+				cpu_oe = 1'b1;
+			#(`DELAY*10)
+
+				cpu_oe = 1'b0;
+			cpu_adrr = 16'd5;
 			#(`DELAY*2)
 
-				cpu_adrr = 16'd6;
-		end
-	endtask
+				cpu_oe = 1'b1;
+			#(`DELAY*10)
+
+				cpu_oe = 1'b0;
+			cpu_adrr = 16'd6;
+			#(`DELAY*2)
+			cpu_oe = 1'b1;
+
+			end
+		endtask
 
 //8. Debug
-always @(posedge clk_sys) begin
-  if(pkt_valid_out == 1)begin
-    $fdisplay(out,"%h",pkt_data_out);
-    $display("\npkt_data_out=%h",pkt_data_out);
-  end
-end
+	always @(posedge clk_sys) begin
+		if(pkt_valid_out == 1)begin
+			$fdisplay(out,"%h",pkt_data_out);
+			$display("\npkt_data_out=%h",pkt_data_out);
+		end
+	end
 
 //9. Determines the simulation limit
 	task endsimulation;

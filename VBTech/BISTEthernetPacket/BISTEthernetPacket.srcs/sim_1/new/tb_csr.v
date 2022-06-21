@@ -23,17 +23,18 @@
 // 3. Include Statements
 module tb_csr ();
   // 4. Parameter definitions
-  parameter ENDTIME = 100;
+  parameter ENDTIME = 525;
   // 5. DUT Input regs
-  reg        cpu_clk      ;
-  reg        cpu_cs       ;
-  reg        cpu_we       ;
-  reg        cpu_oe       ;
-  reg [15:0] cpu_adrr     ;
-  reg [15:0] cpu_din      ;
-  reg [ 3:0] error_data_status ;
-  reg [ 3:0] error_length_status ;
-  reg [15:0] rx_num_packet;
+  reg        cpu_reset          ;
+  reg        cpu_clk            ;
+  reg        cpu_cs             ;
+  reg        cpu_we             ;
+  reg        cpu_oe             ;
+  reg [15:0] cpu_adrr           ;
+  reg [15:0] cpu_din            ;
+  reg [ 3:0] error_data_status  ;
+  reg [ 3:0] error_length_status;
+  reg [15:0] rx_num_packet      ;
   // 6. DUT Output wires
   wire [15:0] cpu_dout     ;
   wire        run          ;
@@ -44,6 +45,7 @@ module tb_csr ();
   integer i;
 
   ctrl_stt_reg tb (
+    .cpu_reset          (cpu_reset          ),
     .cpu_cs             (cpu_cs             ),
     .cpu_clk            (cpu_clk            ),
     .cpu_we             (cpu_we             ),
@@ -62,10 +64,11 @@ module tb_csr ();
   // 8. Initial Conditions
   initial
     begin
+      cpu_reset = 'b1;
       cpu_clk     = 'b0;
-      cpu_cs     = 'b0;
-      cpu_we     = 'b0;
-      cpu_oe     = 'b0;
+      cpu_cs     = 'b1;
+      cpu_we     = 'b1;
+      cpu_oe     = 'b1;
       cpu_din     = 'd0;
       cpu_adrr = 'd0;
       rx_num_packet = 'd0;
@@ -82,6 +85,7 @@ module tb_csr ();
     fork
       clock_generator;
       reset_generator;
+      chipselect_generator;
       operation_process;
       debug_fifo;
       endsimulation;
@@ -97,11 +101,28 @@ module tb_csr ();
   task reset_generator;
     begin
       #(`DELAY*2)
-        cpu_cs = 1'b0;
+        cpu_reset = 1'b1;
+      #(`DELAY*2)
+        cpu_reset = 1'b0;
+      #(`DELAY*2)
+        cpu_reset = 1'b1;
+      #(`DELAY*352)
+        cpu_reset = 1'b0;
+    end
+  endtask
+
+  task chipselect_generator;
+    begin
       #(`DELAY*2)
         cpu_cs = 1'b1;
       #(`DELAY*2)
         cpu_cs = 1'b0;
+      #(`DELAY*104)
+        cpu_cs = 1'b1;
+        #(`DELAY*84)
+        cpu_cs = 1'b0;
+         #(`DELAY*84)
+        cpu_cs = 1'b1;
     end
   endtask
 
@@ -110,22 +131,59 @@ module tb_csr ();
       //TEST CASE 1:
       #(`DELAY*14)
         for (i = 0; i < 7; i = i + 1) begin
-          #(`DELAY*2)
-            cpu_we = 1'b1;
-          cpu_oe = 1'b0;
+          #(`DELAY*10)
+            cpu_we = 1'b0;
+          cpu_oe = 1'b1;
+
           cpu_din = $random;
           error_data_status = $random;
           error_length_status = $random;
           rx_num_packet = $random;
           cpu_adrr = i;
+          #(`DELAY*2)
+            cpu_we = 1'b1;
+          cpu_oe = 1'b1;
+          cpu_din = $random;
+          error_data_status = $random;
+          error_length_status = $random;
+          rx_num_packet = $random;
         end
-      cpu_we = 1'b0;
-      #(`DELAY*7)
+
         for (i = 0; i < 7; i = i + 1) begin
-          #(`DELAY*4)
-            cpu_oe = 1'b1;
+          #(`DELAY*10)
+            cpu_we = 1'b0;
+          cpu_oe = 1'b1;
+
+          cpu_din = $random;
+          error_data_status = $random;
+          error_length_status = $random;
+          rx_num_packet = $random;
+          cpu_adrr = i;
+          #(`DELAY*2)
+            cpu_we = 1'b1;
+          cpu_oe = 1'b1;
+          cpu_din = $random;
+          error_data_status = $random;
+          error_length_status = $random;
+          rx_num_packet = $random;
+        end
+
+        for (i = 0; i < 7; i = i + 1) begin
+          #(`DELAY*10)
+            cpu_oe = 1'b0;
 
           cpu_adrr = i;
+          #(`DELAY*2)
+            cpu_oe = 1'b1;
+        end
+
+         for (i = 0; i < 7; i = i + 1) begin
+          #(`DELAY*10)
+            cpu_oe = 1'b0;
+
+          cpu_adrr = i;
+          #(`DELAY*2)
+            cpu_oe = 1'b1;
         end
     end
   endtask
