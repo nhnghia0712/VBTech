@@ -47,16 +47,16 @@ parameter PAYLOAD_W = 1500;
 
 parameter DA   = 'hAA_AA_AA_AA_AA_AA;
 parameter SA   = 'h55_55_55_55_55_55;
-parameter VLAN = 'h11_11_11_11   ;
-parameter TYPE = 'h22_22         ;
+parameter VLAN = 'h11_11_11_11      ;
+parameter TYPE = 'h22_22            ;
 
 //  FSM state encoding
-localparam s0  = 3'd0 ;
-localparam s1  = 3'd1 ;
-localparam s2  = 3'd2 ;
-localparam s3  = 3'd3 ;
-localparam s4  = 3'd4 ;
-localparam s5  = 3'd5 ;
+localparam s0 = 3'd0;
+localparam s1 = 3'd1;
+localparam s2 = 3'd2;
+localparam s3 = 3'd3;
+localparam s4 = 3'd4;
+localparam s5 = 3'd5;
 /////////////////////////////////////////////////////////////////////////
 // Port Declarations
 input                 clk_sys      ;
@@ -95,7 +95,7 @@ reg [          LENGTH_W-1:0] frame_num        ;
 reg [              2:0] state_reg, state_next;
 reg [(PAYLOAD_W*8)-1:0] payload_reg, payload_next;
 
-reg [        7:0] data        [PAYLOAD_W+17:0];
+reg [7:0] data[PAYLOAD_W+17:0];
 
 //  Present state logic
 
@@ -175,7 +175,7 @@ always@* begin
 		end
 
 		s1 : begin: GENERATE_PAYLOAD_1
-			if(counter_reg <= (length-18))begin
+			if(counter_reg <= (length-19))begin
 				payload_next[counter_reg*8 +: 8] = counter_reg + 'b1;
 				counter_next                       = counter_reg + 'b1;
 			end
@@ -201,7 +201,7 @@ always@* begin
 		end
 
 		s3 : begin: SORT_DATA_PACKET
-			if(cnt_reg <= length)begin
+			if(cnt_reg <= length - 19)begin
 				data_tmp_next[(cnt_reg*8) +: 8] = data [counter_reg];
 				counter_next      = counter_reg - 'b1;
 				cnt_next     = cnt_reg + 1'b1;
@@ -209,6 +209,7 @@ always@* begin
 			else begin
 				state_next   = s4;
 				counter_next = frame_num;
+				cnt_next     = 'd0;
 			end
 		end
 

@@ -92,25 +92,25 @@ initial begin
 	tx_num_packet = 0;
 
 	//data_out = $fopen("D:/GitHub/VBTech/VBTech/BISTEthernetPacket/txt_file/transmitter_out.txt", "wire");
-	#(N*5)
+	#(N*10)
 	enable = 'd1;
 	run = 'b1;
 	length = 'd128;
 	tx_num_packet= 'd5;
-	#(N*4)
+	#(N*10)
 	run=0;
-	#(N*4000)
+	#(N*2600)
 
 	enable = 0;
-	#(N*4)
+	#(N*10)
 	// test case 2
 	enable = 'd1;
 	run = 'b1;
-	length = 'd160;
-	tx_num_packet= 'd5;
-	#(N*4)
+	length = 'd66;
+	tx_num_packet= 'd4;
+	#(N*10)
 	run=0;
-	#(N*4000)
+	#(N*2600)
 
 	// // test case 3
 	// run = 'b1;
