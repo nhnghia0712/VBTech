@@ -1,120 +1,451 @@
 Vivado Simulator 2019.2
 Time resolution is 1 ps
-WARNING: file D:/GitHub/VBTech/VBTech/BISTEthernetPacket/text_file/top_ip.txt could not be opened
 
-DATA_FROM_TX=aaaaaaaaaaaa5555555555551111111122220102030405060708090a0b0c0d0e == DATA_SAMPLE=aaaaaaaaaaaa5555555555551111111122220102030405060708090a0b0c0d0e
-Pass
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=0
+pkt_data_out=0000000000000000000000000000000000000000000000000000000000000000
+pkt_chid_out=x
+pkt_cnt_out=    0
+done=0
 
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=0
+pkt_data_out=0000000000000000000000000000000000000000000000000000000000000000
+pkt_chid_out=0
+pkt_cnt_out=    0
+done=0
+
+pkt_sof_out=1
+pkt_eof_out=0
+pkt_valid_out=1
 pkt_data_out=aaaaaaaaaaaa5555555555551111111122220102030405060708090a0b0c0d0e
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
 
-DATA_FROM_TX=0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e == DATA_SAMPLE=0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e
-Pass
-
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=1
 pkt_data_out=0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
 
-DATA_FROM_TX=2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e == DATA_SAMPLE=2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e
-Pass
-
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=1
 pkt_data_out=2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
 
-DATA_FROM_TX=4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e == DATA_SAMPLE=4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e
-Pass
-
+pkt_sof_out=0
+pkt_eof_out=1
+pkt_valid_out=1
 pkt_data_out=4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
 
-LENGTH_FROM_TX=  128 == LENGTH_USER=  128
-Pass
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=0
+pkt_data_out=4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
 
-DATA_FROM_TX=aaaaaaaaaaaa5555555555551111111122226f707172737475767778797a7b7c == DATA_SAMPLE=aaaaaaaaaaaa5555555555551111111122226f707172737475767778797a7b7c
-Pass
-
+pkt_sof_out=1
+pkt_eof_out=0
+pkt_valid_out=1
 pkt_data_out=aaaaaaaaaaaa5555555555551111111122226f707172737475767778797a7b7c
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
 
-DATA_FROM_TX=7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c == DATA_SAMPLE=7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c
-Pass
-
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=1
 pkt_data_out=7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
 
-DATA_FROM_TX=9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbc == DATA_SAMPLE=9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbc
-Pass
-
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=1
 pkt_data_out=9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbc
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
 
-DATA_FROM_TX=bdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdc == DATA_SAMPLE=bdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdc
-Pass
-
+pkt_sof_out=0
+pkt_eof_out=1
+pkt_valid_out=1
 pkt_data_out=bdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdc
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
 
-LENGTH_FROM_TX=  128 == LENGTH_USER=  128
-Pass
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=0
+pkt_data_out=bdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdc
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
 
-DATA_FROM_TX=aaaaaaaaaaaa555555555555111111112222dddedfe0e1e2e3e4e5e6e7e8e9ea == DATA_SAMPLE=aaaaaaaaaaaa555555555555111111112222dddedfe0e1e2e3e4e5e6e7e8e9ea
-Pass
-
+pkt_sof_out=1
+pkt_eof_out=0
+pkt_valid_out=1
 pkt_data_out=aaaaaaaaaaaa555555555555111111112222dddedfe0e1e2e3e4e5e6e7e8e9ea
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
 
-DATA_FROM_TX=ebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff000102030405060708090a == DATA_SAMPLE=ebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff000102030405060708090a
-Pass
-
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=1
 pkt_data_out=ebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff000102030405060708090a
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
 
-DATA_FROM_TX=0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a == DATA_SAMPLE=0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a
-Pass
-
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=1
 pkt_data_out=0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
 
-DATA_FROM_TX=2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a == DATA_SAMPLE=2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a
-Pass
-
+pkt_sof_out=0
+pkt_eof_out=1
+pkt_valid_out=1
 pkt_data_out=2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
 
-LENGTH_FROM_TX=  128 == LENGTH_USER=  128
-Pass
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=0
+pkt_data_out=2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
 
-DATA_FROM_TX=aaaaaaaaaaaa5555555555551111111122224b4c4d4e4f505152535455565758 == DATA_SAMPLE=aaaaaaaaaaaa5555555555551111111122224b4c4d4e4f505152535455565758
-Pass
-
+pkt_sof_out=1
+pkt_eof_out=0
+pkt_valid_out=1
 pkt_data_out=aaaaaaaaaaaa5555555555551111111122224b4c4d4e4f505152535455565758
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
 
-DATA_FROM_TX=595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778 == DATA_SAMPLE=595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778
-Pass
-
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=1
 pkt_data_out=595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
 
-DATA_FROM_TX=797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798 == DATA_SAMPLE=797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798
-Pass
-
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=1
 pkt_data_out=797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
 
-DATA_FROM_TX=999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8 == DATA_SAMPLE=999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8
-Pass
-
+pkt_sof_out=0
+pkt_eof_out=1
+pkt_valid_out=1
 pkt_data_out=999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
 
-LENGTH_FROM_TX=  128 == LENGTH_USER=  128
-Pass
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=0
+pkt_data_out=999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
 
-DATA_FROM_TX=aaaaaaaaaaaa555555555555111111112222b9babbbcbdbebfc0c1c2c3c4c5c6 == DATA_SAMPLE=aaaaaaaaaaaa555555555555111111112222b9babbbcbdbebfc0c1c2c3c4c5c6
-Pass
-
+pkt_sof_out=1
+pkt_eof_out=0
+pkt_valid_out=1
 pkt_data_out=aaaaaaaaaaaa555555555555111111112222b9babbbcbdbebfc0c1c2c3c4c5c6
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
 
-DATA_FROM_TX=c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6 == DATA_SAMPLE=c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6
-Pass
-
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=1
 pkt_data_out=c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
 
-DATA_FROM_TX=e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff00010203040506 == DATA_SAMPLE=e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff00010203040506
-Pass
-
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=1
 pkt_data_out=e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff00010203040506
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
 
-DATA_FROM_TX=0708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f20212223242526 == DATA_SAMPLE=0708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f20212223242526
-Pass
-
+pkt_sof_out=0
+pkt_eof_out=1
+pkt_valid_out=1
 pkt_data_out=0708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f20212223242526
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=1
 
-LENGTH_FROM_TX=  128 == LENGTH_USER=  128
-Pass
--------------- THE SIMUALTION FINISHED ------------
-$finish called at time : 49 ns : File "D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sim_1/new/tb_top_ip.v" Line 287
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=0
+pkt_data_out=0708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f20212223242526
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
+
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=0
+pkt_data_out=0000000000000000000000000000000000000000000000000000000000000000
+pkt_chid_out=0
+pkt_cnt_out=    0
+done=0
+
+pkt_sof_out=1
+pkt_eof_out=0
+pkt_valid_out=1
+pkt_data_out=aaaaaaaaaaaa5555555555551111111122220102030405060708090a0b0c0d0e
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
+
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=1
+pkt_data_out=0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
+
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=1
+pkt_data_out=2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
+
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=1
+pkt_data_out=4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
+
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=1
+pkt_data_out=6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
+
+pkt_sof_out=0
+pkt_eof_out=1
+pkt_valid_out=1
+pkt_data_out=8f909192939495969798999a0000000000000000000000000000000000000000
+pkt_chid_out=0
+pkt_cnt_out=   12
+done=0
+
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=0
+pkt_data_out=8f909192939495969798999a0000000000000000000000000000000000000000
+pkt_chid_out=0
+pkt_cnt_out=   12
+done=0
+
+pkt_sof_out=1
+pkt_eof_out=0
+pkt_valid_out=1
+pkt_data_out=aaaaaaaaaaaa5555555555551111111122229b9c9d9e9fa0a1a2a3a4a5a6a7a8
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
+
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=1
+pkt_data_out=a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
+
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=1
+pkt_data_out=c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
+
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=1
+pkt_data_out=e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff000102030405060708
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
+
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=1
+pkt_data_out=090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
+
+pkt_sof_out=0
+pkt_eof_out=1
+pkt_valid_out=1
+pkt_data_out=292a2b2c2d2e2f30313233340000000000000000000000000000000000000000
+pkt_chid_out=0
+pkt_cnt_out=   12
+done=0
+
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=0
+pkt_data_out=292a2b2c2d2e2f30313233340000000000000000000000000000000000000000
+pkt_chid_out=0
+pkt_cnt_out=   12
+done=0
+
+pkt_sof_out=1
+pkt_eof_out=0
+pkt_valid_out=1
+pkt_data_out=aaaaaaaaaaaa55555555555511111111222235363738393a3b3c3d3e3f404142
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
+
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=1
+pkt_data_out=434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
+
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=1
+pkt_data_out=636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
+
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=1
+pkt_data_out=838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
+
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=1
+pkt_data_out=a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
+
+pkt_sof_out=0
+pkt_eof_out=1
+pkt_valid_out=1
+pkt_data_out=c3c4c5c6c7c8c9cacbcccdce0000000000000000000000000000000000000000
+pkt_chid_out=0
+pkt_cnt_out=   12
+done=0
+
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=0
+pkt_data_out=c3c4c5c6c7c8c9cacbcccdce0000000000000000000000000000000000000000
+pkt_chid_out=0
+pkt_cnt_out=   12
+done=0
+
+pkt_sof_out=1
+pkt_eof_out=0
+pkt_valid_out=1
+pkt_data_out=aaaaaaaaaaaa555555555555111111112222cfd0d1d2d3d4d5d6d7d8d9dadbdc
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
+
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=1
+pkt_data_out=dddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfc
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
+
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=1
+pkt_data_out=fdfeff000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
+
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=1
+pkt_data_out=1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
+
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=1
+pkt_data_out=3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c
+pkt_chid_out=0
+pkt_cnt_out=   32
+done=0
+
+pkt_sof_out=0
+pkt_eof_out=1
+pkt_valid_out=1
+pkt_data_out=5d5e5f6061626364656667680000000000000000000000000000000000000000
+pkt_chid_out=0
+pkt_cnt_out=   12
+done=1
+
+pkt_sof_out=0
+pkt_eof_out=0
+pkt_valid_out=0
+pkt_data_out=5d5e5f6061626364656667680000000000000000000000000000000000000000
+pkt_chid_out=0
+pkt_cnt_out=   12
+done=0
+$finish called at time : 571700 ps : File "D:/GitHub/VBTech/VBTech/BISTEthernetPacket/BISTEthernetPacket.srcs/sim_1/new/tb_transmitter.v" Line 103

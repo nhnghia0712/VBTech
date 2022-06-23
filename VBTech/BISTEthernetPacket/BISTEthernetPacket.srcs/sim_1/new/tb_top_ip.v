@@ -24,7 +24,7 @@
 // 2. Include Statements
 module tb_top_ip ();
 // 3. Parameter definitions
-	parameter ENDTIME = 4900;
+	parameter ENDTIME = 4565;
 	parameter D_W     = 32  ;
 // 4. DUT Input regs
 	reg        clk_sys  ;
@@ -74,7 +74,7 @@ module tb_top_ip ();
 			cpu_din     = 'd0;
 			cpu_adrr = 'd0;
 
-			out = $fopen("D:/GitHub/VBTech/VBTech/BISTEthernetPacket/text_file/top_ip.txt");
+			out = $fopen("D:/GitHub/VBTech/VBTech/BISTEthernetPacket/top_ip.txt");
 		end
 // 7. Generating Test Vectors
 	initial
@@ -106,13 +106,13 @@ module tb_top_ip ();
 	endtask
 	task reset_generator;
 		begin
-			#(`DELAY*2)
+			#(`DELAY*12)
 				cpu_reset = 1'b1;
 			#(`DELAY*2)
 				cpu_reset = 1'b0;
 			#(`DELAY*2)
 				cpu_reset = 1'b1;
-			#(`DELAY*3385)
+			#(`DELAY*3158)
 				cpu_reset = 1'b0;
 		end
 	endtask
@@ -125,7 +125,7 @@ module tb_top_ip ();
 				cpu_cs = 1'b0;
 			#(`DELAY*2)
 				cpu_cs = 1'b0;
-			#(`DELAY*3395)
+			#(`DELAY*3178)
 				cpu_cs = 1'b1;
 		end
 	endtask
@@ -133,7 +133,10 @@ module tb_top_ip ();
 	task operation_process;
 		begin
 			//TEST CASE 1:
-			cpu_we = 1'b0;
+
+			#(`DELAY*24)
+
+				cpu_we = 1'b0;
 			cpu_din = 16'd0;
 			cpu_adrr = 16'd0;
 			#(`DELAY*2)
@@ -179,9 +182,7 @@ module tb_top_ip ();
 				cpu_oe = 1'b1;
 			#(`DELAY*10)
 
-				#(`DELAY*16)
-
-					cpu_we = 1'b0;
+				cpu_we = 1'b0;
 			cpu_din = 16'd16;
 			cpu_adrr = 16'd0;
 			#(`DELAY*2)
@@ -241,7 +242,7 @@ module tb_top_ip ();
 			#(`DELAY*2)
 
 				cpu_oe = 1'b1;
-			#(`DELAY*3187)
+			#(`DELAY*2960)
 
 				cpu_we = 1'b0;
 			#(`DELAY*2)
@@ -266,10 +267,10 @@ module tb_top_ip ();
 				cpu_oe = 1'b0;
 			cpu_adrr = 16'd6;
 			#(`DELAY*2)
-			cpu_oe = 1'b1;
+				cpu_oe = 1'b1;
 
-			end
-		endtask
+		end
+	endtask
 
 //8. Debug
 	always @(posedge clk_sys) begin

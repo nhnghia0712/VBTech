@@ -75,7 +75,7 @@ output [PKT_CH_W-1:0] pkt_chid_out ;
 output [LENGTH_W-1:0] pkt_cnt_out  ;
 /////////////////////////////////////////////////////////////////////////
 // Local Logic and Instantiation
-reg [LENGTH_W-1:0] pkt_chid_out;
+reg [PKT_CH_W-1:0] pkt_chid_out;
 
 reg                pkt_sof_out_reg, pkt_sof_out_next;
 reg                pkt_eof_out_reg, pkt_eof_out_next;
@@ -200,7 +200,7 @@ always@* begin
 			end
 		end
 
-		s3 : begin: SORT_DATA_PACKET
+		s3 : begin: SORT_PAYLOAD
 			if(cnt_reg <= length - 19)begin
 				data_tmp_next[(cnt_reg*8) +: 8] = data [counter_reg];
 				counter_next      = counter_reg - 'b1;

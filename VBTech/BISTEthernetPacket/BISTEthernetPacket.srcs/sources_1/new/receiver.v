@@ -257,7 +257,7 @@ always@* begin
 				$display( "Error");
 			end
 
-			if(rx_num_packet_reg >= tx_num_packet)begin
+			if(rx_num_packet_reg == tx_num_packet)begin
 				state_next = s0;
 				done       = 'b1;
 			end
